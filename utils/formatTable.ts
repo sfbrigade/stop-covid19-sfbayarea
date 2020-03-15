@@ -37,11 +37,11 @@ export default (data: DataType[]) => {
   }
   data.forEach(d => {
     const TableRow: TableDataType = {
-      Date: dayjs(d['ReleaseDate']).format('MM/DD') ?? 'Unknown',
-      PlaceOfResidence: d['PlaceOfResidence'] ?? 'Unknown',
-      AgeGroup: d['AgeGroup'] ?? 'Unknown',
-      Gender: d['Gender'] ?? '',
-      Discharged: d['Discharged']
+      Date: dayjs(d.ReleaseDate).format('MM/DD') ?? 'Unknown',
+      PlaceOfResidence: d.PlaceOfResidence ?? 'Unknown',
+      AgeGroup: d.AgeGroup ?? 'Unknown',
+      Gender: d.Gender ?? '',
+      Discharged: d.Discharged
     }
     tableDate.datasets.push(TableRow)
   })

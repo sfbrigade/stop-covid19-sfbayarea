@@ -14,10 +14,10 @@ export default (data: DataType[]) => {
   const today = new Date()
   let patSum = 0
   data
-    .filter(d => new Date(d['Date']) < today)
+    .filter(d => new Date(d.Date) < today)
     .forEach(d => {
-      const date = new Date(d['Date'])
-      const subTotal = d['SubTotal']
+      const date = new Date(d.Date)
+      const subTotal = d.SubTotal
       if (!isNaN(subTotal)) {
         patSum += subTotal
         graphData.push({

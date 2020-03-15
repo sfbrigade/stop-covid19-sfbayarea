@@ -9,7 +9,9 @@
     <static-info
       class="mb-4"
       :url="''"
-      :text="'Feel free to contact if you or your familiy have any concern about your simptom'"
+      :text="
+        'Feel free to contact if you or your familiy have any concern about your simptom'
+      "
       :btn-text="'CONTACT'"
     />
     <v-row class="DataBlock">
@@ -28,9 +30,7 @@
           :chart-data="patientsGraph"
           :date="Data.patients.date"
           :unit="''"
-          :url="
-            ''
-          "
+          :url="''"
         />
       </v-col>
       <v-col cols="12" md="6" class="DataCard">
@@ -41,9 +41,7 @@
           :chart-option="{}"
           :date="Data.patients.date"
           :info="sumInfoOfPatients"
-          :url="
-            ''
-          "
+          :url="''"
         />
       </v-col>
       <v-col cols="12" md="6" class="DataCard">
@@ -84,7 +82,7 @@ export default {
     TimeStackedBarChart,
     WhatsNew,
     StaticInfo,
-    DataTable,
+    DataTable
   },
   data() {
     const patientsGraph = formatGraph(Data.patients_summary.data)
@@ -92,12 +90,12 @@ export default {
     const dischargesGraph = formatGraph(Data.discharges_summary.data)
 
     const inspectionsGraph = [
-      Data.inspections_summary.data['In the Bay Area'],
-      Data.inspections_summary.data['OutsideBayArea']
+      Data.inspections_summary.data.InBayArea,
+      Data.inspections_summary.data.OutsideBayArea
     ]
     const inspectionsItems = [
       'In the Bay Area',
-      'OutsideBayArea （Cruise etc）'
+      'Outside the Bay Area （Cruise etc）'
     ]
     const inspectionsLabels = Data.inspections_summary.labels
 
@@ -126,7 +124,7 @@ export default {
         title: 'Stop Coronavirus in the Bay Area ',
         date: Data.lastUpdate
       },
-      newsItems: News.newsItems,
+      newsItems: News.newsItems
     }
     return data
   },

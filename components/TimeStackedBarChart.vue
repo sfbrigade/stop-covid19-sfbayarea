@@ -130,10 +130,12 @@ export default {
             label: tooltipItem => {
               const labelText =
                 this.dataKind === 'transition'
-                  ? `${sumArray[tooltipItem.index]}${unit}（In the Bay Area: ${
+                  ? `${sumArray[tooltipItem.index]}${unit}（InBayArea: ${
                       data[0][tooltipItem.index]
                     }/OutsideBayArea: ${data[1][tooltipItem.index]}）`
-                  : `${cumulativeSumArray[tooltipItem.index]}${unit}（In the Bay Area: ${
+                  : `${
+                      cumulativeSumArray[tooltipItem.index]
+                    }${unit}（InBayArea: ${
                       cumulativeData[0][tooltipItem.index]
                     }/OutsideBayArea: ${cumulativeData[1][tooltipItem.index]}）`
               return labelText

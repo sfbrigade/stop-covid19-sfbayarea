@@ -1,7 +1,8 @@
 <template>
   <div class="Parent">
     <h2 class="Parent-Heading">
-      Important notice about prevention of COVID-19 for students and families during the nationwide emergency school closure. 
+      Important notice about prevention of COVID-19 for students and families
+      during the nationwide emergency school closure.
     </h2>
     <div v-for="(item, i) in items" :key="i">
       <TextCard :title="item.title" :body="item.body" />

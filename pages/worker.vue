@@ -19,16 +19,13 @@ export default {
       items: [
         {
           title: 'Announcement 1',
-          link:
-            '',
-          body:
-            ''
+          link: '',
+          body: ''
         },
         {
           title: 'Announcement 2',
           link: '',
-          body:
-            ''
+          body: ''
         }
       ]
     }
