@@ -32,9 +32,7 @@ export default Vue.extend({
       return this.error.statusCode === 404
     },
     headingTitle(): string {
-      return this.isNotFound
-        ? 'Opps...Page Not Found.'
-        : 'Error'
+      return this.isNotFound ? 'Opps...Page Not Found.' : 'Error'
     }
   }
 })

@@ -1,18 +1,24 @@
 <template>
   <data-view :title="title" :title-id="titleId" :date="date">
-    <div class="summary" Hello> 
-        <div class="total-positive">
-            <h1>Confirmed Cases:</h1>
-            <div class="total-positive-number"> {{ confirmedCases.ConfirmedCases }} </div>
+    <div class="summary">
+      <div class="total-positive">
+        <h1>Confirmed Cases:</h1>
+        <div class="total-positive-number">
+          {{ confirmedCases.ConfirmedCases }}
         </div>
-        <div class="deaths">
-            <h1>Deaths:</h1>
-            <div class="deaths-number"> {{ confirmedCases.Deaths }}  </div>
+      </div>
+      <div class="deaths">
+        <h1>Deaths:</h1>
+        <div class="deaths-number">
+          {{ confirmedCases.Deaths }}
         </div>
-        <div class="total-recovered">
-            <h1>Recovered:</h1>
-            <div class="total-recovered-number"> {{ confirmedCases.Discharged }} </div>
+      </div>
+      <div class="total-recovered">
+        <h1>Recovered:</h1>
+        <div class="total-recovered-number">
+          {{ confirmedCases.Discharged }}
         </div>
+      </div>
     </div>
   </data-view>
 </template>
@@ -21,18 +27,18 @@
 .summary {
   text-align: center;
   .total-positive {
-      .total-positive-number {
+    .total-positive-number {
       margin-top: 20px;
       font-size: 36px;
-      color:#AAA;
+      color: #aaa;
     }
   }
   .deaths {
     margin-top: 40px;
-      .deaths-number {
+    .deaths-number {
       margin-top: 20px;
       font-size: 36px;
-      color:#3D5170;
+      color: #3d5170;
     }
   }
   .total-recovered {
@@ -40,7 +46,7 @@
     .total-recovered-number {
       margin-top: 20px;
       font-size: 36px;
-      color:#8ACA2B;
+      color: #8aca2b;
     }
   }
 }
@@ -79,7 +85,7 @@ export default {
       type: String,
       required: false,
       default: ''
-    },
+    }
   },
 
   data() {
@@ -91,5 +97,5 @@ export default {
     }
     return data
   }
-};
+}
 </script>

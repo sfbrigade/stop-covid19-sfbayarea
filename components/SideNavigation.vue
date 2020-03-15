@@ -128,18 +128,15 @@ export default {
         },
         {
           title: this.$t('Official statements from Task Force'),
-          link:
-            ''
+          link: ''
         },
         {
           title: this.$t('Cancelled public events'),
-          link:
-            ''
+          link: ''
         },
         {
           title: this.$t('Message from Governor'),
-          link:
-            ''
+          link: ''
         },
         {
           title: this.$t('About us'),

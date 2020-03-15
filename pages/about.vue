@@ -4,9 +4,18 @@
       About the website
     </h2>
     <TextCard>
-      This site was drived from the originaly developed website(<a herf="https://stopcovid19.metro.tokyo.lg.jp/en/">https://stopcovid19.metro.tokyo.lg.jp/en/</a>) by the Tokyo Metropolitan Government with Code For Japan in order to provide the latest information on COVID-19.<br />
+      This site was drived from the originaly developed website(
+      <a herf="https://stopcovid19.metro.tokyo.lg.jp/en/">
+        https://stopcovid19.metro.tokyo.lg.jp/en/
+      </a>
+      ) by the Tokyo Metropolitan Government with Code For Japan in order to
+      provide the latest information on COVID-19.<br />
       <br />
-      The goal is to provide easy to understand, publicly available, and unbiased information on the spread of infection in the Bay Area. This allows the residents, companies, as well as visitors to the Bay Area, understand the current situation while having the right information about the necessary precautions and measures.
+      The goal is to provide easy to understand, publicly available, and
+      unbiased information on the spread of infection in the Bay Area. This
+      allows the residents, companies, as well as visitors to the Bay Area,
+      understand the current situation while having the right information about
+      the necessary precautions and measures.
     </TextCard>
     <TextCard title="Browser compatibility">
       It is recommended to use the following browsers when viewing this site.<br />
@@ -17,7 +26,8 @@
         <li>Safari (macOS) (Latest Ver)</li>
         <li>Opera (Latest Ver)</li>
       </ul>
-      When viewing this site, regardless of whether the recommended browsers are used or not, please understand that site elements may not display correctly due to some pre-defined settings in the browser being used.
+      When viewing this site, regardless of whether the recommended browsers are
+      used or not, please understand that site elements may not display correctly due to some pre-defined settings in the browser being used.
     </TextCard>
     <TextCard title="Linking to this site">
       Feel free to link this web site from any web sites.

@@ -18,8 +18,7 @@ const config: Configuration = {
       {
         hid: 'description',
         name: 'description',
-        content:
-          'Stop Coronavirus in the Bay Area'
+        content: 'Stop Coronavirus in the Bay Area'
       },
       {
         hid: 'og:site_name',
@@ -40,8 +39,7 @@ const config: Configuration = {
       {
         hid: 'og:description',
         property: 'og:description',
-        content:
-          'Stop Coronavirus in the Bay Area'
+        content: 'Stop Coronavirus in the Bay Area'
       },
       {
         hid: 'og:image',
