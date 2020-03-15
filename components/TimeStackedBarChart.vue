@@ -1,0 +1,261 @@
+<template>
+  <data-view :title="title" :title-id="titleId" :date="date">
+    <template v-slot:button>
+      <data-selector v-model="dataKind" />
+    </template>
+    <bar
+      :chart-id="chartId"
+      :chart-data="displayData"
+      :options="options"
+      :height="240"
+    />
+    <template v-slot:infoPanel>
+      <data-view-basic-info-panel
+        :l-text="displayInfo.lText"
+        :s-text="displayInfo.sText"
+        :unit="displayInfo.unit"
+      />
+    </template>
+  </data-view>
+</template>
+
+<script>
+import DataView from '@/components/DataView.vue'
+import DataSelector from '@/components/DataSelector.vue'
+import DataViewBasicInfoPanel from '@/components/DataViewBasicInfoPanel.vue'
+
+export default {
+  components: { DataView, DataSelector, DataViewBasicInfoPanel },
+  props: {
+    title: {
+      type: String,
+      required: false,
+      default: ''
+    },
+    titleId: {
+      type: String,
+      required: false,
+      default: ''
+    },
+    chartId: {
+      type: String,
+      required: false,
+      default: 'time-stacked-bar-chart'
+    },
+    chartData: {
+      type: Array,
+      required: false,
+      default: () => []
+    },
+    date: {
+      type: String,
+      required: true,
+      default: ''
+    },
+    items: {
+      type: Array,
+      required: false,
+      default: () => []
+    },
+    labels: {
+      type: Array,
+      required: false,
+      default: () => []
+    },
+    unit: {
+      type: String,
+      required: false,
+      default: ''
+    }
+  },
+  data() {
+    return {
+      dataKind: 'transition'
+    }
+  },
+  computed: {
+    displayInfo() {
+      if (this.dataKind === 'transition') {
+        return {
+          lText: this.sum(this.pickLastNumber(this.chartData)).toLocaleString(),
+          sText: `As of ${this.labels[this.labels.length - 1]}`,
+          unit: this.unit
+        }
+      }
+      return {
+        lText: this.sum(this.cumulativeSum(this.chartData)).toLocaleString(),
+        sText: `As of ${this.labels[this.labels.length - 1]}`,
+        unit: this.unit
+      }
+    },
+    displayData() {
+      const colorArray = ['#00A040', '#00D154']
+      if (this.dataKind === 'transition') {
+        return {
+          labels: this.labels,
+          datasets: this.chartData.map((item, index) => {
+            return {
+              label: this.items[index],
+              data: item,
+              backgroundColor: colorArray[index],
+              borderWidth: 0
+            }
+          })
+        }
+      }
+      return {
+        labels: this.labels,
+        datasets: this.chartData.map((item, index) => {
+          return {
+            label: this.items[index],
+            data: this.cumulative(item),
+            backgroundColor: colorArray[index],
+            borderWidth: 0
+          }
+        })
+      }
+    },
+    options() {
+      const unit = this.unit
+      const sumArray = this.eachArraySum(this.chartData)
+      const data = this.chartData
+      const cumulativeData = this.chartData.map(item => {
+        return this.cumulative(item)
+      })
+      const cumulativeSumArray = this.eachArraySum(cumulativeData)
+      return {
+        tooltips: {
+          displayColors: false,
+          callbacks: {
+            label: tooltipItem => {
+              const labelText =
+                this.dataKind === 'transition'
+                  ? `${sumArray[tooltipItem.index]}${unit}（In the Bay Area: ${
+                      data[0][tooltipItem.index]
+                    }/OutsideBayArea: ${data[1][tooltipItem.index]}）`
+                  : `${cumulativeSumArray[tooltipItem.index]}${unit}（In the Bay Area: ${
+                      cumulativeData[0][tooltipItem.index]
+                    }/OutsideBayArea: ${cumulativeData[1][tooltipItem.index]}）`
+              return labelText
+            },
+            title(tooltipItem, data) {
+              return data.labels[tooltipItem[0].index].replace(
+                /(\w+)\/(\w+)/,
+                '$1 $2 '
+              )
+            }
+          }
+        },
+        responsive: true,
+        maintainAspectRatio: false,
+        legend: {
+          display: true
+        },
+        scales: {
+          xAxes: [
+            {
+              id: 'day',
+              stacked: true,
+              gridLines: {
+                display: false
+              },
+              ticks: {
+                fontSize: 9,
+                maxTicksLimit: 20,
+                fontColor: '#808080',
+                maxRotation: 0,
+                minRotation: 0,
+                callback: label => {
+                  return label.split('/')[1]
+                }
+              }
+            },
+            {
+              id: 'month',
+              stacked: true,
+              gridLines: {
+                drawOnChartArea: false,
+                drawTicks: true,
+                drawBorder: false,
+                tickMarkLength: 10
+              },
+              ticks: {
+                fontSize: 11,
+                fontColor: '#808080',
+                padding: 3,
+                fontStyle: 'bold',
+                callback: label => {
+                  const month = label.split(' ')[0]
+                  return month
+                }
+              },
+              type: 'time',
+              time: {
+                unit: 'month'
+              }
+            }
+          ],
+          yAxes: [
+            {
+              location: 'bottom',
+              stacked: true,
+              gridLines: {
+                display: true,
+                color: '#E5E5E5'
+              },
+              ticks: {
+                suggestedMin: 0,
+                maxTicksLimit: 8,
+                fontColor: '#808080'
+              }
+            }
+          ]
+        }
+      }
+    }
+  },
+  methods: {
+    cumulative(array) {
+      const cumulativeArray = []
+      let patSum = 0
+      array.forEach(d => {
+        patSum += d
+        cumulativeArray.push(patSum)
+      })
+      return cumulativeArray
+    },
+    sum(array) {
+      return array.reduce((acc, cur) => {
+        return acc + cur
+      })
+    },
+    pickLastNumber(chartDataArray) {
+      return chartDataArray.map(array => {
+        return array[array.length - 1]
+      })
+    },
+    cumulativeSum(chartDataArray) {
+      return chartDataArray.map(array => {
+        return array.reduce((acc, cur) => {
+          return acc + cur
+        })
+      })
+    },
+    eachArraySum(chartDataArray) {
+      const sumArray = []
+      for (let i = 0; i < chartDataArray[0].length; i++) {
+        sumArray.push(chartDataArray[0][i] + chartDataArray[1][i])
+      }
+      return sumArray
+    }
+  }
+}
+</script>
+
+<style lang="scss" scoped>
+.Graph-Desc {
+  margin: 10px 0;
+  font-size: 12px;
+  color: $gray-3;
+}
+</style>
