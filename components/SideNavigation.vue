@@ -74,6 +74,11 @@
     "for Families with children": "for Families with children",
     "for Citizens": "for Communities",
     "for Enterprises and Employees": "for Enterprises and Employees",
+    "City services during COVID-19": "City services during COVID-19",
+    "Free Meals Available During School Closure": "Free Meals Available During School Closure",
+    "San Francisco Department of Public Health COVID-19 site": "San Francisco Department of Public Health COVID-19 site",
+    "FAQ: What residents need to know": "FAQ: What residents need to know",
+    "Donation: Give to the City to respond to COVID-19": "Donation: Give to the City to respond to COVID-19",
     "Official statements from Task Force": "Official statements from Task Force",
     "Cancelled public events": "Cancelled public events",
     "Government official website": "Government official website",
@@ -125,6 +130,30 @@ export default {
           title: this.$t('for Enterprises and Employees'),
           link: '/worker',
           divider: true
+        },
+        {
+          title: this.$t('City services during COVID-19'),
+          link: 'https://sf.gov/topics/coronavirus-covid-19'
+        },
+        {
+          title: this.$t('Free Meals Available During School Closure'),
+          link:
+            'https://www.sfusd.edu/services/health-wellness/nutrition-school-meals'
+        },
+        {
+          title: this.$t(
+            'San Francisco Department of Public Health COVID-19 site'
+          ),
+          link: 'https://www.sfdph.org/dph/alerts/coronavirus.asp'
+        },
+        {
+          title: this.$t('FAQ: What residents need to know'),
+          link:
+            'https://www.sfchronicle.com/bayarea/article/coronavirus-bayarea-what-you-need-know-15000563.php'
+        },
+        {
+          title: this.$t('Donation: Give to the City to respond to COVID-19'),
+          link: 'https://sf.gov/give-city-respond-covid-19'
         },
         {
           title: this.$t('Official statements from Task Force'),
