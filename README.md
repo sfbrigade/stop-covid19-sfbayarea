@@ -37,6 +37,6 @@ $ docker-compose up --build
 
 ### Deployment to Staging & Production Environments
 
-As of March 17th 2020, when `master` branch is updated, the HTML files will be automatically deployed onto the development site (https://dev-covid19-sfbayarea.netlify.com/).
+As of March 17th 2020, when `master` branch is updated, the HTML files will be automatically deployed onto the development site (https://stop-covid19-sfbayarea.netlify.com/).
 
 Once the website is ready enough to publish in public, we will deploy the web site to somewhere on a right domain(ex, sf.gov codeforsanfrancisco.org etc if permitted) where everyone feels confortable to access.
