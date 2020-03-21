@@ -19,7 +19,7 @@
         <cases-summary
           :title="'Cases Summary'"
           :title-id="'details-of-confirmed-cases'"
-          :date="Data.inspections_summary.date"
+          :date="Data.main_summary.date"
         />
       </v-col>
       <v-col cols="12" md="6" class="DataCard">
@@ -28,7 +28,7 @@
           :title-id="'number-of-confirmed-cases'"
           :chart-id="'time-bar-chart-patients'"
           :chart-data="patientsGraph"
-          :date="Data.patients.date"
+          :date="Data.main_summary.date"
           :unit="''"
           :url="''"
         />
@@ -44,18 +44,6 @@
           :url="''"
         />
       </v-col>
-      <v-col cols="12" md="6" class="DataCard">
-        <time-stacked-bar-chart
-          title="Tested"
-          :title-id="'number-of-tested'"
-          :chart-id="'time-stacked-bar-chart-inspections'"
-          :chart-data="inspectionsGraph"
-          :date="Data.inspections_summary.date"
-          :items="inspectionsItems"
-          :labels="inspectionsLabels"
-          :unit="''"
-        />
-      </v-col>
     </v-row>
   </div>
 </template>
@@ -63,7 +51,6 @@
 <script>
 import PageHeader from '@/components/PageHeader.vue'
 import TimeBarChart from '@/components/TimeBarChart.vue'
-import TimeStackedBarChart from '@/components/TimeStackedBarChart.vue'
 import CasesSummary from '@/components/CasesSummary.vue'
 import WhatsNew from '@/components/WhatsNew.vue'
 import StaticInfo from '@/components/StaticInfo.vue'
@@ -79,7 +66,6 @@ export default {
     PageHeader,
     CasesSummary,
     TimeBarChart,
-    TimeStackedBarChart,
     WhatsNew,
     StaticInfo,
     DataTable
@@ -88,16 +74,6 @@ export default {
     const patientsGraph = formatGraph(Data.patients_summary.data)
     const patientsTable = formatTable(Data.patients.data)
     const dischargesGraph = formatGraph(Data.discharges_summary.data)
-
-    const inspectionsGraph = [
-      Data.inspections_summary.data.InBayArea,
-      Data.inspections_summary.data.OutsideBayArea
-    ]
-    const inspectionsItems = [
-      'In the Bay Area',
-      'Outside the Bay Area （Cruise etc）'
-    ]
-    const inspectionsLabels = Data.inspections_summary.labels
 
     const confirmedCases = formatConfirmedCases(Data.main_summary)
 
@@ -114,14 +90,11 @@ export default {
       patientsTable,
       patientsGraph,
       dischargesGraph,
-      inspectionsGraph,
-      inspectionsItems,
-      inspectionsLabels,
       confirmedCases,
       sumInfoOfPatients,
       headerItem: {
         icon: 'mdi-chart-timeline-variant',
-        title: 'Stop Coronavirus in the Bay Area ',
+        title: 'Stop Coronavirus in San Francisco',
         date: Data.lastUpdate
       },
       newsItems: News.newsItems
@@ -130,7 +103,7 @@ export default {
   },
   head() {
     return {
-      title: 'Stop Coronavirus in the Bay Area '
+      title: 'Stop Coronavirus in San Francisco'
     }
   }
 }

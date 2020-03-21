@@ -85,7 +85,7 @@ export default {
       if (this.dataKind === 'transition') {
         return {
           lText: `${this.chartData.slice(-1)[0].transition.toLocaleString()}`,
-          sText: `${this.displayTransitionRatio} ${this.unit} up from the day before`,
+          sText: `${this.displayTransitionRatio} ${this.unit} from the day before`,
           unit: this.unit
         }
       }
