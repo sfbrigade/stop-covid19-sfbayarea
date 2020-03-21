@@ -16,7 +16,10 @@
       <div class="total-recovered">
         <h1>Recovered:</h1>
         <div class="total-recovered-number">
-          {{ confirmedCases.Discharged }}
+          <!--{{ confirmedCases.Discharged }}-->
+          <font size="5">
+            No data available
+          </font>
         </div>
       </div>
     </div>
