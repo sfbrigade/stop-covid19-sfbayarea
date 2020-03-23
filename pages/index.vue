@@ -6,14 +6,6 @@
       :date="headerItem.date"
     />
     <whats-new class="mb-4" :items="newsItems" />
-    <static-info
-      class="mb-4"
-      :url="''"
-      :text="
-        'Feel free to contact if you or your familiy have any concern about your simptom'
-      "
-      :btn-text="'CONTACT'"
-    />
     <v-row class="DataBlock">
       <v-col cols="12" md="6" class="DataCard">
         <cases-summary
@@ -53,7 +45,6 @@ import PageHeader from '@/components/PageHeader.vue'
 import TimeBarChart from '@/components/TimeBarChart.vue'
 import CasesSummary from '@/components/CasesSummary.vue'
 import WhatsNew from '@/components/WhatsNew.vue'
-import StaticInfo from '@/components/StaticInfo.vue'
 import Data from '@/data/data.json'
 import DataTable from '@/components/DataTable.vue'
 import formatGraph from '@/utils/formatGraph'
@@ -67,7 +58,6 @@ export default {
     CasesSummary,
     TimeBarChart,
     WhatsNew,
-    StaticInfo,
     DataTable
   },
   data() {
