@@ -13,7 +13,7 @@
           <img src="/sfbayarea.jpeg" :alt="$t('bayarea')" />
         </div>
         <h1 class="SideNavigation-Heading">
-          {{ $t('COVID-19') }}<br />{{ $t('Tracker') }}
+          {{ $t('COVID-19') }}<br />{{ $t('Tracker for SF') }}
         </h1>
       </nuxt-link>
     </div>
@@ -40,14 +40,37 @@
       <div class="SideNavigation-Footer">
         <div class="SideNavigation-SocialLinkContainer">
           <a
-            href="https://twitter.com/TBDTBDTBDTBDTBDTBD"
+            href="https://www.meetup.com/Code-for-San-Francisco-Civic-Hack-Night/"
+            target="_blank"
+            rel="noopener"
+          >
+            <img src="/meetup.png" alt="Meetup" />
+          </a>
+          <a
+            href="https://sfbrigade-slackin.herokuapp.com/"
+            target="_blank"
+            rel="noopener"
+            class="SideNavigation-SocialLink"
+          >
+            <img src="/slack.png" alt="Slack" />
+          </a>
+          <a
+            href="https://github.com/sfbrigade/stop-covid19-sfbayarea"
+            target="_blank"
+            rel="noopener"
+            class="SideNavigation-SocialLink"
+          >
+            <img src="/github.png" alt="GitHub" />
+          </a>
+          <a
+            href="https://twitter.com/sfbrigade"
             target="_blank"
             rel="noopener"
           >
             <img src="/twitter.png" alt="Twitter" />
           </a>
           <a
-            href="https://www.facebook.com/TBDTBDTBDTBDTBDTBD"
+            href="https://www.facebook.com/codeforsanfrancisco"
             target="_blank"
             rel="noopener"
           >
@@ -55,38 +78,13 @@
           </a>
         </div>
         <small class="SideNavigation-Copyright" lang="en">
-          Copyright &copy; 2020 Team Stop Coronavirus. All Rights Reserved.
+          Copyright &copy; 2020 Team Stop Coronavirus by Code For San Francisco.
+          All Rights Reserved.
         </small>
       </div>
     </div>
   </div>
 </template>
-
-<i18n>
-{
-  "en": {
-    "Navi Open": "Open the side menu",
-    "Navi Close": "Close the side menu",
-    "COVID-19": "Coronavirus",
-    "Measures site": "Measures site",
-    "The latest updates": "The latest updates",
-    "If you have any symptoms": "If you have any symptoms",
-    "for Families with children": "for Families with children",
-    "for Citizens": "for Communities",
-    "for Enterprises and Employees": "for Enterprises and Employees",
-    "City services during COVID-19": "City services during COVID-19",
-    "Free Meals Available During School Closure": "Free Meals Available During School Closure",
-    "San Francisco Department of Public Health COVID-19 site": "San Francisco Department of Public Health COVID-19 site",
-    "FAQ: What residents need to know": "FAQ: What residents need to know",
-    "Donation: Give to the City to respond to COVID-19": "Donation: Give to the City to respond to COVID-19",
-    "Official statements from Task Force": "Official statements from Task Force",
-    "Cancelled public events": "Cancelled public events",
-    "Government official website": "Government official website",
-    "Message from Governor": "Message from Governor",
-    "About us": "About us"
-  }
-}
-</i18n>
 
 <script>
 import ListItem from '@/components/ListItem'
@@ -112,28 +110,31 @@ export default {
         {
           icon: 'covid',
           title: this.$t('If you have any symptoms'),
-          link: '/flow',
+          link:
+            'https://www.cdc.gov/coronavirus/2019-ncov/if-you-are-sick/steps-when-sick.html?CDC_AA_refVal=https%3A%2F%2Fwww.cdc.gov%2Fcoronavirus%2F2019-ncov%2Fabout%2Fsteps-when-sick.html',
           divider: true
-        },
-        {
-          icon: 'parent',
-          title: this.$t('for Families with children'),
-          link: '/parent'
         },
         {
           icon: 'mdi-account-multiple',
-          title: this.$t('for Communities'),
-          link: ''
+          title: this.$t('City services during COVID-19'),
+          link: 'https://sf.gov/topics/coronavirus-covid-19'
+        },
+        {
+          icon: 'parent',
+          title: this.$t('Find out about emergency child care centers'),
+          link:
+            'https://sf.gov/information/san-francisco-converts-rec-facilities-emergency-child-care-centers'
         },
         {
           icon: 'mdi-domain',
-          title: this.$t('for Enterprises and Employees'),
-          link: '/worker',
+          title: this.$t('Get City help if your job is affected by COVID-19'),
+          link:
+            'https://oewd.org/assistance-guidance-businesses-and-workers-impacted-covid-19#Employees%20Banner',
           divider: true
         },
         {
-          title: this.$t('City services during COVID-19'),
-          link: 'https://sf.gov/topics/coronavirus-covid-19'
+          title: this.$t('City services: Whats open'),
+          link: 'https://sf.gov/information/city-services-whats-open'
         },
         {
           title: this.$t('Free Meals Available During School Closure'),
@@ -156,25 +157,8 @@ export default {
           link: 'https://sf.gov/give-city-respond-covid-19'
         },
         {
-          title: this.$t('Official statements from Task Force'),
-          link: ''
-        },
-        {
-          title: this.$t('Cancelled public events'),
-          link: ''
-        },
-        {
-          title: this.$t('Message from Governor'),
-          link: ''
-        },
-        {
           title: this.$t('About us'),
           link: '/about'
-        },
-        {
-          title: this.$t('Government official website'),
-          link: '',
-          divider: true
         }
       ]
     },
