@@ -1,6 +1,7 @@
 type DataType = {
-  Date: Date
-  SubTotal: number
+  cases: number
+  deaths: number
+  date: Date
 }
 
 type GraphDataType = {
@@ -12,18 +13,26 @@ type GraphDataType = {
 export default (data: DataType[]) => {
   const graphData: GraphDataType[] = []
   const today = new Date()
-  let patSum = 0
+  let subTotal = 0
+  let previousDayCases = 0
   data
-    .filter(d => new Date(d.Date) < today)
+    .filter(d => new Date(d.date) < today)
     .forEach(d => {
-      const date = new Date(d.Date)
-      const subTotal = d.SubTotal
-      if (!isNaN(subTotal)) {
-        patSum += subTotal
+      const date = new Date(d.date)
+      const cases = d.cases
+      if (!isNaN(cases)) {
+        if (cases === 0) {
+          return
+        }
+        subTotal = cases - previousDayCases
+        if (subTotal < 0) {
+          subTotal = 0
+        } // data error check
+        previousDayCases = cases
         graphData.push({
           label: `${date.getMonth() + 1}/${date.getDate()}`,
           transition: subTotal,
-          cumulative: patSum
+          cumulative: cases
         })
       }
     })
