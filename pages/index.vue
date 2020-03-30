@@ -8,31 +8,15 @@
     <whats-new class="mb-4" :items="newsItems" />
     <v-row class="DataBlock">
       <v-col cols="12" md="6" class="DataCard">
-        <cases-summary
-          :title="'Cases Summary'"
-          :title-id="'details-of-confirmed-cases'"
-          :date="Data.main_summary.date"
-        />
+        <cases-summary :title="'Cases Summary'" :title-id="'confirmed-cases'" />
       </v-col>
       <v-col cols="12" md="6" class="DataCard">
         <time-bar-chart
-          title="Confirmed Cases"
+          title="Cases in San Francisco County"
           :title-id="'number-of-confirmed-cases'"
           :chart-id="'time-bar-chart-patients'"
-          :chart-data="patientsGraph"
-          :date="Data.main_summary.date"
-          :unit="''"
-          :url="''"
-        />
-      </v-col>
-      <v-col cols="12" md="6" class="DataCard">
-        <data-table
-          :title="'Recent Confimed Cases'"
-          :title-id="'attributes-of-confirmed-cases'"
-          :chart-data="patientsTable"
-          :chart-option="{}"
-          :date="Data.patients.date"
-          :info="sumInfoOfPatients"
+          :chart-data="SanFranciscoCasesGraph"
+          :date="SanFranciscoLastUpdatedAt"
           :url="''"
         />
       </v-col>
@@ -46,10 +30,7 @@ import TimeBarChart from '@/components/TimeBarChart.vue'
 import CasesSummary from '@/components/CasesSummary.vue'
 import WhatsNew from '@/components/WhatsNew.vue'
 import Data from '@/data/data.json'
-import DataTable from '@/components/DataTable.vue'
 import formatGraph from '@/utils/formatGraph'
-import formatTable from '@/utils/formatTable'
-import formatConfirmedCases from '@/utils/formatConfirmedCases'
 import News from '@/data/news.json'
 
 export default {
@@ -57,35 +38,24 @@ export default {
     PageHeader,
     CasesSummary,
     TimeBarChart,
-    WhatsNew,
-    DataTable
+    WhatsNew
   },
   data() {
-    const patientsGraph = formatGraph(Data.patients_summary.data)
-    const patientsTable = formatTable(Data.patients.data)
-    const dischargesGraph = formatGraph(Data.discharges_summary.data)
-
-    const confirmedCases = formatConfirmedCases(Data.main_summary)
-
-    const sumInfoOfPatients = {
-      lText: patientsGraph[
-        patientsGraph.length - 1
-      ].cumulative.toLocaleString(),
-      sText: 'Total as of ' + patientsGraph[patientsGraph.length - 1].label,
-      unit: ''
-    }
+    const SanFranciscoCasesGraph = formatGraph(
+      Data['San Francisco County'].cases
+    )
+    const SanFranciscoLastUpdatedAt = Data['San Francisco County'].cases.slice(
+      -1
+    )[0].date
 
     const data = {
       Data,
-      patientsTable,
-      patientsGraph,
-      dischargesGraph,
-      confirmedCases,
-      sumInfoOfPatients,
+      SanFranciscoCasesGraph,
+      SanFranciscoLastUpdatedAt,
       headerItem: {
         icon: 'mdi-chart-timeline-variant',
-        title: 'Stop Coronavirus in San Francisco',
-        date: Data.lastUpdate
+        title: 'Stop Coronavirus in the Bay Area',
+        date: SanFranciscoLastUpdatedAt
       },
       newsItems: News.newsItems
     }
@@ -93,7 +63,7 @@ export default {
   },
   head() {
     return {
-      title: 'Stop Coronavirus in San Francisco'
+      title: 'Stop Coronavirus in the Bay Area'
     }
   }
 }
