@@ -53,10 +53,9 @@ export default {
     )[0].date
 
     // Filter to show only the selected counties
-    const CountyFilter = ['San Francisco County', 'Santa Clara County']
-    const CountyData = formatCountyData(Data, CountyFilter)
-    // Reverse order to display San Francisco County first
-    CountyData.reverse()
+    // const CountyFilter = ['San Francisco County', 'Santa Clara County']
+    // const CountyData = formatCountyData(Data, CountyFilter)
+    const CountyData = formatCountyData(Data)
 
     const data = {
       Data,
