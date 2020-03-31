@@ -10,13 +10,20 @@
       <v-col cols="12" md="6" class="DataCard">
         <cases-summary :title="'Cases Summary'" :title-id="'confirmed-cases'" />
       </v-col>
-      <v-col cols="12" md="6" class="DataCard">
+      <v-col
+        v-for="(county, index) in CountyData"
+        :key="index"
+        :county="county"
+        cols="12"
+        md="6"
+        class="DataCard"
+      >
         <time-bar-chart
-          title="Cases in San Francisco County"
+          :title="`Cases in ${county.name}`"
           :title-id="'number-of-confirmed-cases'"
           :chart-id="'time-bar-chart-patients'"
-          :chart-data="SanFranciscoCasesGraph"
-          :date="SanFranciscoLastUpdatedAt"
+          :chart-data="county.graph"
+          :date="county.lastUpdatedAt"
           :url="''"
         />
       </v-col>
@@ -30,7 +37,7 @@ import TimeBarChart from '@/components/TimeBarChart.vue'
 import CasesSummary from '@/components/CasesSummary.vue'
 import WhatsNew from '@/components/WhatsNew.vue'
 import Data from '@/data/data.json'
-import formatGraph from '@/utils/formatGraph'
+import formatCountyData from '@/utils/formatCountyData'
 import News from '@/data/news.json'
 
 export default {
@@ -41,17 +48,20 @@ export default {
     WhatsNew
   },
   data() {
-    const SanFranciscoCasesGraph = formatGraph(
-      Data['San Francisco County'].cases
-    )
     const SanFranciscoLastUpdatedAt = Data['San Francisco County'].cases.slice(
       -1
     )[0].date
 
+    // Filter to show only the selected counties
+    const CountyFilter = ['San Francisco County', 'Santa Clara County']
+    const CountyData = formatCountyData(Data, CountyFilter)
+    // Reverse order to display San Francisco County first
+    CountyData.reverse()
+
     const data = {
       Data,
-      SanFranciscoCasesGraph,
       SanFranciscoLastUpdatedAt,
+      CountyData,
       headerItem: {
         icon: 'mdi-chart-timeline-variant',
         title: 'Stop Coronavirus in the Bay Area',
