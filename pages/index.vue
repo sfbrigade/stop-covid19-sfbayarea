@@ -76,7 +76,6 @@ export default {
 
     const data = {
       Data,
-      SanFranciscoLastUpdatedAt,
       CountyData,
       headerItem: {
         icon: 'mdi-chart-timeline-variant',
