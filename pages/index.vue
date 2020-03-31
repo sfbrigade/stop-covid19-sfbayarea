@@ -53,14 +53,29 @@ export default {
     )[0].date
 
     // Filter to show only the selected counties
-    const CountyFilter = ['San Francisco County', 'Santa Clara County']
-    const CountyData = formatCountyData(Data, CountyFilter)
-    // Reverse order to display San Francisco County first
-    CountyData.reverse()
+    // const CountyFilter = ['San Francisco County', 'Santa Clara County']
+    // const CountyData = formatCountyData(Data, CountyFilter)
+    const CountyData = formatCountyData(Data)
+
+    // Sort County Data in descending order of cases
+    CountyData.sort((countyA, countyB) => {
+      let r = 0
+      if (
+        countyA.graph.slice(-1)[0].cumulative >
+        countyB.graph.slice(-1)[0].cumulative
+      ) {
+        r = -1
+      } else if (
+        countyA.graph.slice(-1)[0].cumulative <
+        countyB.graph.slice(-1)[0].cumulative
+      ) {
+        r = 1
+      }
+      return r
+    })
 
     const data = {
       Data,
-      SanFranciscoLastUpdatedAt,
       CountyData,
       headerItem: {
         icon: 'mdi-chart-timeline-variant',
