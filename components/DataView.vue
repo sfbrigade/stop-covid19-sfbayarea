@@ -26,7 +26,7 @@
         target="_blank"
         rel="noopener"
       >
-        Link to the Open Data
+        {{ $t('Link to the Open Data Source') }}
         <v-icon class="ExternalLinkIcon" size="15">
           mdi-open-in-new
         </v-icon>

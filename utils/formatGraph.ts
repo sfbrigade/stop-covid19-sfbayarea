@@ -25,12 +25,19 @@ export default (data: DataType[]) => {
           return
         }
         subTotal = cases - previousDayCases
+
+        // if today's data is 0, it handles as the date is not ready
+        if (subTotal === 0 && today.getUTCDate() === date.getUTCDate()) {
+          return
+        }
+
+        // sometimes error data exists, handle as 0
         if (subTotal < 0) {
           subTotal = 0
-        } // data error check
+        }
         previousDayCases = cases
         graphData.push({
-          label: `${date.getMonth() + 1}/${date.getDate()}`,
+          label: `${date.getUTCMonth() + 1}/${date.getUTCDate()}`,
           transition: subTotal,
           cumulative: cases
         })

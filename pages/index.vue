@@ -8,7 +8,11 @@
     <whats-new class="mb-4" :items="newsItems" />
     <v-row class="DataBlock">
       <v-col cols="12" md="6" class="DataCard">
-        <cases-summary :title="'Cases Summary'" :title-id="'confirmed-cases'" />
+        <cases-summary
+          :title="'Cases Summary'"
+          :title-id="'confirmed-cases'"
+          :url="'https://coronadatascraper.com'"
+        />
       </v-col>
       <v-col
         v-for="(county, index) in CountyData"
@@ -24,7 +28,7 @@
           :chart-id="'time-bar-chart-patients'"
           :chart-data="county.graph"
           :date="county.lastUpdatedAt"
-          :url="''"
+          :url="'https://coronadatascraper.com'"
         />
       </v-col>
     </v-row>
