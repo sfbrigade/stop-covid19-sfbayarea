@@ -1,5 +1,10 @@
 <template>
-  <data-view :title="title" :title-id="titleId" :date="lastUpdatedAt">
+  <data-view
+    :title="title"
+    :title-id="titleId"
+    :date="lastUpdatedAt"
+    :url="url"
+  >
     <div class="summary">
       <div class="total-positive">
         <h1>Confirmed Cases:</h1>
