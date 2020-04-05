@@ -116,13 +116,13 @@ const config: Configuration = {
         strategy: 'no_prefix',
         locales: [
           {
-            code: 'ja',
-            iso: 'ja-JP'
+            code: 'en',
+            iso: 'en-US'
           }
         ],
-        defaultLocale: 'ja',
+        defaultLocale: 'en',
         vueI18n: {
-          fallbackLocale: 'ja',
+          fallbackLocale: 'en',
           formatFallbackMessages: true
         },
         vueI18nLoader: true
