@@ -5,8 +5,12 @@
     mandatory
     @change="$emit('input', $event)"
   >
-    <v-btn v-ripple="false" value="transition" class="DataSelector-Button">
-      Daily Cases
+    <v-btn
+      v-ripple="false"
+      value="confirmedTransition"
+      class="DataSelector-Button"
+    >
+      Daily
     </v-btn>
     <v-btn v-ripple="false" value="cumulative" class="DataSelector-Button">
       Total

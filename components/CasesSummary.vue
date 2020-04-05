@@ -7,7 +7,7 @@
   >
     <div class="summary">
       <div class="total-positive">
-        <h1>Confirmed Cases:</h1>
+        <h1>Confirmed:</h1>
         <div class="total-positive-number">
           {{
             isNaN(calcTotalCasesSummary.cases) != true
@@ -26,18 +26,6 @@
           }}
         </div>
       </div>
-      <div class="total-recovered">
-        <h1>Recovered:</h1>
-        <div class="total-recovered-number">
-          <font size="5">
-            {{
-              isNaN(calcTotalCasesSummary.recovered) != true
-                ? calcTotalCasesSummary.recovered
-                : 'No data available'
-            }}
-          </font>
-        </div>
-      </div>
     </div>
   </data-view>
 </template>
@@ -49,23 +37,15 @@
     .total-positive-number {
       margin-top: 20px;
       font-size: 36px;
-      color: #aaa;
+      color: #8aca2b;
     }
   }
   .deaths {
-    margin-top: 40px;
+    margin-top: 80px;
     .deaths-number {
       margin-top: 20px;
       font-size: 36px;
-      color: #3d5170;
-    }
-  }
-  .total-recovered {
-    margin-top: 40px;
-    .total-recovered-number {
-      margin-top: 20px;
-      font-size: 36px;
-      color: #8aca2b;
+      color: #888888;
     }
   }
 }
