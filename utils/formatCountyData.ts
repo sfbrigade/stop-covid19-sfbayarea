@@ -16,7 +16,7 @@ type CountyDataType = {
 
 type GraphDataType = {
   label: string
-  transition: number
+  confirmedTransition: number
   cumulative: number
 }
 

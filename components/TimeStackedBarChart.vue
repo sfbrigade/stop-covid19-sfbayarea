@@ -70,12 +70,12 @@ export default {
   },
   data() {
     return {
-      dataKind: 'transition'
+      dataKind: 'confirmedTransition'
     }
   },
   computed: {
     displayInfo() {
-      if (this.dataKind === 'transition') {
+      if (this.dataKind === 'confirmedTransition') {
         return {
           lText: this.sum(this.pickLastNumber(this.chartData)).toLocaleString(),
           sText: `As of ${this.labels[this.labels.length - 1]}`,
@@ -90,7 +90,7 @@ export default {
     },
     displayData() {
       const colorArray = ['#00A040', '#00D154']
-      if (this.dataKind === 'transition') {
+      if (this.dataKind === 'confirmedTransition') {
         return {
           labels: this.labels,
           datasets: this.chartData.map((item, index) => {
@@ -129,7 +129,7 @@ export default {
           callbacks: {
             label: tooltipItem => {
               const labelText =
-                this.dataKind === 'transition'
+                this.dataKind === 'confirmedTransition'
                   ? `${sumArray[tooltipItem.index]}${unit}（InBayArea: ${
                       data[0][tooltipItem.index]
                     }/OutsideBayArea: ${data[1][tooltipItem.index]}）`

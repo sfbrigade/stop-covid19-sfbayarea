@@ -23,7 +23,7 @@
         class="DataCard"
       >
         <time-bar-chart
-          :title="`Cases in ${county.name}`"
+          :title="`${county.name}`"
           :title-id="'number-of-confirmed-cases'"
           :chart-id="'time-bar-chart-patients'"
           :chart-data="county.graph"

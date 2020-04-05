@@ -67,7 +67,7 @@ export default {
   },
   data() {
     return {
-      dataKind: 'transition'
+      dataKind: 'confirmedTransition'
     }
   },
   computed: {
@@ -77,14 +77,16 @@ export default {
       return this.formatDayBeforeRatio(lastDay - lastDayBefore)
     },
     displayTransitionRatio() {
-      const lastDay = this.chartData.slice(-1)[0].transition
-      const lastDayBefore = this.chartData.slice(-2)[0].transition
+      const lastDay = this.chartData.slice(-1)[0].confirmedTransition
+      const lastDayBefore = this.chartData.slice(-2)[0].confirmedTransition
       return this.formatDayBeforeRatio(lastDay - lastDayBefore)
     },
     displayInfo() {
-      if (this.dataKind === 'transition') {
+      if (this.dataKind === 'confirmedTransition') {
         return {
-          lText: `${this.chartData.slice(-1)[0].transition.toLocaleString()}`,
+          lText: `${this.chartData
+            .slice(-1)[0]
+            .confirmedTransition.toLocaleString()}`,
           sText: `${this.displayTransitionRatio} ${this.unit} from the day before`,
           unit: this.unit
         }
@@ -100,19 +102,25 @@ export default {
       }
     },
     displayData() {
-      if (this.dataKind === 'transition') {
+      if (this.dataKind === 'confirmedTransition') {
         return {
           labels: this.chartData.map(d => {
             return d.label
           }),
           datasets: [
             {
-              label: this.dataKind,
+              label: 'Confirmed',
               data: this.chartData.map(d => {
-                return d.transition
+                return d.confirmedTransition
               }),
-              backgroundColor: '#00B849',
-              borderWidth: 0
+              backgroundColor: '#00B849'
+            },
+            {
+              label: 'Deaths',
+              data: this.chartData.map(d => {
+                return d.deathTransition
+              }),
+              backgroundColor: '#888888'
             }
           ]
         }
@@ -123,11 +131,19 @@ export default {
         }),
         datasets: [
           {
-            label: this.dataKind,
+            label: 'Confirmed',
             data: this.chartData.map(d => {
               return d.cumulative
             }),
             backgroundColor: '#00B849',
+            borderWidth: 0
+          },
+          {
+            label: 'Deaths',
+            data: this.chartData.map(d => {
+              return d.deathCumulative
+            }),
+            backgroundColor: '#888888',
             borderWidth: 0
           }
         ]
@@ -152,22 +168,23 @@ export default {
             }
           }
         },
+        barValueSpacing: 20,
         responsive: true,
         maintainAspectRatio: false,
         legend: {
-          display: false
+          display: true
         },
         scales: {
           xAxes: [
             {
               id: 'day',
-              stacked: true,
+              stacked: false,
               gridLines: {
                 display: false
               },
               ticks: {
                 fontSize: 9,
-                maxTicksLimit: 20,
+                maxTicksLimit: 30,
                 fontColor: '#808080',
                 maxRotation: 0,
                 minRotation: 0,
@@ -178,7 +195,7 @@ export default {
             },
             {
               id: 'month',
-              stacked: true,
+              stacked: false,
               gridLines: {
                 drawOnChartArea: false,
                 drawTicks: true,
@@ -207,7 +224,7 @@ export default {
           yAxes: [
             {
               location: 'bottom',
-              stacked: true,
+              stacked: false,
               gridLines: {
                 display: true,
                 color: '#E5E5E5'
