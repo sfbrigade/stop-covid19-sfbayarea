@@ -12,7 +12,7 @@
   >
     <v-list-item-action v-if="icon" class="ListItem-IconContainer">
       <v-icon
-        v-if="checkIconType(icon) === 'material'"
+        v-if="checkIconType(icon) === 'prefix-icon'"
         :class="['ListItem-Icon', isActive(link)]"
         size="20"
       >
@@ -28,6 +28,14 @@
       />
       <ParentIcon
         v-else-if="checkIconType(icon) === 'parent'"
+        :class="['ListItem-Icon', isActive(link)]"
+      />
+      <InfoOutlineIcon
+        v-else-if="checkIconType(icon) === 'info_outline'"
+        :class="['ListItem-Icon', isActive(link)]"
+      />
+      <PollOutlineIcon
+        v-else-if="checkIconType(icon) === 'poll_outline'"
         :class="['ListItem-Icon', isActive(link)]"
       />
     </v-list-item-action>
@@ -52,9 +60,17 @@ import { Vue, Prop, Component } from 'vue-property-decorator'
 import FaqIcon from '@/static/faq.svg'
 import CovidIcon from '@/static/covid.svg'
 import ParentIcon from '@/static/parent.svg'
+import InfoOutlineIcon from '@/static/information-outline.svg'
+import PollOutlineIcon from '@/static/poll-box-outline.svg'
 
 @Component({
-  components: { FaqIcon, CovidIcon, ParentIcon }
+  components: {
+    CovidIcon,
+    FaqIcon,
+    InfoOutlineIcon,
+    ParentIcon,
+    PollOutlineIcon
+  }
 })
 export default class ListItem extends Vue {
   @Prop({
@@ -87,16 +103,28 @@ export default class ListItem extends Vue {
 
   checkIconType(
     icon?: string
-  ): 'none' | 'material' | 'faq' | 'covid' | 'parent' | 'others' {
+  ):
+    | 'none'
+    | 'prefix-icon'
+    | 'faq'
+    | 'covid'
+    | 'parent'
+    | 'info_outline'
+    | 'poll_outline'
+    | 'others' {
     if (!icon) return 'none'
-    if (icon.startsWith('mdi')) {
-      return 'material'
+    if (icon.startsWith('mdi') || icon.startsWith('fa')) {
+      return 'prefix-icon'
     } else if (icon === 'faq') {
       return 'faq'
     } else if (icon === 'covid') {
       return 'covid'
     } else if (icon === 'parent') {
       return 'parent'
+    } else if (icon === 'info_outline') {
+      return 'info_outline'
+    } else if (icon === 'poll_outline') {
+      return 'poll_outline'
     } else {
       return 'others'
     }
@@ -150,7 +178,7 @@ export default class ListItem extends Vue {
     color: $gray-1;
   }
   &-IconContainer {
-    margin: 8px 3px 8px 0 !important;
+    margin: 8px 10px 8px 0 !important;
     > svg {
       > path:not(:first-of-type) {
         fill: $gray-2;

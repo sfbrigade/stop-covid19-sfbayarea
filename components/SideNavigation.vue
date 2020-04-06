@@ -12,9 +12,6 @@
         <div class="SideNavigation-Logo">
           <img src="/sfbayarea.jpeg" :alt="$t('bayarea')" />
         </div>
-        <h1 class="SideNavigation-Heading">
-          {{ $t('COVID-19') }}<br />{{ $t('Tracker for SF') }}
-        </h1>
       </nuxt-link>
     </div>
     <v-divider class="SideNavigation-HeadingDivider" />
@@ -26,7 +23,7 @@
       >
         mdi-close
       </v-icon>
-      <v-list :flat="true">
+      <v-list class="SideNavigation-ListContainer" :flat="true">
         <v-container
           v-for="(item, i) in items"
           :key="i"
@@ -103,58 +100,19 @@ export default {
     items() {
       return [
         {
-          icon: 'mdi-chart-timeline-variant',
-          title: this.$t('The latest updates'),
-          link: '/'
-        },
-        {
-          icon: 'faq',
+          icon: 'info_outline',
           title: this.$t('General FAQ'),
           link: '/faq'
         },
         {
-          icon: 'covid',
-          title: this.$t('If you have any symptoms'),
-          link:
-            'https://www.cdc.gov/coronavirus/2019-ncov/if-you-are-sick/steps-when-sick.html?CDC_AA_refVal=https%3A%2F%2Fwww.cdc.gov%2Fcoronavirus%2F2019-ncov%2Fabout%2Fsteps-when-sick.html',
-          divider: true
+          icon: 'poll_outline',
+          title: this.$t('Statistic'),
+          link: '/'
         },
         {
-          icon: 'mdi-account-multiple',
-          title: this.$t('City services during COVID-19'),
-          link: 'https://sf.gov/topics/coronavirus-covid-19'
-        },
-        {
-          icon: 'parent',
-          title: this.$t('Find out about emergency child care centers'),
-          link:
-            'https://sf.gov/information/san-francisco-converts-rec-facilities-emergency-child-care-centers'
-        },
-        {
-          icon: 'mdi-domain',
-          title: this.$t('Get City help if your job is affected by COVID-19'),
-          link:
-            'https://oewd.org/assistance-guidance-businesses-and-workers-impacted-covid-19#Employees%20Banner',
-          divider: true
-        },
-        {
-          title: this.$t('City services: Whats open'),
-          link: 'https://sf.gov/information/city-services-whats-open'
-        },
-        {
-          title: this.$t('Free Meals Available During School Closure'),
-          link:
-            'https://www.sfusd.edu/services/health-wellness/nutrition-school-meals'
-        },
-        {
-          title: this.$t(
-            'San Francisco Department of Public Health COVID-19 site'
-          ),
-          link: 'https://www.sfdph.org/dph/alerts/coronavirus.asp'
-        },
-        {
-          title: this.$t('Donation: Give to the City to respond to COVID-19'),
-          link: 'https://sf.gov/give-city-respond-covid-19'
+          icon: 'far fa-newspaper',
+          title: this.$t('Latest News'),
+          link: '/news'
         },
         {
           title: this.$t('About us'),
@@ -181,7 +139,7 @@ export default {
 .SideNavigation {
   position: relative;
   height: 100%;
-  background: $white;
+  background: $gray-5;
   box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.15);
   &-HeadingContainer {
     padding: 1.25em 0 1.25em 1.25em;
@@ -199,6 +157,9 @@ export default {
       align-items: center;
     }
     text-decoration: none;
+  }
+  &-ListContainer {
+    background: inherit;
   }
   &-ListContainerIcon {
     margin: 24px 16px 0;
@@ -234,7 +195,7 @@ export default {
   }
   &-Footer {
     padding: 20px;
-    background-color: $white;
+    /* background-color: $white; */
   }
   &-SocialLinkContainer {
     display: flex;
@@ -263,7 +224,7 @@ export default {
     display: block !important;
     width: 100%;
     z-index: z-index-of(opened-side-navigation);
-    background-color: $white;
+    /* background-color: $white; */
   }
 }
 @include largerThan($small) {
