@@ -12,9 +12,9 @@
       Last updated at {{ lastUpdatedAt }}
       <slot />
     </p>
-    <v-expansion-panels>
+    <v-expansion-panels class="FaqCategory-QA">
       <v-expansion-panel v-for="(qa, i) in qa" :key="i">
-        <v-expansion-panel-header> {{ qa.q }} </v-expansion-panel-header>
+        <v-expansion-panel-header> + {{ qa.q }} </v-expansion-panel-header>
         <v-expansion-panel-content>
           {{ qa.a }}
         </v-expansion-panel-content>
@@ -62,6 +62,17 @@ export default {
 
     font-size: 13px;
     color: #898989;
+  }
+  &-QA {
+    * {
+      @include body-text();
+      font-size: 14px;
+    }
+    a {
+      word-break: break-all;
+      color: $link;
+      text-decoration: none;
+    }
   }
 }
 </style>
