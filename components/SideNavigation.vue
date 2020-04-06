@@ -108,6 +108,11 @@ export default {
           link: '/'
         },
         {
+          icon: 'faq',
+          title: this.$t('General FAQ'),
+          link: '/faq'
+        },
+        {
           icon: 'covid',
           title: this.$t('If you have any symptoms'),
           link:
@@ -146,11 +151,6 @@ export default {
             'San Francisco Department of Public Health COVID-19 site'
           ),
           link: 'https://www.sfdph.org/dph/alerts/coronavirus.asp'
-        },
-        {
-          title: this.$t('FAQ: What residents need to know'),
-          link:
-            'https://www.sfchronicle.com/bayarea/article/coronavirus-bayarea-what-you-need-know-15000563.php'
         },
         {
           title: this.$t('Donation: Give to the City to respond to COVID-19'),
