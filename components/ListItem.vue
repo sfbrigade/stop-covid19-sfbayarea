@@ -13,7 +13,7 @@
     <v-list-item-action v-if="icon" class="ListItem-IconContainer">
       <v-icon
         v-if="checkIconType(icon) === 'prefix-icon'"
-        :class="['ListItem-Icon', isActive(link)]"
+        :class="['ListItem-Icon', { 'fa-18': icon.startsWith('fa') }]"
         size="20"
       >
         {{ icon }}
@@ -24,26 +24,23 @@
       />
       <CovidIcon
         v-else-if="checkIconType(icon) === 'covid'"
-        :class="['ListItem-Icon', isActive(link)]"
+        class="ListItem-Icon"
       />
       <ParentIcon
         v-else-if="checkIconType(icon) === 'parent'"
-        :class="['ListItem-Icon', isActive(link)]"
+        class="ListItem-Icon"
       />
       <InfoOutlineIcon
         v-else-if="checkIconType(icon) === 'info_outline'"
-        :class="['ListItem-Icon', isActive(link)]"
+        class="ListItem-Icon"
       />
       <PollOutlineIcon
         v-else-if="checkIconType(icon) === 'poll_outline'"
-        :class="['ListItem-Icon', isActive(link)]"
+        class="ListItem-Icon"
       />
     </v-list-item-action>
     <v-list-item-content class="ListItem-TextContainer">
-      <v-list-item-title
-        :class="['ListItem-Text', isActive(link)]"
-        v-text="title"
-      />
+      <v-list-item-title class="ListItem-Text" v-text="title" />
     </v-list-item-content>
     <v-icon
       v-if="!isInternalLink(link)"
@@ -95,12 +92,6 @@ export default class ListItem extends Vue {
     return !/^https?:\/\//.test(path)
   }
 
-  isActive(link: string): string | undefined {
-    if (link === this.$route.path || `${link}/` === this.$route.path) {
-      return 'isActive'
-    }
-  }
-
   checkIconType(
     icon?: string
   ):
@@ -137,7 +128,6 @@ export default class ListItem extends Vue {
   &-Container {
     min-height: 30px;
     padding: 0;
-    color: transparent !important;
     & .ListItem-TextContainer {
       max-width: calc(100% - 20px);
     }
@@ -148,47 +138,43 @@ export default class ListItem extends Vue {
     }
     &:hover {
       color: transparent !important;
+      text-decoration: none;
       & .ListItem-Text {
         font-weight: bold;
       }
       & .ListItem-Icon {
-        color: $gray-1 !important;
-        &.isActive {
-          color: $green-1 !important;
-        }
+        color: $black !important;
       }
       & .ListItem-ExternalLinkIcon {
-        color: $gray-1 !important;
+        color: $black !important;
       }
       & .ListItem-IconContainer {
         > svg {
           > path:not(:first-of-type) {
-            fill: $gray-1;
-          }
-        }
-        > svg.isActive {
-          > path:not(:first-of-type) {
-            fill: $green-1;
+            fill: $black;
           }
         }
       }
     }
   }
   &-Text {
-    color: $gray-1;
+    color: $black;
   }
   &-IconContainer {
     margin: 8px 10px 8px 0 !important;
     > svg {
       > path:not(:first-of-type) {
-        fill: $gray-2;
+        fill: $black;
       }
       width: 20px;
       height: 20px;
     }
+    .fa-18 {
+      font-size: 17px !important;
+    }
   }
   &-Icon {
-    color: $gray-2 !important;
+    color: $black !important;
   }
   &-TextContainer {
     display: inline-block;
@@ -197,15 +183,6 @@ export default class ListItem extends Vue {
   &-ExternalLinkIcon {
     margin-left: 2px;
     color: $gray-3 !important;
-  }
-}
-.isActive {
-  color: $green-1 !important;
-  font-weight: 600;
-}
-svg.isActive {
-  > path:not(:first-of-type) {
-    fill: $green-1;
   }
 }
 </style>

@@ -36,6 +36,7 @@
             v-for="(item, i) in items"
             :key="i"
             class="SideNavigation-ListItemContainer"
+            :class="{ active: isActive(item.link) }"
             @click="closeNavi"
           >
             <ListItem :link="item.link" :icon="item.icon" :title="item.title" />
@@ -138,6 +139,9 @@ export default {
     },
     closeNavi() {
       this.$emit('closeNavi')
+    },
+    isActive(link) {
+      return this.$route.path === link
     }
   }
 }
@@ -265,6 +269,9 @@ export default {
     z-index: z-index-of(opened-side-navigation);
     background-color: $gray-5;
   }
+}
+.active {
+  background: $gray-4;
 }
 @include largerThan($small) {
   .pc-none {
