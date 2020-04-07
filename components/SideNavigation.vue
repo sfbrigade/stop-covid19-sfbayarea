@@ -172,15 +172,15 @@ export default {
   }
   &-TitleContainer {
     color: #000000;
-    margin: 10px 20px;
+    margin: 10px 20px 5px 20px;
     h3 {
-      font-family: 'SF Pro Display';
+      font-family: 'SF Pro Display', 'Hiragino Sans', sans-serif;
       font-weight: bold;
-      font-size: 0.9rem;
+      font-size: 0.8rem;
     }
     span {
-      font-family: 'SF Pro Text';
-      font-size: 0.75rem;
+      font-family: 'SF Pro Text', 'Hiragino Sans', sans-serif;
+      font-size: 0.7rem;
     }
   }
   &-ContentContainer {

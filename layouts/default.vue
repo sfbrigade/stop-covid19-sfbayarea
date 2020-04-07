@@ -71,7 +71,6 @@ export default Vue.extend({
 .app {
   max-width: 1440px;
   margin: 0 auto;
-  background-color: inherit !important;
 }
 .appContainer {
   position: relative;
