@@ -1,22 +1,26 @@
 <template>
   <div class="FaqCategory">
     <h2 v-if="title" class="FaqCategory-Heading">
-      <a v-if="link" :href="link" target="_blank" rel="noopener">
-        {{ title }}
-      </a>
-      <template v-else>
-        {{ title }}
-      </template>
+      {{ title }}
     </h2>
-    <p class="FaqCategory-LastUpdatedAt">
-      Last updated at {{ lastUpdatedAt }}
-      <slot />
-    </p>
+    <p class="FaqCategory-LastUpdatedAt">Last updated at {{ lastUpdatedAt }}</p>
     <v-expansion-panels class="FaqCategory-QA">
       <v-expansion-panel v-for="(qa, i) in qa" :key="i">
-        <v-expansion-panel-header> + {{ qa.q }} </v-expansion-panel-header>
-        <v-expansion-panel-content>
+        <v-expansion-panel-header class="FaqCategory-QA-Q">
+          + {{ qa.q }}
+        </v-expansion-panel-header>
+        <v-expansion-panel-content class="FaqCategory-QA-A">
           {{ qa.a }}
+          <p class="FaqCategory-QA-Link">
+            <a :href="qa.url" target="_blank" rel="noopener">source link</a>
+            <v-icon
+              v-if="!isInternalLink(qa.url)"
+              class="FaqCategory-QA-ExternalLinkIcon"
+              size="12"
+            >
+              mdi-open-in-new
+            </v-icon>
+          </p>
         </v-expansion-panel-content>
       </v-expansion-panel>
     </v-expansion-panels>
@@ -39,6 +43,11 @@ export default {
     qa: {
       type: Array,
       required: true
+    }
+  },
+  methods: {
+    isInternalLink(path) {
+      return !/^https?:\/\//.test(path)
     }
   }
 }
@@ -64,14 +73,24 @@ export default {
     color: #898989;
   }
   &-QA {
-    * {
+    &-Q {
       @include body-text();
-      font-size: 14px;
     }
-    a {
-      word-break: break-all;
-      color: $link;
-      text-decoration: none;
+
+    &-A {
+      @include body-text();
+      font-weight: bold;
+    }
+
+    &-Link {
+      @include text-link();
+      font-style: italic;
+      font-weight: bold;
+    }
+
+    &-ExternalLinkIcon {
+      margin-left: 2px;
+      color: $gray-3 !important;
     }
   }
 }
