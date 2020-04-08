@@ -13,6 +13,10 @@
         />
       </div>
       <div class="mainContainer" :class="{ open: isOpenNavigation }">
+        <div class="mainContainerTitle">
+          <h1>COVID-19 Tracker</h1>
+        </div>
+        <TopNavigation />
         <v-container class="px-4 py-8">
           <nuxt />
         </v-container>
@@ -25,6 +29,7 @@ import Vue from 'vue'
 import { MetaInfo } from 'vue-meta'
 import ScaleLoader from 'vue-spinner/src/ScaleLoader.vue'
 import SideNavigation from '@/components/SideNavigation.vue'
+import TopNavigation from '@/components/TopNavigation.vue'
 
 type LocalData = {
   isOpenNavigation: boolean
@@ -34,7 +39,8 @@ type LocalData = {
 export default Vue.extend({
   components: {
     ScaleLoader,
-    SideNavigation
+    SideNavigation,
+    TopNavigation
   },
   data(): LocalData {
     return {
@@ -71,7 +77,6 @@ export default Vue.extend({
 .app {
   max-width: 1440px;
   margin: 0 auto;
-  background-color: inherit !important;
 }
 .appContainer {
   position: relative;
@@ -118,6 +123,12 @@ export default Vue.extend({
 .mainContainer {
   grid-column: 2/3;
   overflow: hidden;
+  .mainContainerTitle {
+    margin: 1rem 3rem 0.25rem 3rem;
+  }
+  .container {
+    padding-top: 0 !important;
+  }
   @include lessThan($small) {
     .container {
       padding-top: 16px !important;

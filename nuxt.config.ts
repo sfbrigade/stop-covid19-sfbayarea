@@ -69,7 +69,11 @@ const config: Configuration = {
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-      { rel: 'apple-touch-icon', href: '/apple-touch-icon-precomposed.png' }
+      { rel: 'apple-touch-icon', href: '/apple-touch-icon-precomposed.png' },
+      {
+        rel: 'stylesheet',
+        href: 'https://use.fontawesome.com/releases/v5.0.13/css/all.css'
+      }
     ]
   },
   /*
@@ -144,7 +148,11 @@ const config: Configuration = {
   vuetify: {
     customVariables: ['~/assets/variables.scss'],
     defaultAssets: {
-      icons: false
+      font: true,
+      icons: 'md'
+    },
+    icons: {
+      iconfont: 'md'
     }
   },
   googleAnalytics: {

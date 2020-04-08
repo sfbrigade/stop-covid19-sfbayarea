@@ -12,13 +12,13 @@
         <div class="SideNavigation-Logo">
           <img src="/sfbayarea.jpeg" :alt="$t('bayarea')" />
         </div>
-        <h1 class="SideNavigation-Heading">
-          {{ $t('COVID-19') }}<br />{{ $t('Tracker for SF') }}
-        </h1>
       </nuxt-link>
     </div>
     <v-divider class="SideNavigation-HeadingDivider" />
-    <div class="sp-none" :class="{ open: isNaviOpen }">
+    <div
+      class="SideNavigation-ContentContainer sp-none"
+      :class="{ open: isNaviOpen }"
+    >
       <v-icon
         class="SideNavigation-ListContainerIcon pc-none"
         :aria-label="$t('Navi Close')"
@@ -26,61 +26,46 @@
       >
         mdi-close
       </v-icon>
-      <v-list :flat="true">
-        <v-container
-          v-for="(item, i) in items"
-          :key="i"
-          class="SideNavigation-ListItemContainer"
-          @click="closeNavi"
-        >
-          <ListItem :link="item.link" :icon="item.icon" :title="item.title" />
-          <v-divider v-show="item.divider" class="SideNavigation-Divider" />
-        </v-container>
-      </v-list>
-      <div class="SideNavigation-Footer">
-        <div class="SideNavigation-SocialLinkContainer">
-          <a
-            href="https://www.meetup.com/Code-for-San-Francisco-Civic-Hack-Night/"
-            target="_blank"
-            rel="noopener"
-          >
-            <img src="/meetup.png" alt="Meetup" />
-          </a>
-          <a
-            href="https://sfbrigade-slackin.herokuapp.com/"
-            target="_blank"
-            rel="noopener"
-            class="SideNavigation-SocialLink"
-          >
-            <img src="/slack.png" alt="Slack" />
-          </a>
-          <a
-            href="https://github.com/sfbrigade/stop-covid19-sfbayarea"
-            target="_blank"
-            rel="noopener"
-            class="SideNavigation-SocialLink"
-          >
-            <img src="/github.png" alt="GitHub" />
-          </a>
-          <a
-            href="https://twitter.com/sfbrigade"
-            target="_blank"
-            rel="noopener"
-          >
-            <img src="/twitter.png" alt="Twitter" />
-          </a>
-          <a
-            href="https://www.facebook.com/codeforsanfrancisco"
-            target="_blank"
-            rel="noopener"
-          >
-            <img src="/facebook.png" alt="Facebook" />
-          </a>
+      <div class="SideNavigation-TopInfoContainer">
+        <div class="SideNavigation-TitleContainer">
+          <h3>{{ $t('COVID-19 Tracker') }}</h3>
+          <span>{{ $t('by Code for San Francisco') }}</span>
         </div>
-        <small class="SideNavigation-Copyright" lang="en">
-          Copyright &copy; 2020 Team Stop Coronavirus by Code For San Francisco.
-          All Rights Reserved.
-        </small>
+        <v-list class="SideNavigation-ListContainer" :flat="true">
+          <v-container
+            v-for="(item, i) in items"
+            :key="i"
+            class="SideNavigation-ListItemContainer"
+            :class="{ active: isActive(item.link) }"
+            @click="closeNavi"
+          >
+            <ListItem :link="item.link" :icon="item.icon" :title="item.title" />
+            <v-divider v-show="item.divider" class="SideNavigation-Divider" />
+          </v-container>
+        </v-list>
+      </div>
+      <div class="SideNavigation-Footer">
+        <v-divider />
+        <nuxt-link to="/about">
+          <div class="SideNavigation-AboutUs">
+            <span>About Code 4 San Francisco</span>
+          </div>
+        </nuxt-link>
+        <v-container fluid>
+          <v-row>
+            <v-col cols="12">
+              <div
+                v-for="(contact, i) in contacts"
+                :key="i"
+                class="SideNavigation-SocialLinkContainer"
+              >
+                <a :href="contact.link" target="_blank" rel="noopener">
+                  <i :class="contact.class" />
+                </a>
+              </div>
+            </v-col>
+          </v-row>
+        </v-container>
       </div>
     </div>
   </div>
@@ -103,67 +88,49 @@ export default {
     items() {
       return [
         {
-          icon: 'mdi-chart-timeline-variant',
-          title: this.$t('The latest updates'),
-          link: '/'
-        },
-        {
-          icon: 'faq',
+          icon: 'info_outline',
           title: this.$t('General FAQ'),
           link: '/faq'
         },
         {
-          icon: 'covid',
-          title: this.$t('If you have any symptoms'),
-          link:
-            'https://www.cdc.gov/coronavirus/2019-ncov/if-you-are-sick/steps-when-sick.html?CDC_AA_refVal=https%3A%2F%2Fwww.cdc.gov%2Fcoronavirus%2F2019-ncov%2Fabout%2Fsteps-when-sick.html',
-          divider: true
+          icon: 'poll_outline',
+          title: this.$t('Statistic'),
+          link: '/'
         },
         {
-          icon: 'mdi-account-multiple',
-          title: this.$t('City services during COVID-19'),
-          link: 'https://sf.gov/topics/coronavirus-covid-19'
-        },
-        {
-          icon: 'parent',
-          title: this.$t('Find out about emergency child care centers'),
-          link:
-            'https://sf.gov/information/san-francisco-converts-rec-facilities-emergency-child-care-centers'
-        },
-        {
-          icon: 'mdi-domain',
-          title: this.$t('Get City help if your job is affected by COVID-19'),
-          link:
-            'https://oewd.org/assistance-guidance-businesses-and-workers-impacted-covid-19#Employees%20Banner',
-          divider: true
-        },
-        {
-          title: this.$t('City services: Whats open'),
-          link: 'https://sf.gov/information/city-services-whats-open'
-        },
-        {
-          title: this.$t('Free Meals Available During School Closure'),
-          link:
-            'https://www.sfusd.edu/services/health-wellness/nutrition-school-meals'
-        },
-        {
-          title: this.$t(
-            'San Francisco Department of Public Health COVID-19 site'
-          ),
-          link: 'https://www.sfdph.org/dph/alerts/coronavirus.asp'
-        },
-        {
-          title: this.$t('Donation: Give to the City to respond to COVID-19'),
-          link: 'https://sf.gov/give-city-respond-covid-19'
-        },
-        {
-          title: this.$t('About us'),
-          link: '/about'
+          icon: 'far fa-newspaper',
+          title: this.$t('Latest News'),
+          link: '/news'
         }
       ]
     },
     isClass() {
       return item => (item.title.charAt(0) === '【' ? 'kerningLeft' : '')
+    },
+    contacts() {
+      return [
+        {
+          class: 'fab fa-meetup',
+          link:
+            'https://www.meetup.com/Code-for-San-Francisco-Civic-Hack-Night/'
+        },
+        {
+          class: 'fab fa-slack',
+          link: 'https://sfbrigade-slackin.herokuapp.com/'
+        },
+        {
+          class: 'fab fa-github',
+          link: 'https://github.com/sfbrigade/stop-covid19-sfbayarea'
+        },
+        {
+          class: 'fab fa-twitter',
+          link: 'https://twitter.com/sfbrigade'
+        },
+        {
+          class: 'fab fa-facebook',
+          link: 'https://www.facebook.com/codeforsanfrancisco'
+        }
+      ]
     }
   },
   methods: {
@@ -172,6 +139,9 @@ export default {
     },
     closeNavi() {
       this.$emit('closeNavi')
+    },
+    isActive(link) {
+      return this.$route.path === link
     }
   }
 }
@@ -181,10 +151,10 @@ export default {
 .SideNavigation {
   position: relative;
   height: 100%;
-  background: $white;
+  background: $gray-5;
   box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.15);
   &-HeadingContainer {
-    padding: 1.25em 0 1.25em 1.25em;
+    padding: 1.25em;
     align-items: center;
     @include lessThan($small) {
       padding: 7px 0 7px 20px;
@@ -199,6 +169,29 @@ export default {
       align-items: center;
     }
     text-decoration: none;
+  }
+  &-TitleContainer {
+    color: #000000;
+    margin: 10px 20px 5px 20px;
+    h3 {
+      font-family: 'SF Pro Display', 'Hiragino Sans', sans-serif;
+      font-weight: bold;
+      font-size: 0.8rem;
+    }
+    span {
+      font-family: 'SF Pro Text', 'Hiragino Sans', sans-serif;
+      font-size: 0.7rem;
+    }
+  }
+  &-ContentContainer {
+    /* minus top image */
+    height: calc(100% - 160px);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  &-ListContainer {
+    background: inherit;
   }
   &-ListContainerIcon {
     margin: 24px 16px 0;
@@ -234,24 +227,35 @@ export default {
   }
   &-Footer {
     padding: 20px;
-    background-color: $white;
-  }
-  &-SocialLinkContainer {
-    display: flex;
-    & img {
-      width: 30px;
-      &:first-of-type {
-        margin-right: 10px;
+    .container {
+      padding: 0;
+      .col {
+        padding: 0;
       }
     }
+    a {
+      text-decoration: none;
+    }
   }
-  &-Copyright {
-    display: block;
-    margin-top: 10px;
-    font-size: 8px;
-    line-height: 1.2;
-    color: $gray-1;
-    font-weight: bold;
+  &-AboutUs {
+    color: $black;
+    font-size: 0.7rem;
+    margin-top: 0.8rem;
+    &:hover {
+      font-weight: bold;
+    }
+  }
+  &-SocialLinkContainer {
+    display: inline-block;
+    margin: 4px 8px;
+    a > i {
+      font-size: 1rem;
+      color: $black;
+    }
+    &:hover {
+      transform: scale(1.5);
+      transition: transform 1s cubic-bezier(0.25, 0.45, 0.45, 0.95);
+    }
   }
 }
 .open {
@@ -263,8 +267,11 @@ export default {
     display: block !important;
     width: 100%;
     z-index: z-index-of(opened-side-navigation);
-    background-color: $white;
+    background-color: $gray-5;
   }
+}
+.active {
+  background: $gray-4;
 }
 @include largerThan($small) {
   .pc-none {
