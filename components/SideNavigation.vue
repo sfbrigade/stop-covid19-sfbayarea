@@ -33,7 +33,7 @@
         </div>
         <v-list class="SideNavigation-ListContainer" :flat="true">
           <v-container
-            v-for="(item, i) in items"
+            v-for="(item, i) in sideNavItems"
             :key="i"
             class="SideNavigation-ListItemContainer"
             :class="{ active: isActive(item.link) }"
@@ -85,7 +85,7 @@ export default {
     }
   },
   computed: {
-    items() {
+    sideNavItems() {
       return [
         {
           icon: 'info_outline',
