@@ -1,11 +1,5 @@
 <template>
   <div class="MainPage">
-    <page-header
-      :icon="headerItem.icon"
-      :title="headerItem.title"
-      :date="headerItem.date"
-    />
-    <whats-new class="mb-4" :items="newsItems" />
     <v-row class="DataBlock">
       <v-col cols="12" md="6" class="DataCard">
         <cases-summary
@@ -36,29 +30,17 @@
 </template>
 
 <script>
-import PageHeader from '@/components/PageHeader.vue'
 import TimeBarChart from '@/components/TimeBarChart.vue'
 import CasesSummary from '@/components/CasesSummary.vue'
-import WhatsNew from '@/components/WhatsNew.vue'
 import Data from '@/data/data.json'
 import formatCountyData from '@/utils/formatCountyData'
-import News from '@/data/news.json'
 
 export default {
   components: {
-    PageHeader,
     CasesSummary,
-    TimeBarChart,
-    WhatsNew
+    TimeBarChart
   },
   data() {
-    const SanFranciscoLastUpdatedAt = Data['San Francisco County'].cases.slice(
-      -1
-    )[0].date
-
-    // Filter to show only the selected counties
-    // const CountyFilter = ['San Francisco County', 'Santa Clara County']
-    // const CountyData = formatCountyData(Data, CountyFilter)
     const CountyData = formatCountyData(Data)
 
     // Sort County Data in descending order of cases
@@ -80,13 +62,7 @@ export default {
 
     const data = {
       Data,
-      CountyData,
-      headerItem: {
-        icon: 'mdi-chart-timeline-variant',
-        title: 'Stop Coronavirus in the Bay Area',
-        date: SanFranciscoLastUpdatedAt
-      },
-      newsItems: News.newsItems
+      CountyData
     }
     return data
   },
