@@ -6,10 +6,12 @@
       </v-icon>
       {{ title }}
     </h2>
+    <!--
     <div class="date">
       <span>Last Update </span>
       <time :datetime="formattedDate">{{ date }}</time>
     </div>
+    -->
   </div>
 </template>
 
