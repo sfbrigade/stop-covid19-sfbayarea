@@ -1,79 +1,63 @@
 {
-  "faqItems": [
-    {
-      "title": "General Info About the Virus",
-      "lastUpdatedAt": "2020-04-04",
-      "qa": [
-        {
-          "q": "Who is most at risk?",
-          "a":
-            "Folks with pre-existing conditions, immunocompromised people, older people.",
-          "url":
-            "https://www.cdc.gov/coronavirus/2019-ncov/cases-updates/summary.html#covid19-pandemic"
+    "faqItems": [{
+            "title": "General Info About the Virus",
+            "lastUpdatedAt": "2020-04-04",
+            "qa": [{
+                    "q": "Who is most at risk?",
+                    "a": "Anyone can catch and become seriously ill with COVID-19, but people who are older or immunocompromised, or who have pre-existing conditions including hypertension, diabetes or chronic lung disease (such as asthma) are at heightened risk.",
+                    "url": "https://www.cdc.gov/coronavirus/2019-ncov/cases-updates/summary.html#covid19-pandemic"
+                },
+                {
+                    "q": "What is a pandemic?",
+                    "a": "An outbreak of a disease that occurs over a wide geographic area and affects an exceptionally high proportion of the population.",
+                    "url": "https://www.merriam-webster.com/dictionary/pandemic"
+                },
+                {
+                    "q": "What is a coronavirus?",
+                    "a": "COVID-19 is caused by a coronavirus. Coronaviruses are a family of common viruses affecting people and many species of animal, including camels, cattle, cats, and bats. Very rarely, animal coronaviruses transfer to people and then spread, as with MERS-CoV, SARS-CoV, and now SARS-CoV-2, the virus train that causes COVID-19. About a third of common colds in humans are caused by coronaviruses.",
+                    "url": "https://www.cdc.gov/coronavirus/2019-ncov/cases-updates/summary.html#emergence"
+                },
+                {
+                    "q": "What are the symptoms?",
+                    "a": "Fever. Cough. Shortness of breath. In some people anosmia (losing sense of smell and taste) and/or body ache.",
+                    "url": "https://www.cdc.gov/coronavirus/2019-ncov/about/symptoms.html"
+                }
+            ]
         },
         {
-          "q": "What is a pandemic?",
-          "a":
-            "An outbreak of a disease that occurs over a wide geographic area and affects an exceptionally high proportion of the population.",
-          "url": "https://www.merriam-webster.com/dictionary/pandemic"
+            "title": "Preventative Information",
+            "lastUpdatedAt": "2020-04-04",
+            "qa": [{
+                    "q": "Who can I talk to for advice?",
+                    "a": "Anyone with a primary care physician should contact them with concerns about COVID-19. Alternatively, a free statewide hotline is available between 8am and 5pm, seven days a week, on (833) 544-2374. This can offer advice on everything from preventing the virus' spread, to getting help if you don’t have health insurance, to local services like food delivery and mental health care.",
+                    "url": "https://www.cdph.ca.gov/Programs/CID/DCDC/Pages/Immunization/ncov2019.aspx#More%20Informationv/california-takes-action-to-combat-covid-19/"
+                },
+                {
+                    "q": "How and where can I wash my hands in the city?",
+                    "a": "A map of 'pit stops' and public hand washing stations in San Francisco is available at the link below.",
+                    "url": "https://www.google.com/maps/d/u/0/viewer?mid=1jCE9lI8Iv12tO-wWrF6RIQPWKXGBK0_z&ll=37.77885554963088%2C-122.45262763559288&z=11"
+                },
+                {
+                    "q": "How and where do I handle groceries/takeout food?",
+                    "a": "A doctor's excellent video on how to treat groceries and food coming into your home is linked below: comprehensive written advice is available on the Consumer Reports website.",
+                    "url": "https://www.youtube.com/watch?v=sjDuwc9KBps&amp=&feature=youtu.be"
+                }
+            ]
         },
         {
-          "q": "What is corona virus?",
-          "a":
-            "COVID-19 is caused by a coronavirus. Coronaviruses are a family of common viruses affecting people and many species of animal, including camels, cattle, cats, and bats. Very rarely, animal coronaviruses transfer to people and then spread, as with MERS-CoV, SARS-CoV, and now SARS-CoV-2.",
-          "url":
-            "https://www.cdc.gov/coronavirus/2019-ncov/cases-updates/summary.html#emergence"
-        },
-        {
-          "q": "What are the symptoms?",
-          "a":
-            "Fever. Cough. Shortness of breath. In some people anosmia (losing sense of smell and taste) and/or body ache.",
-          "url":
-            "https://www.cdc.gov/coronavirus/2019-ncov/about/symptoms.html"
+            "title": "Transport",
+            "lastUpdatedAt": "2020-04-04",
+            "qa": [{
+                    "q": "Is BART running through the COVID-19 emergency period?",
+                    "a": "BART operates Monday through Friday from 5am - 9pm, with the same train frequency as before the emergency. Weekend trains now run from 8am - 9pm instead of 6am - midnight, but also with the same frequency as before. SFO is currently offering a late-night shuttle service to and from several BART stations. Details for specific journeys at the BART trip planner link below.",
+                    "url": "https://www.bart.gov/planner"
+                },
+                {
+                    "q": "Are Muni rail and bus services still running?",
+                    "a": "All Muni Metro/light rail has been replaced by buses. Rapid bus lines are temporarily suspended, but many late night Owl services remain. Backdoor boarding is now required on all buses except for passengers with wheelchairs or other accesibility needs. Downtown stations are still open for BART riders. Muni updates at the link below.",
+                    "url": "https://www.sfmta.com/projects/covid-19-developments-response"
+                }
+            ]
         }
-      ]
-    },
-    {
-      "title": "Preventative Information",
-      "lastUpdatedAt": "2020-04-04",
-      "qa": [
-        {
-          "q": "",
-          "a": "",
-          "url": ""
-        },
-        {
-          "q": "",
-          "a": "",
-          "url": ""
-        },
-        {
-          "q": "",
-          "a": "",
-          "url": ""
-        }
-      ]
-    },
-    {
-      "title": "Social Distancing",
-      "lastUpdatedAt": "2020-04-04",
-      "qa": [
-        {
-          "q": "",
-          "a": "",
-          "url": ""
-        },
-        {
-          "q": "",
-          "a": "",
-          "url": ""
-        },
-        {
-          "q": "",
-          "a": "",
-          "url": ""
-        }
-      ]
-    }
-  ]
+    ]
 }
