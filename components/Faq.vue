@@ -3,6 +3,7 @@
     <h2 class="Parent-Heading">
       <!-- Tab TBD -->
     </h2>
+    <SideNavigationOverview :categories="items" />
     <div v-for="(item, i) in items" :key="i">
       <FaqCategory
         :title="item.title"
@@ -14,11 +15,13 @@
 </template>
 <script>
 import FaqCategory from '@/components/FaqCategory.vue'
+import SideNavigationOverview from '@/components/SideNavigationOverview.vue'
 import Faq from '@/data/faq.json'
 
 export default {
   components: {
-    FaqCategory
+    FaqCategory,
+    SideNavigationOverview
   },
   data() {
     return {
