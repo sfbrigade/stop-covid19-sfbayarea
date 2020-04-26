@@ -1,91 +1,152 @@
 <template>
-  <div class="MainPage">
-    <v-row class="DataBlock">
-      <v-col cols="12" md="6" class="DataCard">
-        <cases-summary
-          :title="'Cases Summary'"
-          :title-id="'confirmed-cases'"
-          :url="'https://coronadatascraper.com'"
-        />
-      </v-col>
-      <v-col
-        v-for="(county, index) in CountyData"
-        :key="index"
-        :county="county"
-        cols="12"
-        md="6"
-        class="DataCard"
-      >
-        <time-bar-chart
-          :title="`${county.name}`"
-          :title-id="'number-of-confirmed-cases'"
-          :chart-id="'time-bar-chart-patients'"
-          :chart-data="county.graph"
-          :date="county.lastUpdatedAt"
-          :url="'https://coronadatascraper.com'"
-        />
-      </v-col>
-    </v-row>
+  <div id="app">
+    <v-app id="inspire">
+      <v-parallax width="auto" height="auto" src="/header-bg.png">
+        <v-container fluid>
+          <div class="header">
+            <img src="/sf.png" width="64px" height="64px" />
+            <div class="sitenamebyc4sf">
+              <span class="sitename">Bay Area PanDa</span>
+              <span class="byc4sf">by Code for San Francisco </span>
+            </div>
+          </div>
+          <div class="title">
+            <h1>COVID Awareness for the Bay Area, by the Bay Area.</h1>
+          </div>
+          <v-row dense class="navigation">
+            <v-col cols="12" md="4">
+              <v-card
+                class="mx-auto"
+                max-width="250px"
+                height="120"
+                outlined
+                nuxt-link
+                to="/main"
+              >
+                <v-list-item three-line>
+                  <v-list-item-content>
+                    <v-list-item-title class="cardtitle">
+                      What do I need to <br />know?
+                    </v-list-item-title>
+                    <v-list-item-subtitle class="carddescription">
+                      See Frequently Asked Questions
+                    </v-list-item-subtitle>
+                  </v-list-item-content>
+                  <NavigateNextIcon />
+                </v-list-item>
+              </v-card>
+            </v-col>
+            <v-col cols="12" md="4">
+              <v-card
+                class="mx-auto"
+                max-width="250px"
+                height="120"
+                outlined
+                nuxt-link
+                to="/main"
+              >
+                <v-list-item three-line>
+                  <v-list-item-content>
+                    <v-list-item-title class="cardtitle">
+                      What are the <br />numbers like?
+                    </v-list-item-title>
+                    <v-list-item-subtitle class="carddescription">
+                      See Bay Area COVID Statistics
+                    </v-list-item-subtitle>
+                  </v-list-item-content>
+                  <NavigateNextIcon />
+                </v-list-item>
+              </v-card>
+            </v-col>
+            <v-col cols="12" md="4">
+              <v-card
+                class="mx-auto"
+                max-width="250px"
+                height="120"
+                outlined
+                nuxt-link
+                to="/main"
+              >
+                <v-list-item three-line>
+                  <v-list-item-content>
+                    <v-list-item-title class="cardtitle">
+                      How are people <br />doing?
+                    </v-list-item-title>
+                    <v-list-item-subtitle class="carddescription">
+                      See Stories of the Bay
+                    </v-list-item-subtitle>
+                  </v-list-item-content>
+                  <NavigateNextIcon />
+                </v-list-item>
+              </v-card>
+            </v-col>
+          </v-row>
+        </v-container>
+      </v-parallax>
+    </v-app>
   </div>
 </template>
 
-<script>
-import TimeBarChart from '@/components/TimeBarChart.vue'
-import CasesSummary from '@/components/CasesSummary.vue'
-import Data from '@/data/data.json'
-import formatCountyData from '@/utils/formatCountyData'
+<script lang="ts">
+import Vue from 'vue'
+import NavigateNextIcon from '@/static/navigate_next-24px.svg'
 
-export default {
+export default Vue.extend({
   components: {
-    CasesSummary,
-    TimeBarChart
+    NavigateNextIcon
   },
   data() {
-    const CountyData = formatCountyData(Data)
-
-    // Sort County Data in descending order of cases
-    CountyData.sort((countyA, countyB) => {
-      let r = 0
-      if (
-        countyA.graph.slice(-1)[0].cumulative >
-        countyB.graph.slice(-1)[0].cumulative
-      ) {
-        r = -1
-      } else if (
-        countyA.graph.slice(-1)[0].cumulative <
-        countyB.graph.slice(-1)[0].cumulative
-      ) {
-        r = 1
-      }
-      return r
-    })
-
-    const data = {
-      Data,
-      CountyData
-    }
-    return data
-  },
-  head() {
-    return {
-      title: 'Stop Coronavirus in the Bay Area'
-    }
+    return {}
   }
-}
+})
 </script>
-
-<style lang="scss" scoped>
-.MainPage {
-  .DataBlock {
-    margin: 20px -8px;
-    .DataCard {
-      @include largerThan($medium) {
-        padding: 10px;
-      }
-      @include lessThan($small) {
-        padding: 4px 8px;
-      }
-    }
-  }
+<style lang="scss">
+.app {
+  display: flex;
+  max-width: 1440px;
+  margin: 0 auto;
+}
+.sficon {
+  width: 60px;
+  height: auto;
+  max-width: 60px;
+  max-height: 60px;
+}
+.sitenamebyc4sf {
+  margin-left: 15px;
+  width: 200px;
+}
+.sitename {
+  font-size: 28px;
+}
+.byc4sf {
+  font-size: 14px;
+}
+.header {
+  display: flex;
+}
+.header img {
+  flex: 0 0 auto;
+}
+.title {
+  margin-top: 50px;
+  line-height: 2;
+}
+.title h1 {
+  height: auto;
+  line-height: 1.2;
+}
+.cardtitle {
+  font-weight: 500;
+  font-size: 24px;
+  word-wrap: normal;
+  color: #403875;
+}
+.carddescription {
+  margin-top: 10px;
+  font-size: 12px;
+}
+.navigation {
+  margin-top: 50px;
 }
 </style>

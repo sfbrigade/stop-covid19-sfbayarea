@@ -179,9 +179,9 @@ const config: Configuration = {
     hardSource: process.env.NODE_ENV === 'development'
   },
   manifest: {
-    name: 'Stop Coronavirus in the Bay Area',
-    theme_color: '#00a040',
-    background_color: '#ffffff',
+    name: 'Bay Area Panda',
+    theme_color: '#403875',
+    background_color: '#403875',
     display: 'standalone',
     Scope: '/',
     start_url: '/',
