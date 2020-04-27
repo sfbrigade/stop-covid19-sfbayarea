@@ -5,16 +5,15 @@
     </div>
     <div v-else>
       <div class="mainContainer">
-        <v-app-bar color="#403875" dark fixed>
-          <!-- ToDo: Link back to the top page
-          <nuxt-link to="/"> 
+        <v-app-bar color="#403875" dark fixed height="64px">
+          <nuxt-link to="/">
+            <div v-if="isWindowLarge === true">
+              <v-img width="auto" height="60px" src="/header-icon-wtext.png" />
+            </div>
+            <div v-else>
+              <v-img width="auto" height="60px" src="/header-icon.png" />
+            </div>
           </nuxt-link>
-          -->
-          <v-img class="sficon" src="/sf.png" />
-          <v-toolbar-title class="title">
-            <span class="sitename">Bay Area PanDa </span> <br />
-            <span class="byc4sf">by Code for San Francisco </span>
-          </v-toolbar-title>
 
           <template>
             <v-tabs
@@ -78,6 +77,15 @@ export default Vue.extend({
       ]
     }
   },
+  computed: {
+    isWindowLarge() {
+      if (window.matchMedia('(min-width: 1024px)').matches) {
+        return true
+      } else {
+        return false
+      }
+    }
+  },
   mounted() {
     this.loading = false
     this.active_tab = this.preselectedtab
@@ -88,21 +96,6 @@ export default Vue.extend({
 .app {
   max-width: 1440px;
   margin: 0 auto;
-  .sficon {
-    width: 60px;
-    height: 60px;
-  }
-  .title {
-    line-height: 1;
-    margin-left: 20px;
-    width: 340px;
-  }
-  .sitename {
-    font-size: 26px;
-  }
-  .byc4sf {
-    font-size: 14px;
-  }
   .tab {
     font-size: 24px;
     margin-left: 20px;
