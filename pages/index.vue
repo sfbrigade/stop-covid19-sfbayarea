@@ -21,7 +21,7 @@
                 height="120"
                 outlined
                 nuxt-link
-                to="/main"
+                :to="{ name: 'main', params: { tab: 'faq' } }"
               >
                 <v-list-item three-line>
                   <v-list-item-content>
@@ -43,7 +43,7 @@
                 height="120"
                 outlined
                 nuxt-link
-                to="/main"
+                :to="{ name: 'main', params: { tab: 'stats' } }"
               >
                 <v-list-item three-line>
                   <v-list-item-content>
@@ -65,7 +65,7 @@
                 height="120"
                 outlined
                 nuxt-link
-                to="/main"
+                :to="{ name: 'main', params: { tab: 'news' } }"
               >
                 <v-list-item three-line>
                   <v-list-item-content>

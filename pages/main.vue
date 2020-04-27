@@ -18,24 +18,24 @@
 
           <template>
             <v-tabs
-              v-model="tab"
+              v-model="active_tab"
               align-with-title
               fixed-tabs
               background-color="#403875"
               dark
             >
-              <v-tab v-for="item in items" :key="item" class="tab">
-                {{ item }}
+              <v-tab v-for="tab in tabs" :key="tab.id" class="tab">
+                {{ tab.name }}
               </v-tab>
             </v-tabs>
           </template>
         </v-app-bar>
 
-        <v-tabs-items v-model="tab" class="tabcontent">
-          <v-tab-item v-for="item in items" :key="item">
-            <Faq v-if="item === 'FAQ'" />
-            <Stats v-if="item === 'Stats'" />
-            <News v-if="item === 'News'" />
+        <v-tabs-items v-model="active_tab" class="tabcontent">
+          <v-tab-item v-for="tab in tabs" :key="tab.id">
+            <Faq v-if="tab.name === 'FAQ'" />
+            <Stats v-if="tab.name === 'Stats'" />
+            <News v-if="tab.name === 'News'" />
           </v-tab-item>
         </v-tabs-items>
       </div>
@@ -57,15 +57,30 @@ export default Vue.extend({
     Stats,
     News
   },
+  asyncData(context) {
+    if (context.params.tab === 'news') {
+      return { preselectedtab: 2 }
+    } else if (context.params.tab === 'stats') {
+      return { preselectedtab: 1 }
+    } else {
+      // "faq"
+      return { preselectedtab: 0 }
+    }
+  },
   data() {
     return {
       loading: true,
-      tab: null,
-      items: ['FAQ', 'Stats', 'News']
+      active_tab: null,
+      tabs: [
+        { id: 1, name: 'FAQ' },
+        { id: 2, name: 'Stats' },
+        { id: 3, name: 'News' }
+      ]
     }
   },
   mounted() {
     this.loading = false
+    this.active_tab = this.preselectedtab
   }
 })
 </script>
