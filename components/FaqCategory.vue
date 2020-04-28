@@ -75,15 +75,19 @@ export default {
   &-QA {
     &-Q {
       @include body-text();
+      font-size: 14px;
     }
 
     &-A {
       @include body-text();
+      font-size: 14px;
       font-weight: bold;
     }
 
     &-Link {
       @include text-link();
+      margin-top: 10px;
+      font-size: 12px;
       font-style: italic;
       font-weight: bold;
     }

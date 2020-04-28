@@ -5,13 +5,13 @@
         <v-container fluid>
           <img src="/header-icon-wtext.png" />
           <div class="title">
-            <h1>COVID Awareness for the Bay Area, by the Bay Area.</h1>
+            <h2>COVID Awareness for the Bay Area, by the Bay Area.</h2>
           </div>
           <v-row dense class="navigation">
             <v-col cols="12" md="4">
               <v-card
                 class="mx-auto"
-                max-width="250px"
+                width="260px"
                 height="120"
                 outlined
                 nuxt-link
@@ -33,7 +33,7 @@
             <v-col cols="12" md="4">
               <v-card
                 class="mx-auto"
-                max-width="250px"
+                max-width="260px"
                 height="120"
                 outlined
                 nuxt-link
@@ -55,7 +55,7 @@
             <v-col cols="12" md="4">
               <v-card
                 class="mx-auto"
-                max-width="250px"
+                max-width="260px"
                 height="120"
                 outlined
                 nuxt-link
@@ -126,19 +126,19 @@ export default Vue.extend({
   margin-top: 50px;
   line-height: 2;
 }
-.title h1 {
+.title h2 {
   height: auto;
   line-height: 1.2;
 }
 .cardtitle {
-  font-weight: 500;
-  font-size: 24px;
+  font-weight: bold;
+  font-size: 20px;
   word-wrap: normal;
   color: #403875;
 }
 .carddescription {
   margin-top: 10px;
-  font-size: 12px;
+  font-size: 14px;
 }
 .navigation {
   margin-top: 50px;
