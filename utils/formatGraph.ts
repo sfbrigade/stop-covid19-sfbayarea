@@ -16,7 +16,7 @@ export default (data: DataType[]) => {
   const graphData: GraphDataType[] = []
   const today = new Date()
   const lastMonth = new Date()
-  lastMonth.setMonth(today.getMonth() - 1)
+  lastMonth.setMonth(today.getMonth() - 2)
   let subTotal = 0
   let previousDayCases = 0
   let deathSubTotal = 0
