@@ -1,91 +1,126 @@
 <template>
-  <div class="MainPage">
-    <v-row class="DataBlock">
-      <v-col cols="12" md="6" class="DataCard">
-        <cases-summary
-          :title="'Cases Summary'"
-          :title-id="'confirmed-cases'"
-          :url="'https://coronadatascraper.com'"
-        />
-      </v-col>
-      <v-col
-        v-for="(county, index) in CountyData"
-        :key="index"
-        :county="county"
-        cols="12"
-        md="6"
-        class="DataCard"
-      >
-        <time-bar-chart
-          :title="`${county.name}`"
-          :title-id="'number-of-confirmed-cases'"
-          :chart-id="'time-bar-chart-patients'"
-          :chart-data="county.graph"
-          :date="county.lastUpdatedAt"
-          :url="'https://coronadatascraper.com'"
-        />
-      </v-col>
-    </v-row>
+  <div id="app">
+    <v-app id="inspire">
+      <v-parallax width="auto" height="auto" src="/header-bg.png">
+        <v-container fluid>
+          <img src="/header-icon-wtext.png" />
+          <div class="title">
+            <h1>COVID Awareness for the Bay Area, by the Bay Area.</h1>
+          </div>
+          <v-row dense class="navigation">
+            <v-col v-for="(item, i) in cardItems" :key="i" cols="12" md="4">
+              <v-card
+                class="mx-auto"
+                width="320px"
+                height="120"
+                outlined
+                nuxt-link
+                :to="{ name: item.to, params: item.params }"
+              >
+                <v-list-item three-line>
+                  <v-list-item-content>
+                    <v-list-item-title class="cardtitle">
+                      {{ item.title }}
+                    </v-list-item-title>
+                    <v-list-item-subtitle class="carddescription">
+                      {{ item.subtitle }}
+                    </v-list-item-subtitle>
+                  </v-list-item-content>
+                  <NavigateNextIcon />
+                </v-list-item>
+              </v-card>
+            </v-col>
+          </v-row>
+        </v-container>
+      </v-parallax>
+    </v-app>
   </div>
 </template>
 
-<script>
-import TimeBarChart from '@/components/TimeBarChart.vue'
-import CasesSummary from '@/components/CasesSummary.vue'
-import Data from '@/data/data.json'
-import formatCountyData from '@/utils/formatCountyData'
+<script lang="ts">
+import Vue from 'vue'
+import NavigateNextIcon from '@/static/navigate_next-24px.svg'
 
-export default {
+export default Vue.extend({
   components: {
-    CasesSummary,
-    TimeBarChart
+    NavigateNextIcon
   },
   data() {
-    const CountyData = formatCountyData(Data)
-
-    // Sort County Data in descending order of cases
-    CountyData.sort((countyA, countyB) => {
-      let r = 0
-      if (
-        countyA.graph.slice(-1)[0].cumulative >
-        countyB.graph.slice(-1)[0].cumulative
-      ) {
-        r = -1
-      } else if (
-        countyA.graph.slice(-1)[0].cumulative <
-        countyB.graph.slice(-1)[0].cumulative
-      ) {
-        r = 1
-      }
-      return r
-    })
-
-    const data = {
-      Data,
-      CountyData
-    }
-    return data
+    return {}
   },
-  head() {
-    return {
-      title: 'Stop Coronavirus in the Bay Area'
+  computed: {
+    cardItems() {
+      return [
+        {
+          title: 'What do I need to know?',
+          subtitle: 'See Frequently Asked Questions',
+          to: 'main',
+          params: { tab: 'faq' }
+        },
+        {
+          title: 'What are the numbers like?',
+          subtitle: 'See Bay Area COVID Statistics',
+          to: 'main',
+          params: { tab: 'stats' }
+        },
+        {
+          title: 'How are people doing?',
+          subtitle: 'See Stories of the Bay',
+          to: 'main',
+          params: { tab: 'news' }
+        }
+      ]
     }
   }
-}
+})
 </script>
-
-<style lang="scss" scoped>
-.MainPage {
-  .DataBlock {
-    margin: 20px -8px;
-    .DataCard {
-      @include largerThan($medium) {
-        padding: 10px;
-      }
-      @include lessThan($small) {
-        padding: 4px 8px;
-      }
-    }
-  }
+<style lang="scss">
+.app {
+  display: flex;
+  max-width: 1440px;
+  margin: 0 auto;
+}
+.sficon {
+  width: 60px;
+  height: auto;
+  max-width: 60px;
+  max-height: 60px;
+}
+.sitenamebyc4sf {
+  margin-left: 15px;
+  width: 200px;
+}
+.sitename {
+  font-size: 28px;
+}
+.byc4sf {
+  font-size: 14px;
+}
+.header {
+  display: flex;
+}
+.header img {
+  flex: 0 0 auto;
+}
+.title {
+  margin-top: 50px;
+  line-height: 2;
+}
+.title h1 {
+  height: auto;
+  line-height: 1.2;
+}
+.cardtitle {
+  font-weight: bold;
+  font-size: 20px;
+  word-wrap: normal;
+  color: #403875;
+}
+.carddescription {
+  margin-top: 10px;
+  font-size: 14px;
+}
+.navigation {
+  margin-top: 50px;
 }
 </style>

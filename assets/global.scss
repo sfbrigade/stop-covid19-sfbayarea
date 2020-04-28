@@ -2,6 +2,10 @@
   box-sizing: border-box;
 }
 
+* {
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
 body {
   background-color: $gray-5;
 }
@@ -10,4 +14,29 @@ img {
   max-width: 100%;
   height: auto;
   vertical-align: bottom;
+}
+
+h1 {
+  font-weight: 900; // Heavy
+  font-size: 30pt;
+}
+
+h2 {
+  font-weight: bold;
+  font-size: 26pt;
+}
+
+h3 {
+  font-weight: bold;
+  font-size: 24pt;
+}
+
+h4 {
+  font-weight: bold;
+  font-size: 16pt;
+}
+
+h5 {
+  font-weight: 600; // Semi Bold;
+  font-size: 14pt;
 }
