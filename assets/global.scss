@@ -3,7 +3,7 @@
 }
 
 * {
-  font-family: 'SF Pro Text', 'Hiragino Sans', sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
 body {
@@ -17,31 +17,26 @@ img {
 }
 
 h1 {
-  font-family: 'SF Pro Display', 'Hiragino Sans', sans-serif;
   font-weight: 900; // Heavy
   font-size: 30pt;
 }
 
 h2 {
-  font-family: 'SF Pro Display', 'Hiragino Sans', sans-serif;
   font-weight: bold;
   font-size: 26pt;
 }
 
 h3 {
-  font-family: 'SF Compact Display', 'Hiragino Sans', sans-serif;
   font-weight: bold;
   font-size: 24pt;
 }
 
 h4 {
-  font-family: 'SF Compact Display', 'Hiragino Sans', sans-serif;
   font-weight: bold;
   font-size: 16pt;
 }
 
 h5 {
-  font-family: 'SF Compact Display', 'Hiragino Sans', sans-serif;
   font-weight: 600; // Semi Bold;
   font-size: 14pt;
 }
