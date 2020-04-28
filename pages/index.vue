@@ -5,69 +5,25 @@
         <v-container fluid>
           <img src="/header-icon-wtext.png" />
           <div class="title">
-            <h2>COVID Awareness for the Bay Area, by the Bay Area.</h2>
+            <h1>COVID Awareness for the Bay Area, by the Bay Area.</h1>
           </div>
           <v-row dense class="navigation">
-            <v-col cols="12" md="4">
+            <v-col v-for="(item, i) in cardItems" :key="i" cols="12" md="4">
               <v-card
                 class="mx-auto"
-                width="260px"
+                width="320px"
                 height="120"
                 outlined
                 nuxt-link
-                :to="{ name: 'main', params: { tab: 'faq' } }"
+                :to="{ name: item.to, params: item.params }"
               >
                 <v-list-item three-line>
                   <v-list-item-content>
                     <v-list-item-title class="cardtitle">
-                      What do I need to <br />know?
+                      {{ item.title }}
                     </v-list-item-title>
                     <v-list-item-subtitle class="carddescription">
-                      See Frequently Asked Questions
-                    </v-list-item-subtitle>
-                  </v-list-item-content>
-                  <NavigateNextIcon />
-                </v-list-item>
-              </v-card>
-            </v-col>
-            <v-col cols="12" md="4">
-              <v-card
-                class="mx-auto"
-                max-width="260px"
-                height="120"
-                outlined
-                nuxt-link
-                :to="{ name: 'main', params: { tab: 'stats' } }"
-              >
-                <v-list-item three-line>
-                  <v-list-item-content>
-                    <v-list-item-title class="cardtitle">
-                      What are the <br />numbers like?
-                    </v-list-item-title>
-                    <v-list-item-subtitle class="carddescription">
-                      See Bay Area COVID Statistics
-                    </v-list-item-subtitle>
-                  </v-list-item-content>
-                  <NavigateNextIcon />
-                </v-list-item>
-              </v-card>
-            </v-col>
-            <v-col cols="12" md="4">
-              <v-card
-                class="mx-auto"
-                max-width="260px"
-                height="120"
-                outlined
-                nuxt-link
-                :to="{ name: 'main', params: { tab: 'news' } }"
-              >
-                <v-list-item three-line>
-                  <v-list-item-content>
-                    <v-list-item-title class="cardtitle">
-                      How are people <br />doing?
-                    </v-list-item-title>
-                    <v-list-item-subtitle class="carddescription">
-                      See Stories of the Bay
+                      {{ item.subtitle }}
                     </v-list-item-subtitle>
                   </v-list-item-content>
                   <NavigateNextIcon />
@@ -91,6 +47,30 @@ export default Vue.extend({
   },
   data() {
     return {}
+  },
+  computed: {
+    cardItems() {
+      return [
+        {
+          title: 'What do I need to know?',
+          subtitle: 'See Frequently Asked Questions',
+          to: 'main',
+          params: { tab: 'faq' }
+        },
+        {
+          title: 'What are the numbers like?',
+          subtitle: 'See Bay Area COVID Statistics',
+          to: 'main',
+          params: { tab: 'stats' }
+        },
+        {
+          title: 'How are people doing?',
+          subtitle: 'See Stories of the Bay',
+          to: 'main',
+          params: { tab: 'news' }
+        }
+      ]
+    }
   }
 })
 </script>
@@ -126,7 +106,7 @@ export default Vue.extend({
   margin-top: 50px;
   line-height: 2;
 }
-.title h2 {
+.title h1 {
   height: auto;
   line-height: 1.2;
 }
