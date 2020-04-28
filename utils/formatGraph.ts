@@ -16,7 +16,7 @@ export default (data: DataType[]) => {
   const graphData: GraphDataType[] = []
   const today = new Date()
   const lastMonth = new Date()
-  lastMonth.setMonth(today.getMonth() - 1)
+  lastMonth.setMonth(today.getMonth() - 2)
   let subTotal = 0
   let previousDayCases = 0
   let deathSubTotal = 0
@@ -29,6 +29,13 @@ export default (data: DataType[]) => {
       const deaths = d.deaths
       if (!isNaN(cases)) {
         if (cases === 0) {
+          return
+        }
+
+        // first date in the chart needs to be calculated in the beginning
+        if (previousDayCases === 0) {
+          previousDayCases = array[idx].cases
+          deathPreviousDayCases = array[idx].deaths
           return
         }
         subTotal = cases - previousDayCases
