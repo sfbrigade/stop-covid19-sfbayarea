@@ -11,7 +11,7 @@
               <v-img width="auto" height="60px" src="/header-icon-wtext.png" />
             </div>
             <div v-else>
-              <v-img width="auto" height="60px" src="/header-icon.png" />
+              <v-img width="60px" height="60px" src="/header-icon.png" />
             </div>
           </nuxt-link>
 

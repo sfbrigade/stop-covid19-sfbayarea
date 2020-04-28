@@ -7,7 +7,7 @@
   >
     <div class="summary">
       <div class="total-positive">
-        <h1>Confirmed:</h1>
+        <h2>Confirmed:</h2>
         <div class="total-positive-number">
           {{
             isNaN(calcTotalCasesSummary.cases) != true
@@ -17,7 +17,7 @@
         </div>
       </div>
       <div class="deaths">
-        <h1>Deaths:</h1>
+        <h2>Deaths:</h2>
         <div class="deaths-number">
           {{
             isNaN(calcTotalCasesSummary.deaths) != true

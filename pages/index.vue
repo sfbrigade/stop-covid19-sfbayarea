@@ -3,77 +3,27 @@
     <v-app id="inspire">
       <v-parallax width="auto" height="auto" src="/header-bg.png">
         <v-container fluid>
-          <div class="header">
-            <img src="/sf.png" width="64px" height="64px" />
-            <div class="sitenamebyc4sf">
-              <span class="sitename">Bay Area PanDa</span>
-              <span class="byc4sf">by Code for San Francisco </span>
-            </div>
-          </div>
+          <img src="/header-icon-wtext.png" />
           <div class="title">
             <h1>COVID Awareness for the Bay Area, by the Bay Area.</h1>
           </div>
           <v-row dense class="navigation">
-            <v-col cols="12" md="4">
+            <v-col v-for="(item, i) in cardItems" :key="i" cols="12" md="4">
               <v-card
                 class="mx-auto"
-                max-width="250px"
+                width="320px"
                 height="120"
                 outlined
                 nuxt-link
-                :to="{ name: 'main', params: { tab: 'faq' } }"
+                :to="{ name: item.to, params: item.params }"
               >
                 <v-list-item three-line>
                   <v-list-item-content>
                     <v-list-item-title class="cardtitle">
-                      What do I need to <br />know?
+                      {{ item.title }}
                     </v-list-item-title>
                     <v-list-item-subtitle class="carddescription">
-                      See Frequently Asked Questions
-                    </v-list-item-subtitle>
-                  </v-list-item-content>
-                  <NavigateNextIcon />
-                </v-list-item>
-              </v-card>
-            </v-col>
-            <v-col cols="12" md="4">
-              <v-card
-                class="mx-auto"
-                max-width="250px"
-                height="120"
-                outlined
-                nuxt-link
-                :to="{ name: 'main', params: { tab: 'stats' } }"
-              >
-                <v-list-item three-line>
-                  <v-list-item-content>
-                    <v-list-item-title class="cardtitle">
-                      What are the <br />numbers like?
-                    </v-list-item-title>
-                    <v-list-item-subtitle class="carddescription">
-                      See Bay Area COVID Statistics
-                    </v-list-item-subtitle>
-                  </v-list-item-content>
-                  <NavigateNextIcon />
-                </v-list-item>
-              </v-card>
-            </v-col>
-            <v-col cols="12" md="4">
-              <v-card
-                class="mx-auto"
-                max-width="250px"
-                height="120"
-                outlined
-                nuxt-link
-                :to="{ name: 'main', params: { tab: 'news' } }"
-              >
-                <v-list-item three-line>
-                  <v-list-item-content>
-                    <v-list-item-title class="cardtitle">
-                      How are people <br />doing?
-                    </v-list-item-title>
-                    <v-list-item-subtitle class="carddescription">
-                      See Stories of the Bay
+                      {{ item.subtitle }}
                     </v-list-item-subtitle>
                   </v-list-item-content>
                   <NavigateNextIcon />
@@ -97,6 +47,30 @@ export default Vue.extend({
   },
   data() {
     return {}
+  },
+  computed: {
+    cardItems() {
+      return [
+        {
+          title: 'What do I need to know?',
+          subtitle: 'See Frequently Asked Questions',
+          to: 'main',
+          params: { tab: 'faq' }
+        },
+        {
+          title: 'What are the numbers like?',
+          subtitle: 'See Bay Area COVID Statistics',
+          to: 'main',
+          params: { tab: 'stats' }
+        },
+        {
+          title: 'How are people doing?',
+          subtitle: 'See Stories of the Bay',
+          to: 'main',
+          params: { tab: 'news' }
+        }
+      ]
+    }
   }
 })
 </script>
@@ -137,14 +111,14 @@ export default Vue.extend({
   line-height: 1.2;
 }
 .cardtitle {
-  font-weight: 500;
-  font-size: 24px;
+  font-weight: bold;
+  font-size: 20px;
   word-wrap: normal;
   color: #403875;
 }
 .carddescription {
   margin-top: 10px;
-  font-size: 12px;
+  font-size: 14px;
 }
 .navigation {
   margin-top: 50px;
