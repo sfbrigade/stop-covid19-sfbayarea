@@ -3,13 +3,7 @@
     <v-app id="inspire">
       <v-parallax width="auto" height="auto" src="/header-bg.png">
         <v-container fluid>
-          <div class="header">
-            <img src="/sf.png" width="64px" height="64px" />
-            <div class="sitenamebyc4sf">
-              <span class="sitename">Bay Area PanDa</span>
-              <span class="byc4sf">by Code for San Francisco </span>
-            </div>
-          </div>
+          <img src="/header-icon-wtext.png" />
           <div class="title">
             <h1>COVID Awareness for the Bay Area, by the Bay Area.</h1>
           </div>
