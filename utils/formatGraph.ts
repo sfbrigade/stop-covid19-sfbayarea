@@ -31,6 +31,13 @@ export default (data: DataType[]) => {
         if (cases === 0) {
           return
         }
+
+        // first date in the chart needs to be calculated in the beginning
+        if (previousDayCases === 0) {
+          previousDayCases = array[idx].cases
+          deathPreviousDayCases = array[idx].deaths
+          return
+        }
         subTotal = cases - previousDayCases
         deathSubTotal = deaths - deathPreviousDayCases
 
