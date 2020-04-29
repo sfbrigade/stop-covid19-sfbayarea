@@ -7,3 +7,7 @@ export const convertDatetimeToISO8601Format = (dateString: string): string => {
 export const convertDateToISO8601Format = (dateString: string): string => {
   return dayjs(dateString).format('YYYY-MM-DD')
 }
+
+export const convertISO8601ToHumanDateFormat = (dateString: string): string => {
+  return dayjs(dateString).format('MM/DD/YYYY')
+}
