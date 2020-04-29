@@ -16,9 +16,9 @@
         >
           <time
             class="WhatsNew-list-item-anchor-time px-2"
-            :datetime="formattedDate(item.date)"
+            :datetime="item.date"
           >
-            {{ item.date }}
+            {{ humanDate(item.date) }}
           </time>
           <span class="WhatsNew-list-item-anchor-link">
             {{ item.text }}
@@ -37,7 +37,7 @@
 </template>
 
 <script>
-import { convertDateToISO8601Format } from '@/utils/formatDate'
+import { convertISO8601ToHumanDateFormat } from '@/utils/formatDate'
 
 export default {
   props: {
@@ -50,8 +50,8 @@ export default {
     isInternalLink(path) {
       return !/^https?:\/\//.test(path)
     },
-    formattedDate(dateString) {
-      return convertDateToISO8601Format(dateString)
+    humanDate(isoDate) {
+      return convertISO8601ToHumanDateFormat(isoDate)
     }
   }
 }
@@ -93,7 +93,7 @@ export default {
       }
 
       &-time {
-        flex: 0 0 90px;
+        flex: 0 0 95px;
         @include lessThan($medium) {
           flex: 0 0 100%;
         }
