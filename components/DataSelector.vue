@@ -22,7 +22,7 @@
 .DataSelector {
   margin-top: 2px;
   border: 1px solid $gray-4;
-  background-color: $white;
+  background-color: $white-1;
   &-Button {
     border: none !important;
     margin: 2px;
@@ -30,7 +30,7 @@
     height: 24px !important;
     font-size: 12px !important;
     color: $gray-1 !important;
-    background-color: $white !important;
+    background-color: $white-1 !important;
     &::before {
       background-color: inherit;
     }
@@ -38,7 +38,7 @@
 
   & .v-btn--active {
     background-color: $gray-2 !important;
-    color: $white !important;
+    color: $white-1 !important;
   }
 }
 </style>
