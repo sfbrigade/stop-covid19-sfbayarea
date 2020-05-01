@@ -6,12 +6,13 @@
         :key="i"
         v-ripple="false"
         :to="`#faq-content-${i}`"
+        :class="{ active: activeCategory === i }"
         class="SideNavigationOverview-Container"
       >
         <v-list-item-content class="SideNavigationOverview-TextContainer">
           <v-list-item-title
             class="SideNavigationOverview-Text"
-            @click="viewCategory(item, i)"
+            @click="viewCategory(i)"
             v-text="item.title"
           />
         </v-list-item-content>
@@ -26,12 +27,14 @@ export default {
     categories: {
       type: Array,
       required: true
+    },
+    activeCategory: {
+      type: Number,
+      default: 0
     }
   },
   methods: {
-    viewCategory(item, i) {
-      // eslint-disable-next-line no-console
-      console.log(this.$route, item.title, i)
+    viewCategory(i) {
       this.$emit('clicked', i)
     }
   }
@@ -74,7 +77,8 @@ export default {
         }
       }
     }
-    .v-list-item--active {
+    .v-list-item--active,
+    .active {
       color: $black !important;
       font-weight: bold;
       border-left: 5px solid $purple-1;

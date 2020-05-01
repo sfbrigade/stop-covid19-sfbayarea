@@ -3,8 +3,12 @@
     <h2 class="Parent-Heading">
       <!-- Tab TBD -->
     </h2>
-    <SideNavigationOverview :categories="items" @clicked="scrollToCategory" />
-    <div class="FaqContent-Scroll-Area">
+    <SideNavigationOverview
+      :categories="items"
+      :active-category="activeCategory"
+      @clicked="scrollToCategory"
+    />
+    <div class="FaqContent-Scroll-Area" @scroll.passive="debounce">
       <div class="FaqContent-Filler">
         <div
           v-for="(item, i) in items"
@@ -24,6 +28,7 @@
   </div>
 </template>
 <script>
+import { debounce as debounceFromNPM } from 'debounce'
 import FaqCategory from '@/components/FaqCategory.vue'
 import SideNavigationOverview from '@/components/SideNavigationOverview.vue'
 import Faq from '@/data/faq.json'
@@ -35,24 +40,51 @@ export default {
   },
   data() {
     return {
-      items: Faq.faqItems
+      items: Faq.faqItems,
+      allScrollTops: [],
+      activeCategory: 0
+    }
+  },
+  mounted() {
+    // GET ALL FAQ CATEGORY'S TOP POSITION FOR SCROLL
+    const faqCategoriesCount = Faq.faqItems.length
+    for (let i = 0; i < faqCategoriesCount; i++) {
+      const elem = document.getElementById(`faq-content-${i}`)
+      const top = elem.offsetTop
+      this.allScrollTops.push(top)
     }
   },
   methods: {
     scrollToCategory(category) {
-      const elem = this.$refs[category]
-      const top = elem[0].offsetTop
-      // this.$scrollTo(elem[0])
-      // const element = document.getElementById('faq-content-1')
-      // window.scrollTo({ top, behavior: 'smooth' })
-      // VueScrollTo(elem[0])
-      // const hash = `#faq-content-${category}`
-      // document.location.href = `#faq-content-${category}`
-      // window.scrollTo({ top, left: 0, behavior: 'smooth' })
+      // const elem = this.$refs[category]
+      // const top = elem[0].offsetTop
       location.hash = `#faq-content-${category}`
+    },
+    debounce: debounceFromNPM(function(e) {
+      this.handleScroll(e)
+    }, 300),
+    handleScroll(event) {
+      const findHashIndexBaseOnScrollPosition = (currPos, allScrollsPos) => {
+        const allScrollTopsLength = allScrollsPos.length
+        let hashIdx = 0
+        while (hashIdx < allScrollTopsLength) {
+          const startPos = allScrollsPos[hashIdx]
+          const nextPos = allScrollsPos[hashIdx + 1]
+          if (nextPos === undefined) break
+          if (startPos <= currPos && currPos < nextPos) break
+          hashIdx++
+        }
+        return hashIdx
+      }
 
-      // eslint-disable-next-line no-console
-      console.log(category, elem[0], top)
+      if (document.location.href.includes('#')) {
+        document.location.hash = ''
+      }
+      const scrollPosition = event.target.scrollTop
+      this.activeCategory = findHashIndexBaseOnScrollPosition(
+        scrollPosition,
+        this.allScrollTops
+      )
     }
   },
   head() {
