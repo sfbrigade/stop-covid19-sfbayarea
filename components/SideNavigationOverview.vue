@@ -45,7 +45,7 @@ export default {
   }
   &-List {
     background: $white-2 !important;
-    margin: 0 1.5rem 0 1rem;
+    margin: 0 1.25rem 0 1rem;
     border-radius: 10px;
     padding: 8px 18px;
     a {

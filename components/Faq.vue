@@ -5,14 +5,15 @@
     </h2>
     <SideNavigationOverview :categories="items" @clicked="scrollToCategory" />
     <div class="FaqContent-Scroll-Area">
-      <div class="FaqContent-Wrapper">
+      <div class="FaqContent-Filler">
         <div
           v-for="(item, i) in items"
           :id="`faq-content-${i}`"
           :key="i"
-          :ref="i"
+          class="FaqContent-Wrapper"
         >
           <FaqCategory
+            :ref="i"
             :title="item.title"
             :last-updated-at="item.lastUpdatedAt"
             :qa="item.qa"
@@ -77,8 +78,12 @@ export default {
   .FaqContent-Scroll-Area {
     overflow-x: scroll;
     height: calc(100vh - 80px);
-    .FaqContent-Wrapper {
+    padding: 0 10px;
+    .FaqContent-Filler {
       height: 200%;
+      .FaqContent-Wrapper {
+        margin-bottom: 20px;
+      }
     }
   }
 }
