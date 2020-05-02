@@ -58,6 +58,7 @@ export default {
     scrollToCategory(category) {
       // const elem = this.$refs[category]
       // const top = elem[0].offsetTop
+      this.activeCategory = category
       location.hash = `#faq-content-${category}`
     },
     debounce: debounceFromNPM(function(e) {
