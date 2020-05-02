@@ -124,6 +124,7 @@ export default Vue.extend({
   }
   .tabcontent {
     margin-top: 80px;
+    margin-right: 1.25rem;
   }
   .v-tab {
     text-transform: none !important;

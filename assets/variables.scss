@@ -4,18 +4,25 @@ $green-1: #00A040;
 $green-2: #00B849;
 $green-3: #00D154;
 $green-4: #00EB5E;
-$gray-1: #333333;
-$gray-2: #4D4D4D;
+// $gray-1: #333333;
+// $gray-2: #4D4D4D;
+$gray-1: #6F6F6F;
+$gray-2: #C8C8C8;
 $gray-3: #808080;
 $gray-4: #D9D9D9;
-$gray-5: #F8F9FA;
-$white: #FFFFFF;
-$black: #000000;
+$white-1: #FFFFFF;
+$white-2: #F8F9FA; 
+$black: #2D2D2D;
 $link: #006CA8;
+// $blue: #114473;
+$purple-1: #473A8C;
+$purple-2: #7D70BB;
+$purple-3: #473A8C;
 
 // ==================
 // shadow
-$shadow: 0px 0px 2px rgba(0, 0, 0, 0.15);
+// $shadow: 0px 0px 2px rgba(0, 0, 0, 0.15);
+$shadow: 0px 5px 20px rgba(0, 0, 0, 0.1);
 
 // ==================
 // break-points
@@ -57,7 +64,7 @@ $z-index-map: (
 }
 @mixin card-h1 {
   @include font-size(24);
-  color: $gray-2;
+  color: $black;
   font-weight: bold;
 }
 @mixin card-h2 {
@@ -67,9 +74,12 @@ $z-index-map: (
 }
 @mixin body-text {
   @include font-size(16);
-  color: $gray-1;
+  color: $black;
   line-height: 160%;
   font-weight: normal;
+  @include lessThan($small) {
+    @include font-size(14);
+  }
 }
 
 // ===================
@@ -92,15 +102,15 @@ $z-index-map: (
   @include font-size(14);
   display: inline-block;
   border-radius: 4px;
-  background-color: $white;
+  background-color: $white-1;
   border: 1px solid $green-1;
   color:$green-1;
   cursor: pointer;
   &:hover {
     background-color: $green-1;
-    color: $white;
+    color: $white-1;
     > i {
-      color: $white !important;
+      color: $white-1 !important;
     }
   }
 }
@@ -108,8 +118,7 @@ $z-index-map: (
 // ===================
 // card
 @mixin card-container {
-  background-color: $white;
+  background-color: $white-1;
   box-shadow: $shadow;
-  border: 0.5px solid $gray-4 !important;
-  border-radius: 4px;
+  border-radius: 10px;
 }

@@ -151,7 +151,7 @@ export default {
 .SideNavigation {
   position: relative;
   height: 100%;
-  background: $gray-5;
+  background: $white-2;
   box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.15);
   &-HeadingContainer {
     padding: 1.25em;
@@ -267,7 +267,7 @@ export default {
     display: block !important;
     width: 100%;
     z-index: z-index-of(opened-side-navigation);
-    background-color: $gray-5;
+    background-color: $white-2;
   }
 }
 .active {

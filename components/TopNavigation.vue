@@ -74,7 +74,7 @@ export default {
     }
   }
   &-Button {
-    background: $white !important;
+    background: $white-1 !important;
     height: 3.5rem !important;
     border-radius: 7px;
     text-transform: none !important;

@@ -40,7 +40,7 @@ export default class StaticInfo extends Vue {
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
-  background-color: $white;
+  background-color: $white-1;
   border: 1px solid $gray-4;
   box-shadow: $shadow;
   border-radius: 4px;
