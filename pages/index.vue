@@ -3,7 +3,7 @@
     <v-app id="inspire">
       <v-parallax width="auto" height="auto" src="/header-bg.png">
         <v-container fluid>
-          <img src="/header-icon-wtext.png" />
+          <img class="headericon" src="/header-icon-wtext.png" />
           <div class="title">
             <h1>COVID Awareness for the Bay Area, by the Bay Area.</h1>
           </div>
@@ -11,8 +11,8 @@
             <v-col v-for="(item, i) in cardItems" :key="i" cols="12" md="4">
               <v-card
                 class="mx-auto"
-                width="320px"
-                height="120"
+                width="276px"
+                height="74px"
                 outlined
                 nuxt-link
                 :to="{ name: item.to, params: item.params }"
@@ -26,7 +26,7 @@
                       {{ item.subtitle }}
                     </v-list-item-subtitle>
                   </v-list-item-content>
-                  <NavigateNextIcon />
+                  <img class="navigationicon" src="/right-arrow.png" />
                 </v-list-item>
               </v-card>
             </v-col>
@@ -39,12 +39,8 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import NavigateNextIcon from '@/static/navigate_next-24px.svg'
 
 export default Vue.extend({
-  components: {
-    NavigateNextIcon
-  },
   data() {
     return {}
   },
@@ -52,22 +48,22 @@ export default Vue.extend({
     cardItems() {
       return [
         {
-          title: 'What do I need to know?',
-          subtitle: 'See Frequently Asked Questions',
+          title: 'Frequently Asked Questions',
+          subtitle: 'What do I need to know?',
           to: 'main',
           params: { tab: 'faq' }
         },
         {
-          title: 'What are the numbers like?',
-          subtitle: 'See Bay Area COVID Statistics',
+          title: 'Bay Area COVID Statistics',
+          subtitle: 'What are the numbers like?',
           to: 'main',
           params: { tab: 'stats' }
         },
         {
-          title: 'How are people doing?',
-          subtitle: 'See Stories of the Bay',
+          title: 'Latest Updates',
+          subtitle: 'What are the recent updates?',
           to: 'main',
-          params: { tab: 'news' }
+          params: { tab: 'updates' }
         }
       ]
     }
@@ -80,47 +76,48 @@ export default Vue.extend({
   max-width: 1440px;
   margin: 0 auto;
 }
-.sficon {
-  width: 60px;
-  height: auto;
-  max-width: 60px;
-  max-height: 60px;
-}
-.sitenamebyc4sf {
-  margin-left: 15px;
-  width: 200px;
-}
-.sitename {
-  font-size: 28px;
-}
-.byc4sf {
-  font-size: 14px;
-}
-.header {
-  display: flex;
-}
-.header img {
-  flex: 0 0 auto;
+.headericon {
+  margin-top: 10px;
 }
 .title {
   margin-top: 50px;
-  line-height: 2;
+  margin-left: 20px;
 }
 .title h1 {
-  height: auto;
   line-height: 1.2;
 }
+.navigation {
+  margin-top: 115px;
+}
 .cardtitle {
+  position: absolute;
+  height: 19px;
+  left: 20px;
+  right: 35px;
+  top: 16px;
+  font-style: normal;
   font-weight: bold;
-  font-size: 20px;
-  word-wrap: normal;
-  color: #403875;
+  font-size: 16px;
+  line-height: 19px;
+  color: #473a8c;
 }
 .carddescription {
-  margin-top: 10px;
-  font-size: 14px;
+  position: absolute;
+  height: 17px;
+  left: 20px;
+  right: 35px;
+  top: 40px;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 140%;
+  color: #6f6f6f;
 }
-.navigation {
-  margin-top: 50px;
+.navigationicon {
+  position: absolute;
+  width: 14px;
+  height: 24px;
+  right: 11px;
+  margin-top: -8px;
 }
 </style>
