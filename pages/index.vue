@@ -1,40 +1,56 @@
 <template>
-  <div id="app">
-    <v-app id="inspire">
-      <v-parallax width="auto" height="auto" src="/header-bg.png">
-        <v-container fluid>
-          <img class="headericon" src="/header-icon-wtext.png" />
-          <div class="title">
-            <h1>COVID Awareness for the Bay Area, by the Bay Area.</h1>
+  <v-app id="app">
+    <v-parallax width="auto" height="auto" src="/header-bg.png">
+      <v-container fluid>
+        <div v-if="this.width > 1024">
+          <div class="desktop">
+            <img class="headericon" src="/header-icon-wtext.png" />
+            <div class="title">
+              <h1>
+                COVID Awareness for the<br />
+                Bay Area, by the Bay Area.
+              </h1>
+            </div>
           </div>
-          <v-row dense class="navigation">
-            <v-col v-for="(item, i) in cardItems" :key="i" cols="12" md="4">
-              <v-card
-                class="mx-auto"
-                width="276px"
-                height="74px"
-                outlined
-                nuxt-link
-                :to="{ name: item.to, params: item.params }"
-              >
-                <v-list-item three-line>
-                  <v-list-item-content>
-                    <v-list-item-title class="cardtitle">
-                      {{ item.title }}
-                    </v-list-item-title>
-                    <v-list-item-subtitle class="carddescription">
-                      {{ item.subtitle }}
-                    </v-list-item-subtitle>
-                  </v-list-item-content>
-                  <img class="navigationicon" src="/right-arrow.png" />
-                </v-list-item>
-              </v-card>
-            </v-col>
-          </v-row>
-        </v-container>
-      </v-parallax>
-    </v-app>
-  </div>
+        </div>
+        <div v-else>
+          <div class="mobile">
+            <img class="headericon" src="/header-icon-wtext.png" />
+            <div class="title">
+              <h1>
+                COVID Awareness <br />for the Bay Area, by <br />the Bay Area.
+              </h1>
+            </div>
+          </div>
+        </div>
+
+        <v-row dense class="navigation">
+          <v-col v-for="(item, i) in cardItems" :key="i" cols="12" md="4">
+            <v-card
+              class="mx-auto"
+              width="276px"
+              height="74px"
+              outlined
+              nuxt-link
+              :to="{ name: item.to, params: item.params }"
+            >
+              <v-list-item three-line>
+                <v-list-item-content>
+                  <v-list-item-title class="cardtitle">
+                    {{ item.title }}
+                  </v-list-item-title>
+                  <v-list-item-subtitle class="carddescription">
+                    {{ item.subtitle }}
+                  </v-list-item-subtitle>
+                </v-list-item-content>
+                <img class="navigationicon" src="/right-arrow.png" />
+              </v-list-item>
+            </v-card>
+          </v-col>
+        </v-row>
+      </v-container>
+    </v-parallax>
+  </v-app>
 </template>
 
 <script lang="ts">
@@ -42,7 +58,10 @@ import Vue from 'vue'
 
 export default Vue.extend({
   data() {
-    return {}
+    return {
+      width: 1024,
+      height: 768
+    }
   },
   computed: {
     cardItems() {
@@ -67,6 +86,10 @@ export default Vue.extend({
         }
       ]
     }
+  },
+  mounted() {
+    this.width = window.innerWidth
+    this.height = window.innerHeight
   }
 })
 </script>
@@ -87,7 +110,7 @@ export default Vue.extend({
   line-height: 1.2;
 }
 .navigation {
-  margin-top: 115px;
+  margin-bottom: 50px;
 }
 .cardtitle {
   position: absolute;
@@ -119,5 +142,19 @@ export default Vue.extend({
   height: 24px;
   right: 11px;
   margin-top: -8px;
+}
+.desktop {
+  margin-left: 70px;
+  margin-top: 20px;
+  .title {
+    margin-top: 80px;
+    margin-bottom: 400px;
+  }
+}
+.mobile {
+  .title {
+    margin-top: 50px;
+    margin-bottom: 115px;
+  }
 }
 </style>
