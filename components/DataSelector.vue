@@ -37,7 +37,7 @@
   }
 
   & .v-btn--active {
-    background-color: $gray-2 !important;
+    background-color: $purple-2 !important;
     color: $white-1 !important;
   }
 }
