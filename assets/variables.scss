@@ -17,7 +17,6 @@ $link: #006CA8;
 // $blue: #114473;
 $purple-1: #473A8C;
 $purple-2: #7D70BB;
-$purple-3: #473A8C;
 
 // ==================
 // shadow
@@ -69,7 +68,7 @@ $z-index-map: (
 }
 @mixin card-h2 {
   @include font-size(19);
-  color: $gray-2;
+  color: $black;
   font-weight: bold;
 }
 @mixin body-text {

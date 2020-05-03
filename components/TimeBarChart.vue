@@ -113,7 +113,7 @@ export default {
               data: this.chartData.map(d => {
                 return d.confirmedTransition
               }),
-              backgroundColor: '#00B849'
+              backgroundColor: '#473A8C'
             },
             {
               label: 'Deaths',
