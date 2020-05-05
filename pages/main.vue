@@ -5,7 +5,14 @@
     </div>
     <div v-else>
       <div class="mainContainer">
-        <v-app-bar color="#403875" dark fixed height="64px">
+        <v-app-bar
+          class="mx-auto"
+          color="#403875"
+          dark
+          fixed
+          height="64px"
+          max-width="1440px"
+        >
           <nuxt-link to="/">
             <div v-if="isWindowLarge === true">
               <img class="lheadericon" src="/header-icon-wtext.png" />
@@ -103,8 +110,8 @@ export default Vue.extend({
   }
   .sheadericon {
     margin-top: 10px;
-    width: 40px;
-    height: 40px;
+    width: auto;
+    height: auto;
   }
   .tab {
     font-style: normal;
@@ -114,7 +121,7 @@ export default Vue.extend({
 
     /* identical to box height */
     text-align: center;
-    color: #ffffff;
+    color: $white-1;
 
     /* Inside Auto Layout */
     flex: none;
