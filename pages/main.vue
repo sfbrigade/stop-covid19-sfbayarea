@@ -8,10 +8,10 @@
         <v-app-bar color="#403875" dark fixed height="64px">
           <nuxt-link to="/">
             <div v-if="isWindowLarge === true">
-              <v-img width="auto" height="60px" src="/header-icon-wtext.png" />
+              <img class="lheadericon" src="/header-icon-wtext.png" />
             </div>
             <div v-else>
-              <v-img width="60px" height="60px" src="/header-icon.png" />
+              <img class="sheadericon" src="/header-icon.png" />
             </div>
           </nuxt-link>
 
@@ -34,7 +34,7 @@
           <v-tab-item v-for="tab in tabs" :key="tab.id">
             <Faq v-if="tab.name === 'FAQ'" />
             <Stats v-if="tab.name === 'Stats'" />
-            <News v-if="tab.name === 'News'" />
+            <News v-if="tab.name === 'Updates'" />
           </v-tab-item>
         </v-tabs-items>
       </div>
@@ -57,7 +57,7 @@ export default Vue.extend({
     News
   },
   asyncData(context) {
-    if (context.params.tab === 'news') {
+    if (context.params.tab === 'updates') {
       return { preselectedtab: 2 }
     } else if (context.params.tab === 'stats') {
       return { preselectedtab: 1 }
@@ -73,7 +73,7 @@ export default Vue.extend({
       tabs: [
         { id: 1, name: 'FAQ' },
         { id: 2, name: 'Stats' },
-        { id: 3, name: 'News' }
+        { id: 3, name: 'Updates' }
       ]
     }
   },
@@ -96,12 +96,35 @@ export default Vue.extend({
 .app {
   max-width: 1440px;
   margin: 0 auto;
+  .lheadericon {
+    margin-top: 5px;
+    width: auto;
+    height: auto;
+  }
+  .sheadericon {
+    margin-top: 10px;
+    width: 40px;
+    height: 40px;
+  }
   .tab {
-    font-size: 24px;
-    margin-left: 20px;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 19px;
+
+    /* identical to box height */
+    text-align: center;
+    color: #ffffff;
+
+    /* Inside Auto Layout */
+    flex: none;
+    order: 1;
+    align-self: center;
+    margin: 10px 0px;
   }
   .tabcontent {
     margin-top: 80px;
+    margin-right: 1.25rem;
   }
   .v-tab {
     text-transform: none !important;

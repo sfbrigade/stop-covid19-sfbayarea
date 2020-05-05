@@ -21,6 +21,11 @@
                     "q": "What are the symptoms?",
                     "a": "Fever. Cough. Shortness of breath. In some people anosmia (losing sense of smell and taste) and/or body ache.",
                     "url": "https://www.cdc.gov/coronavirus/2019-ncov/about/symptoms.html"
+                },
+                {
+                    "q": "How does COVID-19 spread?",
+                    "a": "The disease spreads primarily from person to person through small droplets from the nose or mouth, which are expelled when a person with COVID-19 coughs, sneezes, or speak. People can catch COVID-19 if they breathe in these droplets. These droplets can land on objects and surfaces around the person such as tables, doorknobs and handrails. People can become infected by touching these, then touching their eyes, nose or mouth.",
+                    "url": "https://www.who.int/news-room/q-a-detail/q-a-coronaviruses"
                 }
             ]
         },
@@ -33,16 +38,33 @@
                     "url": "https://www.cdph.ca.gov/Programs/CID/DCDC/Pages/Immunization/ncov2019.aspx#More%20Informationv/california-takes-action-to-combat-covid-19/"
                 },
                 {
+                    "q": "Should I wear a mask or facial covering?",
+                    "a": "As of April 22, six of nine Bay Area counties (Alameda, Contra Costa, Marin, San Francisco, San Mateo and Sonoma) now require people to wear masks or facial coverings when outside of their homes. Business have the right to refuse service to anybody not wearing a mask and many public tranist agencies have adopted similar stances. Masks are not necessary when driving your personal vehicle or while excercising, provided you keep 6 feet of distance between yourself and anybody not from your household.",
+                    "url": "https://www.mercurynews.com/2020/04/22/coronavirus-bay-area-mask-order-takes-effect-wednesday-heres-what-you-need-to-know/"
+                },
+                {
                     "q": "How and where can I wash my hands in the city?",
                     "a": "A map of 'pit stops' and public hand washing stations in San Francisco is available at the link below.",
                     "url": "https://www.google.com/maps/d/u/0/viewer?mid=1jCE9lI8Iv12tO-wWrF6RIQPWKXGBK0_z&ll=37.77885554963088%2C-122.45262763559288&z=11"
                 },
                 {
                     "q": "How and where do I handle groceries/takeout food?",
-                    "a": "A doctor's excellent video on how to treat groceries and food coming into your home is linked below: comprehensive written advice is available on the Consumer Reports website.",
-                    "url": "https://www.youtube.com/watch?v=sjDuwc9KBps&amp=&feature=youtu.be"
+                    "a": "A doctor's excellent video on how to treat groceries and food coming into your home is linked below: linked under that is comprehensive written advice from the Consumer Reports website.",
+                    "url": "https://www.youtube.com/watch?v=sjDuwc9KBps&amp=&feature=youtu.be",
+                    "url": "https://www.consumerreports.org/food-safety/coronavirus-common-questions-about-the-food-you-eat-food-safety/"
                 }
             ]
+        },
+        {
+            "title": "Testing",
+            "lastUpdatedAt": "2020-04-04",
+            "qa": [{
+                "q": "How can I get tested?",
+                "a": "In most cases, testing is only available if you are exhibiting symptoms of COVID-19. Call your healthcare provider to make an appointment or to perform a screening questionaire over the phone.",
+                "q": "I don't have insurance, how can I get tested?",
+                "a": "There are multiple options around the Bay Area to get testing if you don't have health insurance including many urgent care facilities and mobile testing sites. The link below describes a number of options throughout the Bay Area.",
+                "url": "https://www.sfchronicle.com/health/article/Where-can-I-get-a-coronavirus-test-in-the-Bay-15136054.php"
+            }]
         },
         {
             "title": "Transport",
@@ -58,6 +80,16 @@
                     "url": "https://www.sfmta.com/projects/covid-19-developments-response"
                 }
             ]
+        },
+        {
+            "title": "Helping Your Community",
+            "lastUpdatedAt": "2020-04-04",
+            "qa": [{
+                "q": "How can I donate masks?",
+                "a": "Sf.gov is accepting bulk donations (minimum quantity one shipping pallet) of the N-95 masks (3M and Moldex preferred) and medical masks (isolation or surgical). More detail at the link below, with the complete form at the link underneath.",
+                "url": "https://sf.gov/give-city-respond-covid-19",
+                "url": "https://docs.google.com/forms/d/e/1FAIpQLSdx7vZC-Q9oaji25M1xmoMr2qWsWYw5GM90XmeCCox2ZImwrQ/viewform?usp=sf_link"
+            }]
         }
     ]
 }

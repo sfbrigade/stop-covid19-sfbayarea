@@ -37,7 +37,7 @@
     .total-positive-number {
       margin-top: 20px;
       font-size: 36px;
-      color: #8aca2b;
+      color: $purple-1;
     }
   }
   .deaths {
@@ -45,7 +45,7 @@
     .deaths-number {
       margin-top: 20px;
       font-size: 36px;
-      color: #888888;
+      color: $gray-3;
     }
   }
 }
