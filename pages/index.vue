@@ -1,8 +1,8 @@
 <template>
-  <v-app id="app" style="background: #403774">
+  <v-app style="background: #403774">
     <v-container fluid>
       <img class="bgbridge" src="/header-bg.png" />
-      <div v-if="this.width > 1024">
+      <div v-if="this.width >= 1024">
         <div class="desktop">
           <img class="headericon" src="/header-icon-wtext.png" />
           <div class="title">
@@ -93,13 +93,9 @@ export default Vue.extend({
 })
 </script>
 <style lang="scss">
-.app {
-  display: flex;
-  max-width: 1440px;
-  margin: 0 auto;
-}
 .container {
   max-width: 1440px;
+  margin: 0 auto;
 }
 .headericon {
   margin-top: 10px;
