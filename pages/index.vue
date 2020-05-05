@@ -1,55 +1,54 @@
 <template>
-  <v-app id="app">
-    <v-parallax width="auto" height="auto" src="/header-bg.png">
-      <v-container fluid>
-        <div v-if="this.width > 1024">
-          <div class="desktop">
-            <img class="headericon" src="/header-icon-wtext.png" />
-            <div class="title">
-              <h1>
-                COVID Awareness for the<br />
-                Bay Area, by the Bay Area.
-              </h1>
-            </div>
+  <v-app id="app" style="background: #403774">
+    <v-container fluid>
+      <img class="bgbridge" src="/header-bg.png" />
+      <div v-if="this.width > 1024">
+        <div class="desktop">
+          <img class="headericon" src="/header-icon-wtext.png" />
+          <div class="title">
+            <h1>
+              COVID Awareness for the<br />
+              Bay Area, by the Bay Area.
+            </h1>
           </div>
         </div>
-        <div v-else>
-          <div class="mobile">
-            <img class="headericon" src="/header-icon-wtext.png" />
-            <div class="title">
-              <h1>
-                COVID Awareness <br />for the Bay Area, by <br />the Bay Area.
-              </h1>
-            </div>
+      </div>
+      <div v-else>
+        <div class="mobile">
+          <img class="headericon" src="/header-icon-wtext.png" />
+          <div class="title">
+            <h1>
+              COVID Awareness for the Bay Area, by the Bay Area.
+            </h1>
           </div>
         </div>
+      </div>
 
-        <v-row dense class="navigation">
-          <v-col v-for="(item, i) in cardItems" :key="i" cols="12" md="4">
-            <v-card
-              class="mx-auto"
-              width="276px"
-              height="74px"
-              outlined
-              nuxt-link
-              :to="{ name: item.to, params: item.params }"
-            >
-              <v-list-item three-line>
-                <v-list-item-content>
-                  <v-list-item-title class="cardtitle">
-                    {{ item.title }}
-                  </v-list-item-title>
-                  <v-list-item-subtitle class="carddescription">
-                    {{ item.subtitle }}
-                  </v-list-item-subtitle>
-                </v-list-item-content>
-                <img class="navigationicon" src="/right-arrow.png" />
-              </v-list-item>
-            </v-card>
-          </v-col>
-        </v-row>
-      </v-container>
-    </v-parallax>
+      <v-row dense class="navigation">
+        <v-col v-for="(item, i) in cardItems" :key="i" cols="12" md="4">
+          <v-card
+            class="mx-auto"
+            width="276px"
+            height="74px"
+            outlined
+            nuxt-link
+            :to="{ name: item.to, params: item.params }"
+          >
+            <v-list-item three-line>
+              <v-list-item-content>
+                <v-list-item-title class="cardtitle">
+                  {{ item.title }}
+                </v-list-item-title>
+                <v-list-item-subtitle class="carddescription">
+                  {{ item.subtitle }}
+                </v-list-item-subtitle>
+              </v-list-item-content>
+              <img class="navigationicon" src="/right-arrow.png" />
+            </v-list-item>
+          </v-card>
+        </v-col>
+      </v-row>
+    </v-container>
   </v-app>
 </template>
 
@@ -99,17 +98,18 @@ export default Vue.extend({
   max-width: 1440px;
   margin: 0 auto;
 }
+.container {
+  max-width: 1440px;
+}
 .headericon {
   margin-top: 10px;
 }
-.title {
-  margin-top: 50px;
-  margin-left: 20px;
-}
 .title h1 {
+  color: $white-1;
   line-height: 1.2;
 }
 .navigation {
+  position: relative;
   margin-bottom: 50px;
 }
 .cardtitle {
@@ -122,7 +122,7 @@ export default Vue.extend({
   font-weight: bold;
   font-size: 16px;
   line-height: 19px;
-  color: #473a8c;
+  color: $purple-1;
 }
 .carddescription {
   position: absolute;
@@ -134,7 +134,7 @@ export default Vue.extend({
   font-weight: 500;
   font-size: 12px;
   line-height: 140%;
-  color: #6f6f6f;
+  color: gray-1;
 }
 .navigationicon {
   position: absolute;
@@ -144,17 +144,26 @@ export default Vue.extend({
   margin-top: -8px;
 }
 .desktop {
+  position: relative;
   margin-left: 70px;
   margin-top: 20px;
   .title {
-    margin-top: 80px;
+    margin-top: 100px;
     margin-bottom: 400px;
   }
 }
 .mobile {
+  position: relative;
+  margin-left: 10px;
   .title {
     margin-top: 50px;
+    margin-left: 30px;
+    margin-right: 30px;
     margin-bottom: 115px;
   }
+}
+.bgbridge {
+  position: fixed;
+  bottom: 0;
 }
 </style>

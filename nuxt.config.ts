@@ -184,8 +184,8 @@ const config: Configuration = {
   },
   manifest: {
     name: 'Bay Area Panda',
-    theme_color: '#403875',
-    background_color: '#403875',
+    theme_color: '#403774',
+    background_color: '#403774',
     display: 'standalone',
     Scope: '/',
     start_url: '/',
