@@ -9,7 +9,10 @@
       @clicked="scrollToCategory"
     />
     <div class="FaqContent-Scroll-Area" @scroll.passive="debounce">
-      <div class="FaqContent-Filler">
+      <div
+        class="FaqContent-Scroll-Length"
+        :style="{ height: `${lastFaq.top + lastFaq.height * 2}px` }"
+      >
         <div
           v-for="(item, i) in items"
           :id="`faq-content-${i}`"
@@ -42,7 +45,11 @@ export default {
     return {
       items: Faq.faqItems,
       allScrollTops: [],
-      activeCategory: 0
+      activeCategory: 0,
+      lastFaq: {
+        top: 0,
+        height: 200
+      }
     }
   },
   mounted() {
@@ -52,6 +59,10 @@ export default {
       const elem = document.getElementById(`faq-content-${i}`)
       const top = elem.offsetTop
       this.allScrollTops.push(top)
+      if (i === faqCategoriesCount - 1) {
+        this.lastFaq.top = top
+        this.lastFaq.height = elem.offsetHeight
+      }
     }
   },
   methods: {
@@ -110,13 +121,11 @@ export default {
   }
   .FaqContent-Scroll-Area {
     overflow-x: scroll;
+    /* minus header height */
     height: calc(100vh - 80px);
     padding: 0 10px;
-    .FaqContent-Filler {
-      height: 200%;
-      .FaqContent-Wrapper {
-        margin-bottom: 20px;
-      }
+    .FaqContent-Wrapper {
+      margin-bottom: 20px;
     }
   }
 }
