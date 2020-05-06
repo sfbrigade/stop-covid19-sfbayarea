@@ -10,33 +10,51 @@
           color="#403875"
           dark
           fixed
-          height="64px"
+          height="60px"
           max-width="1440px"
         >
           <nuxt-link to="/">
             <div v-if="isWindowLarge === true">
-              <img class="lheadericon" src="/header-icon-wtext.png" />
+              <div class="logodesktop">
+                <img class="headericond" src="/header-icon.png" />
+                <span class="logotitle"> COVID-19 Tracker </span>
+                <span class="logosubtitle"> by Code for San Francisco </span>
+              </div>
             </div>
             <div v-else>
-              <img class="sheadericon" src="/header-icon.png" />
+              <div class="logomobile">
+                <img class="headericonm" src="/header-icon.png" />
+              </div>
             </div>
           </nuxt-link>
-
-          <template>
+          <template class="tabs">
             <v-tabs
               v-model="active_tab"
               align-with-title
               fixed-tabs
+              height="60px"
               background-color="#403875"
               dark
             >
               <v-tab v-for="tab in tabs" :key="tab.id" class="tab">
+                <v-icon
+                  v-if="tab.name === 'Updates'"
+                  class="iconcontainer"
+                  size="20"
+                >
+                  far fa-newspaper
+                </v-icon>
+                <v-icon v-else-if="tab.name === 'FAQ'" class="iconcontainer">
+                  far fa-question-circle
+                </v-icon>
+                <v-icon v-else-if="tab.name === 'Stats'" class="iconcontainer">
+                  far fa-chart-bar
+                </v-icon>
                 {{ tab.name }}
               </v-tab>
             </v-tabs>
           </template>
         </v-app-bar>
-
         <v-tabs-items v-model="active_tab" class="tabcontent">
           <v-tab-item v-for="tab in tabs" :key="tab.id">
             <Faq v-if="tab.name === 'FAQ'" />
@@ -103,39 +121,6 @@ export default Vue.extend({
 .app {
   max-width: 1440px;
   margin: 0 auto;
-  .lheadericon {
-    margin-top: 5px;
-    width: auto;
-    height: auto;
-  }
-  .sheadericon {
-    margin-top: 10px;
-    width: auto;
-    height: auto;
-  }
-  .tab {
-    font-style: normal;
-    font-weight: bold;
-    font-size: 16px;
-    line-height: 19px;
-
-    /* identical to box height */
-    text-align: center;
-    color: $white-1;
-
-    /* Inside Auto Layout */
-    flex: none;
-    order: 1;
-    align-self: center;
-    margin: 10px 0px;
-  }
-  .tabcontent {
-    margin-top: 80px;
-    margin-right: 1.25rem;
-  }
-  .v-tab {
-    text-transform: none !important;
-  }
 }
 .appContainer {
   position: relative;
@@ -205,5 +190,79 @@ export default Vue.extend({
     display: block;
     margin: 0 auto 20px;
   }
+}
+.logodesktop {
+  .headericond {
+    position: absolute;
+    top: 10px;
+    left: 30px;
+    width: 40px;
+    height: 40px;
+  }
+  .logotitle {
+    position: absolute;
+    width: 174px;
+    height: 24px;
+    left: 95px;
+    top: 10px;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 24px;
+    letter-spacing: 0.03em;
+    color: $white-1;
+  }
+  .logosubtitle {
+    position: absolute;
+    width: 174px;
+    height: 14px;
+    left: 95px;
+    top: 36px;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 14px;
+    color: $white-1;
+  }
+  margin-right: 250px;
+}
+.logomobile {
+  .headericonm {
+    position: absolute;
+    top: 10px;
+    left: 20px;
+    width: 40px;
+    height: 40px;
+  }
+  margin-right: 45px;
+}
+.tab {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 19px;
+
+  /* identical to box height */
+  text-align: center;
+  color: $white-1;
+
+  /* Inside Auto Layout */
+  flex: none;
+  order: 1;
+  align-self: center;
+  margin: 10px 0px;
+}
+.tabcontent {
+  margin-top: 80px;
+  margin-right: 1.25rem;
+}
+.v-tab {
+  text-transform: none !important;
+}
+
+.iconcontainer {
+  margin: 10px;
+  width: 20px;
+  height: 20px;
 }
 </style>
