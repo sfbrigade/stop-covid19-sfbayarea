@@ -1,0 +1,47 @@
+# This is a basic workflow to help you get started with Actions
+
+name: CI
+
+# Controls when the action will run. Triggers the workflow on push or pull request
+# events but only for the master branch
+on:
+#  push:
+#    branches: [ master ]
+#  pull_request:
+#    branches: [ master ]
+  schedule:
+    - cron: 0 22 * * *
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  build:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+    # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+    - uses: actions/checkout@v2
+
+    # Runs a set of commands using the runners shell
+    - name: Install SSH key
+      uses: kengoy/ssh-key-action@v2
+      with: 
+        key: ${{ secrets.data_daily_update }}
+    - name: Run a multi-line script
+      run: |
+        echo This is to update data/data.json automatically every day.
+        git config user.name kengoy
+        git config user.email kengo.yoshii.925@gmail.com
+        git remote set-url origin github.com:sfbrigade/stop-covid19-sfbayarea.git
+        git checkout feature/issue3
+        git clone https://github.com/sfbrigade/data-covid19-sfbayarea.git
+        cd data-covid19-sfbayarea
+        git checkout github-action
+        source env/bin/activate
+        python3 scraper.py > ../data/data.json
+        cd ..
+        git add data/data.json
+        git commit -m "GitHubAction: Daily data update."
+        git push
