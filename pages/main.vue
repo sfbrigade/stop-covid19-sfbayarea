@@ -201,8 +201,6 @@ export default Vue.extend({
   }
   .logotitle {
     position: absolute;
-    width: 174px;
-    height: 24px;
     left: 95px;
     top: 10px;
     font-style: normal;
@@ -214,8 +212,6 @@ export default Vue.extend({
   }
   .logosubtitle {
     position: absolute;
-    width: 174px;
-    height: 14px;
     left: 95px;
     top: 36px;
     font-style: normal;
