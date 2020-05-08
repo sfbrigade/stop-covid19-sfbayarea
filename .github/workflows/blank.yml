@@ -25,10 +25,10 @@ jobs:
     - uses: actions/checkout@v2
 
     # Runs a set of commands using the runners shell
-    - name: Install SSH key
-      uses: kengoy/ssh-key-action@v2
-      with: 
-        key: ${{ secrets.data_daily_update }}
+    #- name: Install SSH key
+    #  uses: kengoy/ssh-key-action@v2
+    #  with: 
+    #    key: ${{ secrets.data_daily_update }}
     - name: Run a multi-line script
       run: |
         echo This is to update data/data.json automatically every day.
