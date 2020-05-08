@@ -8,6 +8,26 @@
           :url="'https://coronadatascraper.com'"
         />
       </v-col>
+      <v-col cols="12" md="6" class="DataCard">
+        <time-bar-chart
+          :title="`Confirmed Cases: Bay Area Total`"
+          :title-id="'number-of-confirmed-cases'"
+          :chart-id="'time-bar-chart-patients'"
+          :chart-data="ConsolidatedData.cases"
+          :date="county.lastUpdatedAt"
+          :url="'https://coronadatascraper.com'"
+        />
+      </v-col>
+      <!-- <v-col cols="12" md="6" class="DataCard">
+        <time-bar-chart
+          :title="`Covid Related Deaths: Bay Area Total`"
+          :title-id="'number-of-confirmed-cases'"
+          :chart-id="'time-bar-chart-patients'"
+          :chart-data="county.graph"
+          :date="county.lastUpdatedAt"
+          :url="'https://coronadatascraper.com'"
+        />
+      </v-col>-->
       <v-col
         v-for="(county, index) in CountyData"
         :key="index"
@@ -34,6 +54,7 @@ import TimeBarChart from '@/components/TimeBarChart.vue'
 import CasesSummary from '@/components/CasesSummary.vue'
 import Data from '@/data/data.json'
 import formatCountyData from '@/utils/formatCountyData'
+import consolidateAllData from '@/utils/consolidateAllData'
 
 export default {
   components: {
@@ -42,7 +63,8 @@ export default {
   },
   data() {
     const CountyData = formatCountyData(Data)
-
+    const ConsolidatedData = consolidateAllData(Data)
+    console.log(ConsolidatedData)
     // Sort County Data in descending order of cases
     CountyData.sort((countyA, countyB) => {
       let r = 0
@@ -62,8 +84,10 @@ export default {
 
     const data = {
       Data,
-      CountyData
+      CountyData,
+      ConsolidatedData
     }
+    console.log(data)
     return data
   },
   head() {
