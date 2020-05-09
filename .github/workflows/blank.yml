@@ -10,7 +10,7 @@ on:
 #  pull_request:
 #    branches: [ master ]
   schedule:
-    - cron: 40 * * * *
+    - cron: 48 * * * *
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -49,4 +49,4 @@ jobs:
         cd ..
         git add data/data.json
         git commit -m "GitHubAction: Daily data update."
-	git push
+        git push
