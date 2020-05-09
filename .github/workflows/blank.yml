@@ -26,7 +26,7 @@ jobs:
       with:
         key: ${{ secrets.data_daily_update }}
         ssh-key: ${{ secrets.data_daily_update }}
-        ref: feature/issue3
+        ref: github-action
 
     # Install Python
     - name: Set up Python 3.x
