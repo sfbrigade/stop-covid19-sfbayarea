@@ -49,3 +49,4 @@ jobs:
         cd ..
         git add data/data.json
         git commit -m "GitHubAction: Daily data update."
+	git push
