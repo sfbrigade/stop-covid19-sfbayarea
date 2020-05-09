@@ -24,6 +24,7 @@ jobs:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
       with:
+        key: ${{ secrets.data_daily_update }}
         ssh-key: ${{ secrets.data_daily_update }}
         ref: feature/issue3
 
@@ -39,7 +40,6 @@ jobs:
         echo This is to update data/data.json automatically every day.
         git config user.name kengoy
         git config user.email kengo.yoshii.925@gmail.com
-        git remote set-url origin github.com:sfbrigade/stop-covid19-sfbayarea.git
         git clone https://github.com/sfbrigade/data-covid19-sfbayarea.git
         cd data-covid19-sfbayarea
         git checkout github-action
@@ -49,4 +49,3 @@ jobs:
         cd ..
         git add data/data.json
         git commit -m "GitHubAction: Daily data update."
-        git push
