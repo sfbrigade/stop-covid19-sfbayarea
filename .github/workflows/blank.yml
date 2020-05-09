@@ -43,9 +43,9 @@ jobs:
         git clone https://github.com/sfbrigade/data-covid19-sfbayarea.git
         cd data-covid19-sfbayarea
         git checkout github-action
-        sh install.sh
-        source env/bin/activate
-        python3 scraper.py > ../data/data.json
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt;
+        python scraper.py > ../data/data.json
         cd ..
         git add data/data.json
         git commit -m "GitHubAction: Daily data update."
