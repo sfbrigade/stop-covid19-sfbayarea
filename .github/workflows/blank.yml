@@ -42,12 +42,13 @@ jobs:
         git config user.email kengo.yoshii.925@gmail.com
         git clone https://github.com/sfbrigade/data-covid19-sfbayarea.git
         cd data-covid19-sfbayarea
-        git checkout github-action
+        git branch -D github-action
+        git checkout -b github-action
         python -m pip install --upgrade pip
         pip install -r requirements.txt;
         python scraper.py > ../data/data.json
         cd ..
         git add data/data.json
         git commit -m "GitHubAction: Daily data update."
-        git push
+        git push -f
         echo Git commit and push completed for the daily data update. Please create a Pull Request from github-action branch.
