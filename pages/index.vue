@@ -2,52 +2,42 @@
   <v-app style="background: #403774">
     <v-container fluid>
       <img class="bgbridge" src="/header-bg.png" />
-      <div v-if="this.width >= 1024">
-        <div class="desktop">
-          <img class="headericon" src="/header-icon-wtext.png" />
-          <div class="title">
-            <h1>
-              COVID Awareness for the<br />
-              Bay Area, by the Bay Area.
-            </h1>
-          </div>
+      <div class="origin">
+        <div class="logo">
+          <img class="headericond" src="/header-icon.png" />
+          <span class="logotitle"> COVID-19 Tracker </span>
+          <span class="logosubtitle"> by Code for San Francisco </span>
         </div>
-      </div>
-      <div v-else>
-        <div class="mobile">
-          <img class="headericon" src="/header-icon-wtext.png" />
-          <div class="title">
-            <h1>
-              COVID Awareness for the Bay Area, by the Bay Area.
-            </h1>
-          </div>
+        <div class="title">
+          <h1>
+            <div v-html="getTitle" />
+          </h1>
         </div>
+        <v-row dense class="navigation">
+          <v-col v-for="(item, i) in cardItems" :key="i" cols="12" md="4">
+            <v-card
+              class="mx-auto"
+              width="276px"
+              height="74px"
+              outlined
+              nuxt-link
+              :to="{ name: item.to, params: item.params }"
+            >
+              <v-list-item three-line>
+                <v-list-item-content>
+                  <v-list-item-title class="cardtitle">
+                    {{ item.title }}
+                  </v-list-item-title>
+                  <v-list-item-subtitle class="carddescription">
+                    {{ item.subtitle }}
+                  </v-list-item-subtitle>
+                </v-list-item-content>
+                <img class="navigationicon" src="/right-arrow.png" />
+              </v-list-item>
+            </v-card>
+          </v-col>
+        </v-row>
       </div>
-
-      <v-row dense class="navigation">
-        <v-col v-for="(item, i) in cardItems" :key="i" cols="12" md="4">
-          <v-card
-            class="mx-auto"
-            width="276px"
-            height="74px"
-            outlined
-            nuxt-link
-            :to="{ name: item.to, params: item.params }"
-          >
-            <v-list-item three-line>
-              <v-list-item-content>
-                <v-list-item-title class="cardtitle">
-                  {{ item.title }}
-                </v-list-item-title>
-                <v-list-item-subtitle class="carddescription">
-                  {{ item.subtitle }}
-                </v-list-item-subtitle>
-              </v-list-item-content>
-              <img class="navigationicon" src="/right-arrow.png" />
-            </v-list-item>
-          </v-card>
-        </v-col>
-      </v-row>
     </v-container>
   </v-app>
 </template>
@@ -63,6 +53,13 @@ export default Vue.extend({
     }
   },
   computed: {
+    getTitle() {
+      if (this.width < 1024) {
+        return 'COVID Awareness for the Bay Area, by the Bay Area.'
+      } else {
+        return 'COVID Awareness for the <br>Bay Area, by the Bay Area.'
+      }
+    },
     cardItems() {
       return [
         {
@@ -97,16 +94,107 @@ export default Vue.extend({
   max-width: 1440px;
   margin: 0 auto;
 }
-.headericon {
-  margin-top: 10px;
-}
 .title h1 {
   color: $white-1;
   line-height: 1.2;
 }
-.navigation {
-  position: relative;
-  margin-bottom: 50px;
+@media screen and (min-width: 640px) {
+  .origin {
+    position: absolute;
+    margin-left: 70px;
+    margin-top: 20px;
+  }
+  .logo {
+    .headericond {
+      position: absolute;
+      top: 10px;
+      left: 0px;
+      width: 60px;
+      height: 60px;
+    }
+    .logotitle {
+      position: absolute;
+      left: 75px;
+      top: 15px;
+      font-style: normal;
+      font-weight: bold;
+      font-size: 24px;
+      line-height: 24px;
+      letter-spacing: 0.03em;
+      color: $white-1;
+    }
+    .logosubtitle {
+      position: absolute;
+      left: 75px;
+      top: 45px;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 14px;
+      color: $white-1;
+    }
+  }
+  .title {
+    margin-top: 150px;
+  }
+  @media screen and (min-height: 640px) {
+    .navigation {
+      margin-top: 400px;
+      width: 1024px;
+    }
+  }
+  @media screen and (max-height: 640px) {
+    .navigation {
+      margin-top: 100px;
+      width: 1024px;
+    }
+  }
+}
+@media screen and (max-width: 640px) {
+  .origin {
+    position: absolute;
+    margin-left: 10px;
+  }
+  .logo {
+    .headericond {
+      position: absolute;
+      top: 10px;
+      left: 0px;
+      width: 60px;
+      height: 60px;
+    }
+    .logotitle {
+      position: absolute;
+      left: 75px;
+      top: 15px;
+      font-style: normal;
+      font-weight: bold;
+      font-size: 24px;
+      line-height: 24px;
+      letter-spacing: 0.03em;
+      color: $white-1;
+    }
+    .logosubtitle {
+      position: absolute;
+      left: 75px;
+      top: 45px;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 14px;
+      color: $white-1;
+    }
+  }
+  .title {
+    margin-top: 120px;
+    margin-left: 30px;
+    margin-right: 30px;
+    margin-bottom: 115px;
+  }
+  .navigation {
+    position: absolute;
+    top: 400px;
+  }
 }
 .cardtitle {
   position: absolute;
@@ -138,25 +226,6 @@ export default Vue.extend({
   height: 24px;
   right: 11px;
   margin-top: -8px;
-}
-.desktop {
-  position: relative;
-  margin-left: 70px;
-  margin-top: 20px;
-  .title {
-    margin-top: 100px;
-    margin-bottom: 400px;
-  }
-}
-.mobile {
-  position: relative;
-  margin-left: 10px;
-  .title {
-    margin-top: 50px;
-    margin-left: 30px;
-    margin-right: 30px;
-    margin-bottom: 115px;
-  }
 }
 .bgbridge {
   position: fixed;
