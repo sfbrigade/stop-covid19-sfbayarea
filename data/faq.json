@@ -1,8 +1,13 @@
 {
     "faqItems": [{
-            "title": "General Info About the Virus",
-            "lastUpdatedAt": "2020-04-04",
+            "title": "About COVID-19",
+            "lastUpdatedAt": "2020-05-05",
             "qa": [{
+                    "q": "What are the symptoms of COVID-19?",
+                    "a": "Symptoms of COVID-19 include coughing and shortness of breath. Additionally, a person showing two or more of the following symptoms may have the virus: fever, repeated shaking with chills, muscle pain, headache, sore throat, new loss of taste or smell.",
+                    "url": "https://www.cdc.gov/coronavirus/2019-ncov/symptoms-testing/symptoms.html"
+                },
+                {
                     "q": "Who is most at risk?",
                     "a": "Anyone can catch and become seriously ill with COVID-19, but people who are older or immunocompromised, or who have pre-existing conditions including hypertension, diabetes or chronic lung disease (such as asthma) are at heightened risk.",
                     "url": "https://www.cdc.gov/coronavirus/2019-ncov/cases-updates/summary.html#covid19-pandemic"
@@ -18,20 +23,15 @@
                     "url": "https://www.cdc.gov/coronavirus/2019-ncov/cases-updates/summary.html#emergence"
                 },
                 {
-                    "q": "What are the symptoms?",
-                    "a": "Fever. Cough. Shortness of breath. In some people anosmia (losing sense of smell and taste) and/or body ache.",
-                    "url": "https://www.cdc.gov/coronavirus/2019-ncov/about/symptoms.html"
-                },
-                {
                     "q": "How does COVID-19 spread?",
-                    "a": "The disease spreads primarily from person to person through small droplets from the nose or mouth, which are expelled when a person with COVID-19 coughs, sneezes, or speak. People can catch COVID-19 if they breathe in these droplets. These droplets can land on objects and surfaces around the person such as tables, doorknobs and handrails. People can become infected by touching these, then touching their eyes, nose or mouth.",
+                    "a": "The disease spreads primarily from person to person through small droplets from the nose or mouth, which are expelled when a person with COVID-19 coughs, sneezes, or speak. People can catch COVID-19 if they breathe in these droplets. Droplets can land on objects and surfaces around the person such as tables, doorknobs and handrails. People can become infected by touching these, then touching their eyes, nose or mouth.",
                     "url": "https://www.who.int/news-room/q-a-detail/q-a-coronaviruses"
                 }
             ]
         },
         {
             "title": "Preventative Information",
-            "lastUpdatedAt": "2020-04-04",
+            "lastUpdatedAt": "2020-05-05",
             "qa": [{
                     "q": "Who can I talk to for advice?",
                     "a": "Anyone with a primary care physician should contact them with concerns about COVID-19. Alternatively, a free statewide hotline is available between 8am and 5pm, seven days a week, on (833) 544-2374. This can offer advice on everything from preventing the virus' spread, to getting help if you don’t have health insurance, to local services like food delivery and mental health care.",
@@ -39,17 +39,12 @@
                 },
                 {
                     "q": "Should I wear a mask or facial covering?",
-                    "a": "As of April 22, six of nine Bay Area counties (Alameda, Contra Costa, Marin, San Francisco, San Mateo and Sonoma) now require people to wear masks or facial coverings when outside of their homes. Business have the right to refuse service to anybody not wearing a mask and many public tranist agencies have adopted similar stances. Masks are not necessary when driving your personal vehicle or while excercising, provided you keep 6 feet of distance between yourself and anybody not from your household.",
+                    "a": "As of April 22, six of nine Bay Area counties (Alameda, Contra Costa, Marin, San Francisco, San Mateo and Sonoma) require people to wear masks or facial coverings when outside of their homes. Businesses have the right to refuse service to anybody not wearing a mask and many public tranist agencies have adopted similar stances. Masks are not necessary when driving your personal vehicle or while excercising, provided you keep 6 feet of distance between yourself and anybody not from your household.",
                     "url": "https://www.mercurynews.com/2020/04/22/coronavirus-bay-area-mask-order-takes-effect-wednesday-heres-what-you-need-to-know/"
                 },
                 {
-                    "q": "How and where can I wash my hands in the city?",
-                    "a": "A map of 'pit stops' and public hand washing stations in San Francisco is available at the link below.",
-                    "url": "https://www.google.com/maps/d/u/0/viewer?mid=1jCE9lI8Iv12tO-wWrF6RIQPWKXGBK0_z&ll=37.77885554963088%2C-122.45262763559288&z=11"
-                },
-                {
-                    "q": "How and where do I handle groceries/takeout food?",
-                    "a": "A doctor's excellent video on how to treat groceries and food coming into your home is linked below: linked under that is comprehensive written advice from the Consumer Reports website.",
+                    "q": "How do I handle groceries/takeout food?",
+                    "a": "A doctor's excellent video on how to treat groceries and food coming into your home is linked below: linked under that is comprehensive written advice from Consumer Reports.",
                     "url": "https://www.youtube.com/watch?v=sjDuwc9KBps&amp=&feature=youtu.be",
                     "url": "https://www.consumerreports.org/food-safety/coronavirus-common-questions-about-the-food-you-eat-food-safety/"
                 }
@@ -57,39 +52,128 @@
         },
         {
             "title": "Testing",
-            "lastUpdatedAt": "2020-04-04",
+            "lastUpdatedAt": "2020-05-05",
             "qa": [{
-                "q": "How can I get tested?",
-                "a": "In most cases, testing is only available if you are exhibiting symptoms of COVID-19. Call your healthcare provider to make an appointment or to perform a screening questionaire over the phone.",
-                "q": "I don't have insurance, how can I get tested?",
-                "a": "There are multiple options around the Bay Area to get testing if you don't have health insurance including many urgent care facilities and mobile testing sites. The link below describes a number of options throughout the Bay Area.",
-                "url": "https://www.sfchronicle.com/health/article/Where-can-I-get-a-coronavirus-test-in-the-Bay-15136054.php"
-            }]
+                    "q": "How can I get tested?",
+                    "a": "In most places, testing is only available if you are exhibiting symptoms of COVID-19. However, in San Francisco essential workers and anyone displaying one known symptom of COVID-19 (see \"What are the symptoms?\" above) can now get tested free at one of the two CityTestSF sites at the Embarcadero and in SoMa. For more information about COVID-19 testing, contact your primary health care provider or call 311. In San Francisco you can also visit the website linked here:",
+                    "url": "https://sf.gov/find-out-how-get-tested-coronavirus"
+                },
+                {
+                    "q": "I don't have insurance, how can I get tested?",
+                    "a": "There are multiple options around the Bay Area to get testing if you don't have health insurance, including many urgent care facilities and mobile testing sites. The link below describes a number of possibilities.",
+                    "url": "https://www.sfchronicle.com/health/article/Where-can-I-get-a-coronavirus-test-in-the-Bay-15136054.php"
+                }
+            ]
         },
         {
-            "title": "Transport",
-            "lastUpdatedAt": "2020-04-04",
+            "title": "Transportation",
+            "lastUpdatedAt": "2020-05-05",
             "qa": [{
                     "q": "Is BART running through the COVID-19 emergency period?",
                     "a": "BART operates Monday through Friday from 5am - 9pm, with the same train frequency as before the emergency. Weekend trains now run from 8am - 9pm instead of 6am - midnight, but also with the same frequency as before. SFO is currently offering a late-night shuttle service to and from several BART stations. Details for specific journeys at the BART trip planner link below.",
                     "url": "https://www.bart.gov/planner"
                 },
                 {
-                    "q": "Are Muni rail and bus services still running?",
-                    "a": "All Muni Metro/light rail has been replaced by buses. Rapid bus lines are temporarily suspended, but many late night Owl services remain. Backdoor boarding is now required on all buses except for passengers with wheelchairs or other accesibility needs. Downtown stations are still open for BART riders. Muni updates at the link below.",
-                    "url": "https://www.sfmta.com/projects/covid-19-developments-response"
+                    "q": "Is SFO open and how do I get to it?",
+                    "a": "SFO is operating at reduced levels. Details of services to and from the airport are available at the link below.",
+                    "url": "https://www.flysfo.com/important-travel-information-regarding-covid-19-novel-corona-virus/sfo-covid-19-faqs"
+                },
+                {
+                    "q": "Is Oakland Airport open?",
+                    "a": "Airports are regarded as essential infrastructure and Oakland is open. Up-to-date service info here:",
+                    "url": "https://www.oaklandairport.com/oakland-international-airport-is-open-with-flights-operating-across-the-us-including-hawaii-and-mexico/"
                 }
             ]
         },
         {
             "title": "Helping Your Community",
-            "lastUpdatedAt": "2020-04-04",
+            "lastUpdatedAt": "2020-05-05",
             "qa": [{
-                "q": "How can I donate masks?",
-                "a": "Sf.gov is accepting bulk donations (minimum quantity one shipping pallet) of the N-95 masks (3M and Moldex preferred) and medical masks (isolation or surgical). More detail at the link below, with the complete form at the link underneath.",
-                "url": "https://sf.gov/give-city-respond-covid-19",
-                "url": "https://docs.google.com/forms/d/e/1FAIpQLSdx7vZC-Q9oaji25M1xmoMr2qWsWYw5GM90XmeCCox2ZImwrQ/viewform?usp=sf_link"
-            }]
+                    "q": "How can I help high risk individuals in my neighborhood?",
+                    "a": "The CDC considers the elderly and people with chronic illnesses to be at higher risk from COVID-19. If you're in a lower risk group, you can help your neighbors and foster community by offering to pick up prescriptions and groceries for them (while following safe handling precautions - see above). Social visits from a safe distance can help brighten people's moods and provide an opportunity to share information and stay in touch.",
+                    "url": "https://www.nytimes.com/2020/03/15/smarter-living/wirecutter/5-ways-to-help-during-coronavirus-while-social-distancing.html"
+                },
+                {
+                    "q": "How can I help by volunteering my time?",
+                    "a": "HandsOn Bay Area lists areas of critical need of volunteers at this link:",
+                    "url": "https://www.handsonbayarea.org/covid19"
+                },
+                {
+                    "q": "Are there other ways to help?",
+                    "a": "Other ideas include: donating, writing letters to seniors, sending coffee/pastries to healthcare workers. Find details for organizations supporting these and other activites here:",
+                    "url": "https://www.7x7.com/how-to-help-the-community-coronavirus-bay-area-2645591886.html/"
+                },
+                {
+                    "q": "What local initiatives are there that support community response to the pandemic?",
+                    "a": "Here are some Bay Area brands giving back in this pandemic, many have initiatives that you as a consumer can participate in:",
+                    "url": "https://www.7x7.com/bay-area-companies-that-give-back-2645814589/allbirds-buy-one-give-one-program-gives-sneakers-to-healthcare-heroes./"
+                },
+                {
+                    "q": "How can I donate masks?",
+                    "a": "Sf.gov is accepting bulk donations (minimum quantity one shipping pallet) of the N-95 masks (3M and Moldex preferred) and medical masks (isolation or surgical). More detail at the link below, with the complete form at the link underneath.",
+                    "url": "https://sf.gov/give-city-respond-covid-19",
+                    "url": "https://docs.google.com/forms/d/e/1FAIpQLSdx7vZC-Q9oaji25M1xmoMr2qWsWYw5GM90XmeCCox2ZImwrQ/viewform?usp=sf_link"
+                }
+            ]
+        },
+        {
+            "title": "Mental Health",
+            "lastUpdatedAt": "2020-05-05",
+            "qa": [{
+                    "q": "Where can I talk to someone to get support when self isolating?",
+                    "a": "San Francisco Mental Health Warm Line which has statewide coverage at (855) 845-7415 as well as the option to chat online.",
+                    "url": "www.mentalhealthsf.org/peer-run-warmline."
+                },
+                {
+                    "q": "How can I reach out for help if I'm quarantined with an abuser?",
+                    "a": "Women Organized to Make Abuse Nonexistent, Inc. (W.O.M.A.N., Inc.) is a community-based, multi-service agency, serving survivors of domestic violence in San Francisco and the larger Bay Area. If you need help or need someone to talk to they have a 24/7 hotline at (415) 864-4722 or (877) 384-3578.",
+                    "url": "http://www.womaninc.org/"
+                },
+                {
+                    "q": "If I'm having thoughts of harming myself during self-quarantine, where can I go for help?",
+                    "a": "San Francisco Suicide Prevention’s 24-hour Crisis Line provides immediate crisis intervention and emotional support to everyone who calls. Call (415) 781-0500 or text MYLIFE to 741741.",
+                    "url": "https://www.sfsuicide.org/our-programs/24-hour-crisis-line/"
+                },
+                {
+                    "q": "Where can I go to access AA meetings and/or access substance abuse resources?",
+                    "a": "Call the Alcoholics Anonymous helpline at (415) 674-1821 or email them at help@aasfmarin.org. To reach Narcotics Anonymous call (415) 610-7294. Online meetings are also available at https://www.aa-intergroup.org/ https://, www.weconnectrecovery.com and www.intherooms.com."
+                }
+            ]
+        },
+        {
+            "title": "Social Distancing",
+            "lastUpdatedAt": "2020-05-05",
+            "qa": [{
+                    "q": "What is Social Distancing?",
+                    "a": "Social distancing means deliberately increasing the physical space between people to avoid spreading illness.",
+                    "url": "https://www.cdc.gov/coronavirus/2019-ncov/prevent-getting-sick/social-distancing.html"
+                },
+                {
+                    "q": "What activities are allowed/restricted under shelter in place guidelines?",
+                    "a": "Stay home and avoid non-essential travel. If you must go out, maintain 6ft separation from people you do not live with. Conduct work and/or school from home if possible. Visit with friends and loved ones via phone or video call rather than in person.",
+                    "url": "https://www.redcross.org/about-us/news-and-events/news/2020/coronavirus-what-social-distancing-means.html"
+                },
+                {
+                    "q": "What is shelter in place? How long will it be for?",
+                    "a": "Since March 19 Californians have been sheltering in place. Individuals have been instructed to stay home unless they are getting food, caring for relatives, seeking urgent medical care or working in essential services. On May 4, however, Governor Gavin Newsom announced a relaxing of the state-wide shelter in place order and restrictions on business, based on improving data about the virus' spread. Broadly, from Friday May 8, non-essential businesses are able to re-open for curbside service. Individual counties have latitude to act on this as they see fit so long as certain safeguards are in place. Watch this space.",
+                    "url": "https://covid19.ca.gov/stay-home-except-for-essential-needs/#top"
+                },
+                {
+                    "q": "What does self quarantine and isolation mean? How do I self quarantine?",
+                    "a": "Isolation and quarantine help protect the public by preventing exposure to people who have or may have a contagious disease. Isolation separates sick people with a contagious disease from people who are not sick. Quarantine restricts the movement of people who were or might have been exposed to a contagious disease, to see if they become sick or not. For COVID-19 the standard quarantine period is 14 days.",
+                    "url": "https://www.cdc.gov/quarantine/quarantineisolation.html"
+                },
+                {
+                    "q": "What do I do if a family member has to quarantine?",
+                    "a": "See the suitability assessment checklist at the Centers for Disease Control and Prevention (CDC) website for whether or not home care is recommended first.",
+                    "url": "https://www.cdc.gov/coronavirus/2019-ncov/hcp/guidance-home-care.html"
+                },
+                {
+                    "q": "What qualifies as an \"essential\" business?",
+                    "a": "A broad range of businesses qualify, but only under strict operational conditions.",
+                    "url": "https://sf.gov/check-if-your-business-essential"
+                }
+            ]
         }
     ]
 }
