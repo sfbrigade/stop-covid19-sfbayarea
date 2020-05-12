@@ -220,7 +220,7 @@ export default Vue.extend({
     line-height: 14px;
     color: $white-1;
   }
-  margin-right: 250px;
+  margin-right: 300px;
 }
 .logomobile {
   .headericonm {
