@@ -33,7 +33,6 @@
               align-with-title
               fixed-tabs
               height="60px"
-              background-color="#403875"
               dark
             >
               <v-tab v-for="tab in tabs" :key="tab.id" class="tab">
@@ -230,9 +229,12 @@ export default Vue.extend({
     width: 40px;
     height: 40px;
   }
-  margin-right: 45px;
+  margin-right: 30px;
 }
 .tab {
+  @media screen and (max-width: 640px) {
+    max-width: 125px;
+  }
   font-style: normal;
   font-weight: bold;
   font-size: 20px;
