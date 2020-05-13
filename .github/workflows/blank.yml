@@ -38,8 +38,8 @@ jobs:
     - name: Run a multi-line script
       run: |
         echo This is to update data/data.json automatically every day.
-        git config user.name kengoy
-        git config user.email kengo.yoshii.925@gmail.com
+        git config user.name ${{ secrets.githubaction_config_user_name }}
+        git config user.email ${{ secrets.githubaction_config_user_email }}
         git clone https://github.com/sfbrigade/data-covid19-sfbayarea.git
         cd data-covid19-sfbayarea
         git checkout github-action
