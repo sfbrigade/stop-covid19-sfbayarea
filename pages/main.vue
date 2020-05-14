@@ -5,55 +5,7 @@
     </div>
     <div v-else>
       <div class="mainContainer">
-        <v-app-bar
-          class="mx-auto"
-          color="#403875"
-          dark
-          fixed
-          height="60px"
-          max-width="1440px"
-        >
-          <nuxt-link to="/">
-            <div v-if="isWindowLarge === true">
-              <div class="logodesktop">
-                <img class="headericond" src="/header-icon.png" />
-                <span class="logotitle"> COVID-19 Tracker </span>
-                <span class="logosubtitle"> by Code for San Francisco </span>
-              </div>
-            </div>
-            <div v-else>
-              <div class="logomobile">
-                <img class="headericonm" src="/header-icon.png" />
-              </div>
-            </div>
-          </nuxt-link>
-          <template class="tabs">
-            <v-tabs
-              v-model="active_tab"
-              align-with-title
-              fixed-tabs
-              height="60px"
-              dark
-            >
-              <v-tab v-for="tab in tabs" :key="tab.id" class="tab">
-                <v-icon
-                  v-if="tab.name === 'Updates'"
-                  class="iconcontainer"
-                  size="20"
-                >
-                  far fa-newspaper
-                </v-icon>
-                <v-icon v-else-if="tab.name === 'FAQ'" class="iconcontainer">
-                  far fa-question-circle
-                </v-icon>
-                <v-icon v-else-if="tab.name === 'Stats'" class="iconcontainer">
-                  far fa-chart-bar
-                </v-icon>
-                {{ tab.name }}
-              </v-tab>
-            </v-tabs>
-          </template>
-        </v-app-bar>
+        <TopNavigation :active-tab="active_tab" @tabClicked="navigateToTab" />
         <v-tabs-items v-model="active_tab" class="tabcontent">
           <v-tab-item v-for="tab in tabs" :key="tab.id">
             <Faq v-if="tab.name === 'FAQ'" />
@@ -69,6 +21,7 @@
 <script>
 import Vue from 'vue'
 import ScaleLoader from 'vue-spinner/src/ScaleLoader.vue'
+import TopNavigation from '@/components/TopNavigation'
 import Faq from '@/components/Faq.vue'
 import Stats from '@/components/Stats.vue'
 import News from '@/components/News.vue'
@@ -76,6 +29,7 @@ import News from '@/components/News.vue'
 export default Vue.extend({
   components: {
     ScaleLoader,
+    TopNavigation,
     Faq,
     Stats,
     News
@@ -101,18 +55,14 @@ export default Vue.extend({
       ]
     }
   },
-  computed: {
-    isWindowLarge() {
-      if (window.matchMedia('(min-width: 1024px)').matches) {
-        return true
-      } else {
-        return false
-      }
-    }
-  },
   mounted() {
     this.loading = false
     this.active_tab = this.preselectedtab
+  },
+  methods: {
+    navigateToTab(event) {
+      this.active_tab = event
+    }
   }
 })
 </script>
@@ -131,29 +81,6 @@ export default Vue.extend({
   @include largerThan($huge) {
     grid-template-columns: 325px 1fr;
     grid-template-rows: auto;
-  }
-}
-@include lessThan($small) {
-  .naviContainer {
-    position: sticky;
-    position: -webkit-sticky;
-    top: 0;
-    z-index: z-index-of(sp-navigation);
-  }
-}
-@include largerThan($small) {
-  .naviContainer {
-    grid-column: 1/2;
-    position: fixed;
-    top: 0;
-    overflow-y: auto;
-    width: 240px;
-    height: 100%;
-  }
-}
-@include largerThan($huge) {
-  .naviContainer {
-    width: 325px;
   }
 }
 .open {
@@ -189,47 +116,6 @@ export default Vue.extend({
     display: block;
     margin: 0 auto 20px;
   }
-}
-.logodesktop {
-  .headericond {
-    position: absolute;
-    top: 10px;
-    left: 30px;
-    width: 40px;
-    height: 40px;
-  }
-  .logotitle {
-    position: absolute;
-    left: 95px;
-    top: 10px;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 20px;
-    line-height: 24px;
-    letter-spacing: 0.03em;
-    color: $white-1;
-  }
-  .logosubtitle {
-    position: absolute;
-    left: 95px;
-    top: 36px;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 12px;
-    line-height: 14px;
-    color: $white-1;
-  }
-  margin-right: 300px;
-}
-.logomobile {
-  .headericonm {
-    position: absolute;
-    top: 10px;
-    left: 20px;
-    width: 40px;
-    height: 40px;
-  }
-  margin-right: 30px;
 }
 .tab {
   @media screen and (max-width: 640px) {

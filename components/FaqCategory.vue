@@ -131,8 +131,8 @@ export default {
     }
     .v-expansion-panel--active {
       border-top: 1px solid $gray-2;
-      border-top-right-radius: 0%;
-      border-top-left-radius: 0%;
+      border-top-right-radius: 0% !important;
+      border-top-left-radius: 0% !important;
     }
     .v-expansion-panel:last-child {
       border-bottom: 1px solid rgba(0, 0, 0, 0.12);

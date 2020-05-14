@@ -5,8 +5,8 @@
       <div class="origin">
         <div class="logo">
           <img class="headericond" src="/header-icon.png" />
-          <span class="logotitle"> COVID-19 Tracker </span>
-          <span class="logosubtitle"> by Code for San Francisco </span>
+          <span class="logotitle">Bay Area Pandemic Dashboard</span>
+          <span class="logosubtitle">by Bay Area Brigades</span>
         </div>
         <div class="title">
           <h1>
