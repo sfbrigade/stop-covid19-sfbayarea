@@ -92,7 +92,7 @@ a:hover {
   &-Container {
     display: flex;
     background: $purple-1;
-    color: $white-1;
+    color: $white-1 !important;
     height: 60px;
     margin: 0;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -107,7 +107,7 @@ a:hover {
     height: 100%;
     min-width: 72px;
     @include lessThan($small) {
-      min-width: 48px;
+      min-width: 56px;
     }
 
     .headericon {
@@ -118,8 +118,8 @@ a:hover {
       @include lessThan($small) {
         width: 28px;
         height: 28px;
-        margin-left: 10px;
-        margin-right: 10px;
+        margin-left: 14px;
+        margin-right: 14px;
       }
     }
     .logo-title-container {
@@ -161,7 +161,7 @@ a:hover {
   &-Button {
     background: inherit !important;
     padding: 18px 25px !important;
-    color: $white-1;
+    color: $white-1 !important;
     margin: 0 !important;
     height: 100% !important;
     border-radius: 0;
@@ -176,6 +176,7 @@ a:hover {
       }
       i {
         margin: 0 10px 0 0;
+        color: $white-1;
       }
     }
     /* &:hover {
