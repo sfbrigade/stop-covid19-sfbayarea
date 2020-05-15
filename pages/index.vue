@@ -5,8 +5,8 @@
       <div class="origin">
         <div class="logo">
           <img class="headericond" src="/header-icon.png" />
-          <span class="logotitle"> COVID-19 Tracker </span>
-          <span class="logosubtitle"> by Code for San Francisco </span>
+          <span class="logotitle">Bay Area Pandemic Dashboard</span>
+          <span class="logosubtitle">by Bay Area Brigades</span>
         </div>
         <div class="title">
           <h1>
@@ -166,18 +166,18 @@ export default Vue.extend({
     .logotitle {
       position: absolute;
       left: 75px;
-      top: 15px;
+      top: 8px;
       font-style: normal;
       font-weight: bold;
-      font-size: 24px;
-      line-height: 24px;
+      font-size: 22px;
+      line-height: 22px;
       letter-spacing: 0.03em;
       color: $white-1;
     }
     .logosubtitle {
       position: absolute;
       left: 75px;
-      top: 45px;
+      top: 57px;
       font-style: normal;
       font-weight: 500;
       font-size: 14px;
