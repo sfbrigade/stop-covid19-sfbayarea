@@ -33,20 +33,40 @@ jobs:
       uses: actions/setup-python@v1
       with:
         python-version: '3.x'
-
-    # Runs a set of commands using the runners shell
-    - name: Run a multi-line script
+    
+    - name: Install Data Scraper & Dependencies
       run: |
-        echo This is to update data/data.json automatically every day.
-        git config user.name ${{ secrets.githubaction_config_user_name }}
-        git config user.email ${{ secrets.githubaction_config_user_email }}
         git clone https://github.com/sfbrigade/data-covid19-sfbayarea.git
         cd data-covid19-sfbayarea
         python -m pip install --upgrade pip
         pip install -r requirements.txt;
+        
+        # Keep track of the version used so we can use it in commit messages
+        echo "::set-env name=SCRAPER_COMMIT::$(git rev-parse HEAD)"
+
+
+    - name: Scrape News
+      run: |
+        cd data-covid-19-sfbayarea
         python scraper_news.py --format json_simple > ../data/news.json
-        cd ..
-        git add data/news.json
-        git commit -m "GitHubAction: news data update."
-        git push
-        echo If a new commit exists, please create a Pull Request from github-action branch.
+    
+    - name: Commit Changes
+      run: |
+        if [ -z "$(git status --porcelain)" ] then
+          echo 'Nothing to commit!'
+        else
+          # Configure git
+          git config user.name ${{ secrets.githubaction_config_user_name }}
+          git config user.email ${{ secrets.githubaction_config_user_email }}
+
+          echo 'Committing updated news data...'
+          git add data/news.json
+          git commit -m "GitHubAction: news data update.
+
+          Created with commit ${SCRAPER_COMMIT} from sfbrigade/data-covid19-sfbayarea
+          https://github.com/sfbrigade/data-covid19-sfbayarea/commit/${SCRAPER_COMMIT}
+          "
+          git push
+          echo "Committed: $(git show HEAD --no-patch --format=reference)"
+          echo 'You should make a pull request to put these changes on master!'
+        fi
