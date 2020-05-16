@@ -23,32 +23,38 @@ jobs:
       with:
         python-version: '3.x'
     
+    # Check out the data scraper *alongside* this repo, not inside it. This way
+    # nothing that happens here interferes with the main repo.
+    # - The path to the data scraper will be available as $SCRAPER_PATH.
+    # - The commit that was checked out will be available as $SCRAPER_COMMIT.
     - name: Install Data Scraper & Dependencies
       run: |
+        cd ..
         git clone https://github.com/sfbrigade/data-covid19-sfbayarea.git
         cd data-covid19-sfbayarea
         python -m pip install --upgrade pip
         pip install -r requirements.txt;
+
+        # Keep track of where we checked out the scraper codebase
+        echo "::set-env name=SCRAPER_PATH::$(pwd)"
         
         # Keep track of the version used so we can use it in commit messages
         echo "::set-env name=SCRAPER_COMMIT::$(git rev-parse HEAD)"
 
     - name: Scrape News
       run: |
-        cd data-covid19-sfbayarea
-        python scraper_news.py --format json_simple > ../data/news.json
+        cd $SCRAPER_PATH
+        python scraper_news.py --format json_simple > "${GITHUB_WORKSPACE}/data/news.json"
     
     - name: Commit Changes
       run: |
-        if [ -z "$(git status --porcelain)" ]; then
-          echo 'Nothing to commit!'
-        else
+        if [[ "$(git status --porcelain)" =~ 'data/' ]]; then
           # Configure git
           git config user.name ${{ secrets.githubaction_config_user_name }}
           git config user.email ${{ secrets.githubaction_config_user_email }}
 
           echo 'Committing updated news data...'
-          git add data/news.json
+          git add data/
           git commit -m "GitHubAction: news data update.
 
           Created with commit ${SCRAPER_COMMIT} from sfbrigade/data-covid19-sfbayarea
@@ -57,4 +63,6 @@ jobs:
           git push
           echo "Committed: $(git show HEAD --no-patch --format=reference)"
           echo 'You should make a pull request to put these changes on master!'
+        else
+          echo 'Nothing to commit!'
         fi
