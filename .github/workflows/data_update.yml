@@ -38,7 +38,7 @@ jobs:
 
     - name: Install Data Scraper & Dependencies
       run: |
-      cd ${GITHUB_WORKSPACE}/data-covid19-sfbayarea
+        cd ${GITHUB_WORKSPACE}/data-covid19-sfbayarea
         python -m pip install --upgrade pip
         pip install -r requirements.txt;
 
