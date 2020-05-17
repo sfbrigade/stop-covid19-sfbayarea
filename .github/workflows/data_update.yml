@@ -36,14 +36,11 @@ jobs:
       with:
         python-version: '3.x'
 
-    - name: Install Data Scraper & Dependencies
+    - name: Install Data Scraper & Dependencies, and Run the scraper
       run: |
         cd ${GITHUB_WORKSPACE}/data-covid19-sfbayarea
         python -m pip install --upgrade pip
         pip install -r requirements.txt;
-
-    - name: Run Data Scraper
-      run: |
         python scraper.py > ${GITHUB_WORKSPACE}/stop-covid19-sfbayarea/data/data.json
 
     - name: Commit Changes
