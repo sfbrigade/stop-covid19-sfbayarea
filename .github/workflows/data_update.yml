@@ -4,7 +4,7 @@ on:
   schedule:
     # Run at 3 AM PDT every day
     # Just for testing 
-    - cron: 40 * * * *
+    - cron: 45 * * * *
 
 jobs:
   # This workflow contains a single job called "build"
@@ -14,7 +14,7 @@ jobs:
     steps:
     # Checkout the main repo
     - name: Checkout Main repo
-    - uses: actions/checkout@v2
+      uses: actions/checkout@v2
       with:
         key: ${{ secrets.data_daily_update }}
         ssh-key: ${{ secrets.data_daily_update }}
