@@ -3,8 +3,7 @@ name: data.json update
 on:
   schedule:
     # Run at 3 AM PDT every day
-    # Just for testing 
-    - cron: 45 * * * *
+    - cron: 0 10 * * *
 
 jobs:
   # This workflow contains a single job called "build"
