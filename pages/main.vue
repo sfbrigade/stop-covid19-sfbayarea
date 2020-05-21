@@ -33,7 +33,6 @@
               align-with-title
               fixed-tabs
               height="60px"
-              background-color="#403875"
               dark
             >
               <v-tab v-for="tab in tabs" :key="tab.id" class="tab">
@@ -201,8 +200,6 @@ export default Vue.extend({
   }
   .logotitle {
     position: absolute;
-    width: 174px;
-    height: 24px;
     left: 95px;
     top: 10px;
     font-style: normal;
@@ -214,8 +211,6 @@ export default Vue.extend({
   }
   .logosubtitle {
     position: absolute;
-    width: 174px;
-    height: 14px;
     left: 95px;
     top: 36px;
     font-style: normal;
@@ -224,7 +219,7 @@ export default Vue.extend({
     line-height: 14px;
     color: $white-1;
   }
-  margin-right: 250px;
+  margin-right: 300px;
 }
 .logomobile {
   .headericonm {
@@ -234,9 +229,12 @@ export default Vue.extend({
     width: 40px;
     height: 40px;
   }
-  margin-right: 45px;
+  margin-right: 30px;
 }
 .tab {
+  @media screen and (max-width: 640px) {
+    max-width: 125px;
+  }
   font-style: normal;
   font-weight: bold;
   font-size: 20px;

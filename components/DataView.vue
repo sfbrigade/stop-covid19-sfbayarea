@@ -1,7 +1,7 @@
 <template>
   <v-card class="DataView pa-1">
-    <v-toolbar flat class="DataView-content">
-      <div class="DataView-TitleContainer">
+    <v-toolbar flat class="DataView-content" :class="{ centered: centered }">
+      <div v-if="title" class="DataView-TitleContainer">
         <h3 :id="titleId" class="DataView-ToolbarTitle">
           {{ title }}
         </h3>
@@ -18,7 +18,9 @@
       <slot />
     </v-card-text>
     <v-footer class="DataView-Footer">
-      <time :datetime="formattedDate">Last Updated at {{ date }}</time>
+      <time v-if="date" :datetime="formattedDate">
+        Last Updated at {{ date }}
+      </time>
       <a
         v-if="url"
         class="OpenDataLink"
@@ -27,9 +29,7 @@
         rel="noopener"
       >
         {{ $t('Link to the Open Data Source') }}
-        <v-icon class="ExternalLinkIcon" size="15">
-          mdi-open-in-new
-        </v-icon>
+        <v-icon class="ExternalLinkIcon" size="15">mdi-open-in-new</v-icon>
       </a>
     </v-footer>
   </v-card>
@@ -46,7 +46,7 @@ export default class DataView extends Vue {
   @Prop() private date!: string
   @Prop() private url!: string
   @Prop() private info!: any // FIXME expect info as {lText:string, sText:string unit:string}
-
+  @Prop() private centered?: boolean
   formattedDate: string = convertDatetimeToISO8601Format(this.date)
 }
 </script>
@@ -125,5 +125,9 @@ export default class DataView extends Vue {
 }
 .v-toolbar__content {
   height: auto !important;
+}
+.centered {
+  display: flex;
+  justify-content: center;
 }
 </style>

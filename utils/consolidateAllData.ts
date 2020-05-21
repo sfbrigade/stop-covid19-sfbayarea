@@ -25,38 +25,47 @@ type ConsolidatedDataType = {
   totalDeaths: number
   totalCases: number
   cases: Array<GraphDataType>
+  lastUpdatedAt: string
 }
 
-// const mergeObjects = (objectA, objectB = {}) => {
+// const mergeObjects = (objectA, objectB) => {
+//     const result = {};
 
+//     return result;
 // }
 
 const consolidateAllData = (
   data: Array<CountyDataType>
 ): ConsolidatedDataType => {
-  const consolidatedData: ConsolidatedDataType = {
-    totalPopulation: 0,
-    totalDeaths: 0,
-    totalCases: 0,
-    cases: []
-  }
+  let totalPopulation = 0
+  let totalDeaths = 0
+  let totalCases = 0
+  const allCases = []
+
   for (const countyName in data) {
     const countyData = data[countyName]
-    consolidatedData.totalPopulation += countyData.population
+    totalPopulation += countyData.population
     countyData.cases.forEach((timePoint, index) => {
       const { cases, deaths } = timePoint
 
-      consolidatedData.totalCases += cases
-      consolidatedData.totalDeaths += deaths
-      if (consolidatedData.cases[index]) {
-        consolidatedData.cases[index].cases += cases
-        consolidatedData.cases[index].deaths += deaths
+      totalCases += cases
+      totalDeaths += deaths
+      if (allCases[index]) {
+        allCases[index].cases += cases
+        allCases[index].deaths += deaths
       } else {
-        consolidatedData.cases[index] = timePoint
+        allCases[index] = { ...timePoint }
       }
     })
   }
-  consolidatedData.cases = formatGraph(consolidatedData.cases)
+
+  const consolidatedData: ConsolidatedDataType = {
+    totalPopulation,
+    totalDeaths,
+    totalCases,
+    cases: formatGraph(allCases),
+    lastUpdatedAt: '3/19'
+  }
   return consolidatedData
 }
 

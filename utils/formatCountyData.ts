@@ -39,7 +39,7 @@ const mapFilterCounties = (countyFilter: Array<string>) => {
 }
 
 export default (data: Array<CountyDataType>, countyFilter?: Array<string>) => {
-  const counties: Array<CountyDataFormattedType> = []
+  const counties = {}
   let includedCounties: CountyMapType = {}
   if (countyFilter) {
     includedCounties = mapFilterCounties(countyFilter)
@@ -53,7 +53,7 @@ export default (data: Array<CountyDataType>, countyFilter?: Array<string>) => {
       graph: formatGraph(cases),
       lastUpdatedAt: cases.slice(-1)[0].date
     }
-    counties.push(county)
+    counties[countyName] = county
   }
   return counties
 }

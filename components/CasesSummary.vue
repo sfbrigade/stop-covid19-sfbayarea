@@ -3,28 +3,61 @@
     :title="title"
     :title-id="titleId"
     :date="lastUpdatedAt"
-    :url="url"
+    :centered="true"
   >
     <div class="summary">
       <div class="total-positive">
-        <h2>Confirmed:</h2>
-        <div class="total-positive-number">
+        <h4>Confirmed Cases</h4>
+        <div class="stat-number">
           {{
             isNaN(calcTotalCasesSummary.cases) != true
               ? calcTotalCasesSummary.cases
               : 'No data available'
           }}
         </div>
+        <footer>
+          <strong>
+            {{ `${calcTotalCasesSummary.percentChange}%` }}
+          </strong>
+          {{
+            parseInt(calcTotalCasesSummary.percentChange) >= 0
+              ? `daily increase`
+              : `daily decrease`
+          }}
+        </footer>
+      </div>
+      <div class="case-frequency">
+        <h4>Confirmed Cases per 10000</h4>
+        <div class="stat-number">
+          {{
+            isNaN(calcTotalCasesSummary.cases) != true
+              ? (
+                  calcTotalCasesSummary.cases /
+                  (calcTotalCasesSummary.population / 1000)
+                ).toFixed(2)
+              : 'No data available'
+          }}
+        </div>
+        <footer>in past 14 days</footer>
       </div>
       <div class="deaths">
-        <h2>Deaths:</h2>
-        <div class="deaths-number">
+        <h4>Total Deaths</h4>
+        <div class="stat-number">
           {{
             isNaN(calcTotalCasesSummary.deaths) != true
               ? calcTotalCasesSummary.deaths
               : 'No data available'
           }}
         </div>
+        <footer>
+          <strong>{{
+            `${(
+              (calcTotalCasesSummary.deaths / calcTotalCasesSummary.cases) *
+              100
+            ).toFixed(2)}%`
+          }}</strong>
+          death rate
+        </footer>
       </div>
     </div>
   </data-view>
@@ -33,20 +66,20 @@
 <style lang="scss" scoped>
 .summary {
   text-align: center;
-  .total-positive {
-    .total-positive-number {
-      margin-top: 20px;
-      font-size: 36px;
-      color: $purple-1;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  & > div {
+    border-right: 2px solid lightgray;
+    &:last-child {
+      border-right: none;
     }
   }
-  .deaths {
-    margin-top: 80px;
-    .deaths-number {
-      margin-top: 20px;
-      font-size: 36px;
-      color: $gray-3;
-    }
+  .stat-number {
+    padding: 10px;
+    margin: 20px 0px;
+    font-size: 60px;
+    color: black;
+    font-weight: bold;
   }
 }
 </style>
@@ -54,6 +87,7 @@
 <script>
 import DataView from '@/components/DataView.vue'
 import Data from '@/data/data.json'
+import calculatePercentChange from '@/utils/calculatePercentChange'
 
 export default {
   components: { DataView },
@@ -120,6 +154,17 @@ export default {
         casesNapa[casesNapa.length - 1].cases +
         casesMarin[casesMarin.length - 1].cases
 
+      const prevTotalConfirmedCases =
+        casesSolano[casesSolano.length - 2].cases +
+        casesAlameda[casesAlameda.length - 2].cases +
+        casesSantaClara[casesSantaClara.length - 2].cases +
+        casesSanFrancisco[casesSanFrancisco.length - 2].cases +
+        casesContraCostaCounty[casesContraCostaCounty.length - 2].cases +
+        casesSanMateoCounty[casesSanMateoCounty.length - 2].cases +
+        casesSonoma[casesSonoma.length - 2].cases +
+        casesNapa[casesNapa.length - 2].cases +
+        casesMarin[casesMarin.length - 2].cases
+
       const totalDeaths =
         casesSolano[casesSolano.length - 1].deaths +
         casesAlameda[casesAlameda.length - 1].deaths +
@@ -142,10 +187,26 @@ export default {
         casesNapa[casesNapa.length - 1].recovered +
         casesMarin[casesMarin.length - 1].recovered
 
+      const totalPopulation =
+        Data['Solano County'].population +
+        Data['Alameda County'].population +
+        Data['Santa Clara County'].population +
+        Data['San Francisco County'].population +
+        Data['Contra Costa County'].population +
+        Data['San Mateo County'].population +
+        Data['Sonoma County'].population +
+        Data['Napa County'].population +
+        Data['Marin County'].population
+
       return {
         cases: totalConfirmedCases,
         deaths: totalDeaths,
-        recovered: totalRecovered
+        recovered: totalRecovered,
+        population: totalPopulation,
+        percentChange: calculatePercentChange(
+          prevTotalConfirmedCases,
+          totalConfirmedCases
+        )
       }
     }
   }
