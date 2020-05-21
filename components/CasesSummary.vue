@@ -16,9 +16,7 @@
           }}
         </div>
         <footer>
-          <strong>
-            {{ `${calcTotalCasesSummary.percentChange}%` }}
-          </strong>
+          <strong>{{ `${calcTotalCasesSummary.percentChange}%` }}</strong>
           {{
             parseInt(calcTotalCasesSummary.percentChange) >= 0
               ? `daily increase`
@@ -28,17 +26,16 @@
       </div>
       <div class="case-frequency">
         <h4>Confirmed Cases per 10000</h4>
-        <div class="stat-number">
+        <!-- <div class="stat-number">
           {{
-            isNaN(calcTotalCasesSummary.cases) != true
-              ? (
-                  calcTotalCasesSummary.cases /
-                  (calcTotalCasesSummary.population / 1000)
-                ).toFixed(2)
-              : 'No data available'
+          isNaN(calcTotalCasesSummary.cases) != true
+          ? (
+          calcTotalCasesSummary.cases /
+          (calcTotalCasesSummary.population / 10000)
+          ).toFixed(2)
+          : 'No data available'
           }}
-        </div>
-        <footer>in past 14 days</footer>
+        </div> -->
       </div>
       <div class="deaths">
         <h4>Total Deaths</h4>
@@ -50,12 +47,14 @@
           }}
         </div>
         <footer>
-          <strong>{{
-            `${(
-              (calcTotalCasesSummary.deaths / calcTotalCasesSummary.cases) *
-              100
-            ).toFixed(2)}%`
-          }}</strong>
+          <strong>
+            {{
+              `${(
+                (calcTotalCasesSummary.deaths / calcTotalCasesSummary.cases) *
+                100
+              ).toFixed(2)}%`
+            }}
+          </strong>
           death rate
         </footer>
       </div>
@@ -87,7 +86,7 @@
 <script>
 import DataView from '@/components/DataView.vue'
 import Data from '@/data/data.json'
-import calculatePercentChange from '@/utils/calculatePercentChange'
+import { calculatePercentage } from '@/utils/calculations'
 
 export default {
   components: { DataView },
@@ -203,7 +202,7 @@ export default {
         deaths: totalDeaths,
         recovered: totalRecovered,
         population: totalPopulation,
-        percentChange: calculatePercentChange(
+        percentChange: calculatePercentage(
           prevTotalConfirmedCases,
           totalConfirmedCases
         )
