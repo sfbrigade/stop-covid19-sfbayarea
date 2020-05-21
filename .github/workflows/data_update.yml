@@ -1,0 +1,53 @@
+name: data.json update
+
+on:
+  schedule:
+    # Run at 3 AM PDT every day
+    - cron: 0 10 * * *
+
+jobs:
+  # This workflow contains a single job called "build"
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    # Checkout the main repo
+    - name: Checkout Main repo
+      uses: actions/checkout@v2
+      with:
+        key: ${{ secrets.data_daily_update }}
+        ssh-key: ${{ secrets.data_daily_update }}
+        ref: github-action
+        path: stop-covid19-sfbayarea
+
+    # Checkout data scraper repo
+    - name: Checkout Data Scraper
+      uses: actions/checkout@v2
+      with:
+        key: ${{ secrets.data_daily_update }}
+        ssh-key: ${{ secrets.data_daily_update }}
+        repository: sfbrigade/data-covid19-sfbayarea
+        path: data-covid19-sfbayarea
+
+    # The scraper uses Python 3.7+, so make sure we've got the latest 3.x
+    - name: Set up Python 3.x
+      uses: actions/setup-python@v1
+      with:
+        python-version: '3.x'
+
+    - name: Install Data Scraper & Dependencies, and Run the scraper
+      run: |
+        cd ${GITHUB_WORKSPACE}/data-covid19-sfbayarea
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt;
+        python scraper.py > ${GITHUB_WORKSPACE}/stop-covid19-sfbayarea/data/data.json
+
+    - name: Commit Changes
+      run: |
+        cd ${GITHUB_WORKSPACE}/stop-covid19-sfbayarea
+        git config user.name ${{ secrets.githubaction_config_user_name }}
+        git config user.email ${{ secrets.githubaction_config_user_email }}
+        git add data/data.json
+        git commit -m "GitHubAction: Daily data update."
+        git push
+        echo Git commit and push completed for the daily data update. Please create a Pull Request from github-action branch.
