@@ -36,6 +36,9 @@
           : 'No data available'
           }}
         </div> -->
+        <footer>
+          in past 14 days
+        </footer>
       </div>
       <div class="deaths">
         <h4>Total Deaths</h4>
