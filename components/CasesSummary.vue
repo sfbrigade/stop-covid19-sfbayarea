@@ -27,18 +27,14 @@
       <div class="case-frequency">
         <h4>Confirmed Cases per 10000</h4>
         <div class="stat-number">
-          <!-- {{ 
-            isNaN(calcTotalCasesSummary.cases) != true
-            ? (
-                calcTotalCasesSummary.cases /
-                (calcTotalCasesSummary.population / 10000)
-              ).toFixed(2)
-            : 'No data available'
-          }} -->
+          {{
+            (
+              calcTotalCasesSummary.cases /
+              (calcTotalCasesSummary.population / 10000)
+            ).toFixed(2)
+          }}
         </div>
-        <footer>
-          in past 14 days
-        </footer>
+        <footer>in past 14 days</footer>
       </div>
       <div class="deaths">
         <h4>Total Deaths</h4>
