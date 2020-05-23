@@ -33,20 +33,44 @@
               <div class="border">
                 <h4>Confirmed Cases</h4>
                 <div class="stat-number" :county="Data[currentCounty]">
-                  {{ countyCases }}
+                  {{
+                    Data[currentCounty].cases[
+                      Data[currentCounty].cases.length - 1
+                    ].cases
+                  }}
                 </div>
                 <footer>
-                  <strong>{{ `${countyCaseRate}% ` }}</strong>
+                  <strong>{{
+                    `${(
+                      (selectedCountyData.cases[
+                        selectedCountyData.cases.length - 1
+                      ].cases /
+                        totalCases) *
+                      100
+                    ).toFixed(2)}% `
+                  }}</strong>
                   of Bay Area Total
                 </footer>
               </div>
               <div>
                 <h4>Deaths</h4>
                 <div class="stat-number">
-                  {{ countyDeaths }}
+                  {{
+                    Data[currentCounty].cases[
+                      Data[currentCounty].cases.length - 1
+                    ].deaths
+                  }}
                 </div>
                 <footer>
-                  <strong>{{ `${countyDeathRate}% ` }}</strong>
+                  <strong>{{
+                    `${(
+                      (selectedCountyData.cases[
+                        selectedCountyData.cases.length - 1
+                      ].deaths /
+                        totalDeaths) *
+                      100
+                    ).toFixed(2)}% `
+                  }}</strong>
                   of Bay Area Total
                 </footer>
               </div>
@@ -69,23 +93,6 @@
           :url="'https://coronadatascraper.com'"
         />
       </v-col>
-      <!-- <v-col
-        v-for="(county, index) in CountyData"
-        :key="index"
-        :county="county"
-        cols="12"
-        md="6"
-        class="DataCard"
-      >
-        <time-bar-chart
-          :title="`${county.name}`"
-          :title-id="'number-of-confirmed-cases'"
-          :chart-id="'time-bar-chart-patients'"
-          :chart-data="county.graph"
-          :date="county.lastUpdatedAt"
-          :url="'https://coronadatascraper.com'"
-        />
-      </v-col>-->
     </v-row>
   </div>
 </template>
@@ -97,11 +104,7 @@ import Data from '@/data/data.json'
 import formatCountyData from '@/utils/formatCountyData'
 import consolidateAllData from '@/utils/consolidateAllData'
 import DataView from '@/components/DataView.vue'
-import {
-  calculateDeathRate,
-  calculateTotalCases,
-  calculateCaseRate
-} from '@/utils/calculations'
+import { calculateTotalCases, calculateTotalDeaths } from '@/utils/calculations'
 
 export default {
   components: {
@@ -116,16 +119,8 @@ export default {
     const countyNames = Object.keys(Data)
     const selectedCountyData = Data[currentCounty]
 
-    const countyDeaths =
-      selectedCountyData.cases[selectedCountyData.cases.length - 1].deaths
-
-    const countyCases =
-      selectedCountyData.cases[selectedCountyData.cases.length - 1].cases
-
     const totalCases = calculateTotalCases(Data)
-
-    const countyDeathRate = calculateDeathRate(countyDeaths, totalCases)
-    const countyCaseRate = calculateCaseRate(countyCases, totalCases)
+    const totalDeaths = calculateTotalDeaths(Data)
 
     const data = {
       Data,
@@ -133,10 +128,9 @@ export default {
       ConsolidatedData,
       currentCounty,
       countyNames,
-      countyDeaths,
-      countyDeathRate,
-      countyCases,
-      countyCaseRate
+      selectedCountyData,
+      totalCases,
+      totalDeaths
     }
     return data
   },
@@ -180,6 +174,7 @@ export default {
           font-size: 60px;
           color: black;
           font-weight: bold;
+          font-family: SF Mono;
         }
         .border {
           border-right: 2px solid lightgray;
@@ -196,7 +191,6 @@ export default {
   .select-css {
     display: block;
     font-size: 16px;
-    font-family: sans-serif;
     font-weight: 700;
     color: #444;
     line-height: 1.3;

@@ -23,7 +23,6 @@ export const calculateCaseRate = (
   cases: number,
   totalCases: number
 ): string => {
-  console.log(cases, totalCases)
   return ((cases / totalCases) * 100).toFixed(2)
 }
 
@@ -50,4 +49,29 @@ export const calculateTotalCases = (Data: any): number => {
     casesMarin[casesMarin.length - 1].cases
 
   return totalConfirmedCases
+}
+
+export const calculateTotalDeaths = (Data: any): number => {
+  const casesSolano = Data['Solano County'].cases
+  const casesAlameda = Data['Alameda County'].cases
+  const casesSantaClara = Data['Santa Clara County'].cases
+  const casesSanFrancisco = Data['San Francisco County'].cases
+  const casesContraCostaCounty = Data['Contra Costa County'].cases
+  const casesSanMateoCounty = Data['San Mateo County'].cases
+  const casesSonoma = Data['Sonoma County'].cases
+  const casesNapa = Data['Napa County'].cases
+  const casesMarin = Data['Marin County'].cases
+
+  const totalDeaths =
+    casesSolano[casesSolano.length - 1].deaths +
+    casesAlameda[casesAlameda.length - 1].deaths +
+    casesSantaClara[casesSantaClara.length - 1].deaths +
+    casesSanFrancisco[casesSanFrancisco.length - 1].deaths +
+    casesContraCostaCounty[casesContraCostaCounty.length - 1].deaths +
+    casesSanMateoCounty[casesSanMateoCounty.length - 1].deaths +
+    casesSonoma[casesSonoma.length - 1].deaths +
+    casesNapa[casesNapa.length - 1].deaths +
+    casesMarin[casesMarin.length - 1].deaths
+
+  return totalDeaths
 }

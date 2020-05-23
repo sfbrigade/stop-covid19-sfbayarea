@@ -15,14 +15,14 @@
               : 'No data available'
           }}
         </div>
-        <footer>
+        <div>
           <strong>{{ `${calcTotalCasesSummary.percentChange}%` }}</strong>
           {{
             parseInt(calcTotalCasesSummary.percentChange) >= 0
               ? `daily increase`
               : `daily decrease`
           }}
-        </footer>
+        </div>
       </div>
       <div class="case-frequency">
         <h4>Confirmed Cases per 10000</h4>
@@ -34,7 +34,7 @@
             ).toFixed(2)
           }}
         </div>
-        <footer>in past 14 days</footer>
+        <div>in past 14 days</div>
       </div>
       <div class="deaths">
         <h4>Total Deaths</h4>
@@ -45,7 +45,7 @@
               : 'No data available'
           }}
         </div>
-        <footer>
+        <div>
           <strong>
             {{
               `${(
@@ -55,13 +55,16 @@
             }}
           </strong>
           death rate
-        </footer>
+        </div>
       </div>
     </div>
   </data-view>
 </template>
 
 <style lang="scss" scoped>
+h4 {
+  font-family: SF Compact Display;
+}
 .summary {
   text-align: center;
   display: grid;
@@ -78,6 +81,7 @@
     font-size: 60px;
     color: black;
     font-weight: bold;
+    font-family: SF Mono;
   }
 }
 </style>

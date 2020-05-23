@@ -40,7 +40,7 @@ const consolidateAllData = (
   let totalPopulation = 0
   let totalDeaths = 0
   let totalCases = 0
-  const allCases = []
+  const allCases: Array<any> = []
 
   for (const countyName in data) {
     const countyData = data[countyName]
