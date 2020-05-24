@@ -16,38 +16,43 @@ jobs:
         key: ${{ secrets.data_daily_update }}
         ssh-key: ${{ secrets.data_daily_update }}
         ref: github-action
+        path: stop-covid19-sfbayarea
+
+    # Checkout news scraper repo
+    - name: Checkout Data Scraper
+      uses: actions/checkout@v2
+      with:
+        key: ${{ secrets.data_daily_update }}
+        ssh-key: ${{ secrets.data_daily_update }}
+        repository: sfbrigade/data-covid19-sfbayarea
+        path: data-covid19-sfbayarea
 
     # The scraper uses Python 3.7+, so make sure we've got the latest 3.x
     - name: Set up Python 3.x
       uses: actions/setup-python@v1
       with:
         python-version: '3.x'
-    
-    # Check out the data scraper *alongside* this repo, not inside it. This way
-    # nothing that happens here interferes with the main repo.
-    # - The path to the data scraper will be available as $SCRAPER_PATH.
+
+    # Install dependencis
     # - The commit that was checked out will be available as $SCRAPER_COMMIT.
     - name: Install Data Scraper & Dependencies
       run: |
-        cd ..
-        git clone https://github.com/sfbrigade/data-covid19-sfbayarea.git
-        cd data-covid19-sfbayarea
+        cd ${GITHUB_WORKSPACE}/data-covid19-sfbayarea
         python -m pip install --upgrade pip
         pip install -r requirements.txt;
 
-        # Keep track of where we checked out the scraper codebase
-        echo "::set-env name=SCRAPER_PATH::$(pwd)"
-        
         # Keep track of the version used so we can use it in commit messages
         echo "::set-env name=SCRAPER_COMMIT::$(git rev-parse HEAD)"
 
+    # Run the news scraper
     - name: Scrape News
       run: |
-        cd $SCRAPER_PATH
-        python scraper_news.py --format json_simple > "${GITHUB_WORKSPACE}/data/news.json"
+        python scraper_news.py --format json_simple > "${GITHUB_WORKSPACE}/stop-covid19-sfbayarea/data/news.json"
     
+    # Check if we have news update, then commit
     - name: Commit Changes
       run: |
+        cd ${GITHUB_WORKSPACE}/stop-covid19-sfbayarea
         if [[ "$(git status --porcelain)" =~ 'data/' ]]; then
           # Configure git
           git config user.name ${{ secrets.githubaction_config_user_name }}
