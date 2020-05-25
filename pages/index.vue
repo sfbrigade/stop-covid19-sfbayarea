@@ -139,7 +139,7 @@ export default Vue.extend({
   }
   @media screen and (min-height: 640px) {
     .navigation {
-      margin-top: 400px;
+      margin-top: 200px;
       width: 1024px;
     }
   }
