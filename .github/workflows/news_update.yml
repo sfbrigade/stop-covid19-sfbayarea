@@ -16,7 +16,7 @@ jobs:
         key: ${{ secrets.data_daily_update }}
         ssh-key: ${{ secrets.data_daily_update }}
         ref: github-action
-        path: stop-covid19-sfbayarea
+        path: site
 
     # Checkout news scraper repo
     - name: Checkout Data Scraper
@@ -25,7 +25,7 @@ jobs:
         key: ${{ secrets.data_daily_update }}
         ssh-key: ${{ secrets.data_daily_update }}
         repository: sfbrigade/data-covid19-sfbayarea
-        path: data-covid19-sfbayarea
+        path: scraper
 
     # The scraper uses Python 3.7+, so make sure we've got the latest 3.x
     - name: Set up Python 3.x
@@ -37,7 +37,7 @@ jobs:
     # - The commit that was checked out will be available as $SCRAPER_COMMIT.
     - name: Install Data Scraper & Dependencies
       run: |
-        cd ${GITHUB_WORKSPACE}/data-covid19-sfbayarea
+        cd ${GITHUB_WORKSPACE}/scraper
         python -m pip install --upgrade pip
         pip install -r requirements.txt;
 
@@ -47,12 +47,13 @@ jobs:
     # Run the news scraper
     - name: Scrape News
       run: |
-        python scraper_news.py --format json_simple > "${GITHUB_WORKSPACE}/stop-covid19-sfbayarea/data/news.json"
+        cd ${GITHUB_WORKSPACE}/scraper
+        python scraper_news.py --format json_simple > "${GITHUB_WORKSPACE}/site/data/news.json"
     
     # Check if we have news update, then commit
     - name: Commit Changes
       run: |
-        cd ${GITHUB_WORKSPACE}/stop-covid19-sfbayarea
+        cd ${GITHUB_WORKSPACE}/site
         if [[ "$(git status --porcelain)" =~ 'data/' ]]; then
           # Configure git
           git config user.name ${{ secrets.githubaction_config_user_name }}
