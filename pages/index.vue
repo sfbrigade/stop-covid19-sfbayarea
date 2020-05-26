@@ -166,7 +166,7 @@ export default Vue.extend({
     .logotitle {
       position: absolute;
       left: 75px;
-      top: 8px;
+      top: 15px;
       font-style: normal;
       font-weight: bold;
       font-size: 22px;
@@ -177,7 +177,7 @@ export default Vue.extend({
     .logosubtitle {
       position: absolute;
       left: 75px;
-      top: 57px;
+      top: 45px;
       font-style: normal;
       font-weight: 500;
       font-size: 14px;
@@ -194,6 +194,14 @@ export default Vue.extend({
   .navigation {
     position: absolute;
     top: 400px;
+  }
+}
+@media screen and (max-width: 407px) {
+  .logotitle {
+    top: 8px !important;
+  }
+  .logosubtitle {
+    top: 57px !important;
   }
 }
 .cardtitle {
