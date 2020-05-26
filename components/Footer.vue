@@ -76,26 +76,51 @@ export default {
 .Footer {
   padding: 31px 31px 26px 31px;
   background: $white-2;
+  @include lessThan($small) {
+    padding: 22px;
+  }
   .Content-Container {
     padding: 0;
     display: flex;
     justify-content: flex-start;
     margin-bottom: 31px;
+    @include lessThan($small) {
+      margin-bottom: 25px;
+      flex-direction: column;
+      flex-wrap: wrap;
+      max-height: 270px;
+    }
     .Category-Container {
       margin: 0 2rem;
       max-width: 200px;
+      @include lessThan($small) {
+        margin: 0;
+        max-width: 165px;
+      }
       &:first-child {
         margin-left: 0;
+        @include lessThan($small) {
+          margin-bottom: 1rem;
+        }
       }
       &:last-child {
         margin-right: 0;
+        @include lessThan($small) {
+          margin-left: 3rem;
+        }
       }
       p {
         font-weight: bold;
         margin-bottom: 10px;
+        @include lessThan($small) {
+          @include font-size(14);
+        }
       }
       span {
         @include font-size(14);
+        @include lessThan($small) {
+          @include font-size(12);
+        }
       }
     }
   }
@@ -125,12 +150,18 @@ export default {
     a > i {
       font-size: 1rem;
       color: $black;
+      @include lessThan($small) {
+        margin-right: 5px;
+      }
     }
   }
   &-Copyright {
     margin-top: 10px;
     text-align: center;
     @include font-size(14);
+    @include lessThan($small) {
+      @include font-size(12);
+    }
   }
 }
 </style>
