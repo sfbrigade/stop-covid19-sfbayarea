@@ -76,7 +76,6 @@ export default {
 .Footer {
   padding: 31px 40px 26px 40px;
   background: $white-2;
-
   .Content-Container {
     padding: 0;
     display: flex;
@@ -89,16 +88,28 @@ export default {
 
       &:first-child {
         margin-left: 0;
+        @include lessThan($small) {
+          margin-bottom: 1rem;
+        }
       }
       &:last-child {
         margin-right: 0;
+        @include lessThan($small) {
+          margin-left: 3rem;
+        }
       }
       p {
         font-weight: bold;
         margin-bottom: 10px;
+        @include lessThan($small) {
+          @include font-size(14);
+        }
       }
       span {
         @include font-size(14);
+        @include lessThan($small) {
+          @include font-size(12);
+        }
       }
     }
   }
@@ -128,12 +139,18 @@ export default {
     a > i {
       font-size: 1rem;
       color: $black;
+      @include lessThan($small) {
+        margin-right: 5px;
+      }
     }
   }
   &-Copyright {
     margin-top: 10px;
     text-align: center;
     @include font-size(14);
+    @include lessThan($small) {
+      @include font-size(12);
+    }
   }
 }
 
