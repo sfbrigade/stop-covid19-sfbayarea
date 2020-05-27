@@ -8,11 +8,11 @@
       :active-category="activeCategory"
       @clicked="scrollToCategory"
     />
-    <div class="FaqContent-Scroll-Area" @scroll.passive="debounce">
-      <div
-        class="FaqContent-Scroll-Length"
-        :style="{ height: `${lastFaq.top + lastFaq.height * 2}px` }"
-      >
+    <div
+      :class="{ 'FaqContent-Scroll-Area': getScreenWidth() > 400 }"
+      @scroll.passive="debounce"
+    >
+      <div class="FaqContent-Scroll-Length" :style="{ height: scrollLength }">
         <div
           v-for="(item, i) in items"
           :id="`faq-content-${i}`"
@@ -49,7 +49,8 @@ export default {
       lastFaq: {
         top: 0,
         height: 200
-      }
+      },
+      scrollLength: 0
     }
   },
   mounted() {
@@ -64,6 +65,7 @@ export default {
         this.lastFaq.height = elem.offsetHeight
       }
     }
+    this.scrollLength = this.getScrollLength()
   },
   methods: {
     scrollToCategory(category) {
@@ -73,7 +75,9 @@ export default {
       location.hash = `#faq-content-${category}`
     },
     debounce: debounceFromNPM(function(e) {
-      this.handleScroll(e)
+      if (this.getScreenWidth() > 599) {
+        this.handleScroll(e)
+      }
     }, 300),
     handleScroll(event) {
       const findHashIndexBaseOnScrollPosition = (currPos, allScrollsPos) => {
@@ -97,6 +101,16 @@ export default {
         scrollPosition,
         this.allScrollTops
       )
+    },
+    getScreenWidth() {
+      return window.innerWidth
+    },
+    getScrollLength() {
+      let scrollLength = this.lastFaq.top
+      if (this.getScreenWidth() > 600) {
+        scrollLength += this.lastFaq.height * 1.65
+      }
+      return `${scrollLength}px`
     }
   },
   head() {
