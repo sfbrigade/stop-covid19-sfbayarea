@@ -96,7 +96,7 @@ export default Vue.extend({
 }
 .HomePage-Container {
   margin: 0 auto;
-  padding: 0;
+  padding: 0 !important;
   height: 100%;
   display: flex;
   flex-direction: column;
