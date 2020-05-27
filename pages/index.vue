@@ -1,5 +1,5 @@
 <template>
-  <v-app>
+  <v-app style="background: #43377d">
     <v-container fluid class="HomePage-Container">
       <div class="Background-Wrapper">
         <div class="logo">
@@ -92,7 +92,6 @@ export default Vue.extend({
 </script>
 <style lang="scss">
 .v-application--wrap {
-  background: #43377d;
   justify-content: space-between;
 }
 .HomePage-Container {
@@ -274,6 +273,7 @@ export default Vue.extend({
         margin: 20px;
         h1 {
           @include font-size(24);
+          max-width: 300px !important;
         }
       }
     }

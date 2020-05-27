@@ -14,6 +14,7 @@
           </v-tab-item>
         </v-tabs-items>
       </div>
+      <Footer />
     </div>
   </v-app>
 </template>
@@ -25,6 +26,7 @@ import TopNavigation from '@/components/TopNavigation'
 import Faq from '@/components/Faq.vue'
 import Stats from '@/components/Stats.vue'
 import News from '@/components/News.vue'
+import Footer from '@/components/Footer.vue'
 
 export default Vue.extend({
   components: {
@@ -32,7 +34,8 @@ export default Vue.extend({
     TopNavigation,
     Faq,
     Stats,
-    News
+    News,
+    Footer
   },
   asyncData(context) {
     if (context.params.tab === 'updates') {
@@ -93,6 +96,10 @@ export default Vue.extend({
 .mainContainer {
   grid-column: 2/3;
   overflow: hidden;
+  margin-bottom: 80px;
+  @include lessThan($small) {
+    margin-bottom: 55px;
+  }
   .mainContainerTitle {
     margin: 1rem 3rem 0.25rem 3rem;
   }
