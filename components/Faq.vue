@@ -78,7 +78,7 @@ export default {
       location.hash = `#faq-content-${category}`
     },
     debounce: debounceFromNPM(function(e) {
-      if (this.getScreenWidth() > 599) {
+      if (this.getScreenWidth() > 600) {
         this.handleScroll(e)
       }
     }, 300),
