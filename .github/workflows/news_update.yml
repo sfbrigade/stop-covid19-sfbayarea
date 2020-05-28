@@ -13,16 +13,13 @@ jobs:
     steps:
     - uses: actions/checkout@v2
       with:
-        key: ${{ secrets.data_daily_update }}
         ssh-key: ${{ secrets.data_daily_update }}
-        ref: github-action
         path: site
 
     # Checkout news scraper repo
     - name: Checkout Data Scraper
       uses: actions/checkout@v2
       with:
-        key: ${{ secrets.data_daily_update }}
         ssh-key: ${{ secrets.data_daily_update }}
         repository: sfbrigade/data-covid19-sfbayarea
         path: scraper
@@ -50,25 +47,25 @@ jobs:
         cd ${GITHUB_WORKSPACE}/scraper
         python scraper_news.py --format json_simple > "${GITHUB_WORKSPACE}/site/data/news.json"
     
-    # Check if we have news update, then commit
-    - name: Commit Changes
-      run: |
-        cd ${GITHUB_WORKSPACE}/site
-        if [[ "$(git status --porcelain)" =~ 'data/' ]]; then
-          # Configure git
-          git config user.name ${{ secrets.githubaction_config_user_name }}
-          git config user.email ${{ secrets.githubaction_config_user_email }}
-
-          echo 'Committing updated news data...'
-          git add data/
-          git commit -m "GitHubAction: news data update.
-
-          Created with commit ${SCRAPER_COMMIT} from sfbrigade/data-covid19-sfbayarea
-          https://github.com/sfbrigade/data-covid19-sfbayarea/commit/${SCRAPER_COMMIT}
-          "
-          git push
-          echo "Committed: $(git show HEAD --no-patch --format=reference)"
-          echo 'You should make a pull request to put these changes on master!'
-        else
-          echo 'Nothing to commit!'
-        fi
+    - name: Create PR if New Data
+      uses: peter-evans/create-pull-request@v2
+      with:
+        path: site
+        # If this branch already exists, it will be replaced with a commit
+        # based on the changes from this job. If there's already a PR for it,
+        # the PR will be updated. The end result is that each run of this job
+        # supersedes or replaces any previous runs that haven't been reviewed
+        # and merged yet.
+        branch: auto-update-news
+        title: 'GitHub action: news update'
+        body: |
+          Created using commit [${{env.SCRAPER_COMMIT}}](https://github.com/sfbrigade/data-covid19-sfbayarea/commit/${{env.SCRAPER_COMMIT}})
+          from sfbrigade/data-covid19-sfbayarea.
+          
+          Scraped at: ${{ env.SCRAPER_TIME }}
+        commit-message: |
+          GitHubAction: news update
+          
+          Created with commit ${{env.SCRAPER_COMMIT}} from sfbrigade/data-covid19-sfbayarea
+          https://github.com/sfbrigade/data-covid19-sfbayarea/commit/${{env.SCRAPER_COMMIT}}
+        reviewers: kengoy, Mr0grog
