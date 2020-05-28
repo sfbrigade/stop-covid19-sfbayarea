@@ -8,8 +8,9 @@
       :active-category="activeCategory"
       @clicked="scrollToCategory"
     />
+    <!-- Add Scroll Area if SideNavigationOverview is shown -->
     <div
-      :class="{ 'FaqContent-Scroll-Area': getScreenWidth() > 400 }"
+      :class="{ 'FaqContent-Scroll-Area': !isSmallScreenWidth }"
       @scroll.passive="debounce"
     >
       <div class="FaqContent-Scroll-Length" :style="{ height: scrollLength }">
@@ -50,11 +51,12 @@ export default {
         top: 0,
         height: 200
       },
-      scrollLength: 0
+      scrollLength: 0,
+      isSmallScreenWidth: false
     }
   },
   mounted() {
-    // GET ALL FAQ CATEGORY'S TOP POSITION FOR SCROLL
+    // Get all FAQ category's top position to track SideNavigationOverview scroll behavior
     const faqCategoriesCount = Faq.faqItems.length
     for (let i = 0; i < faqCategoriesCount; i++) {
       const elem = document.getElementById(`faq-content-${i}`)
@@ -65,52 +67,66 @@ export default {
         this.lastFaq.height = elem.offsetHeight
       }
     }
+    // Set scroll length for the current browser size
     this.scrollLength = this.getScrollLength()
+    // Small screen based on SideNavigationOverview display
+    this.isSmallScreenWidth = !this.sideNavigationOverviewIsShown()
   },
   methods: {
     scrollToCategory(category) {
-      // const elem = this.$refs[category]
-      // const top = elem[0].offsetTop
       this.activeCategory = category
       location.hash = `#faq-content-${category}`
     },
     debounce: debounceFromNPM(function(e) {
-      if (this.getScreenWidth() > 600) {
-        this.handleScroll(e)
-      }
+      this.handleScroll(e)
     }, 300),
     handleScroll(event) {
-      const findHashIndexBaseOnScrollPosition = (currPos, allScrollsPos) => {
-        const allScrollTopsLength = allScrollsPos.length
-        let hashIdx = 0
-        while (hashIdx < allScrollTopsLength) {
-          const startPos = allScrollsPos[hashIdx]
-          const nextPos = allScrollsPos[hashIdx + 1]
-          if (nextPos === undefined) break
-          if (startPos <= currPos && currPos < nextPos) break
-          hashIdx++
+      if (this.sideNavigationOverviewIsShown()) {
+        // Get index of FAQ item that is closest to current position
+        const findHashIndexBaseOnScrollPosition = (currPos, allScrollsPos) => {
+          const allScrollTopsLength = allScrollsPos.length
+          let hashIdx = 0
+          while (hashIdx < allScrollTopsLength) {
+            const startPos = allScrollsPos[hashIdx]
+            const nextPos = allScrollsPos[hashIdx + 1]
+            if (nextPos === undefined) break
+            if (startPos <= currPos && currPos < nextPos) break
+            hashIdx++
+          }
+          return hashIdx
         }
-        return hashIdx
-      }
 
-      if (document.location.href.includes('#')) {
-        document.location.hash = ''
+        // Each FAQ item has an anchor that the sideNavigationOverview is linked to
+        // Clicking items in SideNavigationOverview will scroll to that item's position
+        // The URL will include the hash name
+        // Remove hash name in URL
+        if (document.location.href.includes('#')) {
+          document.location.hash = ''
+        }
+
+        const currentScrollPosition = event.target.scrollTop
+        // Set active for item in SideNavigationOverview that matches the current FAQ item
+        this.activeCategory = findHashIndexBaseOnScrollPosition(
+          currentScrollPosition,
+          this.allScrollTops
+        )
       }
-      const scrollPosition = event.target.scrollTop
-      this.activeCategory = findHashIndexBaseOnScrollPosition(
-        scrollPosition,
-        this.allScrollTops
-      )
     },
     getScreenWidth() {
       return window.innerWidth
     },
     getScrollLength() {
-      let scrollLength = this.lastFaq.top
-      if (this.getScreenWidth() > 600) {
-        scrollLength += this.lastFaq.height * 1.65
-      }
+      const extraSpaceToExpandLastItem = this.sideNavigationOverviewIsShown()
+        ? 1.65
+        : 1.21
+      const scrollLength =
+        this.lastFaq.top + this.lastFaq.height * extraSpaceToExpandLastItem
+
       return `${scrollLength}px`
+    },
+    sideNavigationOverviewIsShown() {
+      // SideNavigationOverview displays at width 601px
+      return this.getScreenWidth() > 600
     }
   },
   head() {
@@ -138,9 +154,9 @@ export default {
     /* minus header height */
     height: calc(100vh - 80px);
     padding: 0 10px;
-    .FaqContent-Wrapper {
-      margin-bottom: 20px;
-    }
+  }
+  .FaqContent-Wrapper {
+    margin-bottom: 20px;
   }
 }
 a {
