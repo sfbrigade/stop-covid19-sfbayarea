@@ -78,9 +78,7 @@ export default {
       location.hash = `#faq-content-${category}`
     },
     debounce: debounceFromNPM(function(e) {
-      if (this.getScreenWidth() > 600) {
-        this.handleScroll(e)
-      }
+      this.handleScroll(e)
     }, 300),
     handleScroll(event) {
       if (this.sideNavigationOverviewIsShown()) {
