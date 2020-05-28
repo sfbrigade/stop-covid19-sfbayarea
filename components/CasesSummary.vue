@@ -78,10 +78,22 @@ h4 {
   .stat-number {
     padding: 10px;
     margin: 20px 0px;
-    font-size: 60px;
     color: black;
     font-weight: bold;
     font-family: SF Mono;
+  }
+}
+@media screen and (min-width: 640px) {
+  .stat-number {
+    font-size: 60px;
+  }
+}
+@media screen and (max-width: 640px) {
+  .stat-number {
+    font-size: 30px;
+  }
+  h4 {
+    font-size: 15px;
   }
 }
 </style>

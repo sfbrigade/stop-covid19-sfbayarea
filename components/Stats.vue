@@ -39,18 +39,18 @@
                     ].cases
                   }}
                 </div>
-                <footer>
+                <div>
                   <strong>{{
                     `${(
-                      (selectedCountyData.cases[
-                        selectedCountyData.cases.length - 1
+                      (Data[currentCounty].cases[
+                        Data[currentCounty].cases.length - 1
                       ].cases /
                         totalCases) *
                       100
                     ).toFixed(2)}% `
                   }}</strong>
                   of Bay Area Total
-                </footer>
+                </div>
               </div>
               <div>
                 <h4>Deaths</h4>
@@ -61,18 +61,18 @@
                     ].deaths
                   }}
                 </div>
-                <footer>
+                <div>
                   <strong>{{
                     `${(
-                      (selectedCountyData.cases[
-                        selectedCountyData.cases.length - 1
+                      (Data[currentCounty].cases[
+                        Data[currentCounty].cases.length - 1
                       ].deaths /
                         totalDeaths) *
                       100
                     ).toFixed(2)}% `
                   }}</strong>
                   of Bay Area Total
-                </footer>
+                </div>
               </div>
             </div>
           </div>
@@ -171,7 +171,6 @@ export default {
         .stat-number {
           padding: 10px;
           margin: 20px 0px;
-          font-size: 60px;
           color: black;
           font-weight: bold;
           font-family: SF Mono;
@@ -227,6 +226,22 @@ export default {
     option {
       font-weight: normal;
     }
+  }
+}
+@media screen and (min-width: 640px) {
+  .stat-number {
+    font-size: 60px;
+  }
+}
+@media screen and (max-width: 640px) {
+  .stat-number {
+    font-size: 30px;
+  }
+  h4 {
+    font-size: 15px;
+  }
+  label {
+    font-size: 30px;
   }
 }
 </style>
