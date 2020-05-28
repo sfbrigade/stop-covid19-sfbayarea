@@ -44,6 +44,7 @@ jobs:
     # Run the news scraper
     - name: Scrape News
       run: |
+        echo "::set-env name=SCRAPER_TIME::$(date)"
         cd ${GITHUB_WORKSPACE}/scraper
         python scraper_news.py --format json_simple > "${GITHUB_WORKSPACE}/site/data/news.json"
     

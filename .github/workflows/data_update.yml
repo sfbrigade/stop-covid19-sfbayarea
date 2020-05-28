@@ -45,6 +45,7 @@ jobs:
 
     - name: Scrape Data
       run: |
+        echo "::set-env name=SCRAPER_TIME::$(date)"
         cd ${GITHUB_WORKSPACE}/scraper
         python scraper.py > ${GITHUB_WORKSPACE}/site/data/data.json
 
