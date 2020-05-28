@@ -277,7 +277,7 @@ export default Vue.extend({
         margin: 20px;
         h1 {
           @include font-size(24);
-          max-width: 300px !important;
+          max-width: 310px !important;
         }
       }
     }
