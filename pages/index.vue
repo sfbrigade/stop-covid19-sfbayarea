@@ -1,21 +1,24 @@
 <template>
-  <v-app style="background: #403774">
-    <v-container fluid>
-      <img class="bgbridge" src="/header-bg.png" />
-      <div class="origin">
+  <v-app style="background: #423578">
+    <v-container fluid class="HomePage-Container">
+      <div class="Background-Wrapper">
         <div class="logo">
           <img class="headericond" src="/header-icon.png" />
-          <span class="logotitle">Bay Area Pandemic Dashboard</span>
-          <span class="logosubtitle">by Bay Area Brigades</span>
+          <div class="logo-title-container">
+            <span class="logotitle">Bay Area Pandemic Dashboard</span>
+            <span class="logosubtitle">by Bay Area Brigades</span>
+          </div>
         </div>
-        <div class="title">
-          <h1>
-            <div v-html="getTitle" />
-          </h1>
-        </div>
-        <v-row dense class="navigation">
-          <v-col v-for="(item, i) in cardItems" :key="i" cols="12" md="4">
+        <div class="origin">
+          <div class="title">
+            <h1>
+              COVID Awareness for the Bay Area, by the Bay Area.
+            </h1>
+          </div>
+          <div dense class="navigation">
             <v-card
+              v-for="(item, i) in cardItems"
+              :key="i"
               class="mx-auto"
               width="276px"
               height="74px"
@@ -23,7 +26,7 @@
               nuxt-link
               :to="{ name: item.to, params: item.params }"
             >
-              <v-list-item three-line>
+              <v-list-item>
                 <v-list-item-content>
                   <v-list-item-title class="cardtitle">
                     {{ item.title }}
@@ -35,17 +38,22 @@
                 <img class="navigationicon" src="/right-arrow.png" />
               </v-list-item>
             </v-card>
-          </v-col>
-        </v-row>
+          </div>
+        </div>
       </div>
+      <Footer />
     </v-container>
   </v-app>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
+import Footer from '@/components/Footer.vue'
 
 export default Vue.extend({
+  components: {
+    Footer
+  },
   data() {
     return {
       width: 1024,
@@ -53,13 +61,6 @@ export default Vue.extend({
     }
   },
   computed: {
-    getTitle() {
-      if (this.width < 1024) {
-        return 'COVID Awareness for the Bay Area, by the Bay Area.'
-      } else {
-        return 'COVID Awareness for the <br>Bay Area, by the Bay Area.'
-      }
-    },
     cardItems() {
       return [
         {
@@ -90,145 +91,196 @@ export default Vue.extend({
 })
 </script>
 <style lang="scss">
-.container {
+#app {
   max-width: 1440px;
   margin: 0 auto;
 }
-.title h1 {
-  color: $white-1;
-  line-height: 1.2;
+.v-application--wrap {
+  justify-content: space-between;
 }
-@media screen and (min-width: 640px) {
-  .origin {
-    position: absolute;
-    margin-left: 70px;
-    margin-top: 20px;
+.HomePage-Container {
+  margin: 0 auto;
+  padding: 0 !important;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  .Background-Wrapper {
+    background: url('/gg_1400.png') center no-repeat;
+    height: calc(100% - 200px);
   }
+
   .logo {
+    margin: 40px;
+    display: flex;
     .headericond {
-      position: absolute;
-      top: 10px;
-      left: 0px;
       width: 60px;
       height: 60px;
     }
-    .logotitle {
-      position: absolute;
-      left: 75px;
-      top: 15px;
-      font-style: normal;
-      font-weight: bold;
-      font-size: 24px;
-      line-height: 24px;
-      letter-spacing: 0.03em;
-      color: $white-1;
-    }
-    .logosubtitle {
-      position: absolute;
-      left: 75px;
-      top: 45px;
-      font-style: normal;
-      font-weight: 500;
-      font-size: 14px;
-      line-height: 14px;
-      color: $white-1;
-    }
-  }
-  .title {
-    margin-top: 150px;
-  }
-  @media screen and (min-height: 640px) {
-    .navigation {
-      margin-top: 200px;
-      width: 1024px;
+    .logo-title-container {
+      display: flex;
+      flex-direction: column;
+      padding: 4px 15px;
+      .logotitle {
+        font-style: normal;
+        font-weight: bold;
+        font-size: 24px;
+        line-height: 24px;
+        letter-spacing: 0.03em;
+        color: $white-1;
+        margin-bottom: 5px;
+      }
+      .logosubtitle {
+        font-style: normal;
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 14px;
+        color: $white-1;
+      }
     }
   }
-  @media screen and (max-height: 640px) {
-    .navigation {
-      margin-top: 100px;
-      width: 1024px;
-    }
-  }
-}
-@media screen and (max-width: 640px) {
+
   .origin {
-    position: absolute;
-    margin-left: 10px;
-  }
-  .logo {
-    .headericond {
-      position: absolute;
-      top: 10px;
-      left: 0px;
-      width: 60px;
-      height: 60px;
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    .title {
+      margin: 40px;
+      h1 {
+        color: $white-1;
+        line-height: 1.2;
+        overflow-wrap: break-word;
+        max-width: 470px;
+      }
     }
-    .logotitle {
-      position: absolute;
-      left: 75px;
-      top: 8px;
+
+    .navigation {
+      display: flex;
+      justify-content: space-between;
+      margin: 60px 40px;
+      max-width: 900px;
+      .v-card--link {
+        margin-right: 0 !important;
+        margin-left: 0 !important;
+      }
+      .v-list-item {
+        height: 100%;
+        .v-list-item__content {
+          height: 100%;
+          padding: 10px 0;
+          flex-direction: column;
+          align-items: unset;
+          align-self: unset;
+          flex-wrap: unset;
+          flex: none;
+          min-width: 220px;
+          margin-right: 10px;
+        }
+      }
+    }
+    .cardtitle {
+      height: 19px;
+      width: 100%;
       font-style: normal;
       font-weight: bold;
-      font-size: 22px;
-      line-height: 22px;
-      letter-spacing: 0.03em;
-      color: $white-1;
+      font-size: 16px;
+      line-height: 19px;
+      color: $purple-1;
+      display: flex;
+      align-items: center;
     }
-    .logosubtitle {
-      position: absolute;
-      left: 75px;
-      top: 57px;
+    .carddescription {
+      height: 17px;
       font-style: normal;
       font-weight: 500;
-      font-size: 14px;
-      line-height: 14px;
-      color: $white-1;
+      font-size: 12px;
+      line-height: 140%;
+      color: $gray-1;
+      display: flex;
+      align-items: center;
+    }
+    .navigationicon {
+      width: 14px;
+      height: 24px;
     }
   }
-  .title {
-    margin-top: 120px;
-    margin-left: 30px;
-    margin-right: 30px;
-    margin-bottom: 115px;
+}
+@media screen and (max-width: 930px) {
+  .Background-Wrapper {
+    background: url('/gg_915.png') center no-repeat !important;
   }
-  .navigation {
-    position: absolute;
-    top: 400px;
+  .origin {
+    .title {
+      margin-top: 0 !important;
+      margin-bottom: 0 !important;
+      h1 {
+        @include font-size(32);
+      }
+    }
+
+    .navigation {
+      flex-direction: column;
+      margin-top: 40px !important;
+      margin-bottom: 40px !important;
+      .v-card--link {
+        margin-top: 5px;
+        margin-bottom: 5px;
+      }
+    }
   }
 }
-.cardtitle {
-  position: absolute;
-  height: 19px;
-  left: 20px;
-  right: 35px;
-  top: 16px;
-  font-style: normal;
-  font-weight: bold;
-  font-size: 16px;
-  line-height: 19px;
-  color: $purple-1;
+
+@media screen and (max-width: 600px) {
+  .Background-Wrapper {
+    background: url('/gg_612.png') left bottom no-repeat !important;
+  }
+
+  .origin {
+    .title {
+      h1 {
+        @include font-size(26);
+        max-width: 325px !important;
+      }
+    }
+    .navigation {
+      align-items: center;
+    }
+  }
 }
-.carddescription {
-  position: absolute;
-  height: 17px;
-  left: 20px;
-  right: 35px;
-  top: 40px;
-  font-style: normal;
-  font-weight: 500;
-  font-size: 12px;
-  line-height: 140%;
-  color: gray-1;
-}
-.navigationicon {
-  position: absolute;
-  width: 14px;
-  height: 24px;
-  right: 11px;
-  margin-top: -8px;
-}
-.bgbridge {
-  position: fixed;
-  bottom: 0;
+
+@media screen and (max-width: 445px) {
+  .HomePage-Container {
+    .Background-Wrapper {
+      background: url('/gg_479.png') left bottom no-repeat !important;
+    }
+    .logo {
+      margin: 20px 20px 40px 20px;
+      .headericond {
+        width: 40px;
+        height: 40px;
+      }
+      .logo-title-container {
+        padding: 0 10px;
+        .logotitle {
+          @include font-size(16);
+          margin-bottom: 0;
+        }
+        .logosubtitle {
+          @include font-size(10);
+        }
+      }
+    }
+
+    .origin {
+      .title {
+        margin: 20px;
+        h1 {
+          @include font-size(24);
+          max-width: 325px !important;
+        }
+      }
+    }
+  }
 }
 </style>
