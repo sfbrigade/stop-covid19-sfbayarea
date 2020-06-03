@@ -39,7 +39,7 @@ const mapFilterCounties = (countyFilter: Array<string>) => {
 }
 
 export default (data: Array<CountyDataType>, countyFilter?: Array<string>) => {
-  const counties = {}
+  const counties: Array<CountyDataFormattedType> = []
   let includedCounties: CountyMapType = {}
   if (countyFilter) {
     includedCounties = mapFilterCounties(countyFilter)
