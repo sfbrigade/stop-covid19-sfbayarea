@@ -135,7 +135,7 @@ export default {
             data: this.chartData.map(d => {
               return d.cumulative
             }),
-            backgroundColor: '#00B849',
+            backgroundColor: '#473A8C',
             borderWidth: 0
           },
           {
