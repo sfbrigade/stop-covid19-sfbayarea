@@ -14,7 +14,7 @@
           :title-id="'number-of-confirmed-cases'"
           :chart-id="'time-bar-chart-patients'"
           :chart-data="ConsolidatedData.cases"
-          :date="ConsolidatedData.lastUpdatedAt"
+          :date="CountyData[currentCounty].lastUpdatedAt"
           :url="'https://coronadatascraper.com'"
         />
       </v-col>
