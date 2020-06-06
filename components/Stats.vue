@@ -8,12 +8,22 @@
           :url="'https://coronadatascraper.com'"
         />
       </v-col>
-      <v-col cols="12" md="12" class="DataCard">
+      <v-col cols="12" md="6" class="DataCard">
         <time-bar-chart
-          :title="`Bay Area Total`"
+          :title="`Confirmed Cases: Bay Area Total`"
           :title-id="'number-of-confirmed-cases'"
           :chart-id="'time-bar-chart-patients'"
           :chart-data="ConsolidatedData.cases"
+          :date="CountyData[currentCounty].lastUpdatedAt"
+          :url="'https://coronadatascraper.com'"
+        />
+      </v-col>
+      <v-col cols="12" md="6" class="DataCard">
+        <time-bar-chart
+          :title="`COVID Related Deaths: Bay Area Total`"
+          :title-id="'number-of-confirmed-cases'"
+          :chart-id="'time-bar-chart-patients'"
+          :chart-data="ConsolidatedData.deaths"
           :date="CountyData[currentCounty].lastUpdatedAt"
           :url="'https://coronadatascraper.com'"
         />
@@ -81,14 +91,31 @@
       <v-col
         :county="CountyData[currentCounty]"
         cols="12"
-        md="12"
+        md="6"
         class="DataCard"
       >
         <time-bar-chart
-          :title="`${CountyData[currentCounty].name}`"
+          :title="`Confirmed Cases: ${CountyData[currentCounty].name}`"
           :title-id="'number-of-confirmed-cases'"
           :chart-id="'time-bar-chart-patients'"
           :chart-data="CountyData[currentCounty].graph"
+          :chart-data-type="'cases'"
+          :date="CountyData[currentCounty].lastUpdatedAt"
+          :url="'https://coronadatascraper.com'"
+        />
+      </v-col>
+      <v-col
+        :county="CountyData[currentCounty]"
+        cols="12"
+        md="6"
+        class="DataCard"
+      >
+        <time-bar-chart
+          :title="`COVID Related Deaths: ${CountyData[currentCounty].name}`"
+          :title-id="'number-of-deaths'"
+          :chart-id="'time-bar-chart-patients'"
+          :chart-data="CountyData[currentCounty].graph"
+          :chart-data-type="'deaths'"
           :date="CountyData[currentCounty].lastUpdatedAt"
           :url="'https://coronadatascraper.com'"
         />
