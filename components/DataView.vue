@@ -56,7 +56,6 @@ export default class DataView extends Vue {
   &-DataInfo {
     &-summary {
       color: $black;
-      font-family: Hiragino Sans;
       font-style: normal;
       font-size: 30px;
       line-height: 30px;
@@ -96,8 +95,8 @@ export default class DataView extends Vue {
     @include card-h2();
   }
   &-ToolbarTitle {
-    font-size: 1.25rem;
-    font-weight: normal;
+    font-size: 24px;
+    font-weight: bold;
     line-height: 1.5;
   }
   &-CardText {
@@ -111,12 +110,17 @@ export default class DataView extends Vue {
   &-Footer {
     background-color: $white-1 !important;
     margin: 2px 4px 12px;
-    @include font-size(12);
-    color: $gray-3 !important;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    color: $gray-1 !important;
     justify-content: space-between;
     flex-direction: row-reverse;
     .OpenDataLink {
       text-decoration: none;
+      font-style: italic;
+      font-size: 14px;
+      line-height: 140%;
       .ExternalLinkIcon {
         vertical-align: text-bottom;
       }

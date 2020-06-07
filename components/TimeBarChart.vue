@@ -1,7 +1,7 @@
 <template>
   <data-view :title="title" :title-id="titleId" :date="date" :url="url">
     <template v-slot:button>
-      <data-selector v-model="dataKind" />
+      <data-selector v-model="dataKind" class="selectorButton" />
     </template>
     <bar
       :chart-id="chartId"
@@ -11,15 +11,13 @@
     />
     <template v-slot:infoPanel>
       <data-view-basic-info-panel
-        :l-text="displayInfo.lText"
-        :s-text="displayInfo.sText"
+        :l-text="displayInfo.lText.toLocaleString()"
+        :s-text="displayInfo.sText.toLocaleString()"
         :unit="displayInfo.unit"
       />
     </template>
   </data-view>
 </template>
-
-<style></style>
 
 <script>
 import DataView from '@/components/DataView.vue'
@@ -284,3 +282,9 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+.selectorButton {
+  margin-top: 24px;
+}
+</style>
