@@ -7,15 +7,15 @@
   >
     <div class="summary">
       <div class="total-positive">
-        <h4>Confirmed Cases</h4>
+        <span class="stat-title">Confirmed Cases</span>
         <div class="stat-number">
           {{
             isNaN(calcTotalCasesSummary.cases) != true
-              ? calcTotalCasesSummary.cases
+              ? calcTotalCasesSummary.cases.toLocaleString()
               : 'No data available'
           }}
         </div>
-        <div>
+        <div class="stat-note">
           <strong>{{ `${calcTotalCasesSummary.percentChange}%` }}</strong>
           {{
             parseInt(calcTotalCasesSummary.percentChange) >= 0
@@ -25,7 +25,7 @@
         </div>
       </div>
       <div class="case-frequency">
-        <h4>Confirmed Cases per 10000</h4>
+        <span class="stat-title">Confirmed Cases per 10,000</span>
         <div class="stat-number">
           {{
             (
@@ -34,18 +34,20 @@
             ).toFixed(2)
           }}
         </div>
-        <div>in past 14 days</div>
+        <div class="stat-note">
+          in past 14 days
+        </div>
       </div>
       <div class="deaths">
-        <h4>Total Deaths</h4>
+        <span class="stat-title">Total Deaths</span>
         <div class="stat-number">
           {{
             isNaN(calcTotalCasesSummary.deaths) != true
-              ? calcTotalCasesSummary.deaths
+              ? calcTotalCasesSummary.deaths.toLocaleString()
               : 'No data available'
           }}
         </div>
-        <div>
+        <div class="stat-note">
           <strong>
             {{
               `${(
@@ -62,9 +64,6 @@
 </template>
 
 <style lang="scss" scoped>
-h4 {
-  font-family: SF Compact Display;
-}
 .summary {
   text-align: center;
   display: grid;
@@ -75,17 +74,31 @@ h4 {
       border-right: none;
     }
   }
+  .stat-title {
+    font-size: 16px;
+    color: black;
+    font-weight: bold;
+    line-height: 22px;
+  }
   .stat-number {
     padding: 10px;
     margin: 20px 0px;
     color: black;
     font-weight: bold;
-    font-family: SF Mono;
+    line-height: 39px;
+    text-align: center;
+  }
+  .stat-note {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 19px;
+    color: #333333;
   }
 }
 @media screen and (min-width: 640px) {
   .stat-number {
-    font-size: 60px;
+    font-size: 36px;
   }
 }
 @media screen and (max-width: 640px) {

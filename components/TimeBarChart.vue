@@ -1,7 +1,7 @@
 <template>
   <data-view :title="title" :title-id="titleId" :date="date" :url="url">
     <template v-slot:button>
-      <data-selector v-model="dataKind" />
+      <data-selector v-model="dataKind" class="selectorButton" />
     </template>
     <bar
       :chart-id="chartId"
@@ -11,15 +11,13 @@
     />
     <template v-slot:infoPanel>
       <data-view-basic-info-panel
-        :l-text="displayInfo.lText"
-        :s-text="displayInfo.sText"
+        :l-text="displayInfo.lText.toLocaleString()"
+        :s-text="displayInfo.sText.toLocaleString()"
         :unit="displayInfo.unit"
       />
     </template>
   </data-view>
 </template>
-
-<style></style>
 
 <script>
 import DataView from '@/components/DataView.vue'
@@ -49,6 +47,11 @@ export default {
       required: false,
       default: () => []
     },
+    chartDataType: {
+      type: String,
+      required: false,
+      default: 'cases'
+    },
     date: {
       type: String,
       required: true,
@@ -72,29 +75,60 @@ export default {
   },
   computed: {
     displayCumulativeRatio() {
-      const lastDay = this.chartData.slice(-1)[0].cumulative
-      const lastDayBefore = this.chartData.slice(-2)[0].cumulative
-      return this.formatDayBeforeRatio(lastDay - lastDayBefore)
+      if (this.chartDataType === 'cases') {
+        const lastDay = this.chartData.slice(-1)[0].cumulative
+        const lastDayBefore = this.chartData.slice(-2)[0].cumulative
+        return this.formatDayBeforeRatio(lastDay - lastDayBefore)
+      } else if (this.chartDataType === 'deaths') {
+        const lastDay = this.chartData.slice(-1)[0].deathCumulative
+        const lastDayBefore = this.chartData.slice(-2)[0].deathCumulative
+        return this.formatDayBeforeRatio(lastDay - lastDayBefore)
+      } else {
+        return ''
+      }
     },
     displayTransitionRatio() {
-      const lastDay = this.chartData.slice(-1)[0].confirmedTransition
-      const lastDayBefore = this.chartData.slice(-2)[0].confirmedTransition
-      return this.formatDayBeforeRatio(lastDay - lastDayBefore)
+      if (this.chartDataType === 'cases') {
+        const lastDay = this.chartData.slice(-1)[0].confirmedTransition
+        const lastDayBefore = this.chartData.slice(-2)[0].confirmedTransition
+        return this.formatDayBeforeRatio(lastDay - lastDayBefore)
+      } else if (this.chartDataType === 'deaths') {
+        const lastDay = this.chartData.slice(-1)[0].deathTransition
+        const lastDayBefore = this.chartData.slice(-2)[0].deathTransition
+        return this.formatDayBeforeRatio(lastDay - lastDayBefore)
+      } else {
+        return ''
+      }
     },
     displayInfo() {
+      let numText = ''
       if (this.dataKind === 'confirmedTransition') {
-        return {
-          lText: `${this.chartData
+        if (this.chartDataType === 'cases') {
+          numText = this.chartData
             .slice(-1)[0]
-            .confirmedTransition.toLocaleString()}`,
+            .confirmedTransition.toLocaleString()
+        } else if (this.chartDataType === 'deaths') {
+          numText = `${this.chartData
+            .slice(-1)[0]
+            .deathTransition.toLocaleString()}`
+        }
+        return {
+          lText: numText,
           sText: `${this.displayTransitionRatio} ${this.unit} from the day before`,
           unit: this.unit
         }
       }
-      return {
-        lText: this.chartData[
+      if (this.chartDataType === 'cases') {
+        numText = this.chartData[
           this.chartData.length - 1
-        ].cumulative.toLocaleString(),
+        ].cumulative.toLocaleString()
+      } else if (this.chartDataType === 'deaths') {
+        numText = this.chartData[
+          this.chartData.length - 1
+        ].deathCumulative.toLocaleString()
+      }
+      return {
+        lText: numText,
         sText: `${this.chartData.slice(-1)[0].label}: ${
           this.displayCumulativeRatio
         } ${this.unit} up from the day before`,
@@ -109,18 +143,14 @@ export default {
           }),
           datasets: [
             {
-              label: 'Confirmed',
               data: this.chartData.map(d => {
-                return d.confirmedTransition
+                if (this.chartDataType === 'cases') {
+                  return d.confirmedTransition
+                } else if (this.chartDataType === 'deaths') {
+                  return d.deathTransition
+                }
               }),
               backgroundColor: '#473A8C'
-            },
-            {
-              label: 'Deaths',
-              data: this.chartData.map(d => {
-                return d.deathTransition
-              }),
-              backgroundColor: '#888888'
             }
           ]
         }
@@ -131,19 +161,16 @@ export default {
         }),
         datasets: [
           {
-            label: 'Confirmed',
             data: this.chartData.map(d => {
-              return d.cumulative
+              if (this.chartDataType === 'cases') {
+                return d.cumulative
+              } else if (this.chartDataType === 'deaths') {
+                return d.deathCumulative
+              } else {
+                return null
+              }
             }),
             backgroundColor: '#473A8C',
-            borderWidth: 0
-          },
-          {
-            label: 'Deaths',
-            data: this.chartData.map(d => {
-              return d.deathCumulative
-            }),
-            backgroundColor: '#888888',
             borderWidth: 0
           }
         ]
@@ -172,7 +199,7 @@ export default {
         responsive: true,
         maintainAspectRatio: false,
         legend: {
-          display: true
+          display: false
         },
         scales: {
           xAxes: [
@@ -255,3 +282,9 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+.selectorButton {
+  margin-top: 24px;
+}
+</style>

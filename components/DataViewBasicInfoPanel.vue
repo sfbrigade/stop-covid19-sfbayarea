@@ -16,13 +16,10 @@
     text-align: right;
     &-summary {
       display: inline-block;
-      font-family: Hiragino Sans;
       font-style: normal;
-      font-size: 30px;
-      line-height: 30px;
-      &-unit {
-        font-size: 0.6em;
-      }
+      font-weight: bold;
+      font-size: 36px;
+      line-height: 39px;
     }
     &-date {
       white-space: nowrap;

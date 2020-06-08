@@ -8,13 +8,23 @@
           :url="'https://coronadatascraper.com'"
         />
       </v-col>
-      <v-col cols="12" md="12" class="DataCard">
+      <v-col cols="12" md="6" class="DataCard">
         <time-bar-chart
-          :title="`Bay Area Total`"
+          :title="`Confirmed Cases: Bay Area Total`"
           :title-id="'number-of-confirmed-cases'"
           :chart-id="'time-bar-chart-patients'"
           :chart-data="ConsolidatedData.cases"
-          :date="ConsolidatedData.lastUpdatedAt"
+          :date="CountyData[currentCounty].lastUpdatedAt"
+          :url="'https://coronadatascraper.com'"
+        />
+      </v-col>
+      <v-col cols="12" md="6" class="DataCard">
+        <time-bar-chart
+          :title="`COVID Related Deaths: Bay Area Total`"
+          :title-id="'number-of-confirmed-cases'"
+          :chart-id="'time-bar-chart-patients'"
+          :chart-data="ConsolidatedData.deaths"
+          :date="CountyData[currentCounty].lastUpdatedAt"
           :url="'https://coronadatascraper.com'"
         />
       </v-col>
@@ -31,15 +41,15 @@
             </div>
             <div class="county-stats">
               <div class="border">
-                <h4>Confirmed Cases</h4>
+                <span class="stat-title">Confirmed Cases</span>
                 <div class="stat-number" :county="Data[currentCounty]">
                   {{
                     Data[currentCounty].cases[
                       Data[currentCounty].cases.length - 1
-                    ].cases
+                    ].cases.toLocaleString()
                   }}
                 </div>
-                <div>
+                <div class="stat-note">
                   <strong>{{
                     `${(
                       (Data[currentCounty].cases[
@@ -53,15 +63,15 @@
                 </div>
               </div>
               <div>
-                <h4>Deaths</h4>
+                <span class="stat-title">Deaths</span>
                 <div class="stat-number">
                   {{
                     Data[currentCounty].cases[
                       Data[currentCounty].cases.length - 1
-                    ].deaths
+                    ].deaths.toLocaleString()
                   }}
                 </div>
-                <div>
+                <div class="stat-note">
                   <strong>{{
                     `${(
                       (Data[currentCounty].cases[
@@ -81,14 +91,31 @@
       <v-col
         :county="CountyData[currentCounty]"
         cols="12"
-        md="12"
+        md="6"
         class="DataCard"
       >
         <time-bar-chart
-          :title="`${CountyData[currentCounty].name}`"
+          :title="`Confirmed Cases: ${CountyData[currentCounty].name}`"
           :title-id="'number-of-confirmed-cases'"
           :chart-id="'time-bar-chart-patients'"
           :chart-data="CountyData[currentCounty].graph"
+          :chart-data-type="'cases'"
+          :date="CountyData[currentCounty].lastUpdatedAt"
+          :url="'https://coronadatascraper.com'"
+        />
+      </v-col>
+      <v-col
+        :county="CountyData[currentCounty]"
+        cols="12"
+        md="6"
+        class="DataCard"
+      >
+        <time-bar-chart
+          :title="`COVID Related Deaths: ${CountyData[currentCounty].name}`"
+          :title-id="'number-of-deaths'"
+          :chart-id="'time-bar-chart-patients'"
+          :chart-data="CountyData[currentCounty].graph"
+          :chart-data-type="'deaths'"
           :date="CountyData[currentCounty].lastUpdatedAt"
           :url="'https://coronadatascraper.com'"
         />
@@ -136,7 +163,7 @@ export default {
   },
   head() {
     return {
-      title: 'Stop Coronavirus in the Bay Area'
+      title: 'Bay Area Pandemic Dashboard'
     }
   }
 }
@@ -159,21 +186,35 @@ export default {
       grid-template-columns: repeat(2, 1fr);
       align-items: center;
       label {
+        font-style: normal;
         font-weight: bold;
-        font-size: 30px;
+        font-size: 24px;
         color: black;
+        line-height: 33px;
         margin-right: 10px;
       }
       .county-stats {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         text-align: center;
+        .stat-title {
+          font-size: 16px;
+          color: black;
+          font-weight: bold;
+          line-height: 22px;
+        }
         .stat-number {
           padding: 10px;
           margin: 20px 0px;
           color: black;
           font-weight: bold;
-          font-family: SF Mono;
+        }
+        .stat-note {
+          font-style: normal;
+          font-weight: 500;
+          font-size: 12px;
+          line-height: 15px;
+          color: $gray-1;
         }
         .border {
           border-right: 2px solid lightgray;
@@ -230,7 +271,7 @@ export default {
 }
 @media screen and (min-width: 640px) {
   .stat-number {
-    font-size: 60px;
+    font-size: 36px;
   }
 }
 @media screen and (max-width: 640px) {
