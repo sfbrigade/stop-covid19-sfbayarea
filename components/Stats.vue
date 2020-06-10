@@ -183,6 +183,19 @@
         />
       </v-col>
     </v-row>
+    <v-row>
+      <v-col>
+        <horizontal-bar-chart
+          :title="
+            `Confirmed Cases by Age and Gender: ${CountyData[currentCounty].name}`
+          "
+          :title-id="'cases-by-age-and-gender'"
+          :chart-id="'horizontal-bar-chart-age-gender'"
+          :date="CountyData[currentCounty].lastUpdatedAt"
+          :url="'https://coronadatascraper.com'"
+        />
+      </v-col>
+    </v-row>
   </div>
 </template>
 
@@ -190,6 +203,7 @@
 import TimeBarChart from '@/components/TimeBarChart.vue'
 import TimeLineChartCountyComparison from '@/components/TimeLineChartCountyComparison.vue'
 import CasesSummary from '@/components/CasesSummary.vue'
+import HorizontalBarChart from '@/components/HorizontalBarChart'
 import Data from '@/data/data.json'
 import formatCountyData from '@/utils/formatCountyData'
 import consolidateAllData from '@/utils/consolidateAllData'
@@ -202,6 +216,7 @@ export default {
     CasesSummary,
     TimeBarChart,
     TimeLineChartCountyComparison,
+    HorizontalBarChart,
     DataView
   },
   data() {
