@@ -184,7 +184,7 @@
       </v-col>
     </v-row>
     <v-row>
-      <v-col>
+      <v-col cols="12" md="6" class="DataCard">
         <horizontal-bar-chart
           :title="
             `Confirmed Cases by Age and Gender: ${CountyData[currentCounty].name}`
@@ -205,6 +205,7 @@ import TimeLineChartCountyComparison from '@/components/TimeLineChartCountyCompa
 import CasesSummary from '@/components/CasesSummary.vue'
 import HorizontalBarChart from '@/components/HorizontalBarChart'
 import Data from '@/data/data.json'
+import DataVTwo from '@/data/data.v2.json'
 import formatCountyData from '@/utils/formatCountyData'
 import consolidateAllData from '@/utils/consolidateAllData'
 import DataView from '@/components/DataView.vue'
@@ -239,6 +240,7 @@ export default {
 
     const data = {
       Data,
+      DataVTwo,
       CountyData,
       ConsolidatedData,
       currentCounty,
@@ -248,6 +250,7 @@ export default {
       countiesForCompare,
       selectedCounties
     }
+    console.log('data', data)
     return data
   },
   methods: {
