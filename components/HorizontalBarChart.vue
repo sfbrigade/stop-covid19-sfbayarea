@@ -83,7 +83,6 @@ export default {
               return labelText
             },
             title(tooltipItem) {
-              console.log('tooltipItem', tooltipItem)
               const titleText = `Age: ${tooltipItem[0].label}`
               return titleText
             }
@@ -109,15 +108,11 @@ export default {
                 fontColor: '#808080',
                 maxRotation: 0,
                 minRotation: 0
-                // callback: label => {
-                //   return label.split('/')[1]
-                // }
               }
             }
           ],
           yAxes: [
             {
-              // location: 'bottom',
               stacked: false,
               gridLines: {
                 display: true,
