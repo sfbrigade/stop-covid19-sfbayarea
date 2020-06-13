@@ -1,5 +1,5 @@
 <template>
-  <v-app style="background: #423578">
+  <v-app style="background: #73588A">
     <v-container fluid class="HomePage-Container">
       <div class="Background-Wrapper">
         <div class="logo">
@@ -107,7 +107,7 @@ export default Vue.extend({
   justify-content: space-between;
 
   .Background-Wrapper {
-    background: url('/gg_1400.png') center no-repeat;
+    background: url('/gg_1440.png') center no-repeat;
     height: calc(100% - 200px);
   }
 
@@ -208,7 +208,7 @@ export default Vue.extend({
 }
 @media screen and (max-width: 930px) {
   .Background-Wrapper {
-    background: url('/gg_915.png') center no-repeat !important;
+    background: url('/gg_955.png') center no-repeat !important;
   }
   .origin {
     .title {
@@ -233,7 +233,7 @@ export default Vue.extend({
 
 @media screen and (max-width: 600px) {
   .Background-Wrapper {
-    background: url('/gg_612.png') left bottom no-repeat !important;
+    background: url('/gg_680.png') left bottom no-repeat !important;
   }
 
   .origin {
@@ -252,7 +252,7 @@ export default Vue.extend({
 @media screen and (max-width: 445px) {
   .HomePage-Container {
     .Background-Wrapper {
-      background: url('/gg_479.png') left bottom no-repeat !important;
+      background: url('/gg_530.png') left bottom no-repeat !important;
     }
     .logo {
       margin: 20px 20px 40px 20px;
