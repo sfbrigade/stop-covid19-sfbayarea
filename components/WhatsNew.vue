@@ -4,7 +4,7 @@
       <v-icon size="24" class="WhatsNew-heading-icon">
         mdi-information
       </v-icon>
-      Latest Update
+      {{ county }}
     </h2>
     <ul class="WhatsNew-list">
       <li v-for="(item, i) in items" :key="i" class="WhatsNew-list-item">
@@ -41,6 +41,10 @@ import { convertISO8601ToHumanDateFormat } from '@/utils/formatDate'
 
 export default {
   props: {
+    county: {
+      type: String,
+      required: true
+    },
     items: {
       type: Array,
       required: true

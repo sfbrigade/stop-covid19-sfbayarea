@@ -46,7 +46,11 @@ jobs:
       run: |
         echo "::set-env name=SCRAPER_TIME::$(date)"
         cd ${GITHUB_WORKSPACE}/scraper
-        python scraper_news.py --format json_simple --output "${GITHUB_WORKSPACE}/site/data/news/"
+        # TODO: stop explicitly listing every county when the scraper repo is
+        # updated to scrape every county by default. (We have to do this first
+        # before the scraper can update, otherwise it would break older code in
+        # this repo!)
+        python scraper_news.py alameda contra_costa marin napa san_francisco san_mateo santa_clara solano sonoma --format json_simple --output "${GITHUB_WORKSPACE}/site/data/news/"
     
     - name: Create PR if New Data
       uses: peter-evans/create-pull-request@v2
