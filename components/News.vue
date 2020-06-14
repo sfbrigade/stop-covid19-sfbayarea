@@ -11,7 +11,7 @@
 <script>
 import PageHeader from '@/components/PageHeader.vue'
 import WhatsNew from '@/components/WhatsNew.vue'
-import News from '@/data/news.json'
+import News from '@/data/news/san_francisco.simple.json'
 export default {
   components: {
     PageHeader,
