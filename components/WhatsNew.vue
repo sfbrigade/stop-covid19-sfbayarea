@@ -4,10 +4,10 @@
       <v-icon size="24" class="WhatsNew-heading-icon">
         mdi-information
       </v-icon>
-      {{ county }}
+      {{ feed.title }}
     </h2>
     <ul class="WhatsNew-list">
-      <li v-for="(item, i) in items" :key="i" class="WhatsNew-list-item">
+      <li v-for="(item, i) in feed.items" :key="i" class="WhatsNew-list-item">
         <a
           class="WhatsNew-list-item-anchor"
           :href="item.url"
@@ -16,12 +16,12 @@
         >
           <time
             class="WhatsNew-list-item-anchor-time px-2"
-            :datetime="item.date"
+            :datetime="item.date_published"
           >
-            {{ humanDate(item.date) }}
+            {{ humanDate(item.date_published) }}
           </time>
           <span class="WhatsNew-list-item-anchor-link">
-            {{ item.text }}
+            {{ item.title }}
             <v-icon
               v-if="!isInternalLink(item.url)"
               class="WhatsNew-item-ExternalLinkIcon"
@@ -41,12 +41,8 @@ import { convertISO8601ToHumanDateFormat } from '@/utils/formatDate'
 
 export default {
   props: {
-    county: {
-      type: String,
-      required: true
-    },
-    items: {
-      type: Array,
+    feed: {
+      type: Object,
       required: true
     }
   },
