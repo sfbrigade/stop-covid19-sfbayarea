@@ -210,8 +210,8 @@ export default {
                 display: false
               },
               ticks: {
-                fontSize: 9,
-                maxTicksLimit: 30,
+                fontSize: 12,
+                maxTicksLimit: 20,
                 fontColor: '#808080',
                 maxRotation: 0,
                 minRotation: 0,
@@ -230,7 +230,7 @@ export default {
                 tickMarkLength: 10
               },
               ticks: {
-                fontSize: 11,
+                fontSize: 12,
                 fontColor: '#808080',
                 padding: 3,
                 fontStyle: 'bold',

@@ -34,7 +34,7 @@
         <DataView>
           <div class="county-select-container">
             <div class="county-select">
-              <label>Show Data For:</label>
+              <label class="selection">Show Data For:</label>
               <select v-model="currentCounty" class="select-css">
                 <option v-for="(countyName, index) in countyNames" :key="index">
                   {{ countyName }}
@@ -228,6 +228,36 @@ export default {
         align-items: center;
       }
     }
+    @include lessThan($small) {
+      .county-select-container {
+        display: initial;
+        grid-template-columns: initial;
+        .county-stats {
+          display: initial;
+          grid-template-columns: initial;
+          .stat-title {
+            margin-top: 50px;
+          }
+          .stat-number {
+            padding: 10px;
+            margin: 20px 0px;
+            font-size: 36px;
+          }
+          .stat-note {
+          }
+          .border {
+            border-right: initial;
+            margin-bottom: 30px;
+          }
+        }
+        .county-select {
+          display: grid;
+        }
+        .selection {
+          text-align: center;
+        }
+      }
+    }
   }
 
   .select-css {
@@ -268,6 +298,15 @@ export default {
     }
     option {
       font-weight: normal;
+    }
+  }
+  @include lessThan($small) {
+    .select-css {
+      width: initial;
+      max-width: initial;
+      margin-top: 20px;
+      margin-bottom: 40px;
+      align-items: center;
     }
   }
 }

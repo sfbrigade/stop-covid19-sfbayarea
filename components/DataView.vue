@@ -95,7 +95,7 @@ export default class DataView extends Vue {
     @include card-h2();
   }
   &-ToolbarTitle {
-    font-size: 24px;
+    font-size: 20px;
     font-weight: bold;
     line-height: 1.5;
   }
@@ -105,7 +105,7 @@ export default class DataView extends Vue {
   }
   &-CardTextForXS {
     margin-bottom: 46px;
-    margin-top: 70px;
+    margin-top: 30px;
   }
   &-Footer {
     background-color: $white-1 !important;
