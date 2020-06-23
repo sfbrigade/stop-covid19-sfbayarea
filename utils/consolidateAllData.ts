@@ -22,8 +22,6 @@ type GraphDataType = {
 
 type ConsolidatedDataType = {
   totalPopulation: number
-  totalDeaths: number
-  totalCases: number
   cases: Array<GraphDataType>
   deaths: Array<GraphDataType>
   lastUpdatedAt: string
@@ -39,8 +37,6 @@ const consolidateAllData = (
   data: Array<CountyDataType>
 ): ConsolidatedDataType => {
   let totalPopulation = 0
-  let totalDeaths = 0
-  let totalCases = 0
   const dailyCases: Array<any> = []
   const dailyDeaths: Array<any> = []
 
@@ -50,8 +46,6 @@ const consolidateAllData = (
     countyData.cases.forEach((timePoint, index) => {
       const { cases, deaths } = timePoint
 
-      totalCases += cases
-      totalDeaths += deaths
       if (dailyCases[index]) {
         dailyCases[index].cases += cases
       } else {
@@ -67,8 +61,6 @@ const consolidateAllData = (
 
   const consolidatedData: ConsolidatedDataType = {
     totalPopulation,
-    totalDeaths,
-    totalCases,
     cases: formatGraph(dailyCases),
     deaths: formatGraph(dailyDeaths),
     lastUpdatedAt: '3/19'

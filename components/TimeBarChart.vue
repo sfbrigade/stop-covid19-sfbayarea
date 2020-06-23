@@ -49,7 +49,7 @@ export default {
     },
     chartDataType: {
       type: String,
-      required: false,
+      required: true,
       default: 'cases'
     },
     date: {
