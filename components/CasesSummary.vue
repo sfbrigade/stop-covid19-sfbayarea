@@ -66,12 +66,14 @@
 <style lang="scss" scoped>
 .summary {
   text-align: center;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  & > div {
-    border-right: 2px solid lightgray;
-    &:last-child {
-      border-right: none;
+  @media screen and (min-width: 640px) {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    & > div {
+      border-right: 2px solid lightgray;
+      &:last-child {
+        border-right: none;
+      }
     }
   }
   .stat-title {
@@ -81,8 +83,12 @@
     line-height: 22px;
   }
   .stat-number {
-    padding: 10px;
-    margin: 20px 0px;
+    @media screen and (min-width: 640px) {
+      padding: 30px;
+    }
+    @media screen and (max-width: 640px) {
+      padding: 15px;
+    }
     color: black;
     font-weight: bold;
     line-height: 39px;
@@ -94,6 +100,11 @@
     font-size: 14px;
     line-height: 19px;
     color: #333333;
+  }
+  @media screen and (max-width: 640px) {
+    .case-frequency {
+      padding: 50px;
+    }
   }
 }
 @media screen and (min-width: 640px) {
