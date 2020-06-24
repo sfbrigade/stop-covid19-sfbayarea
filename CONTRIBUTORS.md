@@ -3,6 +3,7 @@ Contributors for the site Stop Coronavirus in the Bay Area (including Tokyo Covi
 
 | Name(link) | Contribution |
 | --- | --- |
+| Followings are the original contributors for Tokyo Covid-19 site.||
 | [Hal Seki(Code for Japan)](https://github.com/halsk) | Project facilitation |
 | [Yu Uno(Cookpad Inc.)](https://twitter.com/saladdays) | UI/UX Design |
 | [Kenshiro Fujii(Cookpad Inc.)](https://twitter.com/kenshir0f) | UI Design / Frontend |
@@ -98,8 +99,9 @@ Contributors for the site Stop Coronavirus in the Bay Area (including Tokyo Covi
 | [dafujii](https://twitter.com/dafujii_k) ([@dafujii](https://github.com/dafujii)) | Kaizen |
 | [7iva](https://twitter.com/_7iva) ([@7iva](https://github.com/7iva)) | Translations |
 | Jun Shindo ([@jay-es](https://github.com/jay-es)) | Frontend |
+|
+| Followings are the contributers for the Bay Area Pandemic Dashboard by Bay Area Brigades (Code For San Francisco)||
+| [Kengo Yoshii](https://www.linkedin.com/in/kengo-yoshii-361b248b) ([@kengoy](https://github.com/kengoy)) | Frontend |
 | -add your name here!- | -what did you do?- |
 
 Thanks a lot！！！
-
-![nyan](https://i.gyazo.com/f04e7468ea6e4bb6e87f6817fea980f9.gif)
