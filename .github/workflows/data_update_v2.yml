@@ -58,15 +58,15 @@ jobs:
         # the PR will be updated. The end result is that each run of this job
         # supersedes or replaces any previous runs that haven't been reviewed
         # and merged yet.
-        branch: auto-update-data
-        title: 'GitHub action: data update'
+        branch: auto-update-data-v2
+        title: 'GitHub action: data v2 update'
         body: |
           Created using commit [${{env.SCRAPER_COMMIT}}](https://github.com/sfbrigade/data-covid19-sfbayarea/commit/${{env.SCRAPER_COMMIT}})
           from sfbrigade/data-covid19-sfbayarea.
           
           Scraped at: ${{ env.SCRAPER_TIME }}
         commit-message: |
-          GitHubAction: data update
+          GitHubAction: data v2 update
           
           Created with commit ${{env.SCRAPER_COMMIT}} from sfbrigade/data-covid19-sfbayarea
           https://github.com/sfbrigade/data-covid19-sfbayarea/commit/${{env.SCRAPER_COMMIT}}
