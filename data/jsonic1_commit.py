@@ -45,8 +45,7 @@ faq_dict["faqItems"] = sections_list
 # Get data from the reader object
 # Arrange Sections and Questions in a JSON-friendly way
 for row in reader:
-    rowtype = row[0]   # CSV column delineating Section, Question, Answer or Link
-    rowval = row[1]   # Values for the above
+    rowtype, rowval, *_ = row
     if rowtype == "Section Head":
         section = {}   # Create a dictionary for a Section      
         sections_list.append(section)   # Add new Section to the Sections list
