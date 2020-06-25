@@ -33,7 +33,7 @@ lines = response.iter_lines(decode_unicode=True)
 reader = csv.reader(lines)
 
 # ISO8601 format date, to update each time the program runs
-date = datetime.datetime.now().strftime("%Y-%m-%d")
+date = datetime.datetime.utcnow().strftime("%Y-%m-%d")
 
 # Create the main FAQ dictionary
 # Create a list for our Sections
