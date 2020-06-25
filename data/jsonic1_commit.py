@@ -58,7 +58,7 @@ for row in reader:
         question["q"] = rowval   # the Question's title
         questions_list.append(question)   #append the Question to its given Section
     elif rowtype == "A":   # Now the same for Answers & Links
-        question["A"] = rowval
+        question["a"] = rowval
     elif rowtype == "link":
         question["link"] = rowval
     
