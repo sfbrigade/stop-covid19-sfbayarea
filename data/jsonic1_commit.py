@@ -28,10 +28,9 @@ link = "https://docs.google.com/spreadsheets/d/1_wBXS62S5oBQrwetGc8_-dFvDjEmNqzq
 response = requests.get(link)
 response.raise_for_status()
 
-# Turn text from CSV stream into a file object csv.reader can read
-csv_stream = StringIO(response.text)
-# Create a reader to iterate over the CSV stream file object
-reader = csv.reader(csv_stream)
+# CSV reader needs unicode lines to iterate over
+lines = response.iter_lines(decode_unicode=True)
+reader = csv.reader(lines)
 
 # ISO8601 format date, to update each time the program runs
 date = datetime.datetime.now().strftime("%Y-%m-%d")
