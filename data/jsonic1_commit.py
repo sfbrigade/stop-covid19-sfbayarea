@@ -50,7 +50,7 @@ for row in reader:
         section = {}   # Create a dictionary for a Section      
         sections_list.append(section)   # Add new Section to the Sections list
         section["title"] = rowval   # Give the Section its title
-        section["lastUpdateAt"] = date   # a "last updated" value
+        section["lastUpdatedAt"] = date   # a "last updated" value
         questions_list = []   # Create a list for Questions
         section["qa"] = questions_list   # add our Questions list to the Section
     if rowtype == "Q":        
