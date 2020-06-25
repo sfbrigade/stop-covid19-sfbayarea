@@ -55,7 +55,7 @@ for row in reader:
         section["qa"] = questions_list   # add our Questions list to the Section
     if rowtype == "Q":        
         question = {}   # Create new Question object
-        question["Q"] = rowval   # the Question's title
+        question["q"] = rowval   # the Question's title
         questions_list.append(question)   #append the Question to its given Section
     elif rowtype == "A":   # Now the same for Answers & Links
         question["A"] = rowval
