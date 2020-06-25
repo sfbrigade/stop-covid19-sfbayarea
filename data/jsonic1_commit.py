@@ -60,7 +60,7 @@ for row in reader:
     elif rowtype == "A":   # Now the same for Answers & Links
         question["a"] = rowval
     elif rowtype == "link":
-        question["link"] = rowval
+        question["url"] = rowval
     
 # create JSON output file
 # pass FAQ Content to json and store output in output file
