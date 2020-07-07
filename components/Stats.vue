@@ -122,23 +122,69 @@
           :url="'https://coronadatascraper.com'"
         />
       </v-col>
+      <v-col cols="12" md="12" class="DataCard">
+        <DataView>
+          <div class="county-compare-select-container">
+            <label>Select Counties to Compare:</label>
+          </div>
+          <div class="county-select-buttons">
+            <v-btn
+              v-for="countyName in countiesForCompare"
+              :key="countyName.name"
+              class="county-select-button"
+              outlined
+              :style="{
+                'background-color': contains(selectedCounties, countyName)
+                  ? countyName.color
+                  : 'white',
+                color: contains(selectedCounties, countyName)
+                  ? 'white'
+                  : 'black'
+              }"
+              type="button"
+              @click="provide(countyName)"
+            >
+              {{ countyName.name }}
+            </v-btn>
+          </div>
+        </DataView>
+      </v-col>
+      <v-col
+        :county="CountyData[currentCounty]"
+        cols="12"
+        md="6"
+        class="DataCard"
+      >
+        <time-line-chart-county-comparison
+          :title="`Cases per 1,000 People`"
+          :title-id="'cases-per-people'"
+          :chart-data="CountyData"
+          :selected-counties="selectedCounties"
+          :chart-data-type="'casesperpeople'"
+          :date="CountyData[currentCounty].lastUpdatedAt"
+          :url="'https://coronadatascraper.com'"
+        />
+      </v-col>
     </v-row>
   </div>
 </template>
 
 <script>
 import TimeBarChart from '@/components/TimeBarChart.vue'
+import TimeLineChartCountyComparison from '@/components/TimeLineChartCountyComparison.vue'
 import CasesSummary from '@/components/CasesSummary.vue'
 import Data from '@/data/data.json'
 import formatCountyData from '@/utils/formatCountyData'
 import consolidateAllData from '@/utils/consolidateAllData'
 import DataView from '@/components/DataView.vue'
 import { calculateTotalCases, calculateTotalDeaths } from '@/utils/calculations'
+import countyColor from '@/static/data/countyColor.json'
 
 export default {
   components: {
     CasesSummary,
     TimeBarChart,
+    TimeLineChartCountyComparison,
     DataView
   },
   data() {
@@ -146,10 +192,18 @@ export default {
     const CountyData = formatCountyData(Data)
     const ConsolidatedData = consolidateAllData(Data)
     const countyNames = Object.keys(Data)
-    const selectedCountyData = Data[currentCounty]
 
     const totalCases = calculateTotalCases(Data)
     const totalDeaths = calculateTotalDeaths(Data)
+
+    const countiesForCompare = []
+    for (const countyName of countyNames) {
+      countiesForCompare.push({
+        name: countyName,
+        color: countyColor[countyName]
+      })
+    }
+    const selectedCounties = []
 
     const data = {
       Data,
@@ -157,11 +211,24 @@ export default {
       ConsolidatedData,
       currentCounty,
       countyNames,
-      selectedCountyData,
       totalCases,
-      totalDeaths
+      totalDeaths,
+      countiesForCompare,
+      selectedCounties
     }
     return data
+  },
+  methods: {
+    provide(item) {
+      if (!this.selectedCounties.includes(item)) {
+        this.selectedCounties.push(item)
+      } else {
+        this.selectedCounties.splice(this.selectedCounties.indexOf(item), 1)
+      }
+    },
+    contains(arr, item) {
+      return arr.includes(item)
+    }
   },
   head() {
     return {
@@ -227,6 +294,24 @@ export default {
         justify-content: center;
         align-items: center;
       }
+    }
+    .county-compare-select-container {
+      display: grid;
+      align-items: center;
+      label {
+        text-align: center;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 24px;
+        color: black;
+        line-height: 33px;
+      }
+    }
+    .county-select-buttons {
+      padding: 20px;
+    }
+    .county-select-button {
+      margin: 10px 10px;
     }
     @include lessThan($small) {
       .county-select-container {

@@ -22,6 +22,7 @@ type GraphDataType = {
 
 type CountyDataFormattedType = {
   name: string
+  population: number
   graph: Array<GraphDataType>
   lastUpdatedAt: Date
 }
@@ -47,9 +48,10 @@ export default (data: Array<CountyDataType>, countyFilter?: Array<string>) => {
 
   for (const countyName in data) {
     if (countyFilter && !includedCounties[countyName]) continue
-    const { name, cases } = data[countyName]
+    const { name, population, cases } = data[countyName]
     const county: CountyDataFormattedType = {
       name,
+      population,
       graph: formatGraph(cases),
       lastUpdatedAt: cases.slice(-1)[0].date
     }
