@@ -188,10 +188,7 @@ export default {
               return labelText
             },
             title(tooltipItem, data) {
-              return data.labels[tooltipItem[0].index].replace(
-                /(\w+)\/(\w+)/,
-                '$1 $2 '
-              )
+              return data.labels[tooltipItem[0].index]
             }
           }
         },
