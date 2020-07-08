@@ -1,6 +1,7 @@
 <template>
   <div class="MainPage">
     <v-row class="DataBlock">
+      <!-- Summary of Bay Area Counties Stats Card -->
       <v-col cols="12" md="12" class="DataCard">
         <cases-summary
           :title="'Summary for 9 Bay Area Counties'"
@@ -8,6 +9,7 @@
           :url="'https://coronadatascraper.com'"
         />
       </v-col>
+      <!-- Bay Area Graphs -->
       <v-col cols="12" md="6" class="DataCard">
         <time-bar-chart
           :title="`Confirmed Cases: Bay Area Total`"
@@ -30,6 +32,7 @@
           :url="'https://coronadatascraper.com'"
         />
       </v-col>
+      <!-- County Selector & Stats Card -->
       <v-col cols="12" md="12" class="DataCard">
         <DataView>
           <div class="county-select-container">
@@ -90,6 +93,7 @@
           </div>
         </DataView>
       </v-col>
+      <!-- Selected County Graphs -->
       <v-col
         :county="CountyData[currentCounty]"
         cols="12"
@@ -122,6 +126,27 @@
           :url="'https://coronadatascraper.com'"
         />
       </v-col>
+      <v-col cols="12" md="6" class="DataCard">
+        <horizontal-bar-chart
+          :title="`County Cases by Age: ${CountyData[currentCounty].name}`"
+          :title-id="'cases-by-age'"
+          :chart-id="'horizontal-bar-chart-age'"
+          :chart-data="CountyDataVTwo[currentCounty].ageGroup"
+          :date="CountyDataVTwo[currentCounty].lastUpdatedAt"
+          :url="CountyDataVTwo[currentCounty].sourceUrl"
+        />
+      </v-col>
+      <v-col cols="12" md="6" class="DataCard">
+        <horizontal-bar-chart
+          :title="`County Cases by Gender: ${CountyData[currentCounty].name}`"
+          :title-id="'cases-by-gender'"
+          :chart-id="'horizontal-bar-chart-gender'"
+          :chart-data="CountyDataVTwo[currentCounty].genderGroup"
+          :date="CountyDataVTwo[currentCounty].lastUpdatedAt"
+          :url="CountyDataVTwo[currentCounty].sourceUrl"
+        />
+      </v-col>
+      <!-- County Comparison Selector -->
       <v-col cols="12" md="12" class="DataCard">
         <DataView>
           <div class="county-compare-select-container">
@@ -149,6 +174,7 @@
           </div>
         </DataView>
       </v-col>
+      <!-- County Comparison Graphs -->
       <v-col
         :county="CountyData[currentCounty]"
         cols="12"
@@ -179,19 +205,6 @@
           :chart-data-type="'percentincrease'"
           :date="CountyData[currentCounty].lastUpdatedAt"
           :unit="'%'"
-          :url="'https://coronadatascraper.com'"
-        />
-      </v-col>
-    </v-row>
-    <v-row>
-      <v-col cols="12" md="6" class="DataCard">
-        <horizontal-bar-chart
-          :title="
-            `Confirmed Cases by Age and Gender: ${CountyData[currentCounty].name}`
-          "
-          :title-id="'cases-by-age-and-gender'"
-          :chart-id="'horizontal-bar-chart-age-gender'"
-          :date="CountyData[currentCounty].lastUpdatedAt"
           :url="'https://coronadatascraper.com'"
         />
       </v-col>
@@ -238,10 +251,68 @@ export default {
     }
     const selectedCounties = []
 
+    const CountyDataVTwo = {}
+    const getGenderTotalCount = genders => {
+      let total = 0
+      for (const gender in genders) {
+        const genderCount = genders[gender]
+        total += genderCount
+      }
+      return total
+    }
+    for (const countyName in DataVTwo) {
+      const county = DataVTwo[countyName]
+      console.log('county', county)
+      const { name } = county
+      const genderLabels = Object.keys(county.case_totals.gender)
+      const genderTotalCount = getGenderTotalCount(county.case_totals.gender)
+      CountyDataVTwo[name] = {
+        lastUpdatedAt: county.update_time.split('T')[0],
+        name,
+        sourceUrl: county.source_url,
+        ageGroup: {
+          displayLegend: false,
+          labels: county.case_totals.age_group.map(group => {
+            let name = group.group.replace('_to_', '-')
+            if (name.match(/_and_under/)) {
+              name = `0-${name.replace('_and_under', '')}`
+            }
+            if (name.match(/_and_older/)) {
+              name = `${name.replace('_and_older', '')}+`
+            }
+            return name
+          }),
+          datasets: [
+            {
+              backgroundColor: '#473A8C',
+              data: county.case_totals.age_group.map(group => group.raw_count)
+            }
+          ]
+        },
+        genderGroup: {
+          displayLegend: false,
+          totalCount: genderTotalCount,
+          labels: genderLabels,
+          datasets: [
+            {
+              backgroundColor: '#473A8C',
+              data: genderLabels.map(gender => {
+                return Math.round(
+                  (county.case_totals.gender[gender] / genderTotalCount) * 100
+                )
+              })
+            }
+          ]
+        }
+      }
+    }
+    console.log('CV2', CountyDataVTwo)
+
     const data = {
       Data,
       DataVTwo,
       CountyData,
+      CountyDataVTwo,
       ConsolidatedData,
       currentCounty,
       countyNames,
