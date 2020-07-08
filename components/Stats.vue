@@ -165,6 +165,23 @@
           :url="'https://coronadatascraper.com'"
         />
       </v-col>
+      <v-col
+        :county="CountyData[currentCounty]"
+        cols="12"
+        md="6"
+        class="DataCard"
+      >
+        <time-line-chart-county-comparison
+          :title="`Percent Increase in 7 Days`"
+          :title-id="'percent-increase-in7days'"
+          :chart-data="CountyData"
+          :selected-counties="selectedCounties"
+          :chart-data-type="'percentincrease'"
+          :date="CountyData[currentCounty].lastUpdatedAt"
+          :unit="'%'"
+          :url="'https://coronadatascraper.com'"
+        />
+      </v-col>
     </v-row>
   </div>
 </template>

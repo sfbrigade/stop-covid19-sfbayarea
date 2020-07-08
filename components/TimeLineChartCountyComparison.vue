@@ -56,9 +56,9 @@ export default {
   },
   computed: {
     displayData() {
-      if (this.chartDataType === 'casesperpeople') {
-        if (this.selectedCounties.length) {
-          const dataSets = []
+      if (this.selectedCounties.length) {
+        const dataSets = []
+        if (this.chartDataType === 'casesperpeople') {
           for (const county of this.selectedCounties) {
             dataSets.push({
               type: 'line',
@@ -74,8 +74,7 @@ export default {
                   d.confirmedTransition /
                   (this.chartData[county.name].population / 1000)
                 )
-              }),
-              backgroundColor: '#473A8C'
+              })
             })
           }
 
@@ -88,12 +87,44 @@ export default {
             datasets: dataSets
           }
         } else {
+          // Percent Increase in 7 days
+          for (const county of this.selectedCounties) {
+            const confirmedCumulativeIn7daysQueue = []
+            dataSets.push({
+              type: 'line',
+              fill: false,
+              borderWidth: 1,
+              pointBackgroundColor: 'rgba(0,0,0,0)',
+              pointBorderColor: 'rgba(0,0,0,0)',
+              borderColor: county.color,
+              lineTension: 0,
+              label: county.name,
+              data: this.chartData[county.name].graph.map(d => {
+                confirmedCumulativeIn7daysQueue.push(d.cumulative)
+                if (confirmedCumulativeIn7daysQueue.length > 7) {
+                  const confirmedCumulative7daysBefore = confirmedCumulativeIn7daysQueue.shift()
+                  return (
+                    ((d.cumulative - confirmedCumulative7daysBefore) /
+                      confirmedCumulative7daysBefore) *
+                    100
+                  )
+                } else {
+                  return null
+                }
+              })
+            })
+          }
+
           return {
-            datasets: []
+            labels: this.chartData[this.selectedCounties[0].name].graph.map(
+              d => {
+                return d.label
+              }
+            ),
+            datasets: dataSets
           }
         }
       } else {
-        // TBD for past 7 days
         return {
           datasets: []
         }
@@ -191,8 +222,4 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
-.selectorButton {
-  margin-top: 24px;
-}
-</style>
+<style lang="scss" scoped></style>
