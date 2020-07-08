@@ -29,9 +29,9 @@ export default {
       default: 'horizontal-bar-chart'
     },
     chartData: {
-      type: Array,
+      type: Object,
       required: false,
-      default: () => []
+      default: () => {}
     },
     date: {
       type: String,
@@ -46,53 +46,46 @@ export default {
   },
   computed: {
     displayData() {
+      console.log('chartdata', this.chartData, this.chartData.labels)
       return {
-        labels: [
-          '0-17',
-          '18-30',
-          '31-40',
-          '41-50',
-          '51-60',
-          '61-70',
-          '71-80',
-          '81+'
-        ],
-        datasets: [
-          {
-            label: 'Women',
-            backgroundColor: '#E23A5A',
-            data: [7, 11, 6, 11, 38, 31, 27, 32]
-          },
-          {
-            label: 'Men',
-            backgroundColor: '#679BD0',
-            data: [2, 9, 8, 18, 28, 33, 47, 37]
-          }
-        ]
+        labels: this.chartData.labels,
+        datasets: this.chartData.datasets
+        // datasets: [
+        //   {
+        //     label: 'Women',
+        //     backgroundColor: '#E23A5A',
+        //     data: [7, 11, 6, 11, 38, 31, 27, 32]
+        //   },
+        //   {
+        //     label: 'Men',
+        //     backgroundColor: '#679BD0',
+        //     data: [2, 9, 8, 18, 28, 33, 47, 37]
+        //   }
+        // ]
       }
     },
     displayOption() {
       return {
         tooltips: {
-          displayColors: true,
-          callbacks: {
-            label(tooltipItem) {
-              const labelText = `${
-                tooltipItem.datasetIndex > 0 ? 'M:' : 'F:'
-              } ${tooltipItem.value} cases`
-              return labelText
-            },
-            title(tooltipItem) {
-              const titleText = `Age: ${tooltipItem[0].label}`
-              return titleText
-            }
-          }
+          displayColors: true
+          // callbacks: {
+          // label(tooltipItem) {
+          //   const labelText = `${
+          //     tooltipItem.datasetIndex > 0 ? 'M:' : 'F:'
+          //   } ${tooltipItem.value} cases`
+          //   return labelText
+          // },
+          // title(tooltipItem) {
+          //   const titleText = `Age: ${tooltipItem[0].label}`
+          //   return titleText
+          // }
+          // }
         },
         barValueSpacing: 20,
         responsive: true,
         maintainAspectRatio: false,
         legend: {
-          display: true
+          display: this.chartData.displayLegend
         },
         scales: {
           xAxes: [
