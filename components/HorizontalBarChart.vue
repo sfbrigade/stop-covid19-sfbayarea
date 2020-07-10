@@ -12,6 +12,9 @@
       :options="displayOption"
       :height="240"
     />
+    <div v-if="hasNoData()" class="no-data">
+      No Data Avail
+    </div>
   </data-view>
 </template>
 <script>
@@ -105,6 +108,22 @@ export default {
         }
       }
     }
+  },
+  methods: {
+    hasNoData() {
+      return this.chartData.datasets.length < 1
+    }
   }
 }
 </script>
+
+<style lang="scss" scoped>
+.chart-header {
+  position: relative;
+  .no-data {
+    position: absolute;
+    top: 50%;
+    left: 45%;
+  }
+}
+</style>
