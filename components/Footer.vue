@@ -3,16 +3,14 @@
     <div class="Content-Container">
       <div class="Category-Container">
         <p>About</p>
-        <span>Project Information</span>
         <nuxt-link to="/about">
-          <div class="Footer-AboutUs">
-            <span>About Code 4 San Francisco</span>
-          </div>
+          <span>Project Information</span> <br />
+          <span>About Code 4 San Francisco</span>
         </nuxt-link>
       </div>
       <div class="Category-Container">
         <p>Contact</p>
-        <span>info@baybrigades.com</span>
+        <a href="mailto:info@baybrigades.com">info@baybrigades.com</a>
       </div>
       <div class="Category-Container">
         <p>Social</p>
