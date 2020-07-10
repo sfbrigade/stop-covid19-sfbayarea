@@ -126,16 +126,6 @@ const buildAgeChartData = (
   return updatedAgeGroup
 }
 
-const getGenderTotalCount = (genders: GenderData): number => {
-  let total = 0
-  const genderTypes = Object.keys(genders)
-  for (const gender of genderTypes) {
-    const count = genders[gender]
-    if (count > 0) total += count
-  }
-  return total
-}
-
 const buildGenderChartData = (
   defaultGenderGroup: GenderGroup,
   genders: GenderData
@@ -146,11 +136,7 @@ const buildGenderChartData = (
     if (genders[gender] >= 0) genderLabels.push(gender)
   }
   const genderTotalCount = getGenderTotalCount(genders)
-  // const getGenderPercentageData = () => {
-  //   return genderLabels.map((gender) => {
-  //     return Math.round((genders[gender] / genderTotalCount) * 100)
-  //   })
-  // }
+
   const getGenderCountData = () => {
     return genderLabels.map((gender) => {
       return genders[gender]
@@ -167,8 +153,30 @@ const buildGenderChartData = (
       data: getGenderCountData()
     }
   ]
+  updatedGenderGroup.customChartOptions!.plugins = {
+    datalabels: {
+      color: '#FFFFFF',
+      anchor: 'end',
+      align: 'left',
+      font: {
+        size: 36
+      },
+      formatter(value: any, context: any) {
+        const totalCount = context.dataset.data.reduce(
+          (acc: number, curr: number) => acc + curr
+        )
+        const percentValue = getPercentageData(value, totalCount)
+
+        return percentValue < 5 ? percentValue : `${percentValue}%`
+      }
+    }
+  }
 
   return updatedGenderGroup
+}
+
+const clone = (value: any) => {
+  return JSON.parse(JSON.stringify(value))
 }
 
 const getCountyShortName = (countyName: string): string => {
@@ -177,23 +185,6 @@ const getCountyShortName = (countyName: string): string => {
     .replace(' ', '_')
     .toLocaleLowerCase()
 }
-
-const parseDateForYrMoDay = (date: string): string => {
-  return date.split('T')[0]
-}
-
-const getPercentageData = (target: number, total: number) => {
-  return Math.round((target / total) * 100)
-}
-
-// const defaultCallbacks = {
-//   label(tooltipItem: any) {
-//     return tooltipItem
-//   },
-//   title(tooltipItem: any) {
-//     return tooltipItem
-//   }
-// }
 
 const getDefaultFormattedData = () => {
   return {
@@ -237,6 +228,68 @@ const getDefaultFormattedData = () => {
   }
 }
 
+const getGenderTotalCount = (genders: GenderData): number => {
+  let total = 0
+  const genderTypes = Object.keys(genders)
+  for (const gender of genderTypes) {
+    const count = genders[gender]
+    if (count >= 0) total += count
+  }
+  return total
+}
+
+const getPercentageData = (target: number, total: number) => {
+  return Math.round((target / total) * 100)
+}
+
+// USE DEFAULTCALLBACKS FOR ADDING NEW HORIZONTAL CHARTS DATA
+// const defaultCallbacks = {
+//   label(tooltipItem: any) {
+//     return tooltipItem
+//   },
+//   title(tooltipItem: any) {
+//     return tooltipItem
+//   }
+// }
+
+const getUpdatedCountyData = (
+  county: CountyData,
+  defaultFormattedData: FormattedCountyData
+) => {
+  const updatedData: any = {}
+  if (county) {
+    const {
+      case_totals: { age_group, gender },
+      update_time,
+      source_url
+    } = county
+
+    if (update_time) {
+      updatedData.lastUpdatedAt = parseDateForYrMoDay(update_time)
+    }
+    if (source_url) {
+      updatedData.sourceUrl = source_url
+    }
+    if (age_group) {
+      updatedData.ageGroup = buildAgeChartData(
+        defaultFormattedData.ageGroup!,
+        age_group
+      )
+    }
+    if (gender) {
+      updatedData.genderGroup = buildGenderChartData(
+        defaultFormattedData.genderGroup!,
+        gender
+      )
+    }
+  }
+  return updatedData
+}
+
+const parseDateForYrMoDay = (date: string): string => {
+  return date.split('T')[0]
+}
+
 export default (
   data: CountiesData,
   allCounties: Array<string>
@@ -244,7 +297,7 @@ export default (
   const finalData: FormattedCountiesData = {}
 
   for (const countyName of allCounties) {
-    const defaultFormattedData = getDefaultFormattedData()
+    const defaultFormattedData = clone(getDefaultFormattedData())
     finalData[countyName] = defaultFormattedData
     finalData[countyName].name = countyName
     finalData[countyName].lastUpdatedAt = parseDateForYrMoDay(
@@ -254,46 +307,13 @@ export default (
     const countyNameIndex = getCountyShortName(countyName)
     const county = data[countyNameIndex]
 
-    if (county) {
-      const {
-        case_totals: { age_group, gender },
-        update_time,
-        source_url
-      } = county
+    const updatedData = getUpdatedCountyData(county, finalData[countyName])
 
-      if (update_time) {
-        finalData[countyName].lastUpdatedAt = parseDateForYrMoDay(update_time)
-      }
-      if (source_url) finalData[countyName].sourceUrl = source_url
-      if (age_group) {
-        finalData[countyName].ageGroup = buildAgeChartData(
-          defaultFormattedData.ageGroup,
-          age_group
-        )
-      }
-      if (gender) {
-        finalData[countyName].genderGroup = buildGenderChartData(
-          defaultFormattedData.genderGroup,
-          gender
-        )
-        finalData[countyName].genderGroup!.customChartOptions!.plugins = {
-          datalabels: {
-            color: '#FFFFFF',
-            anchor: 'end',
-            align: 'left',
-            font: {
-              size: 36
-            },
-            formatter(value: any) {
-              const { totalCount } = finalData[countyName].genderGroup!
-              const percentValue = getPercentageData(value, totalCount)
-
-              return percentValue < 5 ? percentValue : `${percentValue}%`
-            }
-          }
-        }
-      }
-    }
+    finalData[countyName] = Object.assign(
+      {},
+      finalData[countyName],
+      updatedData
+    )
   }
 
   return finalData
