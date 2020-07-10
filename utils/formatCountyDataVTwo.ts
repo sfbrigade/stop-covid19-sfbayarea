@@ -179,7 +179,7 @@ const clone = (value: any) => {
   return JSON.parse(JSON.stringify(value))
 }
 
-const getCountyShortName = (countyName: string): string => {
+export const getCountyShortName = (countyName: string): string => {
   return countyName
     .replace(' County', '')
     .replace(' ', '_')
