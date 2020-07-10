@@ -1,14 +1,21 @@
 <template>
   <div class="About">
-    <h2 class="About-Heading">
-      About the website
-    </h2>
-    <TextCard>
-      This site was drived from the originaly developed website(
-      <a herf="https://stopcovid19.metro.tokyo.lg.jp/en/">
-        https://stopcovid19.metro.tokyo.lg.jp/en/
+    <nuxt-link to="/main">
+      <div class="About-Header">
+        <TopNavigation />
+      </div>
+    </nuxt-link>
+
+    <TextCard title="About the Project">
+      This site was drived from the
+      <a
+        href="https://stopcovid19.metro.tokyo.lg.jp/en/"
+        target="_blank"
+        rel="noopener"
+      >
+        originaly developed website
       </a>
-      ) by the Tokyo Metropolitan Government with Code For Japan in order to
+      by the Tokyo Metropolitan Government with Code For Japan in order to
       provide the latest information on COVID-19.<br />
       <br />
       The goal is to provide easy to understand, publicly available, and
@@ -17,37 +24,34 @@
       understand the current situation while having the right information about
       the necessary precautions and measures.
     </TextCard>
-    <TextCard title="Browser compatibility">
-      It is recommended to use the following browsers when viewing this site.<br />
-      <ul class="About-Browser-List">
-        <li>Microsoft Edge (Latest Ver)</li>
-        <li>Mozilla Firefox (Latest Ver)</li>
-        <li>Google Chrome (Latest Ver)</li>
-        <li>Safari (macOS) (Latest Ver)</li>
-        <li>Opera (Latest Ver)</li>
-      </ul>
-      When viewing this site, regardless of whether the recommended browsers are
-      used or not, please understand that site elements may not display
-      correctly due to some pre-defined settings in the browser being used.
-    </TextCard>
-    <TextCard title="Linking to this site">
-      Feel free to link this web site from any web sites.
-    </TextCard>
-    <TextCard title="JavaScript">
-      This site uses JavaScript.<br />
-      If JavaScript is disabled, the site may not work as expected or may not
-      display correctly.<br />
-      Please make sure to enable JavaScript when browsing this site.
-    </TextCard>
-    <TextCard title="Cookie">
-      This site uses cookies.<br />
-      Cookies are temporarily stored data from web requests and are used to know
-      the usage statistics of this site.<br />
-      <br />
-      If you do not wish your browsing data to be collected, please disable
-      cookies from your web browser.<br />
-      <br />
-      However, if you disable cookies, this site may not work as expected.
+    <TextCard title="How you can help contribute">
+      As an open source project, we want help! Learn how you can help out by
+      clicking on one of the following links:<br />
+      <div dense class="About-Navigation">
+        <v-card
+          v-for="(item, i) in cardItems"
+          :key="i"
+          width="276px"
+          height="74px"
+          outlined
+          @click="getCreateUrl(item.to)"
+        >
+          <v-list-item>
+            <v-list-item-content>
+              <v-list-item-title class="About-Navigation-Cardtitle">
+                {{ item.title }}
+              </v-list-item-title>
+              <v-list-item-subtitle class="About-Navigation-Carddescription">
+                {{ item.subtitle }}
+              </v-list-item-subtitle>
+            </v-list-item-content>
+            <img
+              class="About-Navigation--Navigationicon"
+              src="/right-arrow.png"
+            />
+          </v-list-item>
+        </v-card>
+      </div>
     </TextCard>
     <TextCard title="Disclaimers">
       Although every effort has been made to ensure the accuracy of the
@@ -61,24 +65,59 @@
       Any information on this site may be changed or deleted without prior
       notice.
     </TextCard>
-    <TextCard title="About data shown in this site">
-      Anyone can freely download the data published on this site from
-      <a href="" target="_blank" rel="noopener">Deta Source</a>.
-    </TextCard>
-    <TextCard title="About the source code">
-      The source code of this site is released under the MIT license that anyone
-      can use freely. For details, please check
-      <a href="" target="_blank" rel="noopener">GitHub repository</a>.
-    </TextCard>
+
+    <Footer />
   </div>
 </template>
 
-<script lang="ts">
+<script>
 import TextCard from '@/components/TextCard.vue'
+import TopNavigation from '@/components/TopNavigation'
+import Footer from '@/components/Footer.vue'
 
 export default {
   components: {
-    TextCard
+    TextCard,
+    TopNavigation,
+    Footer
+  },
+  computed: {
+    cardItems() {
+      return [
+        {
+          title: 'Project Information',
+          subtitle: 'Learn what this project is about',
+          to: 'ProjectInformation'
+        },
+        {
+          title: 'Provide Feedback',
+          subtitle: 'Help to improve the website',
+          to: 'ProvideFeedback'
+        },
+        {
+          title: 'Join the Team',
+          subtitle: 'Join the Slack channel',
+          to: 'JoinTeam'
+        }
+      ]
+    }
+  },
+  methods: {
+    getCreateUrl(to) {
+      if (to === 'ProjectInformation') {
+        open(
+          'https://docs.google.com/document/d/1b4ct3YOURBCzlZQTqyGOXM8w4m_tQJ94rAd1eV8KG4E/edit?usp=sharing',
+          '_blank'
+        )
+      } else if (to === 'ProvideFeedback') {
+        open(
+          'https://docs.google.com/forms/d/e/1FAIpQLSfBIwWZxm-QYl1Cm9CxQWwYcdNDkqQHWN5vTOpNXfSnuOnAEA/viewform',
+          '_blank'
+        )
+      } else if (to === 'JoinTeam') {
+        open('https://sfbrigade-slackin.herokuapp.com/')
+      }
+    }
   },
   head() {
     return {
@@ -90,19 +129,70 @@ export default {
 
 <style lang="scss">
 .About {
-  &-Heading {
-    @include font-size(30);
-    font-weight: normal;
-    color: $gray-2;
-    margin-bottom: 12px;
+  max-width: 1440px;
+  margin: 0 auto;
+  &-Header {
+    margin-bottom: 30px;
   }
-  & &-Browser-List {
-    list-style: none;
-    padding: 12px 0;
+  &-Navigation {
+    display: flex;
+    justify-content: space-between;
+    margin: 30px 40px;
+    max-width: 900px;
+    .v-card--link {
+      margin-right: 0 !important;
+      margin-left: 0 !important;
+    }
+    .v-list-item {
+      height: 100%;
+      .v-list-item__content {
+        height: 100%;
+        padding: 10px 0;
+        flex-direction: column;
+        align-items: unset;
+        align-self: unset;
+        flex-wrap: unset;
+        flex: none;
+        min-width: 220px;
+        margin-right: 10px;
+      }
+    }
+    &-Cardtitle {
+      height: 19px;
+      width: 100%;
+      font-style: normal;
+      font-weight: bold;
+      font-size: 16px;
+      line-height: 19px;
+      color: $purple-1;
+      display: flex;
+      align-items: center;
+    }
+    &-Carddescription {
+      height: 17px;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 12px;
+      line-height: 140%;
+      color: $gray-1;
+      display: flex;
+      align-items: center;
+    }
+    &-Navigationicon {
+      width: 14px;
+      height: 24px;
+    }
   }
-}
-
-a {
-  @include text-link();
+  @media screen and (max-width: 600px) {
+    &-Navigation {
+      flex-direction: column;
+      margin-top: 40px !important;
+      margin-bottom: 20px !important;
+      .v-card--link {
+        margin-top: 10px;
+        margin-bottom: 10px;
+      }
+    }
+  }
 }
 </style>
