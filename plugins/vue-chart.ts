@@ -1,5 +1,6 @@
 import Vue, { PropType } from 'vue'
-import { ChartData, ChartOptions } from 'chart.js'
+import { Chart, ChartData, ChartOptions } from 'chart.js'
+import ChartDataLabels from 'chartjs-plugin-datalabels'
 import { Doughnut, Bar, mixins, HorizontalBar } from 'vue-chartjs'
 import { Plugin } from '@nuxt/types'
 
@@ -12,6 +13,7 @@ type ChartVCProps = { options: Object }
 
 const VueChartPlugin: Plugin = () => {
   const { reactiveProp } = mixins
+  Chart.plugins.unregister(ChartDataLabels)
 
   Vue.component<ChartVCData, ChartVCMethod, ChartVCComputed, ChartVCProps>(
     'doughnut-chart',
