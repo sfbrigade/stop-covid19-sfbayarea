@@ -1,5 +1,11 @@
 <template>
-  <data-view :title="title" :title-id="titleId" :date="date" :url="url">
+  <data-view
+    :title="title"
+    :title-id="titleId"
+    :date="date"
+    :url="url"
+    class="chart-header"
+  >
     <horizontal-bar
       :chart-id="chartId"
       :chart-data="displayData"
@@ -46,40 +52,16 @@ export default {
   },
   computed: {
     displayData() {
-      console.log('chartdata', this.chartData, this.chartData.labels)
       return {
         labels: this.chartData.labels,
         datasets: this.chartData.datasets
-        // datasets: [
-        //   {
-        //     label: 'Women',
-        //     backgroundColor: '#E23A5A',
-        //     data: [7, 11, 6, 11, 38, 31, 27, 32]
-        //   },
-        //   {
-        //     label: 'Men',
-        //     backgroundColor: '#679BD0',
-        //     data: [2, 9, 8, 18, 28, 33, 47, 37]
-        //   }
-        // ]
       }
     },
     displayOption() {
       return {
         tooltips: {
-          displayColors: true
-          // callbacks: {
-          // label(tooltipItem) {
-          //   const labelText = `${
-          //     tooltipItem.datasetIndex > 0 ? 'M:' : 'F:'
-          //   } ${tooltipItem.value} cases`
-          //   return labelText
-          // },
-          // title(tooltipItem) {
-          //   const titleText = `Age: ${tooltipItem[0].label}`
-          //   return titleText
-          // }
-          // }
+          displayColors: true,
+          showAllTooltips: true
         },
         barValueSpacing: 20,
         responsive: true,
@@ -93,7 +75,8 @@ export default {
               id: 'cases',
               stacked: false,
               gridLines: {
-                display: false
+                display: true,
+                drawOnChartArea: false
               },
               ticks: {
                 fontSize: 9,
@@ -109,7 +92,8 @@ export default {
               stacked: false,
               gridLines: {
                 display: true,
-                color: '#E5E5E5'
+                color: '#E5E5E5',
+                drawOnChartArea: false
               },
               ticks: {
                 suggestedMin: 0,

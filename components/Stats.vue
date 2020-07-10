@@ -220,6 +220,7 @@ import HorizontalBarChart from '@/components/HorizontalBarChart'
 import Data from '@/data/data.json'
 import DataVTwo from '@/data/data.v2.json'
 import formatCountyData from '@/utils/formatCountyData'
+import formatCountyDataVTwo from '@/utils/formatCountyDataVTwo'
 import consolidateAllData from '@/utils/consolidateAllData'
 import DataView from '@/components/DataView.vue'
 import { calculateTotalCases, calculateTotalDeaths } from '@/utils/calculations'
@@ -251,62 +252,8 @@ export default {
     }
     const selectedCounties = []
 
-    const CountyDataVTwo = {}
-    const getGenderTotalCount = genders => {
-      let total = 0
-      for (const gender in genders) {
-        const genderCount = genders[gender]
-        total += genderCount
-      }
-      return total
-    }
-    for (const countyName in DataVTwo) {
-      const county = DataVTwo[countyName]
-      console.log('county', county)
-      const { name } = county
-      const genderLabels = Object.keys(county.case_totals.gender)
-      const genderTotalCount = getGenderTotalCount(county.case_totals.gender)
-      CountyDataVTwo[name] = {
-        lastUpdatedAt: county.update_time.split('T')[0],
-        name,
-        sourceUrl: county.source_url,
-        ageGroup: {
-          displayLegend: false,
-          labels: county.case_totals.age_group.map(group => {
-            let name = group.group.replace('_to_', '-')
-            if (name.match(/_and_under/)) {
-              name = `0-${name.replace('_and_under', '')}`
-            }
-            if (name.match(/_and_older/)) {
-              name = `${name.replace('_and_older', '')}+`
-            }
-            return name
-          }),
-          datasets: [
-            {
-              backgroundColor: '#473A8C',
-              data: county.case_totals.age_group.map(group => group.raw_count)
-            }
-          ]
-        },
-        genderGroup: {
-          displayLegend: false,
-          totalCount: genderTotalCount,
-          labels: genderLabels,
-          datasets: [
-            {
-              backgroundColor: '#473A8C',
-              data: genderLabels.map(gender => {
-                return Math.round(
-                  (county.case_totals.gender[gender] / genderTotalCount) * 100
-                )
-              })
-            }
-          ]
-        }
-      }
-    }
-    console.log('CV2', CountyDataVTwo)
+    const allCounties = Object.keys(Data)
+    const CountyDataVTwo = formatCountyDataVTwo(DataVTwo, allCounties)
 
     const data = {
       Data,
@@ -321,7 +268,7 @@ export default {
       countiesForCompare,
       selectedCounties
     }
-    console.log('data', data)
+
     return data
   },
   methods: {
