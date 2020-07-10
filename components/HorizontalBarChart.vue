@@ -66,8 +66,11 @@ export default {
     displayOption() {
       return {
         tooltips: {
-          displayColors: true,
-          showAllTooltips: true
+          displayColors: false,
+          showAllTooltips: true,
+          titleAlign: 'center',
+          bodyAlign: 'center',
+          callbacks: this.chartData.customChartOptions.callbacks
         },
         barValueSpacing: 20,
         responsive: true,
