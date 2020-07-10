@@ -11,6 +11,7 @@
       :chart-data="displayData"
       :options="displayOption"
       :height="240"
+      :plugins="[getPlugins()]"
     />
     <div v-if="hasNoData()" class="no-data">
       No Data Avail
@@ -18,7 +19,9 @@
   </data-view>
 </template>
 <script>
+import ChartDataLabels from 'chartjs-plugin-datalabels'
 import DataView from '@/components/DataView.vue'
+import { ChartTypes } from '@/utils/formatCountyDataVTwo'
 export default {
   components: { DataView },
   props: {
@@ -105,13 +108,18 @@ export default {
               }
             }
           ]
-        }
+        },
+        plugins: this.chartData.customChartOptions.plugins
       }
     }
   },
   methods: {
     hasNoData() {
       return this.chartData.datasets.length < 1
+    },
+    getPlugins() {
+      if (this.chartData.chartType === ChartTypes.GENDER) return ChartDataLabels
+      return ''
     }
   }
 }
