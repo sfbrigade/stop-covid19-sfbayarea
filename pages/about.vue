@@ -65,6 +65,30 @@
       Any information on this site may be changed or deleted without prior
       notice.
     </TextCard>
+    <TextCard title="To COVID-19 County Public Health Departments">
+      On this site we are working on a public website to aggregate COVID-19 data
+      for the Bay Area counties. <br />
+      <br />
+      We were heartened to see that CDPH has made case data available by county.
+      We have two additional data requests that would help our communities. We
+      appreciate if you could make the following publicly accessible by API: 1),
+      testing data over time by county, 2) demographic data by county, and 3)
+      the county data table on
+      <a
+        href="https://www.cdph.ca.gov/Programs/CID/DCDC/Pages/COVID-19/COVID19CountyDataTable.aspx"
+        target="_blank"
+        rel="noopener"
+      >
+        this page
+      </a>
+      .<br />
+      <br />
+      In the Bay Area, many people live their daily lives across county lines.
+      Our communities have a strong regional identity, and it is important that
+      we can track the pandemic at a regional level. <br />
+      <br />
+      Thank you for helping us in this mission!
+    </TextCard>
 
     <Footer />
   </div>
