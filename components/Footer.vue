@@ -5,8 +5,14 @@
         <p>About</p>
         <nuxt-link to="/about">
           <span>Project Information</span> <br />
-          <span>About Code 4 San Francisco</span>
         </nuxt-link>
+        <a
+          href="https://www.codeforsanfrancisco.org/"
+          target="_blank"
+          rel="noopener"
+        >
+          <span>About Code 4 San Francisco</span>
+        </a>
       </div>
       <div class="Category-Container">
         <p>Contact</p>
