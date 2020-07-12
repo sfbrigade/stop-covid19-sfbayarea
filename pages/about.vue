@@ -7,20 +7,20 @@
     </nuxt-link>
 
     <TextCard title="About the Project">
-      This site was drived from the
+      This site was derived from an existing open source project
       <a
         href="https://stopcovid19.metro.tokyo.lg.jp/en/"
         target="_blank"
         rel="noopener"
       >
-        originaly developed website
+        website
       </a>
       by the Tokyo Metropolitan Government with Code For Japan in order to
       provide the latest information on COVID-19.<br />
       <br />
       The goal is to provide easy to understand, publicly available, and
       unbiased information on the spread of infection in the Bay Area. This
-      allows the residents, companies, as well as visitors to the Bay Area,
+      allows the residents, companies, as well as visitors to the Bay Area to
       understand the current situation while having the right information about
       the necessary precautions and measures.
     </TextCard>
