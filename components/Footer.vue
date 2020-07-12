@@ -16,7 +16,9 @@
       </div>
       <div class="Category-Container">
         <p>Contact</p>
-        <a href="mailto:info@baybrigades.com">info@baybrigades.com</a>
+        <a href="mailto:info@baybrigades.com">
+          <span>info@baybrigades.com</span>
+        </a>
       </div>
       <div class="Category-Container">
         <p>Social</p>
