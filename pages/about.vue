@@ -1,10 +1,6 @@
 <template>
   <div class="About">
-    <nuxt-link to="/main">
-      <div class="About-Header">
-        <TopNavigation />
-      </div>
-    </nuxt-link>
+    <TopNavigation />
 
     <TextCard title="About the Project">
       This site was derived from an existing open source project
