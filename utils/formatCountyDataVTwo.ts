@@ -2,10 +2,14 @@
 /* eslint-disable camelcase */
 export enum ChartTypes {
   AGE = 'CHART-AGE',
-  GENDER = 'CHART-GENDER'
+  GENDER = 'CHART-GENDER',
+  RACE_ETH = 'CHART-RACE-ETH',
+  RACE_ETH_NORM = 'CHART-RACE-ETH-NORM'
 }
 
 const PURPLE_MAIN = '#473A8C'
+const GRAY_SECONDARY = '#C8C8C8'
+const RACE_ETH_NORMALIZE_NUMBER = 1000
 
 type AgeDataset = {
   backgroundColor: string
@@ -33,7 +37,7 @@ type CallBacks = {
 type CaseTotals = {
   age_group: Array<AgeData>
   gender: GenderData
-  race_eth: RaceEthnicityData
+  race_eth: RaceEthData
 }
 
 type CountiesData = {
@@ -59,6 +63,8 @@ type FormattedCountiesData = {
 type FormattedCountyData = {
   ageGroup?: AgeGroup
   genderGroup?: GenderGroup
+  raceEthGroup?: RaceEthGroup
+  raceEthNormGroup?: RaceEthGroup
   lastUpdatedAt?: string
   name?: string
   sourceUrl?: string
@@ -82,7 +88,7 @@ type GenderGroup = {
   customChartOptions?: CustomChartOptions
 }
 
-type RaceEthnicityData = {
+type RaceEthData = {
   African_Amer: number
   Asian: number
   Latinx_or_Hispanic: number
@@ -94,28 +100,27 @@ type RaceEthnicityData = {
   White: number
 }
 
+type RaceEthDataset = {
+  backgroundColor: string | Array<string>
+  data: Array<number>
+}
+
+type RaceEthGroup = {
+  chartType: string
+  datasets: Array<RaceEthDataset>
+  displayLegend: boolean
+  labels: Array<string>
+  total?: number
+  customChartOptions?: CustomChartOptions
+}
+
 const buildAgeChartData = (
   defaultAgeGroup: AgeGroup,
   ageGroups: Array<AgeData>
 ) => {
-  const formatAgeDataLabels = () => {
-    return ageGroups.map((group) => {
-      let name = group.group.replace('_to_', '-')
-      if (name.match(/_and_under/)) {
-        name = `0-${name.replace('_and_under', '')}`
-      }
-      if (name.match(/_and_older/)) {
-        name = `${name.replace('_and_older', '')}+`
-      }
-      return name
-    })
-  }
-
   const updatedAgeGroup: AgeGroup = { ...defaultAgeGroup }
 
-  updatedAgeGroup.chartType = ChartTypes.AGE
-  updatedAgeGroup.displayLegend = false
-  updatedAgeGroup.labels = formatAgeDataLabels()
+  updatedAgeGroup.labels = formatAgeDataLabels(ageGroups)
   updatedAgeGroup.datasets = [
     {
       backgroundColor: PURPLE_MAIN,
@@ -135,22 +140,13 @@ const buildGenderChartData = (
   for (const gender in genders) {
     if (genders[gender] >= 0) genderLabels.push(gender)
   }
-  const genderTotalCount = getGenderTotalCount(genders)
 
-  const getGenderCountData = () => {
-    return genderLabels.map((gender) => {
-      return genders[gender]
-    })
-  }
-
-  updatedGenderGroup.chartType = ChartTypes.GENDER
-  updatedGenderGroup.displayLegend = false
-  updatedGenderGroup.totalCount = genderTotalCount
+  updatedGenderGroup.totalCount = getTotalCount(genders)
   updatedGenderGroup.labels = genderLabels
   updatedGenderGroup.datasets = [
     {
       backgroundColor: PURPLE_MAIN,
-      data: getGenderCountData()
+      data: getDatasetValues(genderLabels, genders)
     }
   ]
   updatedGenderGroup.customChartOptions!.plugins = {
@@ -162,9 +158,7 @@ const buildGenderChartData = (
         size: 36
       },
       formatter(value: any, context: any) {
-        const totalCount = context.dataset.data.reduce(
-          (acc: number, curr: number) => acc + curr
-        )
+        const totalCount = getSumOfArray(context.dataset.data)
         const percentValue = getPercentageData(value, totalCount)
 
         return percentValue < 5 ? percentValue : `${percentValue}%`
@@ -175,8 +169,118 @@ const buildGenderChartData = (
   return updatedGenderGroup
 }
 
+const buildRaceEthChartData = (
+  defaultRaceEthGroup: RaceEthGroup,
+  raceEths: RaceEthData
+) => {
+  const updatedRaceEthGroup: RaceEthGroup = { ...defaultRaceEthGroup }
+  const sortedraceEths = sortLabelsAndValuesByValue(raceEths)
+  const labels = sortedraceEths.map((race) => race[0])
+  const raceEthLabels = formatRaceEthLabels(labels)
+  const raceEthValues = sortedraceEths.map((race: any) => race[1])
+  updatedRaceEthGroup.labels = raceEthLabels
+  updatedRaceEthGroup.total = getSumOfArray(raceEthValues)
+  updatedRaceEthGroup.datasets = [
+    {
+      backgroundColor: getCustomChartBarColor(
+        PURPLE_MAIN,
+        GRAY_SECONDARY,
+        raceEthLabels,
+        'Unknown'
+      ),
+      data: raceEthValues
+    }
+  ]
+  updatedRaceEthGroup.customChartOptions!.plugins = {
+    datalabels: {
+      color: '#000000',
+      anchor: 'end',
+      align: 'right',
+      font: {
+        size: 14
+      },
+      formatter(value: any, context: any) {
+        const totalCount = getSumOfArray(context.dataset.data)
+        const percentValue = getPercentageData(value, totalCount)
+
+        return percentValue < 5 ? percentValue : `${percentValue}%`
+      }
+    }
+  }
+
+  return updatedRaceEthGroup
+}
+
+const buildRaceEthNormalizedChartData = (
+  defaultRaceEthGroup: RaceEthGroup,
+  raceEths: RaceEthData
+) => {
+  const updatedRaceEthGroup: RaceEthGroup = { ...defaultRaceEthGroup }
+  const sortedraceEths = sortLabelsAndValuesByValue(raceEths)
+  const labels = sortedraceEths.map((race) => race[0])
+  const raceEthLabels = formatRaceEthLabels(labels)
+  const raceEthValues = sortedraceEths.map((race: any) => race[1])
+  const datasets = normalizeDatasetBy(
+    RACE_ETH_NORMALIZE_NUMBER,
+    raceEthValues,
+    2
+  )
+
+  updatedRaceEthGroup.labels = raceEthLabels
+  updatedRaceEthGroup.datasets = [
+    {
+      backgroundColor: PURPLE_MAIN,
+      data: datasets
+    }
+  ]
+  updatedRaceEthGroup.customChartOptions!.plugins = {
+    datalabels: {
+      color: '#000000',
+      anchor: 'end',
+      align: 'right',
+      font: {
+        size: 14
+      }
+    }
+  }
+
+  return updatedRaceEthGroup
+}
+
 const clone = (value: any) => {
   return JSON.parse(JSON.stringify(value))
+}
+
+// USE DEFAULTCALLBACKS FOR ADDING NEW HORIZONTAL CHARTS DATA
+// const defaultCallbacks = {
+//   label(tooltipItem: any) {
+//     return tooltipItem
+//   },
+//   title(tooltipItem: any) {
+//     return tooltipItem
+//   }
+// }
+
+const formatAgeDataLabels = (ageGroups: Array<AgeData>) => {
+  return ageGroups.map((group: AgeData) => {
+    let name = group.group.replace('_to_', '-')
+    if (name.match(/_and_under/)) {
+      name = `0-${name.replace('_and_under', '')}`
+    }
+    if (name.match(/_and_older/)) {
+      name = `${name.replace('_and_older', '')}+`
+    }
+    return name
+  })
+}
+
+const formatRaceEthLabels = (raceEthGroups: Array<string>) => {
+  return raceEthGroups.map((group) => {
+    return group
+      .replace('_or_', '/')
+      .replace('_', ' ')
+      .replace('Amer', 'American')
+  })
 }
 
 export const getCountyShortName = (countyName: string): string => {
@@ -184,6 +288,27 @@ export const getCountyShortName = (countyName: string): string => {
     .replace(' County', '')
     .replace(' ', '_')
     .toLocaleLowerCase()
+}
+
+const getCustomChartBarColor = (
+  normalColor: string,
+  customColor: string,
+  dataset: Array<string>,
+  filter: string
+): Array<string> => {
+  const finalColors: Array<string> = []
+  dataset.forEach((item) => {
+    let color = normalColor
+    if (item === filter) color = customColor
+    finalColors.push(color)
+  })
+  return finalColors
+}
+
+const getDatasetValues = (labels: Array<string>, data: any) => {
+  return labels.map((label) => {
+    return data[label]
+  })
 }
 
 const getDefaultFormattedData = () => {
@@ -224,33 +349,63 @@ const getDefaultFormattedData = () => {
           }
         }
       }
+    },
+    raceEthGroup: {
+      chartType: ChartTypes.RACE_ETH,
+      datasets: [],
+      displayLegend: false,
+      labels: [],
+      customChartOptions: {
+        plugins: {},
+        callbacks: {
+          label(tooltipItem: any) {
+            if (!tooltipItem) return
+            return 'cases'
+          },
+          title(tooltipItem: any) {
+            return tooltipItem[0].value
+          }
+        }
+      }
+    },
+    raceEthNormGroup: {
+      chartType: ChartTypes.RACE_ETH_NORM,
+      datasets: [],
+      displayLegend: false,
+      labels: [],
+      customChartOptions: {
+        plugins: {},
+        callbacks: {
+          label(tooltipItem: any) {
+            if (!tooltipItem) return
+            return 'cases'
+          },
+          title(tooltipItem: any) {
+            return tooltipItem[0].value
+          }
+        }
+      }
     }
   }
-}
-
-const getGenderTotalCount = (genders: GenderData): number => {
-  let total = 0
-  const genderTypes = Object.keys(genders)
-  for (const gender of genderTypes) {
-    const count = genders[gender]
-    if (count >= 0) total += count
-  }
-  return total
 }
 
 const getPercentageData = (target: number, total: number) => {
   return Math.round((target / total) * 100)
 }
 
-// USE DEFAULTCALLBACKS FOR ADDING NEW HORIZONTAL CHARTS DATA
-// const defaultCallbacks = {
-//   label(tooltipItem: any) {
-//     return tooltipItem
-//   },
-//   title(tooltipItem: any) {
-//     return tooltipItem
-//   }
-// }
+const getSumOfArray = (dataset: Array<number>): number => {
+  return dataset.reduce((acc: number, curr: number) => acc + curr)
+}
+
+const getTotalCount = (data: { [name: string]: number }): number => {
+  let total = 0
+  const keys = Object.keys(data)
+  for (const key of keys) {
+    const count = data[key]
+    if (count >= 0) total += count
+  }
+  return total
+}
 
 const getUpdatedCountyData = (
   county: CountyData,
@@ -259,7 +414,7 @@ const getUpdatedCountyData = (
   const updatedData: any = {}
   if (county) {
     const {
-      case_totals: { age_group, gender },
+      case_totals: { age_group, gender, race_eth },
       update_time,
       source_url
     } = county
@@ -282,12 +437,42 @@ const getUpdatedCountyData = (
         gender
       )
     }
+    if (race_eth) {
+      updatedData.raceEthNormGroup = buildRaceEthNormalizedChartData(
+        defaultFormattedData.raceEthNormGroup!,
+        race_eth
+      )
+      updatedData.raceEthGroup = buildRaceEthChartData(
+        defaultFormattedData.raceEthGroup!,
+        race_eth
+      )
+    }
   }
   return updatedData
 }
 
+const normalizeDatasetBy = (
+  populationNumber: number,
+  dataset: Array<number>,
+  toFixedNum?: number
+): Array<number> => {
+  return dataset.map((count) => {
+    const normNum = count / populationNumber
+    return toFixedNum ? parseFloat(normNum.toFixed(toFixedNum)) : normNum
+  })
+}
+
 const parseDateForYrMoDay = (date: string): string => {
   return date.split('T')[0]
+}
+
+const sortLabelsAndValuesByValue = (data: any) => {
+  const sortByValue = (a: any, b: any) => {
+    if (a[1] < b[1]) return 1
+    if (a[1] > b[1]) return -1
+    return 0
+  }
+  return Object.entries(data).sort(sortByValue)
 }
 
 export default (
