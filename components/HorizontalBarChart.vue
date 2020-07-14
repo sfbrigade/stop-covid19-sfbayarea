@@ -75,7 +75,16 @@ export default {
           showAllTooltips: true,
           titleAlign: 'center',
           bodyAlign: 'center',
-          callbacks: this.chartData.customChartOptions.callbacks
+          callbacks: {
+            label(tooltipItem) {
+              if (!tooltipItem) return
+              return 'cases'
+            },
+            title(tooltipItem) {
+              if (!tooltipItem) return
+              return tooltipItem[0].value
+            }
+          }
         },
         barValueSpacing: 20,
         responsive: true,
@@ -127,6 +136,10 @@ export default {
     },
     getPlugins() {
       if (this.chartData.chartType === ChartTypes.GENDER) return ChartDataLabels
+      if (this.chartData.chartType === ChartTypes.RACE_ETH)
+        return ChartDataLabels
+      if (this.chartData.chartType === ChartTypes.RACE_ETH_NORM)
+        return ChartDataLabels
       return ''
     }
   }

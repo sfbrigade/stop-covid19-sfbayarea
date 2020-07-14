@@ -146,6 +146,30 @@
           :url="CountyDataVTwo[currentCounty].sourceUrl"
         />
       </v-col>
+      <v-col cols="12" md="6" class="DataCard">
+        <horizontal-bar-chart
+          :title="
+            `County Cases by Race and Ethnicity: ${CountyData[currentCounty].name}`
+          "
+          :title-id="'cases-by-race-eth'"
+          :chart-id="'horizontal-bar-chart-race-eth'"
+          :chart-data="CountyDataVTwo[currentCounty].raceEthGroup"
+          :date="CountyDataVTwo[currentCounty].lastUpdatedAt"
+          :url="CountyDataVTwo[currentCounty].sourceUrl"
+        />
+      </v-col>
+      <v-col cols="12" md="6" class="DataCard">
+        <horizontal-bar-chart
+          :title="
+            `County Cases by Race and Ethnicity: ${CountyData[currentCounty].name}`
+          "
+          :title-id="'cases-by-race-eth-norm'"
+          :chart-id="'horizontal-bar-chart-race-eth-norm'"
+          :chart-data="CountyDataVTwo[currentCounty].raceEthNormGroup"
+          :date="CountyDataVTwo[currentCounty].lastUpdatedAt"
+          :url="CountyDataVTwo[currentCounty].sourceUrl"
+        />
+      </v-col>
       <!-- County Comparison Selector -->
       <v-col cols="12" md="12" class="DataCard">
         <DataView>
