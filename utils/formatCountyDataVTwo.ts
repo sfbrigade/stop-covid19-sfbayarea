@@ -167,7 +167,7 @@ const buildGenderChartData = (
   return updatedGenderGroup
 }
 
-const buildRaceEthChartData = (
+const buildRaceEthUpdatedDataInit = (
   defaultRaceEthGroup: RaceEthGroup,
   raceEths: RaceEthData
 ) => {
@@ -189,6 +189,17 @@ const buildRaceEthChartData = (
       data: raceEthValues
     }
   ]
+  return updatedRaceEthGroup
+}
+
+const buildRaceEthChartData = (
+  defaultRaceEthGroup: RaceEthGroup,
+  raceEths: RaceEthData
+) => {
+  const updatedRaceEthGroup: RaceEthGroup = buildRaceEthUpdatedDataInit(
+    defaultRaceEthGroup,
+    raceEths
+  )
   updatedRaceEthGroup.customChartOptions!.plugins = {
     datalabels: {
       color: '#000000',
@@ -213,24 +224,10 @@ const buildRaceEthNormalizedChartData = (
   defaultRaceEthGroup: RaceEthGroup,
   raceEths: RaceEthData
 ) => {
-  const updatedRaceEthGroup: RaceEthGroup = { ...defaultRaceEthGroup }
-  const sortedraceEths = sortLabelsAndValuesByValue(raceEths)
-  const labels = sortedraceEths.map((race) => race[0])
-  const raceEthLabels = formatRaceEthLabels(labels)
-  const raceEthValues = sortedraceEths.map((race: any) => race[1])
-  const datasets = normalizeDatasetBy(
-    RACE_ETH_NORMALIZE_NUMBER,
-    raceEthValues,
-    2
+  const updatedRaceEthGroup: RaceEthGroup = buildRaceEthUpdatedDataInit(
+    defaultRaceEthGroup,
+    raceEths
   )
-
-  updatedRaceEthGroup.labels = raceEthLabels
-  updatedRaceEthGroup.datasets = [
-    {
-      backgroundColor: PURPLE_MAIN,
-      data: datasets
-    }
-  ]
   updatedRaceEthGroup.customChartOptions!.plugins = {
     datalabels: {
       color: '#000000',
@@ -238,6 +235,9 @@ const buildRaceEthNormalizedChartData = (
       align: 'right',
       font: {
         size: 14
+      },
+      formatter(value: any) {
+        return normalizeDataBy(RACE_ETH_NORMALIZE_NUMBER, value, 2)
       }
     }
   }
@@ -400,12 +400,12 @@ const getUpdatedCountyData = (
       )
     }
     if (race_eth) {
-      updatedData.raceEthNormGroup = buildRaceEthNormalizedChartData(
-        defaultFormattedData.raceEthNormGroup!,
-        race_eth
-      )
       updatedData.raceEthGroup = buildRaceEthChartData(
         defaultFormattedData.raceEthGroup!,
+        race_eth
+      )
+      updatedData.raceEthNormGroup = buildRaceEthNormalizedChartData(
+        defaultFormattedData.raceEthNormGroup!,
         race_eth
       )
     }
@@ -413,15 +413,13 @@ const getUpdatedCountyData = (
   return updatedData
 }
 
-const normalizeDatasetBy = (
+const normalizeDataBy = (
   populationNumber: number,
-  dataset: Array<number>,
+  value: number,
   toFixedNum?: number
-): Array<number> => {
-  return dataset.map((count) => {
-    const normNum = count / populationNumber
-    return toFixedNum ? parseFloat(normNum.toFixed(toFixedNum)) : normNum
-  })
+): number => {
+  const normNum = value / populationNumber
+  return toFixedNum ? parseFloat(normNum.toFixed(toFixedNum)) : normNum
 }
 
 const parseDateForYrMoDay = (date: string): string => {
