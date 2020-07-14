@@ -319,16 +319,7 @@ const getDefaultFormattedData = () => {
       displayLegend: false,
       labels: [],
       customChartOptions: {
-        plugins: {},
-        callbacks: {
-          label(tooltipItem: any) {
-            if (!tooltipItem) return
-            return 'cases'
-          },
-          title(tooltipItem: any) {
-            return tooltipItem[0].value
-          }
-        }
+        plugins: {}
       }
     },
     genderGroup: {
@@ -338,16 +329,7 @@ const getDefaultFormattedData = () => {
       labels: [],
       totalCount: 0,
       customChartOptions: {
-        plugins: {},
-        callbacks: {
-          label(tooltipItem: any) {
-            if (!tooltipItem) return
-            return 'cases'
-          },
-          title(tooltipItem: any) {
-            return tooltipItem[0].value
-          }
-        }
+        plugins: {}
       }
     },
     raceEthGroup: {
@@ -356,16 +338,7 @@ const getDefaultFormattedData = () => {
       displayLegend: false,
       labels: [],
       customChartOptions: {
-        plugins: {},
-        callbacks: {
-          label(tooltipItem: any) {
-            if (!tooltipItem) return
-            return 'cases'
-          },
-          title(tooltipItem: any) {
-            return tooltipItem[0].value
-          }
-        }
+        plugins: {}
       }
     },
     raceEthNormGroup: {
@@ -374,16 +347,7 @@ const getDefaultFormattedData = () => {
       displayLegend: false,
       labels: [],
       customChartOptions: {
-        plugins: {},
-        callbacks: {
-          label(tooltipItem: any) {
-            if (!tooltipItem) return
-            return 'cases'
-          },
-          title(tooltipItem: any) {
-            return tooltipItem[0].value
-          }
-        }
+        plugins: {}
       }
     }
   }
