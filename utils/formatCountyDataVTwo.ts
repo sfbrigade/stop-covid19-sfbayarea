@@ -9,7 +9,8 @@ export enum ChartTypes {
 
 const PURPLE_MAIN = '#473A8C'
 const GRAY_SECONDARY = '#C8C8C8'
-const RACE_ETH_NORMALIZE_NUMBER = 1000
+const RACE_ETH_NORMALIZE_NUMBER = 10000
+const TO_FIX_POSITION = 3
 
 type AgeDataset = {
   backgroundColor: string
@@ -237,7 +238,11 @@ const buildRaceEthNormalizedChartData = (
         size: 14
       },
       formatter(value: any) {
-        return normalizeDataBy(RACE_ETH_NORMALIZE_NUMBER, value, 2)
+        return normalizeDataBy(
+          RACE_ETH_NORMALIZE_NUMBER,
+          value,
+          TO_FIX_POSITION
+        )
       }
     }
   }
