@@ -14,7 +14,7 @@ type AgeDataset = {
 
 type AgeGroup = {
   chartType: string
-  datasets: Array<AgeDataset>
+  datasets: AgeDataset
   displayLegend: boolean
   labels: Array<string>
   customChartOptions?: CustomChartOptions
@@ -75,7 +75,7 @@ type GenderDataset = {
 
 type GenderGroup = {
   chartType: string
-  datasets: Array<GenderDataset>
+  datasets: GenderDataset
   displayLegend: boolean
   labels: Array<string>
   totalCount: number
@@ -116,12 +116,10 @@ const buildAgeChartData = (
   updatedAgeGroup.chartType = ChartTypes.AGE
   updatedAgeGroup.displayLegend = false
   updatedAgeGroup.labels = formatAgeDataLabels()
-  updatedAgeGroup.datasets = [
-    {
-      backgroundColor: PURPLE_MAIN,
-      data: ageGroups.map((group) => group.raw_count)
-    }
-  ]
+  updatedAgeGroup.datasets = {
+    backgroundColor: PURPLE_MAIN,
+    data: ageGroups.map((group) => group.raw_count)
+  }
 
   return updatedAgeGroup
 }
@@ -147,12 +145,10 @@ const buildGenderChartData = (
   updatedGenderGroup.displayLegend = false
   updatedGenderGroup.totalCount = genderTotalCount
   updatedGenderGroup.labels = genderLabels
-  updatedGenderGroup.datasets = [
-    {
+  updatedGenderGroup.datasets = {
       backgroundColor: PURPLE_MAIN,
       data: getGenderCountData()
-    }
-  ]
+  }
   updatedGenderGroup.customChartOptions!.plugins = {
     datalabels: {
       color: '#FFFFFF',
@@ -190,7 +186,7 @@ const getDefaultFormattedData = () => {
   return {
     ageGroup: {
       chartType: ChartTypes.AGE,
-      datasets: [],
+      datasets: {},
       displayLegend: false,
       labels: [],
       customChartOptions: {
@@ -208,7 +204,7 @@ const getDefaultFormattedData = () => {
     },
     genderGroup: {
       chartType: ChartTypes.GENDER,
-      datasets: [],
+      datasets: {},
       displayLegend: false,
       labels: [],
       totalCount: 0,

@@ -38,11 +38,7 @@
           <div class="county-select-container">
             <div class="county-select">
               <label class="selection">Show Data For:</label>
-              <select
-                v-model="currentCounty"
-                class="select-css"
-                @change="onChange($event)"
-              >
+              <select v-model="currentCounty" class="select-css">
                 <option v-for="(countyName, index) in countyNames" :key="index">
                   {{ countyName }}
                 </option>
@@ -224,9 +220,7 @@ import HorizontalBarChart from '@/components/HorizontalBarChart'
 import Data from '@/data/data.json'
 import DataVTwo from '@/data/data.v2.json'
 import formatCountyData from '@/utils/formatCountyData'
-import formatCountyDataVTwo, {
-  getCountyShortName
-} from '@/utils/formatCountyDataVTwo'
+import formatCountyDataVTwo from '@/utils/formatCountyDataVTwo'
 import consolidateAllData from '@/utils/consolidateAllData'
 import DataView from '@/components/DataView.vue'
 import { calculateTotalCases, calculateTotalDeaths } from '@/utils/calculations'
@@ -285,15 +279,6 @@ export default {
     },
     contains(arr, item) {
       return arr.includes(item)
-    },
-    onChange(event) {
-      const countyName = event.target.value
-      const countyNameIndex = getCountyShortName(countyName)
-
-      // HACK TO WORKAROUND AGE/GENDER DATA MISMATCH BUG
-      if (this.DataVTwo[countyNameIndex]) {
-        this.CountyDataVTwo = this.getFormatData()
-      }
     },
     getFormatData() {
       const allCounties = Object.keys(Data)

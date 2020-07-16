@@ -60,7 +60,12 @@ export default {
     displayData() {
       return {
         labels: this.chartData.labels,
-        datasets: this.chartData.datasets
+        datasets: [
+          {
+            data: this.chartData.datasets.data,
+            backgroundColor: this.chartData.datasets.backgroundColor
+          }
+        ]
       }
     },
     displayOption() {
@@ -118,7 +123,7 @@ export default {
   },
   methods: {
     hasNoData() {
-      return this.chartData.datasets.length < 1
+      return !Object.keys(this.chartData.datasets).length
     },
     getPlugins() {
       if (this.chartData.chartType === ChartTypes.GENDER) return ChartDataLabels
