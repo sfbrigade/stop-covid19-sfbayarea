@@ -147,6 +147,7 @@
         />
       </v-col>
       <v-col cols="12" md="6" class="DataCard">
+        <InfoOverlay :chart-info="chartInfo.raceEth" />
         <horizontal-bar-chart
           :title="
             `County Cases by Race and Ethnicity: ${CountyData[currentCounty].name}`
@@ -241,6 +242,7 @@ import TimeBarChart from '@/components/TimeBarChart.vue'
 import TimeLineChartCountyComparison from '@/components/TimeLineChartCountyComparison.vue'
 import CasesSummary from '@/components/CasesSummary.vue'
 import HorizontalBarChart from '@/components/HorizontalBarChart'
+import InfoOverlay from '@/components/InfoOverlay'
 import Data from '@/data/data.json'
 import DataVTwo from '@/data/data.v2.json'
 import formatCountyData from '@/utils/formatCountyData'
@@ -256,6 +258,7 @@ export default {
     TimeBarChart,
     TimeLineChartCountyComparison,
     HorizontalBarChart,
+    InfoOverlay,
     DataView
   },
   data() {
@@ -276,6 +279,7 @@ export default {
     }
     const selectedCounties = []
     const CountyDataVTwo = this.getFormatData()
+    const chartInfo = this.getChartInfo()
 
     const data = {
       Data,
@@ -288,7 +292,8 @@ export default {
       totalCases,
       totalDeaths,
       countiesForCompare,
-      selectedCounties
+      selectedCounties,
+      chartInfo
     }
 
     return data
@@ -307,6 +312,12 @@ export default {
     getFormatData() {
       const allCounties = Object.keys(Data)
       return formatCountyDataVTwo(DataVTwo, allCounties)
+    },
+    getChartInfo() {
+      return {
+        raceEth:
+          'This chart shows the racial/ethnic breakdown of county cases. This information is gathered from multiple sources including medical records, testing labs and interviews. The large number of unknown cases should be noted when assessing the significance of this data.'
+      }
     }
   },
   head() {
@@ -322,6 +333,7 @@ export default {
   .DataBlock {
     margin: 20px -8px;
     .DataCard {
+      position: relative;
       @include largerThan($medium) {
         padding: 10px;
       }

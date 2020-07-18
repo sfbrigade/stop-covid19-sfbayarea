@@ -247,16 +247,6 @@ const buildRaceEthNormalizedChartData = (
   return updatedRaceEthGroup
 }
 
-// USE DEFAULTCALLBACKS FOR ADDING NEW HORIZONTAL CHARTS DATA
-// const defaultCallbacks = {
-//   label(tooltipItem: any) {
-//     return tooltipItem
-//   },
-//   title(tooltipItem: any) {
-//     return tooltipItem
-//   }
-// }
-
 const formatAgeDataLabels = (ageGroups: Array<AgeData>) => {
   return ageGroups.map((group: AgeData) => {
     let name = group.group.replace('_to_', '-')

@@ -135,6 +135,7 @@ export default {
       return !Object.keys(this.chartData.datasets).length
     },
     getPlugins() {
+      // ADD CHECK FOR CHARTS THAT WANT TO ENABLE ALWAYS SHOW TOOLTIPS
       if (this.chartData.chartType === ChartTypes.GENDER) return ChartDataLabels
       if (this.chartData.chartType === ChartTypes.RACE_ETH)
         return ChartDataLabels
