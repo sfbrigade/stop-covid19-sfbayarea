@@ -159,7 +159,7 @@ const buildGenderChartData = (
         const totalCount = getSumOfArray(context.dataset.data)
         const percentValue = getPercentageData(value, totalCount)
 
-        return percentValue < 1 ? percentValue : `${percentValue}%`
+        return percentValue < 5 ? percentValue : `${percentValue}%`
       }
     }
   }
