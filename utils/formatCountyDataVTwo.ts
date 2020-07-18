@@ -108,7 +108,7 @@ type RaceEthDataset = {
 
 type RaceEthGroup = {
   chartType: string
-  datasets: Array<RaceEthDataset>
+  datasets: RaceEthDataset
   displayLegend: boolean
   labels: Array<string>
   total?: number
@@ -123,7 +123,7 @@ const buildAgeChartData = (
 
   updatedAgeGroup.chartType = ChartTypes.AGE
   updatedAgeGroup.displayLegend = false
-  updatedAgeGroup.labels = formatAgeDataLabels()
+  updatedAgeGroup.labels = formatAgeDataLabels(ageGroups)
   updatedAgeGroup.datasets = {
     backgroundColor: PURPLE_MAIN,
     data: ageGroups.map((group) => group.raw_count)
@@ -142,11 +142,10 @@ const buildGenderChartData = (
     if (genders[gender] >= 0) genderLabels.push(gender)
   }
 
-  updatedGenderGroup.totalCount = getTotalCount(genders)
   updatedGenderGroup.labels = genderLabels
   updatedGenderGroup.datasets = {
     backgroundColor: PURPLE_MAIN,
-    data: getGenderCountData()
+    data: getDatasetValues(genderLabels, genders)
   }
   updatedGenderGroup.customChartOptions!.plugins = {
     datalabels: {
@@ -179,17 +178,15 @@ const buildRaceEthUpdatedDataInit = (
   const raceEthValues = sortedraceEths.map((race: any) => race[1])
   updatedRaceEthGroup.labels = raceEthLabels
   updatedRaceEthGroup.total = getSumOfArray(raceEthValues)
-  updatedRaceEthGroup.datasets = [
-    {
-      backgroundColor: getCustomChartBarColor(
-        PURPLE_MAIN,
-        GRAY_SECONDARY,
-        raceEthLabels,
-        'Unknown'
-      ),
-      data: raceEthValues
-    }
-  ]
+  updatedRaceEthGroup.datasets = {
+    backgroundColor: getCustomChartBarColor(
+      PURPLE_MAIN,
+      GRAY_SECONDARY,
+      raceEthLabels,
+      'Unknown'
+    ),
+    data: raceEthValues
+  }
   return updatedRaceEthGroup
 }
 
@@ -248,10 +245,6 @@ const buildRaceEthNormalizedChartData = (
   }
 
   return updatedRaceEthGroup
-}
-
-const clone = (value: any) => {
-  return JSON.parse(JSON.stringify(value))
 }
 
 // USE DEFAULTCALLBACKS FOR ADDING NEW HORIZONTAL CHARTS DATA
@@ -330,7 +323,6 @@ const getDefaultFormattedData = () => {
       datasets: {},
       displayLegend: false,
       labels: [],
-      totalCount: 0,
       customChartOptions: {
         plugins: {}
       }
@@ -362,16 +354,6 @@ const getPercentageData = (target: number, total: number) => {
 
 const getSumOfArray = (dataset: Array<number>): number => {
   return dataset.reduce((acc: number, curr: number) => acc + curr)
-}
-
-const getTotalCount = (data: { [name: string]: number }): number => {
-  let total = 0
-  const keys = Object.keys(data)
-  for (const key of keys) {
-    const count = data[key]
-    if (count >= 0) total += count
-  }
-  return total
 }
 
 const getUpdatedCountyData = (
@@ -447,7 +429,7 @@ export default (
   const finalData: FormattedCountiesData = {}
 
   for (const countyName of allCounties) {
-    const defaultFormattedData = clone(getDefaultFormattedData())
+    const defaultFormattedData: any = getDefaultFormattedData()
     finalData[countyName] = defaultFormattedData
     finalData[countyName].name = countyName
     finalData[countyName].lastUpdatedAt = parseDateForYrMoDay(
@@ -459,11 +441,7 @@ export default (
 
     const updatedData = getUpdatedCountyData(county, finalData[countyName])
 
-    finalData[countyName] = Object.assign(
-      {},
-      finalData[countyName],
-      updatedData
-    )
+    finalData[countyName] = Object.assign(finalData[countyName], updatedData)
   }
 
   return finalData
