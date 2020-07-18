@@ -138,7 +138,7 @@
       </v-col>
       <v-col cols="12" md="6" class="DataCard">
         <horizontal-bar-chart
-          :title="`County Cases by Gender: ${CountyData[currentCounty].name}`"
+          :title="`Confirmed Cases by Sex: ${CountyData[currentCounty].name}`"
           :title-id="'cases-by-gender'"
           :chart-id="'horizontal-bar-chart-gender'"
           :chart-data="CountyDataVTwo[currentCounty].genderGroup"
@@ -158,7 +158,7 @@
           :url="CountyDataVTwo[currentCounty].sourceUrl"
         />
       </v-col>
-      <v-col cols="12" md="6" class="DataCard">
+      <!-- <v-col cols="12" md="6" class="DataCard">
         <horizontal-bar-chart
           :title="
             `County Cases by Race and Ethnicity: ${CountyData[currentCounty].name}`
@@ -169,7 +169,7 @@
           :date="CountyDataVTwo[currentCounty].lastUpdatedAt"
           :url="CountyDataVTwo[currentCounty].sourceUrl"
         />
-      </v-col>
+      </v-col> -->
       <!-- County Comparison Selector -->
       <v-col cols="12" md="12" class="DataCard">
         <DataView>
