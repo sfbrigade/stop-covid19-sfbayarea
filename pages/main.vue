@@ -6,7 +6,7 @@
     <div v-else>
       <div class="mainContainer">
         <TopNavigation :active-tab="active_tab" @tabClicked="navigateToTab" />
-        <v-tabs-items v-model="active_tab" class="tabcontent">
+        <v-tabs-items v-model="active_tab" class="tabcontent" touchless>
           <v-tab-item v-for="tab in tabs" :key="tab.id">
             <Faq v-if="tab.name === 'FAQ'" />
             <Stats v-if="tab.name === 'Stats'" />
