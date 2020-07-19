@@ -134,4 +134,14 @@ export default class DataView extends Vue {
   display: flex;
   justify-content: center;
 }
+@media screen and (min-width: 960px) {
+  .DataView {
+    &-ToolbarTitle {
+      max-width: 250px;
+    }
+  }
+  #confirmed-cases {
+    max-width: unset;
+  }
+}
 </style>

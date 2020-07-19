@@ -1,6 +1,7 @@
 <template>
   <div class="MainPage">
     <v-row class="DataBlock">
+      <!-- Summary of Bay Area Counties Stats Card -->
       <v-col cols="12" md="12" class="DataCard">
         <cases-summary
           :title="'Summary for 9 Bay Area Counties'"
@@ -8,6 +9,7 @@
           :url="'https://coronadatascraper.com'"
         />
       </v-col>
+      <!-- Bay Area Graphs -->
       <v-col cols="12" md="6" class="DataCard">
         <time-bar-chart
           :title="`Confirmed Cases: Bay Area Total`"
@@ -30,6 +32,7 @@
           :url="'https://coronadatascraper.com'"
         />
       </v-col>
+      <!-- County Selector & Stats Card -->
       <v-col cols="12" md="12" class="DataCard">
         <DataView>
           <div class="county-select-container">
@@ -90,6 +93,7 @@
           </div>
         </DataView>
       </v-col>
+      <!-- Selected County Graphs -->
       <v-col
         :county="CountyData[currentCounty]"
         cols="12"
@@ -122,6 +126,52 @@
           :url="'https://coronadatascraper.com'"
         />
       </v-col>
+      <v-col cols="12" md="6" class="DataCard">
+        <horizontal-bar-chart
+          :title="`County Cases by Age: ${CountyData[currentCounty].name}`"
+          :title-id="'cases-by-age'"
+          :chart-id="'horizontal-bar-chart-age'"
+          :chart-data="CountyDataVTwo[currentCounty].ageGroup"
+          :date="CountyDataVTwo[currentCounty].lastUpdatedAt"
+          :url="CountyDataVTwo[currentCounty].sourceUrl"
+        />
+      </v-col>
+      <v-col cols="12" md="6" class="DataCard">
+        <horizontal-bar-chart
+          :title="`Confirmed Cases by Sex: ${CountyData[currentCounty].name}`"
+          :title-id="'cases-by-gender'"
+          :chart-id="'horizontal-bar-chart-gender'"
+          :chart-data="CountyDataVTwo[currentCounty].genderGroup"
+          :date="CountyDataVTwo[currentCounty].lastUpdatedAt"
+          :url="CountyDataVTwo[currentCounty].sourceUrl"
+        />
+      </v-col>
+      <v-col cols="12" md="6" class="DataCard">
+        <InfoOverlay :chart-info="chartInfo.raceEth" />
+        <horizontal-bar-chart
+          :title="
+            `County Cases by Race and Ethnicity: ${CountyData[currentCounty].name}`
+          "
+          :title-id="'cases-by-race-eth'"
+          :chart-id="'horizontal-bar-chart-race-eth'"
+          :chart-data="CountyDataVTwo[currentCounty].raceEthGroup"
+          :date="CountyDataVTwo[currentCounty].lastUpdatedAt"
+          :url="CountyDataVTwo[currentCounty].sourceUrl"
+        />
+      </v-col>
+      <!-- <v-col cols="12" md="6" class="DataCard">
+        <horizontal-bar-chart
+          :title="
+            `County Cases by Race and Ethnicity: ${CountyData[currentCounty].name}`
+          "
+          :title-id="'cases-by-race-eth-norm'"
+          :chart-id="'horizontal-bar-chart-race-eth-norm'"
+          :chart-data="CountyDataVTwo[currentCounty].raceEthNormGroup"
+          :date="CountyDataVTwo[currentCounty].lastUpdatedAt"
+          :url="CountyDataVTwo[currentCounty].sourceUrl"
+        />
+      </v-col> -->
+      <!-- County Comparison Selector -->
       <v-col cols="12" md="12" class="DataCard">
         <DataView>
           <div class="county-compare-select-container">
@@ -149,6 +199,7 @@
           </div>
         </DataView>
       </v-col>
+      <!-- County Comparison Graphs -->
       <v-col
         :county="CountyData[currentCounty]"
         cols="12"
@@ -190,8 +241,12 @@
 import TimeBarChart from '@/components/TimeBarChart.vue'
 import TimeLineChartCountyComparison from '@/components/TimeLineChartCountyComparison.vue'
 import CasesSummary from '@/components/CasesSummary.vue'
+import HorizontalBarChart from '@/components/HorizontalBarChart'
+import InfoOverlay from '@/components/InfoOverlay'
 import Data from '@/data/data.json'
+import DataVTwo from '@/data/data.v2.json'
 import formatCountyData from '@/utils/formatCountyData'
+import formatCountyDataVTwo from '@/utils/formatCountyDataVTwo'
 import consolidateAllData from '@/utils/consolidateAllData'
 import DataView from '@/components/DataView.vue'
 import { calculateTotalCases, calculateTotalDeaths } from '@/utils/calculations'
@@ -202,6 +257,8 @@ export default {
     CasesSummary,
     TimeBarChart,
     TimeLineChartCountyComparison,
+    HorizontalBarChart,
+    InfoOverlay,
     DataView
   },
   data() {
@@ -221,18 +278,24 @@ export default {
       })
     }
     const selectedCounties = []
+    const CountyDataVTwo = this.getFormatData()
+    const chartInfo = this.getChartInfo()
 
     const data = {
       Data,
+      DataVTwo,
       CountyData,
+      CountyDataVTwo,
       ConsolidatedData,
       currentCounty,
       countyNames,
       totalCases,
       totalDeaths,
       countiesForCompare,
-      selectedCounties
+      selectedCounties,
+      chartInfo
     }
+
     return data
   },
   methods: {
@@ -245,6 +308,16 @@ export default {
     },
     contains(arr, item) {
       return arr.includes(item)
+    },
+    getFormatData() {
+      const allCounties = Object.keys(Data)
+      return formatCountyDataVTwo(DataVTwo, allCounties)
+    },
+    getChartInfo() {
+      return {
+        raceEth:
+          'This chart shows the racial/ethnic breakdown of county cases. This information is gathered from multiple sources including medical records, testing labs and interviews. The large number of unknown cases should be noted when assessing the significance of this data.'
+      }
     }
   },
   head() {
@@ -260,6 +333,7 @@ export default {
   .DataBlock {
     margin: 20px -8px;
     .DataCard {
+      position: relative;
       @include largerThan($medium) {
         padding: 10px;
       }
