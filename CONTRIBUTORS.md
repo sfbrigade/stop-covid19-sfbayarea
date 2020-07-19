@@ -104,6 +104,7 @@ Contributors for the site Stop Coronavirus in the Bay Area (including Tokyo Covi
 | Followings are the contributers for the Bay Area Pandemic Dashboard by Bay Area Brigades (Code For San Francisco)||
 | [Kengo Yoshii](https://www.linkedin.com/in/kengo-yoshii-361b248b) ([@kengoy](https://github.com/kengoy)) | Frontend |
 | Rob Brackett ([@Mr0grog](https://github.com/Mr0grog)) | Backend, Automation |
+| [Thuong Ho](https://www.linkedin.com/in/thuongtho/) ([@thuongho](https://github.com/thuongho)) | Frontend |
 | -add your name here!- | -what did you do?- |
 
 Thanks a lot！！！
