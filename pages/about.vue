@@ -1,5 +1,7 @@
 <template>
   <div class="About">
+    <!-- <TitleBar>
+    </TitleBar> -->
     <h2 class="About-Heading">
       About the website
     </h2>
@@ -75,6 +77,7 @@
 
 <script lang="ts">
 import TextCard from '@/components/TextCard.vue'
+// import TitleBar from '@/components/TitleBar.vue'
 
 export default {
   components: {
