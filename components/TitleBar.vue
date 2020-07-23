@@ -56,11 +56,11 @@ export default {
 .Background-Wrapper {
   background: url('../static/titlebar_bg.png') center no-repeat;
   height: 340px;
-  position: absolute;
+  position: relative;
   width: 1440px;
   height: 340px;
   left: 0px;
-  top: 60px;
+  top: 0px;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
