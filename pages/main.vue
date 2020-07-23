@@ -6,9 +6,9 @@
     <div v-else>
       <div class="mainContainer">
         <TopNavigation :active-tab="active_tab" @tabClicked="navigateToTab" />
+        <TitleBar />
         <v-tabs-items v-model="active_tab" class="tabcontent">
           <v-tab-item v-for="tab in tabs" :key="tab.id">
-            <TitleBar :header="tab.header" :subheader="tab.subheader" />
             <Faq v-if="tab.name === 'FAQ'" />
             <Stats v-if="tab.name === 'Stats'" />
             <News v-if="tab.name === 'Updates'" />
@@ -162,7 +162,7 @@ export default Vue.extend({
   margin: 10px 0px;
 }
 .tabcontent {
-  margin-top: 380px;
+  // margin-top: 380px;
   margin-right: 1.25rem;
   @include lessThan($small) {
     margin-right: 0;
