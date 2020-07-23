@@ -8,6 +8,7 @@
         <TopNavigation :active-tab="active_tab" @tabClicked="navigateToTab" />
         <v-tabs-items v-model="active_tab" class="tabcontent" touchless>
           <v-tab-item v-for="tab in tabs" :key="tab.id">
+            <TitleBar :header="tab.header" :subheader="tab.subheader" />
             <Faq v-if="tab.name === 'FAQ'" />
             <Stats v-if="tab.name === 'Stats'" />
             <News v-if="tab.name === 'Updates'" />
@@ -27,11 +28,13 @@ import Faq from '@/components/Faq.vue'
 import Stats from '@/components/Stats.vue'
 import News from '@/components/News.vue'
 import Footer from '@/components/Footer.vue'
+import TitleBar from '@/components/TitleBar.vue'
 
 export default Vue.extend({
   components: {
     ScaleLoader,
     TopNavigation,
+    TitleBar,
     Faq,
     Stats,
     News,
@@ -52,9 +55,24 @@ export default Vue.extend({
       loading: true,
       active_tab: null,
       tabs: [
-        { id: 1, name: 'FAQ' },
-        { id: 2, name: 'Stats' },
-        { id: 3, name: 'Updates' }
+        {
+          id: 1,
+          name: 'FAQ',
+          header: 'Frequently Asked Questions',
+          subheader: 'Questions and Answers about COVID-19 in the Bay Area'
+        },
+        {
+          id: 2,
+          name: 'Stats',
+          header: 'Bay Area Statistics',
+          subheader: 'Numbers and figures about COVID-19 in the Bay Area'
+        },
+        {
+          id: 3,
+          name: 'Updates',
+          header: 'Latest Updates',
+          subheader: 'Local news and links to updates about COVID-19'
+        }
       ]
     }
   },
@@ -144,7 +162,7 @@ export default Vue.extend({
   margin: 10px 0px;
 }
 .tabcontent {
-  margin-top: 80px;
+  margin-top: 380px;
   margin-right: 1.25rem;
   @include lessThan($small) {
     margin-right: 0;
