@@ -6,7 +6,11 @@
     <div v-else>
       <div class="mainContainer">
         <TopNavigation :active-tab="active_tab" @tabClicked="navigateToTab" />
-        <TitleBar />
+        <TitleBar
+          :header="tabs[active_tab].header"
+          :subheader="tabs[active_tab].subheader"
+          :title-id="tabs[active_tab].id"
+        />
         <v-tabs-items v-model="active_tab" class="tabcontent">
           <v-tab-item v-for="tab in tabs" :key="tab.id">
             <Faq v-if="tab.name === 'FAQ'" />
@@ -58,7 +62,7 @@ export default Vue.extend({
         {
           id: 1,
           name: 'FAQ',
-          header: 'Frequently Asked Questions',
+          header: ' Questions',
           subheader: 'Questions and Answers about COVID-19 in the Bay Area'
         },
         {
