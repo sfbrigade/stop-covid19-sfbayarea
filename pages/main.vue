@@ -7,11 +7,18 @@
       <div class="mainContainer">
         <TopNavigation :active-tab="active_tab" @tabClicked="navigateToTab" />
         <v-tabs-items v-model="active_tab" class="tabcontent" touchless>
-          <v-tab-item v-for="tab in tabs" :key="tab.id">
-            <Faq v-if="tab.name === 'FAQ'" />
-            <Stats v-if="tab.name === 'Stats'" />
-            <News v-if="tab.name === 'Updates'" />
-          </v-tab-item>
+          <TitleBar
+            :header="tabs[active_tab].header"
+            :subheader="tabs[active_tab].subheader"
+            :title-id="tabs[active_tab].id"
+          />
+          <v-tabs-items v-model="active_tab" class="tabcontent">
+            <v-tab-item v-for="tab in tabs" :key="tab.id">
+              <Faq v-if="tab.name === 'FAQ'" />
+              <Stats v-if="tab.name === 'Stats'" />
+              <News v-if="tab.name === 'Updates'" />
+            </v-tab-item>
+          </v-tabs-items>
         </v-tabs-items>
       </div>
       <Footer />
