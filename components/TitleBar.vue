@@ -22,11 +22,13 @@
               contribute!</span
             >
           </p>
-          <v-card color="#4738AC" class="learn">
-            <h5>
-              <span class="learnheader">Learn more about the Project</span>
-            </h5>
-          </v-card>
+          <a href="/about">
+            <v-card color="#4738AC" class="learn">
+              <h5>
+                <span class="learnheader">Learn more about the Project</span>
+              </h5>
+            </v-card>
+          </a>
         </v-card>
       </div>
     </v-container>
