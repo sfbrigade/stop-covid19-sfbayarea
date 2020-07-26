@@ -4,6 +4,7 @@
     :title-id="titleId"
     :date="date"
     :url="url"
+    :chart-info="chartInfo"
     class="chart-header"
   >
     <horizontal-bar
@@ -44,6 +45,11 @@ export default {
       type: Object,
       required: false,
       default: () => {}
+    },
+    chartInfo: {
+      type: String,
+      required: false,
+      default: ''
     },
     date: {
       type: String,
