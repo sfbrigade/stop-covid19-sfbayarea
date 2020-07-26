@@ -1,7 +1,7 @@
 <template>
   <div class="About">
     <TopNavigation />
-
+    <AboutTitleBar />
     <TextCard title="About the Project">
       This site was derived from an existing open source project
       <a
@@ -94,12 +94,14 @@
 import TextCard from '@/components/TextCard.vue'
 import TopNavigation from '@/components/TopNavigation'
 import Footer from '@/components/Footer.vue'
+import AboutTitleBar from '@/components/AboutTitleBar.vue'
 
 export default {
   components: {
     TextCard,
     TopNavigation,
-    Footer
+    Footer,
+    AboutTitleBar
   },
   computed: {
     cardItems() {
