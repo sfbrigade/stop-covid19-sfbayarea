@@ -1,37 +1,35 @@
 <template>
   <div class="TitleBar">
-    <v-container fluid class="TitleBar-Container">
-      <div class="Background-Wrapper">
-        <div class="header-container">
-          <h2>
-            <span class="headertitle">{{ header }}</span>
-          </h2>
-          <p>
-            <span class="headersubtitle">{{ subheader }} </span>
-          </p>
-        </div>
-        <v-card class="card">
-          <h4>
-            <span class="cardheader"
-              >Help us raise Bay Area COVID awareness.</span
-            >
-          </h4>
-          <p>
-            <span class="cardsubheader"
-              >Have ways to improve this site? We welcome all who wish to help
-              contribute!</span
-            >
-          </p>
-          <a href="/about">
-            <v-card color="#4738AC" class="learn">
-              <h5>
-                <span class="learnheader">Learn more about the Project</span>
-              </h5>
-            </v-card>
-          </a>
-        </v-card>
+    <div class="Background-Wrapper">
+      <div class="header-container">
+        <h2>
+          <span class="headertitle">{{ header }}</span>
+        </h2>
+        <p>
+          <span class="headersubtitle">{{ subheader }} </span>
+        </p>
       </div>
-    </v-container>
+      <v-card class="card">
+        <h4>
+          <span class="cardheader"
+            >Help us raise Bay Area COVID awareness.</span
+          >
+        </h4>
+        <p>
+          <span class="cardsubheader"
+            >Have ways to improve this site? We welcome all who wish to help
+            contribute!</span
+          >
+        </p>
+        <a href="/about">
+          <v-card color="#4738AC" class="learn">
+            <h5>
+              <span class="learnheader">Learn more about the Project</span>
+            </h5>
+          </v-card>
+        </a>
+      </v-card>
+    </div>
   </div>
 </template>
 
