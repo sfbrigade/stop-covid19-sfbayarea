@@ -147,7 +147,6 @@
         />
       </v-col>
       <v-col cols="12" md="6" class="DataCard">
-        <InfoOverlay :chart-info="chartInfo.raceEth" />
         <horizontal-bar-chart
           :title="
             `County Cases by Race and Ethnicity: ${CountyData[currentCounty].name}`
@@ -155,6 +154,7 @@
           :title-id="'cases-by-race-eth'"
           :chart-id="'horizontal-bar-chart-race-eth'"
           :chart-data="CountyDataVTwo[currentCounty].raceEthGroup"
+          :chart-info="chartInfo.raceEth"
           :date="CountyDataVTwo[currentCounty].lastUpdatedAt"
           :url="CountyDataVTwo[currentCounty].sourceUrl"
         />
@@ -242,7 +242,6 @@ import TimeBarChart from '@/components/TimeBarChart.vue'
 import TimeLineChartCountyComparison from '@/components/TimeLineChartCountyComparison.vue'
 import CasesSummary from '@/components/CasesSummary.vue'
 import HorizontalBarChart from '@/components/HorizontalBarChart'
-import InfoOverlay from '@/components/InfoOverlay'
 import Data from '@/data/data.json'
 import DataVTwo from '@/data/data.v2.json'
 import formatCountyData from '@/utils/formatCountyData'
@@ -258,7 +257,6 @@ export default {
     TimeBarChart,
     TimeLineChartCountyComparison,
     HorizontalBarChart,
-    InfoOverlay,
     DataView
   },
   data() {

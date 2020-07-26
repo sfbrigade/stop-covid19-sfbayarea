@@ -12,8 +12,7 @@
 <style lang="scss">
 .DataView {
   &-DataInfo {
-    margin-top: 20px;
-    text-align: right;
+    text-align: left;
     &-summary {
       display: inline-block;
       font-style: normal;

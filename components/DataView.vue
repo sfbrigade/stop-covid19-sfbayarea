@@ -7,14 +7,30 @@
         </h3>
         <slot name="button" />
       </div>
-      <v-spacer />
-      <slot name="infoPanel" />
+      <div class="DataView-InfoContainer">
+        <span
+          :class="{ 'infoIcon-visible': chartInfo }"
+          class="infoIcon"
+          @mouseover="showInfo()"
+          @mouseout="hideInfo()"
+        >
+          <InfoOutlineIcon />
+        </span>
+        <!-- <v-spacer /> -->
+        <slot name="infoPanel" />
+      </div>
     </v-toolbar>
     <v-card-text
       :class="
         $vuetify.breakpoint.xs ? 'DataView-CardTextForXS' : 'DataView-CardText'
       "
     >
+      <InfoOverlay
+        v-if="chartInfo"
+        :chart-info="chartInfo"
+        :class="{ showContent: infoIsShown }"
+        class="DataView-InfoOverlay"
+      />
       <slot />
     </v-card-text>
     <v-footer class="DataView-Footer">
@@ -37,9 +53,16 @@
 
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-property-decorator'
+import InfoOverlay from '@/components/InfoOverlay.vue'
 import { convertDatetimeToISO8601Format } from '@/utils/formatDate'
+import InfoOutlineIcon from '@/static/information-outline.svg'
 
-@Component
+@Component({
+  components: {
+    InfoOutlineIcon,
+    InfoOverlay
+  }
+})
 export default class DataView extends Vue {
   @Prop() private title!: string
   @Prop() private titleId!: string
@@ -47,33 +70,22 @@ export default class DataView extends Vue {
   @Prop() private url!: string
   @Prop() private info!: any // FIXME expect info as {lText:string, sText:string unit:string}
   @Prop() private centered?: boolean
+  @Prop() private chartInfo?: object
+
   formattedDate: string = convertDatetimeToISO8601Format(this.date)
+  infoIsShown: boolean = false
+
+  showInfo() {
+    this.infoIsShown = true
+  }
+
+  hideInfo() {
+    this.infoIsShown = false
+  }
 }
 </script>
 
 <style lang="scss">
-.DataView {
-  &-DataInfo {
-    &-summary {
-      color: $black;
-      font-style: normal;
-      font-size: 30px;
-      line-height: 30px;
-      white-space: nowrap;
-      &-unit {
-        font-size: 0.6em;
-        width: 100%;
-      }
-    }
-    &-date {
-      font-size: 12px;
-      line-height: 12px;
-      color: $gray-3;
-      width: 100%;
-      display: inline-block;
-    }
-  }
-}
 .DataView {
   @include card-container();
   height: 100%;
@@ -81,6 +93,7 @@ export default class DataView extends Vue {
     height: auto !important;
     .v-toolbar__content {
       align-items: start;
+      justify-content: space-between;
     }
   }
   &-Header {
@@ -99,6 +112,18 @@ export default class DataView extends Vue {
     font-weight: bold;
     line-height: 1.5;
   }
+  &-InfoContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    padding-top: 10px;
+    .infoIcon {
+      visibility: hidden;
+    }
+    .infoIcon-visible {
+      visibility: unset;
+    }
+  }
   &-CardText {
     margin-bottom: 46px;
     margin-top: 35px;
@@ -106,6 +131,12 @@ export default class DataView extends Vue {
   &-CardTextForXS {
     margin-bottom: 46px;
     margin-top: 30px;
+  }
+  &-InfoOverlay {
+    display: none;
+    &.showContent {
+      display: unset;
+    }
   }
   &-Footer {
     background-color: $white-1 !important;
