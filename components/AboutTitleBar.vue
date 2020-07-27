@@ -38,33 +38,34 @@ export default {
     @include lessThan($small) {
       display: none;
     }
+
+    .header-container {
+      position: absolute;
+      width: 1000px;
+      height: 75px;
+      left: 139px;
+      top: 88px;
+      display: flex;
+      flex-direction: column;
+      padding: 4px 15px;
+    }
+
+    .headertitle {
+      font-style: normal;
+      font-weight: bold;
+      font-size: 36px;
+      line-height: 49px;
+      letter-spacing: 0.03em;
+      color: white;
+    }
+
+    .headersubtitle {
+      font-style: normal;
+      font-weight: normal;
+      font-size: 16px;
+      line-height: 140%;
+      color: white;
+    }
   }
-}
-.header-container {
-  position: absolute;
-  width: 1000px;
-  height: 75px;
-  left: 139px;
-  top: 88px;
-  display: flex;
-  flex-direction: column;
-  padding: 4px 15px;
-}
-
-.headertitle {
-  font-style: normal;
-  font-weight: bold;
-  font-size: 36px;
-  line-height: 49px;
-  letter-spacing: 0.03em;
-  color: white;
-}
-
-.headersubtitle {
-  font-style: normal;
-  font-weight: normal;
-  font-size: 16px;
-  line-height: 140%;
-  color: white;
 }
 </style>

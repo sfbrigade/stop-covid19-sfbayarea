@@ -68,99 +68,101 @@ export default {
     @include lessThan($small) {
       display: none;
     }
+
+    //card inside card
+    .card {
+      position: absolute;
+      width: 472px;
+      height: 190px;
+      left: 841px;
+      top: 75px;
+      box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.25),
+        0px 0px 3px rgba(0, 0, 0, 0.1);
+    }
+
+    .header-container {
+      position: absolute;
+      width: 520px;
+      height: 75px;
+      left: 139px;
+      top: 88px;
+      display: flex;
+      flex-direction: column;
+      padding: 4px 15px;
+    }
+
+    .headertitle {
+      font-style: normal;
+      font-weight: bold;
+      font-size: 36px;
+      line-height: 49px;
+      letter-spacing: 0.03em;
+      color: white;
+    }
+
+    .headersubtitle {
+      font-style: normal;
+      font-weight: normal;
+      font-size: 16px;
+      line-height: 140%;
+      color: white;
+    }
+
+    //Help us raise bay area...
+
+    .cardheader {
+      position: absolute;
+      height: 27px;
+      left: 24px;
+      right: 24px;
+      top: 26px;
+      font-style: normal;
+      font-weight: bold;
+      font-size: 18px;
+      line-height: 27px;
+    }
+
+    //Have ways to improve...
+    .cardsubheader {
+      position: absolute;
+      height: 40px;
+      left: 24px;
+      right: 24px;
+      top: 30px;
+      bottom: 90px;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 14px;
+      line-height: 140%;
+      margin-top: 30px;
+    }
+
+    //card for learn more about project
+    .learn {
+      position: absolute;
+      width: 268px;
+      height: 50px;
+      right: 24px;
+      bottom: 20px;
+      border-radius: 5px;
+    }
+
+    //learn more about the project
+    .learnheader {
+      position: absolute;
+      width: 225px;
+      height: 22px;
+      top: 16px;
+      right: 21px;
+      bottom: 12px;
+      left: 22px;
+      font-style: normal;
+      font-weight: bold;
+      font-size: 13.5px;
+      line-height: 22px;
+      text-align: center;
+      color: white;
+    }
   }
-}
-//card inside card
-.card {
-  position: absolute;
-  width: 472px;
-  height: 190px;
-  left: 841px;
-  top: 75px;
-  box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.25), 0px 0px 3px rgba(0, 0, 0, 0.1);
-}
-
-.header-container {
-  position: absolute;
-  width: 520px;
-  height: 75px;
-  left: 139px;
-  top: 88px;
-  display: flex;
-  flex-direction: column;
-  padding: 4px 15px;
-}
-
-.headertitle {
-  font-style: normal;
-  font-weight: bold;
-  font-size: 36px;
-  line-height: 49px;
-  letter-spacing: 0.03em;
-  color: white;
-}
-
-.headersubtitle {
-  font-style: normal;
-  font-weight: normal;
-  font-size: 16px;
-  line-height: 140%;
-  color: white;
-}
-
-//Help us raise bay area...
-
-.cardheader {
-  position: absolute;
-  height: 27px;
-  left: 24px;
-  right: 24px;
-  top: 26px;
-  font-style: normal;
-  font-weight: bold;
-  font-size: 18px;
-  line-height: 27px;
-}
-
-//Have ways to improve...
-.cardsubheader {
-  position: absolute;
-  height: 40px;
-  left: 24px;
-  right: 24px;
-  top: 30px;
-  bottom: 90px;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 14px;
-  line-height: 140%;
-  margin-top: 30px;
-}
-
-//card for learn more about project
-.learn {
-  position: absolute;
-  width: 268px;
-  height: 50px;
-  right: 24px;
-  bottom: 20px;
-  border-radius: 5px;
-}
-
-//learn more about the project
-.learnheader {
-  position: absolute;
-  width: 225px;
-  height: 22px;
-  top: 16px;
-  right: 21px;
-  bottom: 12px;
-  left: 22px;
-  font-style: normal;
-  font-weight: bold;
-  font-size: 13.5px;
-  line-height: 22px;
-  text-align: center;
-  color: white;
 }
 </style>
