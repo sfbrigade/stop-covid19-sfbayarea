@@ -1,17 +1,11 @@
 <template>
   <div class="News">
-    <page-header
-      :icon="headerItem.icon"
-      :title="headerItem.title"
-      :date="headerItem.date"
-    />
     <div v-for="(county, i) in counties" :key="i" class="News-county">
       <whats-new class="mb-4" :feed="county" />
     </div>
   </div>
 </template>
 <script>
-import PageHeader from '@/components/PageHeader.vue'
 import WhatsNew from '@/components/WhatsNew.vue'
 import AlamedaNews from '@/data/news/alameda.json'
 import ContraCostaNews from '@/data/news/contra_costa.json'
@@ -24,15 +18,10 @@ import SolanoNews from '@/data/news/solano.json'
 import SonomaNews from '@/data/news/sonoma.json'
 export default {
   components: {
-    PageHeader,
     WhatsNew
   },
   data() {
     const data = {
-      headerItem: {
-        icon: 'mdi-chart-timeline-variant',
-        title: 'County Public Health Updates'
-      },
       counties: [
         SanFranciscoNews,
         AlamedaNews,

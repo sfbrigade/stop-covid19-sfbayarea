@@ -11,15 +11,15 @@
       </div>
       <v-card class="card">
         <h4>
-          <span class="cardheader"
-            >Help us raise Bay Area COVID awareness.</span
-          >
+          <span class="cardheader">
+            Help us raise Bay Area COVID awareness.
+          </span>
         </h4>
         <p>
-          <span class="cardsubheader"
-            >Have ways to improve this site? We welcome all who wish to help
-            contribute!</span
-          >
+          <span class="cardsubheader">
+            Have ways to improve this site? We welcome all who wish to help
+            contribute!
+          </span>
         </p>
         <a href="/about">
           <v-card color="#4738AC" class="learn">
@@ -53,21 +53,23 @@ export default {
 }
 </script>
 <style lang="scss">
-.Background-Wrapper {
-  background: url('../static/titlebar_bg.png') center no-repeat;
-  height: 340px;
-  position: relative;
-  width: 1440px;
-  height: 340px;
-  left: 0px;
-  right: 0px;
-  top: 0px;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25);
-  @include lessThan($small) {
-    display: none;
+.TitleBar {
+  .Background-Wrapper {
+    background: url('../static/titlebar_bg.png') center no-repeat;
+    height: 340px;
+    position: relative;
+    width: 1440px;
+    height: 340px;
+    left: 0px;
+    right: 0px;
+    top: 0px;
+    margin-bottom: 30px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25);
+    @include lessThan($small) {
+      display: none;
+    }
   }
 }
-
 //card inside card
 .card {
   position: absolute;
