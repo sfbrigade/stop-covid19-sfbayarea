@@ -2,11 +2,11 @@
   <div class="TitleBar">
     <div class="Background-Wrapper">
       <div class="header-container">
-        <h2>
-          <span class="headertitle">{{ header }}</span>
+        <h2 class="headertitle">
+          {{ header }}
         </h2>
-        <p>
-          <span class="headersubtitle">{{ subheader }} </span>
+        <p class="headersubtitle">
+          {{ subheader }}
         </p>
       </div>
       <v-card class="card">
@@ -60,9 +60,10 @@ export default {
     position: relative;
     width: 1440px;
     height: 340px;
-    left: 0px;
-    right: 0px;
-    top: 0px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     margin-bottom: 30px;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25);
     @include lessThan($small) {

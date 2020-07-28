@@ -2,15 +2,11 @@
   <div class="AboutTitleBar">
     <div class="Background-Wrapper">
       <div class="header-container">
-        <h2>
-          <span class="headertitle">
-            About the Bay Area Pandemic Dashboard
-          </span>
+        <h2 class="headertitle">
+          About the Bay Area Pandemic Dashboard
         </h2>
-        <p>
-          <span class="headersubtitle">
-            Local data and information associated with the coronavirus pandemic
-          </span>
+        <p class="headersubtitle">
+          Local data and information associated with the coronavirus pandemic
         </p>
       </div>
     </div>
@@ -28,11 +24,11 @@ export default {
     background: url('../static/titlebar_bg.png') center no-repeat;
     height: 340px;
     position: relative;
-    width: 1440px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     height: 340px;
-    left: 0px;
-    right: 0px;
-    top: 0px;
     margin-bottom: 30px;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25);
     @include lessThan($small) {
