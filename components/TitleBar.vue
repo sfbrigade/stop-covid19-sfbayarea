@@ -59,8 +59,6 @@ export default {
     height: 340px;
     position: relative;
     width: 1440px;
-    height: 340px;
-    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;

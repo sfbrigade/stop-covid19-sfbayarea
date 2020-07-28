@@ -28,7 +28,6 @@ export default {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 340px;
     margin-bottom: 30px;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25);
     @include lessThan($small) {
