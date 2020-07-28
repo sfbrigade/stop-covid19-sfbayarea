@@ -64,7 +64,7 @@ export default Vue.extend({
         {
           id: 1,
           name: 'FAQ',
-          header: ' Questions',
+          header: ' Frequently Asked Questions',
           subheader: 'Questions and Answers about COVID-19 in the Bay Area'
         },
         {

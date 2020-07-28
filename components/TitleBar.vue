@@ -58,7 +58,7 @@ export default {
     background: url('../static/titlebar_bg.png') center no-repeat;
     height: 340px;
     position: relative;
-    width: 1440px;
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -70,21 +70,18 @@ export default {
 
     //card inside card
     .card {
-      position: absolute;
       width: 472px;
       height: 190px;
-      left: 841px;
-      top: 75px;
       box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.25),
         0px 0px 3px rgba(0, 0, 0, 0.1);
     }
 
     .header-container {
-      position: absolute;
-      width: 520px;
+      width: 650px;
       height: 75px;
-      left: 139px;
-      top: 88px;
+      margin-right: 139px;
+      margin-top: 88px;
+      margin-bottom: 177px;
       display: flex;
       flex-direction: column;
       padding: 4px 15px;
