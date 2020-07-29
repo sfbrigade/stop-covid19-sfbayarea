@@ -68,14 +68,6 @@ export default {
       display: none;
     }
 
-    //card inside card
-    .card {
-      width: 472px;
-      height: 190px;
-      box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.25),
-        0px 0px 3px rgba(0, 0, 0, 0.1);
-    }
-
     .header-container {
       width: 650px;
       height: 75px;
@@ -104,60 +96,72 @@ export default {
       color: white;
     }
 
-    //Help us raise bay area...
+    //card inside card
+    .card {
+      width: 472px;
+      height: 190px;
+      box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.25),
+        0px 0px 3px rgba(0, 0, 0, 0.1);
+      @media screen and (max-width: 1150px) {
+        display: none;
+      }
+      //Help us raise bay area...
 
-    .cardheader {
-      position: absolute;
-      height: 27px;
-      left: 24px;
-      right: 24px;
-      top: 26px;
-      font-style: normal;
-      font-weight: bold;
-      font-size: 18px;
-      line-height: 27px;
-    }
+      .cardheader {
+        position: absolute;
+        left: 24px;
+        right: 24px;
+        top: 26px;
+        height: 27px;
+        width: 100%;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 18px;
+        line-height: 27px;
+        justify-content: center;
+        align-items: center;
+      }
 
-    //Have ways to improve...
-    .cardsubheader {
-      position: absolute;
-      height: 40px;
-      left: 24px;
-      right: 24px;
-      top: 30px;
-      bottom: 90px;
-      font-style: normal;
-      font-weight: normal;
-      font-size: 14px;
-      line-height: 140%;
-      margin-top: 30px;
-    }
+      //Have ways to improve...
+      .cardsubheader {
+        position: absolute;
+        height: 40px;
+        left: 24px;
+        top: 30px;
+        bottom: 90px;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 14px;
+        line-height: 140%;
+        margin-top: 30px;
+      }
 
-    //card for learn more about project
-    .learn {
-      position: absolute;
-      width: 268px;
-      height: 50px;
-      right: 24px;
-      bottom: 20px;
-      border-radius: 5px;
-    }
+      //card for learn more about project
+      .learn {
+        position: absolute;
+        width: 268px;
+        height: 50px;
+        right: 24px;
+        bottom: 20px;
+        border-radius: 5px;
 
-    //learn more about the project
-    .learnheader {
-      position: absolute;
-      width: 225px;
-      height: 22px;
-      top: 16px;
-      right: 21px;
-      bottom: 12px;
-      left: 22px;
-      font-style: normal;
-      font-weight: bold;
-      font-size: 13.5px;
-      line-height: 22px;
-      text-align: center;
-      color: white;
+        //learn more about the project
+        .learnheader {
+          position: absolute;
+          width: 225px;
+          height: 22px;
+          top: 16px;
+          right: 21px;
+          bottom: 12px;
+          left: 22px;
+          font-style: normal;
+          font-weight: bold;
+          font-size: 13.5px;
+          line-height: 22px;
+          text-align: center;
+          color: white;
+        }
+      }
     }
   }
 }

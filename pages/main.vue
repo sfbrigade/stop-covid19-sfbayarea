@@ -12,13 +12,11 @@
             :subheader="tabs[active_tab].subheader"
             :title-id="tabs[active_tab].id"
           />
-          <v-tabs-items v-model="active_tab" class="tabcontent">
-            <v-tab-item v-for="tab in tabs" :key="tab.id">
-              <Faq v-if="tab.name === 'FAQ'" />
-              <Stats v-if="tab.name === 'Stats'" />
-              <News v-if="tab.name === 'Updates'" />
-            </v-tab-item>
-          </v-tabs-items>
+          <v-tab-item v-for="tab in tabs" :key="tab.id">
+            <Faq v-if="tab.name === 'FAQ'" />
+            <Stats v-if="tab.name === 'Stats'" />
+            <News v-if="tab.name === 'Updates'" />
+          </v-tab-item>
         </v-tabs-items>
       </div>
       <Footer />
@@ -64,7 +62,7 @@ export default Vue.extend({
         {
           id: 1,
           name: 'FAQ',
-          header: ' Frequently Asked Questions',
+          header: 'Frequently Asked Questions',
           subheader: 'Questions and Answers about COVID-19 in the Bay Area'
         },
         {
@@ -168,8 +166,6 @@ export default Vue.extend({
   margin: 10px 0px;
 }
 .tabcontent {
-  // margin-top: 380px;
-  margin-right: 1.25rem;
   @include lessThan($small) {
     margin-right: 0;
   }
