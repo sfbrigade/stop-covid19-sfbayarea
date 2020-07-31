@@ -42,8 +42,8 @@ export default {
       default: ''
     },
     titleId: {
-      type: String,
-      default: ''
+      type: Number,
+      default: null
     },
     subheader: {
       type: String,
