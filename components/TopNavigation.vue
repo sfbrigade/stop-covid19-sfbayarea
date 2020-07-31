@@ -49,7 +49,7 @@ export default {
   props: {
     activeTab: {
       type: Number,
-      default: 0
+      default: null
     }
   },
   computed: {

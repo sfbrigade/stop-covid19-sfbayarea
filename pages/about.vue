@@ -1,6 +1,6 @@
 <template>
   <div class="About">
-    <TopNavigation />
+    <TopNavigation @tabClicked="navigateToTab" />
     <AboutTitleBar />
     <TextCard title="About the Project">
       This site was derived from an existing open source project
@@ -139,6 +139,10 @@ export default {
       } else if (to === 'JoinTeam') {
         open('https://sfbrigade-slackin.herokuapp.com/')
       }
+    },
+    navigateToTab(event) {
+      const tabs = { 0: 'faq', 1: 'stats', 2: 'updates' }
+      this.$router.push({ name: 'main', params: { tab: tabs[event] } })
     }
   },
   head() {
