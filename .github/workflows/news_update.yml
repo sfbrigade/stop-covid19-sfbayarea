@@ -30,6 +30,18 @@ jobs:
       with:
         python-version: '3.x'
 
+    - name: Cache Python Dependencies
+      uses: actions/cache@v2
+      with:
+        path: ~/.cache/pip
+        # NOTE: we can hash these requirements files together, but keeping them
+        # separate allows us to load a partial cache if only the dev
+        # requirements have changed.
+        key: ${{ runner.os }}-pip-${{ hashFiles('scraper/requirements.txt') }}-${{ hashFiles('scraper/requirements-dev.txt') }}
+        restore-keys: |
+          ${{ runner.os }}-pip-${{ hashFiles('scraper/requirements.txt') }}-
+          ${{ runner.os }}-pip-
+
     # Install dependencis
     # - The commit that was checked out will be available as $SCRAPER_COMMIT.
     - name: Install Data Scraper & Dependencies
