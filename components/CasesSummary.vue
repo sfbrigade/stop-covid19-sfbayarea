@@ -1,10 +1,5 @@
 <template>
-  <data-view
-    :title="title"
-    :title-id="titleId"
-    :date="lastUpdatedAt"
-    :centered="true"
-  >
+  <data-view :title="title" :title-id="titleId" :date="date" :centered="true">
     <div class="summary">
       <div class="total-positive">
         <span class="stat-title">Confirmed Cases</span>
@@ -138,22 +133,12 @@ export default {
       type: String,
       default: ''
     },
-    chartData: {
+    data: {
       type: Object,
       default: () => {}
     },
     date: {
       type: String,
-      default: ''
-    },
-    info: {
-      type: Object,
-      required: false,
-      default: () => {}
-    },
-    url: {
-      type: String,
-      required: false,
       default: ''
     }
   },
@@ -165,85 +150,14 @@ export default {
     return data
   },
   computed: {
-    lastUpdatedAt() {
-      // Set the last updated date based on San Francisco data
-      const casesSanFrancisco = Data['San Francisco County'].cases
-      return casesSanFrancisco[casesSanFrancisco.length - 1].date
-    },
     calcTotalCasesSummary() {
-      const casesSolano = Data['Solano County'].cases
-      const casesAlameda = Data['Alameda County'].cases
-      const casesSantaClara = Data['Santa Clara County'].cases
-      const casesSanFrancisco = Data['San Francisco County'].cases
-      const casesContraCostaCounty = Data['Contra Costa County'].cases
-      const casesSanMateoCounty = Data['San Mateo County'].cases
-      const casesSonoma = Data['Sonoma County'].cases
-      const casesNapa = Data['Napa County'].cases
-      const casesMarin = Data['Marin County'].cases
-
-      const totalConfirmedCases =
-        casesSolano[casesSolano.length - 1].cases +
-        casesAlameda[casesAlameda.length - 1].cases +
-        casesSantaClara[casesSantaClara.length - 1].cases +
-        casesSanFrancisco[casesSanFrancisco.length - 1].cases +
-        casesContraCostaCounty[casesContraCostaCounty.length - 1].cases +
-        casesSanMateoCounty[casesSanMateoCounty.length - 1].cases +
-        casesSonoma[casesSonoma.length - 1].cases +
-        casesNapa[casesNapa.length - 1].cases +
-        casesMarin[casesMarin.length - 1].cases
-
-      const prevTotalConfirmedCases =
-        casesSolano[casesSolano.length - 2].cases +
-        casesAlameda[casesAlameda.length - 2].cases +
-        casesSantaClara[casesSantaClara.length - 2].cases +
-        casesSanFrancisco[casesSanFrancisco.length - 2].cases +
-        casesContraCostaCounty[casesContraCostaCounty.length - 2].cases +
-        casesSanMateoCounty[casesSanMateoCounty.length - 2].cases +
-        casesSonoma[casesSonoma.length - 2].cases +
-        casesNapa[casesNapa.length - 2].cases +
-        casesMarin[casesMarin.length - 2].cases
-
-      const totalDeaths =
-        casesSolano[casesSolano.length - 1].deaths +
-        casesAlameda[casesAlameda.length - 1].deaths +
-        casesSantaClara[casesSantaClara.length - 1].deaths +
-        casesSanFrancisco[casesSanFrancisco.length - 1].deaths +
-        casesContraCostaCounty[casesContraCostaCounty.length - 1].deaths +
-        casesSanMateoCounty[casesSanMateoCounty.length - 1].deaths +
-        casesSonoma[casesSonoma.length - 1].deaths +
-        casesNapa[casesNapa.length - 1].deaths +
-        casesMarin[casesMarin.length - 1].deaths
-
-      const totalRecovered =
-        casesSolano[casesSolano.length - 1].recovered +
-        casesAlameda[casesAlameda.length - 1].recovered +
-        casesSantaClara[casesSantaClara.length - 1].recovered +
-        casesSanFrancisco[casesSanFrancisco.length - 1].recovered +
-        casesContraCostaCounty[casesContraCostaCounty.length - 1].recovered +
-        casesSanMateoCounty[casesSanMateoCounty.length - 1].recovered +
-        casesSonoma[casesSonoma.length - 1].recovered +
-        casesNapa[casesNapa.length - 1].recovered +
-        casesMarin[casesMarin.length - 1].recovered
-
-      const totalPopulation =
-        Data['Solano County'].population +
-        Data['Alameda County'].population +
-        Data['Santa Clara County'].population +
-        Data['San Francisco County'].population +
-        Data['Contra Costa County'].population +
-        Data['San Mateo County'].population +
-        Data['Sonoma County'].population +
-        Data['Napa County'].population +
-        Data['Marin County'].population
-
       return {
-        cases: totalConfirmedCases,
-        deaths: totalDeaths,
-        recovered: totalRecovered,
-        population: totalPopulation,
+        cases: this.data.cases[this.data.cases.length - 1].cumulative,
+        deaths: this.data.cases[this.data.cases.length - 1].deathCumulative,
+        population: this.data.totalPopulation,
         percentChange: calculatePercentage(
-          prevTotalConfirmedCases,
-          totalConfirmedCases
+          this.data.cases[this.data.cases.length - 2].cumulative,
+          this.data.cases[this.data.cases.length - 1].cumulative
         )
       }
     }
