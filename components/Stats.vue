@@ -6,6 +6,8 @@
         <cases-summary
           :title="'Summary for 9 Bay Area Counties'"
           :title-id="'confirmed-cases'"
+          :data="ConsolidatedData"
+          :date="CountyData[currentCounty].lastUpdatedAt"
           :url="'https://coronadatascraper.com'"
         />
       </v-col>
@@ -26,7 +28,7 @@
           :title="`COVID Related Deaths: Bay Area Total`"
           :title-id="'number-of-confirmed-cases'"
           :chart-id="'time-bar-chart-patients'"
-          :chart-data="ConsolidatedData.deaths"
+          :chart-data="ConsolidatedData.cases"
           :chart-data-type="'deaths'"
           :date="CountyData[currentCounty].lastUpdatedAt"
           :url="'https://coronadatascraper.com'"
