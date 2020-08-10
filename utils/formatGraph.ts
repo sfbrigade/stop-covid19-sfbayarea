@@ -50,6 +50,10 @@ export default (data: DataType[]) => {
         if (subTotal < 0) {
           subTotal = 0
         }
+        if (deathSubTotal < 0) {
+          deathSubTotal = 0
+        }
+
         previousDayCases = cases
         deathPreviousDayCases = deaths
         graphData.push({
