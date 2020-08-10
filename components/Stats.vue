@@ -50,19 +50,12 @@
               <div class="border">
                 <span class="stat-title">Confirmed Cases</span>
                 <div class="stat-number" :county="Data[currentCounty]">
-                  {{
-                    Data[currentCounty].cases[
-                      Data[currentCounty].cases.length - 1
-                    ].cases.toLocaleString()
-                  }}
+                  {{ getCurrentCountyLatestCases.cases.toLocaleString() }}
                 </div>
                 <div class="stat-note">
                   <strong>{{
                     `${(
-                      (Data[currentCounty].cases[
-                        Data[currentCounty].cases.length - 1
-                      ].cases /
-                        totalCases) *
+                      (getCurrentCountyLatestCases.cases / totalCases) *
                       100
                     ).toFixed(2)}% `
                   }}</strong>
@@ -72,19 +65,12 @@
               <div>
                 <span class="stat-title">Deaths</span>
                 <div class="stat-number">
-                  {{
-                    Data[currentCounty].cases[
-                      Data[currentCounty].cases.length - 1
-                    ].deaths.toLocaleString()
-                  }}
+                  {{ getCurrentCountyLatestCases.deaths.toLocaleString() }}
                 </div>
                 <div class="stat-note">
                   <strong>{{
                     `${(
-                      (Data[currentCounty].cases[
-                        Data[currentCounty].cases.length - 1
-                      ].deaths /
-                        totalDeaths) *
+                      (getCurrentCountyLatestCases.deaths / totalDeaths) *
                       100
                     ).toFixed(2)}% `
                   }}</strong>
@@ -250,7 +236,6 @@ import formatCountyData from '@/utils/formatCountyData'
 import formatCountyDataVTwo from '@/utils/formatCountyDataVTwo'
 import consolidateAllData from '@/utils/consolidateAllData'
 import DataView from '@/components/DataView.vue'
-import { calculateTotalCases, calculateTotalDeaths } from '@/utils/calculations'
 import countyColor from '@/static/data/countyColor.json'
 
 export default {
@@ -267,8 +252,10 @@ export default {
     const ConsolidatedData = consolidateAllData(Data)
     const countyNames = Object.keys(Data)
 
-    const totalCases = calculateTotalCases(Data)
-    const totalDeaths = calculateTotalDeaths(Data)
+    const totalCases =
+      ConsolidatedData.cases[ConsolidatedData.cases.length - 1].cumulative
+    const totalDeaths =
+      ConsolidatedData.cases[ConsolidatedData.cases.length - 1].deathCumulative
 
     const countiesForCompare = []
     for (const countyName of countyNames) {
@@ -297,6 +284,35 @@ export default {
     }
 
     return data
+  },
+  computed: {
+    getCurrentCountyLatestCases() {
+      let offsetDay = 0
+      let cases = 0
+      let deaths = 0
+      // Sometimes data does not contain proper number so we need to find the latest valid number
+      while (
+        cases === undefined ||
+        cases === 0 ||
+        deaths === undefined ||
+        deaths === 0
+      ) {
+        offsetDay++
+        cases =
+          Data[this.currentCounty].cases[
+            Data[this.currentCounty].cases.length - offsetDay
+          ].cases
+        deaths =
+          Data[this.currentCounty].cases[
+            Data[this.currentCounty].cases.length - offsetDay
+          ].deaths
+      }
+
+      return {
+        cases,
+        deaths
+      }
+    }
   },
   methods: {
     provide(item) {
