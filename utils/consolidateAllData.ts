@@ -41,28 +41,38 @@ const consolidateAllData = (
     const countyData = data[countyName]
     let casesPreviousDay = 0
     let deathsPreviousDay = 0
+    let graphIndex = 0
     totalPopulation += countyData.population
-    countyData.cases.forEach((timePoint, index) => {
-      const { cases, deaths } = timePoint
+    countyData.cases.forEach(timePoint => {
+      const { date, cases, deaths } = timePoint
 
-      if (dailyData[index]) {
+      // starting date in January in data varies in each county. we only care from Feb 1st which all counties have data.
+      const currentDate = new Date(date)
+      const startingDate = new Date('2020-02-01')
+      if (currentDate < startingDate) {
+        return
+      }
+
+      graphIndex++
+
+      if (dailyData[graphIndex]) {
         // sometimes cases do not exist in data or number is less than pevious day wrongly
         if (cases == null || cases < casesPreviousDay) {
-          dailyData[index].cases += casesPreviousDay
+          dailyData[graphIndex].cases += casesPreviousDay
         } else {
-          dailyData[index].cases += cases
+          dailyData[graphIndex].cases += cases
           casesPreviousDay = cases
         }
 
         // sometimes deaths do not exist in data or number is less than pevious day wrongly
         if (deaths == null || deaths < deathsPreviousDay) {
-          dailyData[index].deaths += deathsPreviousDay
+          dailyData[graphIndex].deaths += deathsPreviousDay
         } else {
-          dailyData[index].deaths += deaths
+          dailyData[graphIndex].deaths += deaths
           deathsPreviousDay = deaths
         }
       } else {
-        dailyData[index] = { ...timePoint }
+        dailyData[graphIndex] = { ...timePoint }
       }
     })
   }
