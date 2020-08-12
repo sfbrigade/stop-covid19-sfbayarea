@@ -72,6 +72,7 @@ export default {
   @include card-container();
   padding: 10px;
   margin-bottom: 20px;
+  width: 925px;
 }
 
 .WhatsNew-heading {
