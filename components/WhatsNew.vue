@@ -3,9 +3,10 @@
     <div class="county-select">
       <v-card color="#7D70BB" class="county-selector-card">
         <label class="selection">Select a County:</label>
-        <select class="county-choice">
-          <option>San Francisco</option>
-          <option>San Mateo</option>
+        <select v-model="currentCounty" class="county-choice">
+          <option v-for="(countyName, index) in countyNames" :key="index">
+            {{ countyName }}
+          </option>
         </select>
       </v-card>
     </div>
@@ -48,6 +49,8 @@
 
 <script>
 import { convertISO8601ToHumanDateFormat } from '@/utils/formatDate'
+import Data from '@/data/data.json'
+import DataVTwo from '@/data/data.v2.json'
 
 export default {
   props: {
@@ -56,6 +59,20 @@ export default {
       required: true
     }
   },
+
+  data() {
+    const currentCounty = 'San Francisco County'
+    const countyNames = Object.keys(Data)
+    const data = {
+      Data,
+      DataVTwo,
+      currentCounty,
+      countyNames
+    }
+
+    return data
+  },
+
   methods: {
     isInternalLink(path) {
       return !/^https?:\/\//.test(path)
