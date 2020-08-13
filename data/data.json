@@ -1640,6 +1640,15 @@
                 "icu_current": 58,
                 "growthFactor": 1,
                 "date": "2020-08-10"
+            },
+            {
+                "cases": 13664,
+                "deaths": 205,
+                "hospitalized_current": 169,
+                "tested": 308745,
+                "icu_current": 55,
+                "growthFactor": 1.03,
+                "date": "2020-08-11"
             }
         ]
     },
@@ -3061,7 +3070,15 @@
                 "date": "2020-08-10"
             },
             {
+                "cases": 9787,
+                "deaths": 146,
+                "hospitalized_current": 104,
+                "tested": 154901,
+                "growthFactor": 1.04,
                 "date": "2020-08-11"
+            },
+            {
+                "date": "2020-08-12"
             }
         ]
     },
@@ -4811,12 +4828,22 @@
                 "date": "2020-08-10"
             },
             {
-                "deaths": 56,
-                "hospitalized": 122,
                 "cases": 3239,
+                "deaths": 56,
+                "hospitalized_current": 18,
+                "tested": 58995,
+                "hospitalized": 122,
                 "recovered": 2865,
                 "growthFactor": 1.02,
                 "date": "2020-08-11"
+            },
+            {
+                "deaths": 56,
+                "hospitalized": 122,
+                "cases": 3351,
+                "recovered": 2988,
+                "growthFactor": 1.03,
+                "date": "2020-08-12"
             }
         ]
     },
@@ -6460,6 +6487,16 @@
                 "recovered": 393,
                 "growthFactor": 1.03,
                 "date": "2020-08-10"
+            },
+            {
+                "cases": 1129,
+                "deaths": 11,
+                "hospitalized_current": 9,
+                "tested": 36115,
+                "hospitalized": 79,
+                "recovered": 393,
+                "growthFactor": 1.05,
+                "date": "2020-08-11"
             }
         ]
     },
@@ -7609,7 +7646,7 @@
                 "date": "2020-06-17"
             },
             {
-                "cases": 3198,
+                "cases": 3199,
                 "deaths": 50,
                 "hospitalized_current": 35,
                 "tested": 124269,
@@ -7618,7 +7655,7 @@
                 "date": "2020-06-18"
             },
             {
-                "cases": 3241,
+                "cases": 3242,
                 "deaths": 50,
                 "hospitalized_current": 43,
                 "tested": 127664,
@@ -7627,7 +7664,7 @@
                 "date": "2020-06-19"
             },
             {
-                "cases": 3282,
+                "cases": 3283,
                 "deaths": 50,
                 "hospitalized_current": 35,
                 "tested": 129271,
@@ -7636,7 +7673,7 @@
                 "date": "2020-06-20"
             },
             {
-                "cases": 3314,
+                "cases": 3315,
                 "deaths": 50,
                 "hospitalized_current": 37,
                 "tested": 130545,
@@ -7645,7 +7682,7 @@
                 "date": "2020-06-21"
             },
             {
-                "cases": 3418,
+                "cases": 3420,
                 "deaths": 50,
                 "hospitalized_current": 36,
                 "tested": 133980,
@@ -7654,7 +7691,7 @@
                 "date": "2020-06-22"
             },
             {
-                "cases": 3496,
+                "cases": 3498,
                 "deaths": 50,
                 "hospitalized_current": 38,
                 "tested": 137532,
@@ -7663,7 +7700,7 @@
                 "date": "2020-06-23"
             },
             {
-                "cases": 3556,
+                "cases": 3558,
                 "deaths": 50,
                 "hospitalized_current": 37,
                 "tested": 141428,
@@ -7672,7 +7709,7 @@
                 "date": "2020-06-24"
             },
             {
-                "cases": 3620,
+                "cases": 3622,
                 "deaths": 50,
                 "hospitalized_current": 50,
                 "tested": 145386,
@@ -7681,7 +7718,7 @@
                 "date": "2020-06-25"
             },
             {
-                "cases": 3689,
+                "cases": 3692,
                 "deaths": 50,
                 "hospitalized_current": 47,
                 "tested": 149289,
@@ -7690,7 +7727,7 @@
                 "date": "2020-06-26"
             },
             {
-                "cases": 3739,
+                "cases": 3744,
                 "deaths": 50,
                 "hospitalized_current": 54,
                 "tested": 151407,
@@ -7699,7 +7736,7 @@
                 "date": "2020-06-27"
             },
             {
-                "cases": 3775,
+                "cases": 3780,
                 "deaths": 50,
                 "hospitalized_current": 62,
                 "tested": 153417,
@@ -7708,7 +7745,7 @@
                 "date": "2020-06-28"
             },
             {
-                "cases": 3847,
+                "cases": 3852,
                 "deaths": 50,
                 "hospitalized_current": 60,
                 "tested": 157296,
@@ -7717,7 +7754,7 @@
                 "date": "2020-06-29"
             },
             {
-                "cases": 3945,
+                "cases": 3949,
                 "deaths": 50,
                 "hospitalized_current": 65,
                 "tested": 161432,
@@ -7726,7 +7763,7 @@
                 "date": "2020-06-30"
             },
             {
-                "cases": 4023,
+                "cases": 4027,
                 "deaths": 50,
                 "hospitalized_current": 60,
                 "tested": 165282,
@@ -7735,7 +7772,7 @@
                 "date": "2020-07-01"
             },
             {
-                "cases": 4124,
+                "cases": 4128,
                 "deaths": 50,
                 "hospitalized_current": 63,
                 "tested": 169456,
@@ -7744,7 +7781,7 @@
                 "date": "2020-07-02"
             },
             {
-                "cases": 4206,
+                "cases": 4211,
                 "deaths": 50,
                 "hospitalized_current": 69,
                 "tested": 172136,
@@ -7753,7 +7790,7 @@
                 "date": "2020-07-03"
             },
             {
-                "cases": 4232,
+                "cases": 4237,
                 "deaths": 50,
                 "hospitalized_current": 64,
                 "tested": 172865,
@@ -7762,7 +7799,7 @@
                 "date": "2020-07-04"
             },
             {
-                "cases": 4281,
+                "cases": 4286,
                 "deaths": 50,
                 "hospitalized_current": 68,
                 "tested": 174718,
@@ -7771,7 +7808,7 @@
                 "date": "2020-07-05"
             },
             {
-                "cases": 4367,
+                "cases": 4372,
                 "deaths": 51,
                 "hospitalized_current": 71,
                 "tested": 179063,
@@ -7780,7 +7817,7 @@
                 "date": "2020-07-06"
             },
             {
-                "cases": 4464,
+                "cases": 4469,
                 "deaths": 51,
                 "hospitalized_current": 76,
                 "tested": 183558,
@@ -7789,7 +7826,7 @@
                 "date": "2020-07-07"
             },
             {
-                "cases": 4580,
+                "cases": 4585,
                 "deaths": 51,
                 "hospitalized_current": 73,
                 "tested": 187957,
@@ -7798,7 +7835,7 @@
                 "date": "2020-07-08"
             },
             {
-                "cases": 4684,
+                "cases": 4689,
                 "deaths": 51,
                 "hospitalized_current": 84,
                 "tested": 192275,
@@ -7807,7 +7844,7 @@
                 "date": "2020-07-09"
             },
             {
-                "cases": 4807,
+                "cases": 4813,
                 "deaths": 51,
                 "hospitalized_current": 83,
                 "tested": 196557,
@@ -7816,7 +7853,7 @@
                 "date": "2020-07-10"
             },
             {
-                "cases": 4869,
+                "cases": 4875,
                 "deaths": 51,
                 "hospitalized_current": 83,
                 "tested": 198912,
@@ -7825,7 +7862,7 @@
                 "date": "2020-07-11"
             },
             {
-                "cases": 4932,
+                "cases": 4939,
                 "deaths": 52,
                 "hospitalized_current": 93,
                 "tested": 200983,
@@ -7834,7 +7871,7 @@
                 "date": "2020-07-12"
             },
             {
-                "cases": 5071,
+                "cases": 5078,
                 "deaths": 53,
                 "hospitalized_current": 89,
                 "tested": 205595,
@@ -7843,7 +7880,7 @@
                 "date": "2020-07-13"
             },
             {
-                "cases": 5232,
+                "cases": 5239,
                 "deaths": 54,
                 "hospitalized_current": 99,
                 "tested": 210667,
@@ -7852,7 +7889,7 @@
                 "date": "2020-07-14"
             },
             {
-                "cases": 5383,
+                "cases": 5390,
                 "deaths": 55,
                 "hospitalized_current": 96,
                 "tested": 215435,
@@ -7861,7 +7898,7 @@
                 "date": "2020-07-15"
             },
             {
-                "cases": 5527,
+                "cases": 5534,
                 "deaths": 56,
                 "hospitalized_current": 101,
                 "tested": 220431,
@@ -7870,7 +7907,7 @@
                 "date": "2020-07-16"
             },
             {
-                "cases": 5673,
+                "cases": 5680,
                 "deaths": 57,
                 "hospitalized_current": 103,
                 "tested": 223978,
@@ -7879,7 +7916,7 @@
                 "date": "2020-07-17"
             },
             {
-                "cases": 5749,
+                "cases": 5756,
                 "deaths": 58,
                 "hospitalized_current": 100,
                 "tested": 226029,
@@ -7888,7 +7925,7 @@
                 "date": "2020-07-18"
             },
             {
-                "cases": 5818,
+                "cases": 5825,
                 "deaths": 58,
                 "hospitalized_current": 106,
                 "tested": 227687,
@@ -7897,192 +7934,192 @@
                 "date": "2020-07-19"
             },
             {
-                "cases": 5957,
+                "cases": 5963,
                 "deaths": 58,
                 "hospitalized_current": 108,
-                "tested": 231347,
+                "tested": 231348,
                 "icu_current": 25,
                 "growthFactor": 1.02,
                 "date": "2020-07-20"
             },
             {
-                "cases": 6081,
+                "cases": 6087,
                 "deaths": 58,
                 "hospitalized_current": 117,
-                "tested": 235135,
+                "tested": 235180,
                 "icu_current": 30,
                 "growthFactor": 1.02,
                 "date": "2020-07-21"
             },
             {
-                "cases": 6202,
+                "cases": 6208,
                 "deaths": 59,
                 "hospitalized_current": 125,
-                "tested": 239260,
+                "tested": 239329,
                 "icu_current": 30,
                 "growthFactor": 1.02,
                 "date": "2020-07-22"
             },
             {
-                "cases": 6318,
+                "cases": 6328,
                 "deaths": 60,
                 "hospitalized_current": 113,
-                "tested": 242945,
+                "tested": 243026,
                 "icu_current": 29,
                 "growthFactor": 1.02,
                 "date": "2020-07-23"
             },
             {
-                "cases": 6435,
+                "cases": 6445,
                 "deaths": 60,
                 "hospitalized_current": 122,
-                "tested": 246271,
+                "tested": 246358,
                 "icu_current": 33,
                 "growthFactor": 1.02,
                 "date": "2020-07-24"
             },
             {
-                "cases": 6515,
+                "cases": 6525,
                 "deaths": 60,
                 "hospitalized_current": 119,
-                "tested": 248401,
+                "tested": 248496,
                 "icu_current": 33,
                 "growthFactor": 1.01,
                 "date": "2020-07-25"
             },
             {
-                "cases": 6577,
+                "cases": 6587,
                 "deaths": 61,
                 "hospitalized_current": 123,
-                "tested": 250383,
+                "tested": 250478,
                 "icu_current": 34,
                 "growthFactor": 1.01,
                 "date": "2020-07-26"
             },
             {
-                "cases": 6668,
+                "cases": 6678,
                 "deaths": 62,
                 "hospitalized_current": 127,
-                "tested": 254407,
+                "tested": 254513,
                 "icu_current": 38,
                 "growthFactor": 1.01,
                 "date": "2020-07-27"
             },
             {
-                "cases": 6763,
+                "cases": 6774,
                 "deaths": 63,
                 "hospitalized_current": 126,
-                "tested": 258006,
+                "tested": 258124,
                 "icu_current": 39,
                 "growthFactor": 1.01,
                 "date": "2020-07-28"
             },
             {
-                "cases": 6880,
+                "cases": 6892,
                 "deaths": 64,
                 "hospitalized_current": 128,
-                "tested": 261986,
+                "tested": 262111,
                 "icu_current": 40,
                 "growthFactor": 1.02,
                 "date": "2020-07-29"
             },
             {
-                "cases": 7004,
+                "cases": 7016,
                 "deaths": 64,
                 "hospitalized_current": 126,
-                "tested": 266133,
+                "tested": 266262,
                 "icu_current": 39,
                 "growthFactor": 1.02,
                 "date": "2020-07-30"
             },
             {
-                "cases": 7119,
+                "cases": 7131,
                 "deaths": 64,
                 "hospitalized_current": 115,
-                "tested": 270525,
+                "tested": 270656,
                 "icu_current": 36,
                 "growthFactor": 1.02,
                 "date": "2020-07-31"
             },
             {
-                "cases": 7191,
+                "cases": 7203,
                 "deaths": 66,
                 "hospitalized_current": 112,
-                "tested": 272947,
+                "tested": 273083,
                 "icu_current": 36,
                 "growthFactor": 1.01,
                 "date": "2020-08-01"
             },
             {
-                "cases": 7237,
+                "cases": 7249,
                 "deaths": 66,
                 "hospitalized_current": 111,
-                "tested": 274965,
+                "tested": 275105,
                 "icu_current": 35,
                 "growthFactor": 1.01,
                 "date": "2020-08-02"
             },
             {
-                "cases": 7339,
+                "cases": 7353,
                 "deaths": 67,
                 "hospitalized_current": 107,
-                "tested": 279577,
+                "tested": 279764,
                 "icu_current": 33,
                 "growthFactor": 1.01,
                 "date": "2020-08-03"
             },
             {
-                "cases": 7418,
+                "cases": 7433,
                 "deaths": 67,
                 "hospitalized_current": 99,
-                "tested": 283918,
+                "tested": 284140,
                 "icu_current": 31,
                 "growthFactor": 1.01,
                 "date": "2020-08-04"
             },
             {
-                "cases": 7508,
+                "cases": 7531,
                 "deaths": 67,
                 "hospitalized_current": 94,
-                "tested": 288109,
+                "tested": 288444,
                 "icu_current": 30,
                 "growthFactor": 1.01,
                 "date": "2020-08-05"
             },
             {
-                "cases": 7593,
+                "cases": 7627,
                 "deaths": 67,
                 "hospitalized_current": 91,
-                "tested": 291679,
+                "tested": 292448,
                 "icu_current": 29,
                 "growthFactor": 1.01,
                 "date": "2020-08-06"
             },
             {
-                "cases": 7623,
+                "cases": 7747,
                 "deaths": 67,
-                "hospitalized_current": 89,
-                "tested": 298616,
+                "hospitalized_current": 91,
+                "tested": 296068,
                 "icu_current": 29,
-                "growthFactor": 1,
+                "growthFactor": 1.02,
                 "date": "2020-08-07"
             },
             {
-                "cases": 7432,
+                "cases": 7802,
                 "deaths": 67,
-                "hospitalized_current": 89,
-                "tested": 285843,
-                "icu_current": 29,
-                "growthFactor": 0.97,
+                "hospitalized_current": 100,
+                "tested": 297713,
+                "icu_current": 32,
+                "growthFactor": 1.01,
                 "date": "2020-08-08"
             },
             {
-                "cases": 7548,
+                "cases": 7834,
                 "deaths": 67,
                 "hospitalized_current": 81,
-                "tested": 290284,
+                "tested": 303518,
                 "icu_current": 27,
-                "growthFactor": 1.02,
+                "growthFactor": 1,
                 "date": "2020-08-09"
             },
             {
@@ -8091,8 +8128,17 @@
                 "hospitalized_current": 86,
                 "tested": 294738,
                 "icu_current": 32,
-                "growthFactor": 1.01,
+                "growthFactor": 0.97,
                 "date": "2020-08-10"
+            },
+            {
+                "cases": 7692,
+                "deaths": 67,
+                "hospitalized_current": 88,
+                "tested": 297713,
+                "icu_current": 29,
+                "growthFactor": 1.01,
+                "date": "2020-08-11"
             }
         ]
     },
@@ -9635,9 +9681,18 @@
                 "date": "2020-08-10"
             },
             {
+                "cases": 6431,
+                "deaths": 122,
+                "hospitalized_current": 47,
+                "tested": 115266,
+                "icu_current": 12,
+                "growthFactor": 1.02,
+                "date": "2020-08-11"
+            },
+            {
                 "cases": 0,
                 "deaths": 0,
-                "date": "2020-08-11"
+                "date": "2020-08-12"
             }
         ]
     },
@@ -10396,7 +10451,7 @@
                 "date": "2020-05-07"
             },
             {
-                "cases": 2337,
+                "cases": 2338,
                 "deaths": 130,
                 "hospitalized_current": 95,
                 "tested": 38002,
@@ -10405,7 +10460,7 @@
                 "date": "2020-05-08"
             },
             {
-                "cases": 2348,
+                "cases": 2349,
                 "deaths": 131,
                 "hospitalized_current": 86,
                 "tested": 39414,
@@ -10414,7 +10469,7 @@
                 "date": "2020-05-09"
             },
             {
-                "cases": 2351,
+                "cases": 2352,
                 "deaths": 131,
                 "hospitalized_current": 92,
                 "tested": 40651,
@@ -10423,7 +10478,7 @@
                 "date": "2020-05-10"
             },
             {
-                "cases": 2371,
+                "cases": 2372,
                 "deaths": 133,
                 "hospitalized_current": 91,
                 "tested": 41750,
@@ -10432,7 +10487,7 @@
                 "date": "2020-05-11"
             },
             {
-                "cases": 2387,
+                "cases": 2388,
                 "deaths": 134,
                 "hospitalized_current": 77,
                 "tested": 42720,
@@ -10441,7 +10496,7 @@
                 "date": "2020-05-12"
             },
             {
-                "cases": 2408,
+                "cases": 2409,
                 "deaths": 135,
                 "hospitalized_current": 69,
                 "tested": 43572,
@@ -10450,7 +10505,7 @@
                 "date": "2020-05-13"
             },
             {
-                "cases": 2432,
+                "cases": 2433,
                 "deaths": 136,
                 "hospitalized_current": 67,
                 "tested": 45113,
@@ -10459,7 +10514,7 @@
                 "date": "2020-05-14"
             },
             {
-                "cases": 2446,
+                "cases": 2447,
                 "deaths": 137,
                 "hospitalized_current": 63,
                 "tested": 47267,
@@ -10468,7 +10523,7 @@
                 "date": "2020-05-15"
             },
             {
-                "cases": 2461,
+                "cases": 2462,
                 "deaths": 138,
                 "hospitalized_current": 68,
                 "tested": 48863,
@@ -10477,7 +10532,7 @@
                 "date": "2020-05-16"
             },
             {
-                "cases": 2467,
+                "cases": 2468,
                 "deaths": 138,
                 "hospitalized_current": 68,
                 "tested": 50570,
@@ -10486,7 +10541,7 @@
                 "date": "2020-05-17"
             },
             {
-                "cases": 2506,
+                "cases": 2507,
                 "deaths": 138,
                 "hospitalized_current": 73,
                 "tested": 51043,
@@ -10495,7 +10550,7 @@
                 "date": "2020-05-18"
             },
             {
-                "cases": 2550,
+                "cases": 2551,
                 "deaths": 138,
                 "hospitalized_current": 62,
                 "tested": 52398,
@@ -10504,7 +10559,7 @@
                 "date": "2020-05-19"
             },
             {
-                "cases": 2586,
+                "cases": 2587,
                 "deaths": 138,
                 "hospitalized_current": 52,
                 "tested": 54179,
@@ -10513,7 +10568,7 @@
                 "date": "2020-05-20"
             },
             {
-                "cases": 2607,
+                "cases": 2608,
                 "deaths": 139,
                 "hospitalized_current": 45,
                 "tested": 54179,
@@ -10522,7 +10577,7 @@
                 "date": "2020-05-21"
             },
             {
-                "cases": 2634,
+                "cases": 2635,
                 "deaths": 139,
                 "hospitalized_current": 54,
                 "tested": 57870,
@@ -10531,7 +10586,7 @@
                 "date": "2020-05-22"
             },
             {
-                "cases": 2651,
+                "cases": 2652,
                 "deaths": 139,
                 "hospitalized_current": 47,
                 "tested": 59639,
@@ -10540,7 +10595,7 @@
                 "date": "2020-05-23"
             },
             {
-                "cases": 2653,
+                "cases": 2654,
                 "deaths": 139,
                 "hospitalized_current": 45,
                 "tested": 61748,
@@ -10549,7 +10604,7 @@
                 "date": "2020-05-24"
             },
             {
-                "cases": 2661,
+                "cases": 2662,
                 "deaths": 140,
                 "hospitalized_current": 45,
                 "tested": 64020,
@@ -10558,7 +10613,7 @@
                 "date": "2020-05-25"
             },
             {
-                "cases": 2692,
+                "cases": 2693,
                 "deaths": 140,
                 "hospitalized_current": 53,
                 "tested": 65957,
@@ -10567,7 +10622,7 @@
                 "date": "2020-05-26"
             },
             {
-                "cases": 2731,
+                "cases": 2732,
                 "deaths": 140,
                 "hospitalized_current": 43,
                 "tested": 67694,
@@ -10576,7 +10631,7 @@
                 "date": "2020-05-27"
             },
             {
-                "cases": 2754,
+                "cases": 2755,
                 "deaths": 141,
                 "hospitalized_current": 39,
                 "tested": 68965,
@@ -10585,7 +10640,7 @@
                 "date": "2020-05-28"
             },
             {
-                "cases": 2798,
+                "cases": 2799,
                 "deaths": 141,
                 "hospitalized_current": 49,
                 "tested": 71037,
@@ -10594,7 +10649,7 @@
                 "date": "2020-05-29"
             },
             {
-                "cases": 2814,
+                "cases": 2815,
                 "deaths": 141,
                 "hospitalized_current": 49,
                 "tested": 73486,
@@ -10603,7 +10658,7 @@
                 "date": "2020-05-30"
             },
             {
-                "cases": 2824,
+                "cases": 2825,
                 "deaths": 143,
                 "hospitalized_current": 47,
                 "tested": 73934,
@@ -10612,7 +10667,7 @@
                 "date": "2020-05-31"
             },
             {
-                "cases": 2858,
+                "cases": 2859,
                 "deaths": 144,
                 "hospitalized_current": 37,
                 "tested": 77693,
@@ -10621,7 +10676,7 @@
                 "date": "2020-06-01"
             },
             {
-                "cases": 2884,
+                "cases": 2885,
                 "deaths": 145,
                 "hospitalized_current": 44,
                 "tested": 78066,
@@ -10630,7 +10685,7 @@
                 "date": "2020-06-02"
             },
             {
-                "cases": 2927,
+                "cases": 2928,
                 "deaths": 145,
                 "hospitalized_current": 57,
                 "tested": 82843,
@@ -10639,7 +10694,7 @@
                 "date": "2020-06-03"
             },
             {
-                "cases": 2964,
+                "cases": 2965,
                 "deaths": 146,
                 "hospitalized_current": 69,
                 "tested": 84600,
@@ -10648,7 +10703,7 @@
                 "date": "2020-06-04"
             },
             {
-                "cases": 2999,
+                "cases": 3000,
                 "deaths": 147,
                 "hospitalized_current": 68,
                 "tested": 84616,
@@ -10657,7 +10712,7 @@
                 "date": "2020-06-05"
             },
             {
-                "cases": 3012,
+                "cases": 3013,
                 "deaths": 147,
                 "hospitalized_current": 62,
                 "tested": 86315,
@@ -10666,7 +10721,7 @@
                 "date": "2020-06-06"
             },
             {
-                "cases": 3030,
+                "cases": 3031,
                 "deaths": 147,
                 "hospitalized_current": 52,
                 "tested": 86315,
@@ -10675,7 +10730,7 @@
                 "date": "2020-06-07"
             },
             {
-                "cases": 3069,
+                "cases": 3070,
                 "deaths": 148,
                 "hospitalized_current": 52,
                 "tested": 90204,
@@ -10684,7 +10739,7 @@
                 "date": "2020-06-08"
             },
             {
-                "cases": 3115,
+                "cases": 3116,
                 "deaths": 149,
                 "hospitalized_current": 51,
                 "tested": 91774,
@@ -10693,7 +10748,7 @@
                 "date": "2020-06-09"
             },
             {
-                "cases": 3178,
+                "cases": 3179,
                 "deaths": 150,
                 "hospitalized_current": 53,
                 "tested": 93623,
@@ -10702,7 +10757,7 @@
                 "date": "2020-06-10"
             },
             {
-                "cases": 3228,
+                "cases": 3229,
                 "deaths": 150,
                 "hospitalized_current": 59,
                 "tested": 96003,
@@ -10711,7 +10766,7 @@
                 "date": "2020-06-11"
             },
             {
-                "cases": 3286,
+                "cases": 3287,
                 "deaths": 153,
                 "hospitalized_current": 53,
                 "tested": 97856,
@@ -10720,7 +10775,7 @@
                 "date": "2020-06-12"
             },
             {
-                "cases": 3306,
+                "cases": 3307,
                 "deaths": 153,
                 "hospitalized_current": 45,
                 "tested": 100466,
@@ -10729,7 +10784,7 @@
                 "date": "2020-06-13"
             },
             {
-                "cases": 3319,
+                "cases": 3320,
                 "deaths": 153,
                 "hospitalized_current": 48,
                 "tested": 102848,
@@ -10738,7 +10793,7 @@
                 "date": "2020-06-14"
             },
             {
-                "cases": 3381,
+                "cases": 3382,
                 "deaths": 153,
                 "hospitalized_current": 50,
                 "tested": 102848,
@@ -10747,7 +10802,7 @@
                 "date": "2020-06-15"
             },
             {
-                "cases": 3479,
+                "cases": 3480,
                 "deaths": 153,
                 "hospitalized_current": 47,
                 "tested": 107142,
@@ -10756,7 +10811,7 @@
                 "date": "2020-06-16"
             },
             {
-                "cases": 3571,
+                "cases": 3572,
                 "deaths": 153,
                 "hospitalized_current": 55,
                 "tested": 110523,
@@ -10765,7 +10820,7 @@
                 "date": "2020-06-17"
             },
             {
-                "cases": 3674,
+                "cases": 3675,
                 "deaths": 153,
                 "hospitalized_current": 47,
                 "tested": 113349,
@@ -10774,7 +10829,7 @@
                 "date": "2020-06-18"
             },
             {
-                "cases": 3785,
+                "cases": 3786,
                 "deaths": 154,
                 "hospitalized_current": 55,
                 "tested": 115432,
@@ -10783,7 +10838,7 @@
                 "date": "2020-06-19"
             },
             {
-                "cases": 3835,
+                "cases": 3836,
                 "deaths": 155,
                 "hospitalized_current": 58,
                 "tested": 119986,
@@ -10792,7 +10847,7 @@
                 "date": "2020-06-20"
             },
             {
-                "cases": 3872,
+                "cases": 3873,
                 "deaths": 155,
                 "hospitalized_current": 52,
                 "tested": 122343,
@@ -10801,7 +10856,7 @@
                 "date": "2020-06-21"
             },
             {
-                "cases": 3977,
+                "cases": 3978,
                 "deaths": 155,
                 "hospitalized_current": 56,
                 "tested": 127148,
@@ -10810,7 +10865,7 @@
                 "date": "2020-06-22"
             },
             {
-                "cases": 4171,
+                "cases": 4172,
                 "deaths": 157,
                 "hospitalized_current": 68,
                 "tested": 131235,
@@ -10819,7 +10874,7 @@
                 "date": "2020-06-23"
             },
             {
-                "cases": 4323,
+                "cases": 4324,
                 "deaths": 158,
                 "hospitalized_current": 76,
                 "tested": 133698,
@@ -10828,7 +10883,7 @@
                 "date": "2020-06-24"
             },
             {
-                "cases": 4460,
+                "cases": 4461,
                 "deaths": 159,
                 "hospitalized_current": 81,
                 "tested": 136114,
@@ -10837,7 +10892,7 @@
                 "date": "2020-06-25"
             },
             {
-                "cases": 4599,
+                "cases": 4600,
                 "deaths": 159,
                 "hospitalized_current": 77,
                 "tested": 166229,
@@ -10846,7 +10901,7 @@
                 "date": "2020-06-26"
             },
             {
-                "cases": 4710,
+                "cases": 4711,
                 "deaths": 159,
                 "hospitalized_current": 87,
                 "tested": 166229,
@@ -10855,7 +10910,7 @@
                 "date": "2020-06-27"
             },
             {
-                "cases": 4771,
+                "cases": 4772,
                 "deaths": 159,
                 "hospitalized_current": 91,
                 "tested": 173977,
@@ -10864,7 +10919,7 @@
                 "date": "2020-06-28"
             },
             {
-                "cases": 4915,
+                "cases": 4916,
                 "deaths": 161,
                 "hospitalized_current": 97,
                 "tested": 180134,
@@ -10873,7 +10928,7 @@
                 "date": "2020-06-29"
             },
             {
-                "cases": 5103,
+                "cases": 5104,
                 "deaths": 162,
                 "hospitalized_current": 88,
                 "tested": 190178,
@@ -10909,7 +10964,7 @@
                 "date": "2020-07-03"
             },
             {
-                "cases": 5605,
+                "cases": 5604,
                 "deaths": 167,
                 "hospitalized_current": 97,
                 "tested": 218608,
@@ -10918,7 +10973,7 @@
                 "date": "2020-07-04"
             },
             {
-                "cases": 5704,
+                "cases": 5703,
                 "deaths": 169,
                 "hospitalized_current": 113,
                 "tested": 219619,
@@ -10954,7 +11009,7 @@
                 "date": "2020-07-08"
             },
             {
-                "cases": 6815,
+                "cases": 6816,
                 "deaths": 175,
                 "hospitalized_current": 139,
                 "tested": 241191,
@@ -10963,7 +11018,7 @@
                 "date": "2020-07-09"
             },
             {
-                "cases": 7052,
+                "cases": 7053,
                 "deaths": 175,
                 "hospitalized_current": 140,
                 "tested": 248812,
@@ -10972,7 +11027,7 @@
                 "date": "2020-07-10"
             },
             {
-                "cases": 7227,
+                "cases": 7228,
                 "deaths": 175,
                 "hospitalized_current": 145,
                 "tested": 255607,
@@ -10981,7 +11036,7 @@
                 "date": "2020-07-11"
             },
             {
-                "cases": 7346,
+                "cases": 7347,
                 "deaths": 176,
                 "hospitalized_current": 147,
                 "tested": 256025,
@@ -10990,7 +11045,7 @@
                 "date": "2020-07-12"
             },
             {
-                "cases": 7546,
+                "cases": 7547,
                 "deaths": 177,
                 "hospitalized_current": 168,
                 "tested": 267660,
@@ -10999,7 +11054,7 @@
                 "date": "2020-07-13"
             },
             {
-                "cases": 7900,
+                "cases": 7901,
                 "deaths": 178,
                 "hospitalized_current": 169,
                 "tested": 274574,
@@ -11008,7 +11063,7 @@
                 "date": "2020-07-14"
             },
             {
-                "cases": 8276,
+                "cases": 8278,
                 "deaths": 179,
                 "hospitalized_current": 182,
                 "tested": 277860,
@@ -11017,7 +11072,7 @@
                 "date": "2020-07-15"
             },
             {
-                "cases": 8609,
+                "cases": 8611,
                 "deaths": 181,
                 "hospitalized_current": 172,
                 "tested": 277860,
@@ -11026,7 +11081,7 @@
                 "date": "2020-07-16"
             },
             {
-                "cases": 8861,
+                "cases": 8863,
                 "deaths": 182,
                 "hospitalized_current": 182,
                 "tested": 284398,
@@ -11035,7 +11090,7 @@
                 "date": "2020-07-17"
             },
             {
-                "cases": 8987,
+                "cases": 8990,
                 "deaths": 183,
                 "hospitalized_current": 186,
                 "tested": 284433,
@@ -11044,7 +11099,7 @@
                 "date": "2020-07-18"
             },
             {
-                "cases": 9069,
+                "cases": 9071,
                 "deaths": 183,
                 "hospitalized_current": 191,
                 "tested": 288165,
@@ -11053,7 +11108,7 @@
                 "date": "2020-07-19"
             },
             {
-                "cases": 9255,
+                "cases": 9258,
                 "deaths": 184,
                 "hospitalized_current": 196,
                 "tested": 308985,
@@ -11080,7 +11135,7 @@
                 "date": "2020-07-22"
             },
             {
-                "cases": 10015,
+                "cases": 10014,
                 "deaths": 189,
                 "hospitalized_current": 205,
                 "tested": 325239,
@@ -11089,7 +11144,7 @@
                 "date": "2020-07-23"
             },
             {
-                "cases": 10249,
+                "cases": 10248,
                 "deaths": 190,
                 "hospitalized_current": 205,
                 "tested": 326878,
@@ -11098,7 +11153,7 @@
                 "date": "2020-07-24"
             },
             {
-                "cases": 10383,
+                "cases": 10382,
                 "deaths": 192,
                 "hospitalized_current": 219,
                 "tested": 336547,
@@ -11107,7 +11162,7 @@
                 "date": "2020-07-25"
             },
             {
-                "cases": 10473,
+                "cases": 10472,
                 "deaths": 193,
                 "hospitalized_current": 220,
                 "tested": 339608,
@@ -11125,7 +11180,7 @@
                 "date": "2020-07-27"
             },
             {
-                "cases": 10853,
+                "cases": 10858,
                 "deaths": 196,
                 "hospitalized_current": 210,
                 "tested": 347203,
@@ -11134,7 +11189,7 @@
                 "date": "2020-07-28"
             },
             {
-                "cases": 11105,
+                "cases": 11112,
                 "deaths": 196,
                 "hospitalized_current": 209,
                 "tested": 350873,
@@ -11143,7 +11198,7 @@
                 "date": "2020-07-29"
             },
             {
-                "cases": 11320,
+                "cases": 11326,
                 "deaths": 197,
                 "hospitalized_current": 211,
                 "tested": 354290,
@@ -11152,7 +11207,7 @@
                 "date": "2020-07-30"
             },
             {
-                "cases": 11544,
+                "cases": 11548,
                 "deaths": 198,
                 "hospitalized_current": 202,
                 "tested": 359661,
@@ -11161,7 +11216,7 @@
                 "date": "2020-07-31"
             },
             {
-                "cases": 11691,
+                "cases": 11695,
                 "deaths": 199,
                 "hospitalized_current": 214,
                 "tested": 367513,
@@ -11170,7 +11225,7 @@
                 "date": "2020-08-01"
             },
             {
-                "cases": 11757,
+                "cases": 11761,
                 "deaths": 201,
                 "hospitalized_current": 204,
                 "tested": 372595,
@@ -11179,7 +11234,7 @@
                 "date": "2020-08-02"
             },
             {
-                "cases": 11879,
+                "cases": 11884,
                 "deaths": 203,
                 "hospitalized_current": 193,
                 "tested": 376175,
@@ -11188,7 +11243,7 @@
                 "date": "2020-08-03"
             },
             {
-                "cases": 12121,
+                "cases": 12134,
                 "deaths": 206,
                 "hospitalized_current": 197,
                 "tested": 385324,
@@ -11197,7 +11252,7 @@
                 "date": "2020-08-04"
             },
             {
-                "cases": 12405,
+                "cases": 12417,
                 "deaths": 206,
                 "hospitalized_current": 197,
                 "tested": 387377,
@@ -11206,16 +11261,16 @@
                 "date": "2020-08-05"
             },
             {
-                "cases": 12590,
+                "cases": 12610,
                 "deaths": 206,
                 "hospitalized_current": 180,
                 "tested": 391405,
                 "icu_current": 52,
-                "growthFactor": 1.01,
+                "growthFactor": 1.02,
                 "date": "2020-08-06"
             },
             {
-                "cases": 12783,
+                "cases": 12813,
                 "deaths": 206,
                 "hospitalized_current": 183,
                 "tested": 394482,
@@ -11224,7 +11279,7 @@
                 "date": "2020-08-07"
             },
             {
-                "cases": 12888,
+                "cases": 12937,
                 "deaths": 206,
                 "hospitalized_current": 195,
                 "tested": 399617,
@@ -11233,7 +11288,7 @@
                 "date": "2020-08-08"
             },
             {
-                "cases": 12922,
+                "cases": 12994,
                 "deaths": 207,
                 "hospitalized_current": 192,
                 "tested": 414487,
@@ -11242,13 +11297,22 @@
                 "date": "2020-08-09"
             },
             {
-                "cases": 12928,
+                "cases": 13025,
                 "deaths": 207,
                 "hospitalized_current": 195,
                 "tested": 424024,
                 "icu_current": 52,
                 "growthFactor": 1,
                 "date": "2020-08-10"
+            },
+            {
+                "cases": 12962,
+                "deaths": 207,
+                "hospitalized_current": 193,
+                "tested": 434849,
+                "icu_current": 52,
+                "growthFactor": 1,
+                "date": "2020-08-11"
             }
         ]
     },
@@ -13026,14 +13090,25 @@
                 "date": "2020-08-10"
             },
             {
+                "cases": 4338,
                 "deaths": 41,
                 "hospitalized_current": 37,
+                "tested": 59454,
                 "active": 221,
                 "hospitalized": 175,
-                "cases": 4338,
                 "recovered": 4076,
                 "growthFactor": 1.01,
                 "date": "2020-08-11"
+            },
+            {
+                "deaths": 41,
+                "hospitalized_current": 37,
+                "active": 231,
+                "hospitalized": 176,
+                "cases": 4414,
+                "recovered": 4142,
+                "growthFactor": 1.02,
+                "date": "2020-08-12"
             }
         ]
     },
@@ -14674,6 +14749,15 @@
                 "active": 1714,
                 "growthFactor": 1.02,
                 "date": "2020-08-10"
+            },
+            {
+                "cases": 3825,
+                "deaths": 51,
+                "tested": 75381,
+                "recovered": 1989,
+                "active": 1785,
+                "growthFactor": 1.02,
+                "date": "2020-08-11"
             }
         ]
     }
