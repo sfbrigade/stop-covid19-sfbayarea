@@ -10,15 +10,18 @@
     />
     <!-- Add Scroll Area if SideNavigationOverview is shown -->
     <div
-      :class="{ 'FaqContent-Scroll-Area': !isSmallScreenWidth }"
+      :class="{ 'SideNav-MainContent-Scroll-Area': !isSmallScreenWidth }"
       @scroll.passive="debounce"
     >
-      <div class="FaqContent-Scroll-Length" :style="{ height: scrollLength }">
+      <div
+        class="SideNav-MainContent-Scroll-Length"
+        :style="{ height: scrollLength }"
+      >
         <div
           v-for="(item, i) in items"
-          :id="`faq-content-${i}`"
+          :id="`sidenav-main-content-${i}`"
           :key="i"
-          class="FaqContent-Wrapper"
+          class="SideNav-MainContent-Wrapper"
         >
           <FaqCategory
             :ref="i"
@@ -47,7 +50,7 @@ export default {
       items: Faq.faqItems,
       allScrollTops: [],
       activeCategory: 0,
-      lastFaq: {
+      lastMainContent: {
         top: 0,
         height: 200
       },
@@ -57,14 +60,14 @@ export default {
   },
   mounted() {
     // Get all FAQ category's top position to track SideNavigationOverview scroll behavior
-    const faqCategoriesCount = Faq.faqItems.length
-    for (let i = 0; i < faqCategoriesCount; i++) {
-      const elem = document.getElementById(`faq-content-${i}`)
+    const mainCategoriesCount = Faq.faqItems.length
+    for (let i = 0; i < mainCategoriesCount; i++) {
+      const elem = document.getElementById(`sidenav-main-content-${i}`)
       const top = elem.offsetTop
       this.allScrollTops.push(top)
-      if (i === faqCategoriesCount - 1) {
-        this.lastFaq.top = top
-        this.lastFaq.height = elem.offsetHeight
+      if (i === mainCategoriesCount - 1) {
+        this.lastMainContent.top = top
+        this.lastMainContent.height = elem.offsetHeight
       }
     }
     // Set scroll length for the current browser size
@@ -73,10 +76,14 @@ export default {
     this.isSmallScreenWidth = !this.sideNavigationOverviewIsShown()
   },
   methods: {
+    // Clicked function that scrolls to the anchor hash
     scrollToCategory(category) {
       this.activeCategory = category
-      location.hash = `#faq-content-${category}`
+      location.hash = `#sidenav-main-content-${category}`
     },
+    // Debounce and handleScroll method handles when the content is scrolled
+    // and 300ms after the scrolling stopped,
+    // the side navigation will auto highlight the active category
     debounce: debounceFromNPM(function(e) {
       this.handleScroll(e)
     }, 300),
@@ -104,7 +111,8 @@ export default {
           document.location.hash = ''
         }
 
-        const currentScrollPosition = event.target.scrollTop
+        // Add title bar 340 + 30 margin + 60 nav bar
+        const currentScrollPosition = event.target.scrollTop + 340 + 30 + 60
         // Set active for item in SideNavigationOverview that matches the current FAQ item
         this.activeCategory = findHashIndexBaseOnScrollPosition(
           currentScrollPosition,
@@ -116,16 +124,18 @@ export default {
       return window.innerWidth
     },
     getScrollLength() {
+      // Add extra spacing to the last item so that the last content can fully scroll to top
       const extraSpaceToExpandLastItem = this.sideNavigationOverviewIsShown()
         ? 1.65
         : 1.21
       const scrollLength =
-        this.lastFaq.top + this.lastFaq.height * extraSpaceToExpandLastItem
+        this.lastMainContent.top +
+        this.lastMainContent.height * extraSpaceToExpandLastItem
 
       return `${scrollLength}px`
     },
     sideNavigationOverviewIsShown() {
-      // SideNavigationOverview displays at width 601px
+      // SideNavigationOverview displays at width 601px and up
       return this.getScreenWidth() > 600
     }
   },
@@ -149,13 +159,13 @@ export default {
     color: $gray-2;
     margin-bottom: 12px;
   }
-  .FaqContent-Scroll-Area {
+  .SideNav-MainContent-Scroll-Area {
     overflow-x: scroll;
-    /* minus header height */
-    height: calc(100vh - 80px);
+    /* minus header height and title bar + margin */
+    height: calc(100vh - 340px - 30px - 60px);
     padding: 0 10px;
   }
-  .FaqContent-Wrapper {
+  .SideNav-MainContent-Wrapper {
     margin-bottom: 20px;
   }
 }

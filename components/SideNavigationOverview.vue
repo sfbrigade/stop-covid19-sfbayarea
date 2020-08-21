@@ -5,7 +5,7 @@
         v-for="(item, i) in categories"
         :key="i"
         v-ripple="false"
-        :to="`#faq-content-${i}`"
+        :to="`#sidenav-main-content-${i}`"
         :class="{ active: activeCategory === i }"
         class="SideNavigationOverview-Container"
       >
@@ -62,6 +62,10 @@ export default {
         @include font-size(14);
         text-overflow: unset;
         white-space: break-spaces;
+        height: 40px;
+        display: flex;
+        justify-content: start;
+        align-items: center;
       }
     }
 
@@ -69,6 +73,10 @@ export default {
       text-decoration: none !important;
       .v-list-item__title {
         color: $purple-2 !important;
+        height: 40px;
+        display: flex;
+        justify-content: start;
+        align-items: center;
       }
       &.v-list-item--active {
         cursor: default;
