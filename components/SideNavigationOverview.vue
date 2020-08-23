@@ -258,8 +258,7 @@ export default {
 
   .SideNav-MainContent-Scroll-Area {
     overflow-x: scroll;
-    /* minus header height and title bar + margin */
-    height: calc(100vh - 340px - 30px - 60px);
+    height: calc(100vh - 80px);
     padding: 0 10px;
   }
   .SideNav-MainContent-Wrapper {
