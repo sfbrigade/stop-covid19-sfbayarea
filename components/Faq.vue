@@ -4,6 +4,12 @@
       <!-- Tab TBD -->
     </h2>
     <SideNavigationOverview :categories="items">
+      <!-- Add pinned content here -->
+      <!-- <template v-slot:pinned>
+        <div class="pinned">
+          <h1>Pinned</h1>
+        </div>
+      </template> -->
       <template v-slot="{ item, i }">
         <FaqCategory
           :ref="i"

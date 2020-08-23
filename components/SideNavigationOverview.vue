@@ -30,6 +30,13 @@
         :style="{ height: scrollLength }"
       >
         <div
+          v-if="isPinnedSlotShown()"
+          :id="`sidenav-main-content-pinned`"
+          class="SideNav-MainContent-Wrapper"
+        >
+          <slot name="pinned" />
+        </div>
+        <div
           v-for="(item, i) in categories"
           :id="`sidenav-main-content-${i}`"
           :key="i"
@@ -38,6 +45,14 @@
           <slot :item="item" :i="i" />
         </div>
       </div>
+    </div>
+    <div
+      v-if="isPinnedSlotShown() && !isSmallScreenWidth"
+      class="scroll-to-top-icon"
+    >
+      <v-icon @click="scrollToTop()">
+        mdi-arrow-up
+      </v-icon>
     </div>
   </div>
 </template>
@@ -66,24 +81,22 @@ export default {
   mounted() {
     // Get all FAQ category's top position to track SideNavigationOverview scroll behavior
     const mainCategoriesCount = this.categories.length
-    for (let i = 0; i < mainCategoriesCount; i++) {
-      const elem = document.getElementById(`sidenav-main-content-${i}`)
-      const top = elem.offsetTop
-      this.allScrollTops.push(top)
-      if (i === mainCategoriesCount - 1) {
-        this.lastMainContent.top = top
-        this.lastMainContent.height = elem.offsetHeight
-      }
-    }
+    const { allScrollTops, lastMainContent } = this.getAllScrollTop(
+      mainCategoriesCount
+    )
+
+    this.allScrollTops = allScrollTops
+    // last content top and height
+    this.lastMainContent = lastMainContent
+
     // Set scroll length for the current browser size
     this.scrollLength = this.getScrollLength()
     // Small screen based on SideNavigationOverview display
     this.isSmallScreenWidth = !this.sideNavigationOverviewIsShown()
+    this.isPinnedSlotShown()
+    if (this.isPinnedSlotShown()) this.activeCategory = null
   },
   methods: {
-    viewCategory(i) {
-      this.$emit('clicked', i)
-    },
     // Clicked function that scrolls to the anchor hash
     scrollToCategory(category) {
       this.activeCategory = category
@@ -120,13 +133,37 @@ export default {
         }
 
         // Add title bar 340 + 30 margin + 60 nav bar
-        const currentScrollPosition = event.target.scrollTop + 340 + 30 + 60
+        const NAV_AND_TITLE_BAR = 340 + 30 + 60
+        const currentScrollTop = event.target.scrollTop
+
         // Set active for item in SideNavigationOverview that matches the current FAQ item
-        this.activeCategory = findHashIndexBaseOnScrollPosition(
-          currentScrollPosition,
-          this.allScrollTops
-        )
+        if (this.isPinnedSlotShown() && currentScrollTop === 0) {
+          this.activeCategory = null
+        } else {
+          const currentScrollPosition = currentScrollTop + NAV_AND_TITLE_BAR
+          this.activeCategory = findHashIndexBaseOnScrollPosition(
+            currentScrollPosition,
+            this.allScrollTops
+          )
+        }
       }
+    },
+    isPinnedSlotShown() {
+      return !!this.$slots.pinned
+    },
+    getAllScrollTop(mainCategoriesCount) {
+      const allScrollTops = []
+      const lastMainContent = {}
+      for (let i = 0; i < mainCategoriesCount; i++) {
+        const elem = document.getElementById(`sidenav-main-content-${i}`)
+        const top = elem.offsetTop
+        allScrollTops.push(top)
+        if (i === mainCategoriesCount - 1) {
+          lastMainContent.top = top
+          lastMainContent.height = elem.offsetHeight
+        }
+      }
+      return { allScrollTops, lastMainContent }
     },
     getScreenWidth() {
       return window.innerWidth
@@ -141,6 +178,16 @@ export default {
         this.lastMainContent.height * extraSpaceToExpandLastItem
 
       return `${scrollLength}px`
+    },
+    scrollToTop() {
+      const elem = document.getElementsByClassName(
+        'SideNav-MainContent-Scroll-Area'
+      )[0]
+      if (elem) {
+        elem.scrollTop = 0
+      } else {
+        window.scrollTo(0, 0)
+      }
     },
     sideNavigationOverviewIsShown() {
       // SideNavigationOverview displays at width 601px and up
@@ -217,6 +264,21 @@ export default {
   }
   .SideNav-MainContent-Wrapper {
     margin-bottom: 20px;
+  }
+  .scroll-to-top-icon {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    background: $purple-2;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    z-index: 999;
+    .mdi-arrow-up::before {
+      color: $white-1;
+    }
   }
 }
 </style>
