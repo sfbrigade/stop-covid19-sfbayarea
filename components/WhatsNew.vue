@@ -1,6 +1,5 @@
 <template>
   <div class="WhatsNew">
-    <!-- <SideNavigationOverview/> -->
     <div class="county-select">
       <v-card color="#7D70BB" class="county-selector-card">
         <label class="selection">Select a County:</label>
@@ -52,7 +51,6 @@
 import { convertISO8601ToHumanDateFormat } from '@/utils/formatDate'
 import Data from '@/data/data.json'
 import DataVTwo from '@/data/data.v2.json'
-// import SideNavigationOverview from '@/components/SideNavigationOverview.vue'
 
 export default {
   props: {
