@@ -1,9 +1,11 @@
 <template>
   <div class="chart-info-overlay">
     <div class="content-wrapper">
-      <span class="overlay-info">
-        {{ chartInfo }}
-      </span>
+      <div v-for="(info, i) in chartInfo" :key="i" class="overlay-info">
+        <b>{{ info.title }} </b>
+        <br />
+        <span> {{ info.description }} </span>
+      </div>
     </div>
   </div>
 </template>
@@ -11,9 +13,9 @@
 export default {
   props: {
     chartInfo: {
-      type: String,
+      type: Array,
       required: false,
-      default: ''
+      default: () => []
     }
   }
 }
@@ -21,9 +23,8 @@ export default {
 <style lang="scss">
 .chart-info-overlay {
   position: absolute;
-  height: 80%;
+  height: 50%;
   width: 95%;
-  padding: 10px;
   z-index: 99;
 
   .content-wrapper {
@@ -31,12 +32,12 @@ export default {
     height: 100%;
     width: 100%;
     opacity: 0.9;
+    line-height: 25px;
 
     .overlay-info {
-      display: flex;
-      font-size: 16px;
+      font-size: 14px;
       text-align: justify;
-      padding: 20px 10px;
+      padding: 5px;
       z-index: 999;
     }
   }

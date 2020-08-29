@@ -1,5 +1,5 @@
 <template>
-  <data-view :title="title" :date="date" :url="url">
+  <data-view :title="title" :date="date" :url="url" :chart-info="chartInfo">
     <bar
       v-if="displayData != null"
       :chart-data="displayData"
@@ -34,6 +34,11 @@ export default {
       type: String,
       required: true,
       default: 'cases'
+    },
+    chartInfo: {
+      type: Array,
+      required: false,
+      default: () => []
     },
     date: {
       type: String,
