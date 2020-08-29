@@ -30,7 +30,7 @@
           }}
         </div>
         <div class="stat-note">
-          in past 14 days average
+          on average in the past 14 days
         </div>
       </div>
       <div class="deaths">

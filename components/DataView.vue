@@ -168,7 +168,7 @@ export default class DataView extends Vue {
 @media screen and (min-width: 960px) {
   .DataView {
     &-ToolbarTitle {
-      max-width: 250px;
+      max-width: 800px;
     }
   }
   #confirmed-cases {
