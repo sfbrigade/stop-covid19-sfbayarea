@@ -195,7 +195,7 @@
         class="DataCard"
       >
         <time-line-chart-county-comparison
-          :title="`Cases per 1,000 People`"
+          :title="`New Cases per 100,000 Residents 14 Day Average`"
           :title-id="'cases-per-people'"
           :chart-data="CountyData"
           :selected-counties="selectedCounties"

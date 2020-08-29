@@ -20,17 +20,17 @@
         </div>
       </div>
       <div class="case-frequency">
-        <span class="stat-title">Confirmed Cases per 10,000</span>
+        <span class="stat-title">Confirmed Cases per 100,000</span>
         <div class="stat-number">
           {{
             (
-              calcTotalCasesSummary.cases /
-              (calcTotalCasesSummary.population / 10000)
+              calcAverageCasesInLast14Days /
+              (calcTotalCasesSummary.population / 100000)
             ).toFixed(2)
           }}
         </div>
         <div class="stat-note">
-          in past 14 days
+          in past 14 days average
         </div>
       </div>
       <div class="deaths">
@@ -160,6 +160,14 @@ export default {
           this.data.cases[this.data.cases.length - 1].cumulative
         )
       }
+    },
+    calcAverageCasesInLast14Days() {
+      const last14DaysCases = this.data.cases.slice(-14)
+      const averageDailyCases =
+        last14DaysCases.reduce((pre, curr) => {
+          return pre + curr.confirmedTransition
+        }, 0) / last14DaysCases.length
+      return averageDailyCases
     }
   }
 }

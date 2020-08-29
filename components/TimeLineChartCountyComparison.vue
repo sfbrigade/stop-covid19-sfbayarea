@@ -60,19 +60,29 @@ export default {
         const dataSets = []
         if (this.chartDataType === 'casesperpeople') {
           for (const county of this.selectedCounties) {
+            const confirmedDailyIn14daysQueue = []
             dataSets.push({
               type: 'line',
               fill: false,
-              borderWidth: 1,
+              borderWidth: 3,
               pointBackgroundColor: 'rgba(0,0,0,0)',
               pointBorderColor: 'rgba(0,0,0,0)',
               borderColor: county.color,
-              lineTension: 0,
+              lineTension: 1,
               label: county.name,
               data: this.chartData[county.name].graph.map(d => {
+                // calculate new cases per 100,000 residents (14 day average)
+                confirmedDailyIn14daysQueue.push(d.confirmedTransition)
+                if (confirmedDailyIn14daysQueue.length > 14) {
+                  confirmedDailyIn14daysQueue.shift()
+                }
+                const averageDailyCases =
+                  confirmedDailyIn14daysQueue.reduce((pre, curr) => {
+                    return pre + curr
+                  }, 0) / confirmedDailyIn14daysQueue.length
                 return (
-                  d.confirmedTransition /
-                  (this.chartData[county.name].population / 1000)
+                  averageDailyCases /
+                  (this.chartData[county.name].population / 100000)
                 )
               })
             })
@@ -93,11 +103,11 @@ export default {
             dataSets.push({
               type: 'line',
               fill: false,
-              borderWidth: 1,
+              borderWidth: 3,
               pointBackgroundColor: 'rgba(0,0,0,0)',
               pointBorderColor: 'rgba(0,0,0,0)',
               borderColor: county.color,
-              lineTension: 0,
+              lineTension: 1,
               label: county.name,
               data: this.chartData[county.name].graph.map(d => {
                 confirmedCumulativeIn7daysQueue.push(d.cumulative)
