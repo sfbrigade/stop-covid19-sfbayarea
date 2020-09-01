@@ -3,7 +3,7 @@
     <v-card class="guidelines">
       <h2>test</h2>
       <p>This is a test for the new guidelines page card</p>
-      {{ info }}
+      {{ name }}
     </v-card>
   </div>
 </template>
