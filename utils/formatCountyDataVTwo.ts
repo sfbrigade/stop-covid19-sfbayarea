@@ -147,6 +147,10 @@ const buildGenderChartData = (
     backgroundColor: PURPLE_MAIN,
     data: getDatasetValues(genderLabels, genders)
   }
+
+  sortGenderDesc(updatedGenderGroup.labels, updatedGenderGroup.datasets.data)
+  console.log('genderLabels', genderLabels)
+  console.log('updatedGenderGroup.datasets', updatedGenderGroup.datasets)
   updatedGenderGroup.customChartOptions!.plugins = {
     datalabels: {
       color: '#FFFFFF',
@@ -401,6 +405,20 @@ const normalizeDataBy = (
 
 const parseDateForYrMoDay = (date: string): string => {
   return date.split('T')[0]
+}
+
+const sortGenderDesc = (labels: string[], count: number[]): void => {
+  const map: any = {}
+  for (let i = 0; i < labels.length; i++) {
+    map[count[i]] = labels[i]
+  }
+  console.log('map', map)
+
+  count.sort((a: number, b: number) => b - a)
+  console.log('count', count)
+
+  labels = []
+  count.forEach((num: number) => labels.push(map[num]))
 }
 
 const sortLabelsAndValuesByValue = (data: any) => {
