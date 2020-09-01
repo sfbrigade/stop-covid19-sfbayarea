@@ -84,7 +84,8 @@ export default {
               pointBackgroundColor: 'rgba(0,0,0,0)',
               pointBorderColor: 'rgba(0,0,0,0)',
               borderColor: county.color,
-              lineTension: 1,
+              lineTension: 0.5,
+              borderJoinStyle: 'round',
               label: county.name,
               data: this.chartData[county.name].graph.map(d => {
                 // calculate new cases per 100,000 residents (14 day average)
@@ -123,7 +124,8 @@ export default {
               pointBackgroundColor: 'rgba(0,0,0,0)',
               pointBorderColor: 'rgba(0,0,0,0)',
               borderColor: county.color,
-              lineTension: 1,
+              lineTension: 0.5,
+              borderJoinStyle: 'round',
               label: county.name,
               data: this.chartData[county.name].graph.map(d => {
                 confirmedCumulativeIn7daysQueue.push(d.cumulative)
