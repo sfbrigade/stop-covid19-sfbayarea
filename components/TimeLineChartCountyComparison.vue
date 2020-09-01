@@ -1,5 +1,11 @@
 <template>
-  <data-view :title="title" :date="date" :url="url" :chart-info="chartInfo">
+  <data-view
+    :title="title"
+    :sub-title="subTitle"
+    :date="date"
+    :url="url"
+    :chart-info="chartInfo"
+  >
     <bar
       v-if="displayData != null"
       :chart-data="displayData"
@@ -16,6 +22,11 @@ export default {
   components: { DataView },
   props: {
     title: {
+      type: String,
+      required: false,
+      default: ''
+    },
+    subTitle: {
       type: String,
       required: false,
       default: ''

@@ -2,9 +2,12 @@
   <v-card class="DataView pa-1">
     <v-toolbar flat class="DataView-content" :class="{ centered: centered }">
       <div v-if="title" class="DataView-TitleContainer">
-        <h3 :id="titleId" class="DataView-ToolbarTitle">
+        <h4 :id="titleId" class="DataView-ToolbarTitle">
           {{ title }}
-        </h3>
+        </h4>
+        <h5 v-if="subTitle" class="DataView-ToolbarSubTitle">
+          {{ subTitle }}
+        </h5>
         <slot name="button" />
       </div>
       <div class="DataView-InfoContainer">
@@ -65,6 +68,7 @@ import InfoOutlineIcon from '@/static/information-outline.svg'
 })
 export default class DataView extends Vue {
   @Prop() private title!: string
+  @Prop() private subTitle!: string
   @Prop() private titleId!: string
   @Prop() private date!: string
   @Prop() private url!: string
@@ -110,6 +114,10 @@ export default class DataView extends Vue {
   &-ToolbarTitle {
     font-size: 20px;
     font-weight: bold;
+    line-height: 1.5;
+  }
+  &-ToolbarSubTitle {
+    font-size: 16px;
     line-height: 1.5;
   }
   &-InfoContainer {
