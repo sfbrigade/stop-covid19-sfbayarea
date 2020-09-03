@@ -23,7 +23,7 @@ export default {
 <style lang="scss">
 .chart-info-overlay {
   position: absolute;
-  height: 50%;
+  height: 70%;
   width: 95%;
   z-index: 99;
 
