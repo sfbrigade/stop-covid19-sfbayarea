@@ -44,7 +44,7 @@ jobs:
           ${{ runner.os }}-pip-${{ hashFiles('scraper/requirements.txt') }}-
           ${{ runner.os }}-pip-
 
-    # Install dependencis
+    # Install dependencies
     # - The commit that was checked out will be available as $SCRAPER_COMMIT.
     - name: Install Data Scraper & Dependencies
       run: |
@@ -59,22 +59,15 @@ jobs:
       run: |
         echo "::set-env name=SCRAPER_TIME::$(date)"
         cd ${GITHUB_WORKSPACE}/scraper
+
         OUT_PATH="${GITHUB_WORKSPACE}/site/data/data.v2.json"
-        
-        # Ideally, we'd just run the scraper against all counties like below:
-        #     python scraper_data.py > "${OUT_PATH}"
-        # But we don't want to stop if there are errors, so instead we run each
-        # scraper individually. Then we combine all the outputs and overlay
-        # them on top of the previoius output.
-        (python scraper_data.py alameda || echo '{}') > alameda.json
-        (python scraper_data.py san_francisco || echo '{}') > san_francisco.json
-        (python scraper_data.py solano || echo '{}') > solano.json
-        (python scraper_data.py sonoma || echo '{}') > sonoma.json
-        # Combine outputs with the previous run's saved output:
-        jq -s \
-          '.[0] + .[1] + .[2] + .[3] + .[4]' \
-          "${OUT_PATH}" alameda.json san_francisco.json solano.json sonoma.json \
-          > "${OUT_PATH}"
+
+        python scraper_data.py > today.json 2> errors.txt
+        jq -s '.[0] + .[1]' $OUT_PATH today.json > $OUT_PATH
+        ERRORS=`cat errors.txt`
+        if [ -n "${ERRORS}" ]; then
+          curl -X POST -H 'Content-type: application/json' --data "{\"text\":\"${ERRORS}\"}' $SLACK_WEBHOOK_URL
+        fi
 
     - name: Create PR if New Data
       uses: peter-evans/create-pull-request@v2
@@ -90,11 +83,11 @@ jobs:
         body: |
           Created using commit [${{env.SCRAPER_COMMIT}}](https://github.com/sfbrigade/data-covid19-sfbayarea/commit/${{env.SCRAPER_COMMIT}})
           from sfbrigade/data-covid19-sfbayarea.
-          
+
           Scraped at: ${{ env.SCRAPER_TIME }}
         commit-message: |
           GitHubAction: data v2 update
-          
+
           Created with commit ${{env.SCRAPER_COMMIT}} from sfbrigade/data-covid19-sfbayarea
           https://github.com/sfbrigade/data-covid19-sfbayarea/commit/${{env.SCRAPER_COMMIT}}
         reviewers: kengoy
