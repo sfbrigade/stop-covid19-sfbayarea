@@ -66,6 +66,9 @@ jobs:
         jq -s '.[0] + .[1]' $OUT_PATH today.json > $OUT_PATH
         ERRORS=`cat errors.txt`
         if [ -n "${ERRORS}" ]; then
+          echo "Encountered the following errors while scraping:"
+          echo "------------------------------------------------"
+          echo "${ERRORS}"
           curl -X POST -H 'Content-type: application/json' --data "{\"text\":\"${ERRORS}\"}' $SLACK_WEBHOOK_URL
         fi
 
