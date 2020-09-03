@@ -44,7 +44,7 @@ jobs:
           ${{ runner.os }}-pip-${{ hashFiles('scraper/requirements.txt') }}-
           ${{ runner.os }}-pip-
 
-    # Install dependencis
+    # Install dependencies
     # - The commit that was checked out will be available as $SCRAPER_COMMIT.
     - name: Install Data Scraper & Dependencies
       run: |
@@ -75,11 +75,11 @@ jobs:
         body: |
           Created using commit [${{env.SCRAPER_COMMIT}}](https://github.com/sfbrigade/data-covid19-sfbayarea/commit/${{env.SCRAPER_COMMIT}})
           from sfbrigade/data-covid19-sfbayarea.
-          
+
           Scraped at: ${{ env.SCRAPER_TIME }}
         commit-message: |
           GitHubAction: data update
-          
+
           Created with commit ${{env.SCRAPER_COMMIT}} from sfbrigade/data-covid19-sfbayarea
           https://github.com/sfbrigade/data-covid19-sfbayarea/commit/${{env.SCRAPER_COMMIT}}
         reviewers: kengoy
