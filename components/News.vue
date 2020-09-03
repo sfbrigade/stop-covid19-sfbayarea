@@ -1,9 +1,20 @@
 <template>
   <div class="News">
+    <div class="county-select">
+      <v-card color="#7D70BB" class="county-selector-card">
+        <label class="selection">Select a County:</label>
+        <select v-model="currentCounty" class="county-choice">
+          <option v-for="(countyName, index) in countyNames" :key="index">
+            {{ countyName }}
+          </option>
+        </select>
+      </v-card>
+    </div>
+
     <div v-for="(county, i) in counties" :key="i" class="News-county">
       <whats-new class="mb-4" :feed="county" />
     </div>
-    <CityGuidelines />
+    <CityGuidelines :county="currentCounty" />
   </div>
 </template>
 <script>
@@ -18,6 +29,7 @@ import SanFranciscoNews from '@/data/news/san_francisco.json'
 // import SolanoNews from '@/data/news/solano.json'
 // import SonomaNews from '@/data/news/sonoma.json'
 import CityGuidelines from '@/components/CityGuidelines.vue'
+import Data from '@/data/data.json'
 
 export default {
   components: {
@@ -25,7 +37,10 @@ export default {
     CityGuidelines
   },
   data() {
+    const currentCounty = 'San Francisco County'
+    const countyNames = Object.keys(Data)
     const data = {
+      Data,
       counties: [
         SanFranciscoNews
         // AlamedaNews,
@@ -36,7 +51,9 @@ export default {
         // SantaClaraNews,
         // SolanoNews,
         // SonomaNews
-      ]
+      ],
+      currentCounty,
+      countyNames
     }
     return data
   },

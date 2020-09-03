@@ -1,16 +1,5 @@
 <template>
   <div class="WhatsNew">
-    <div class="county-select">
-      <v-card color="#7D70BB" class="county-selector-card">
-        <label class="selection">Select a County:</label>
-        <select v-model="currentCounty" class="county-choice">
-          <option v-for="(countyName, index) in countyNames" :key="index">
-            {{ countyName }}
-          </option>
-        </select>
-      </v-card>
-    </div>
-
     <h2 class="WhatsNew-heading">
       <v-icon size="24" class="WhatsNew-heading-icon">
         mdi-information

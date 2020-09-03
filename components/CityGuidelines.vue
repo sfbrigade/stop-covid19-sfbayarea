@@ -1,10 +1,13 @@
 <template>
   <div class="CityGuidelines">
-    <v-card class="guidelines">
-      <h2>test</h2>
-      <p>This is a test for the new guidelines page card</p>
-      {{ info }}
-    </v-card>
+    <div v-for="(item, i) in info[county].info" :key="i">
+      <v-card class="guidelines">
+        <header>{{ item.header }}</header>
+        <div v-for="(body, j) in item.body" :key="j">
+          <h4>{{ body.h4 }}</h4>
+        </div>
+      </v-card>
+    </div>
   </div>
 </template>
 
@@ -13,6 +16,12 @@ import Info from '@/data/info.json'
 
 export default {
   name: 'CityGuidelines',
+  props: {
+    county: {
+      type: String,
+      required: true
+    }
+  },
   data() {
     return {
       info: Info
