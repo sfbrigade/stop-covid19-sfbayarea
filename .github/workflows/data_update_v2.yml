@@ -62,7 +62,7 @@ jobs:
 
         OUT_PATH="${GITHUB_WORKSPACE}/site/data/data.v2.json"
 
-        python scraper_data.py > today.json 2> errors.txt
+        python scraper_data.py > today.json 2> errors.txt || true
         jq -s '.[0] + .[1]' $OUT_PATH today.json > $OUT_PATH
         ERRORS=`cat errors.txt`
         if [ -n "${ERRORS}" ]; then
