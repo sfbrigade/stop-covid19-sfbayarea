@@ -195,11 +195,13 @@
         class="DataCard"
       >
         <time-line-chart-county-comparison
-          :title="`Cases per 1,000 People`"
+          :title="`New Cases per 100,000 Residents`"
+          :sub-title="'14 day rolling average'"
           :title-id="'cases-per-people'"
           :chart-data="CountyData"
           :selected-counties="selectedCounties"
           :chart-data-type="'casesperpeople'"
+          :chart-info="chartInfo.casesPerResidents"
           :date="CountyData[currentCounty].lastUpdatedAt"
           :url="'https://coronadatascraper.com'"
         />
@@ -331,8 +333,30 @@ export default {
     },
     getChartInfo() {
       return {
-        raceEth:
-          'This chart shows the racial/ethnic breakdown of county cases. This information is gathered from multiple sources including medical records, testing labs and interviews. The large number of unknown cases should be noted when assessing the significance of this data.'
+        raceEth: [
+          {
+            title: 'What this graph shows',
+            description:
+              'This chart shows the racial/ethnic breakdown of county cases. This information is gathered from multiple sources including medical records, testing labs and interviews. The large number of unknown cases should be noted when assessing the significance of this data.'
+          }
+        ],
+        casesPerResidents: [
+          {
+            title: 'What this graph shows',
+            description:
+              'The daily values shown on this graph are the 14-day rolling average for new confirmed cases adjusted for county population size.'
+          },
+          {
+            title: 'Why ‘per 100,000 residents’?',
+            description:
+              'Showing a population-adjusted value puts larger and smaller counties on the same scale and allows for more accurate comparison.'
+          },
+          {
+            title: 'Why a 14 day average?',
+            description:
+              'Showing an average value smooths the data curve and makes trends easier to observe. The 14 day period was chosen to match the maximum time frame between contraction of the virus and the onset of symptoms.'
+          }
+        ]
       }
     }
   },

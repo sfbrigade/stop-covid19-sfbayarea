@@ -1,5 +1,11 @@
 <template>
-  <data-view :title="title" :date="date" :url="url">
+  <data-view
+    :title="title"
+    :sub-title="subTitle"
+    :date="date"
+    :url="url"
+    :chart-info="chartInfo"
+  >
     <bar
       v-if="displayData != null"
       :chart-data="displayData"
@@ -20,6 +26,11 @@ export default {
       required: false,
       default: ''
     },
+    subTitle: {
+      type: String,
+      required: false,
+      default: ''
+    },
     chartData: {
       type: Array,
       required: false,
@@ -34,6 +45,11 @@ export default {
       type: String,
       required: true,
       default: 'cases'
+    },
+    chartInfo: {
+      type: Array,
+      required: false,
+      default: () => []
     },
     date: {
       type: String,
@@ -60,19 +76,30 @@ export default {
         const dataSets = []
         if (this.chartDataType === 'casesperpeople') {
           for (const county of this.selectedCounties) {
+            const confirmedDailyIn14daysQueue = []
             dataSets.push({
               type: 'line',
               fill: false,
-              borderWidth: 1,
+              borderWidth: 3,
               pointBackgroundColor: 'rgba(0,0,0,0)',
               pointBorderColor: 'rgba(0,0,0,0)',
               borderColor: county.color,
-              lineTension: 0,
+              lineTension: 0.5,
+              borderJoinStyle: 'round',
               label: county.name,
               data: this.chartData[county.name].graph.map(d => {
+                // calculate new cases per 100,000 residents (14 day average)
+                confirmedDailyIn14daysQueue.push(d.confirmedTransition)
+                if (confirmedDailyIn14daysQueue.length > 14) {
+                  confirmedDailyIn14daysQueue.shift()
+                }
+                const averageDailyCases =
+                  confirmedDailyIn14daysQueue.reduce((pre, curr) => {
+                    return pre + curr
+                  }, 0) / confirmedDailyIn14daysQueue.length
                 return (
-                  d.confirmedTransition /
-                  (this.chartData[county.name].population / 1000)
+                  averageDailyCases /
+                  (this.chartData[county.name].population / 100000)
                 )
               })
             })
@@ -93,11 +120,12 @@ export default {
             dataSets.push({
               type: 'line',
               fill: false,
-              borderWidth: 1,
+              borderWidth: 3,
               pointBackgroundColor: 'rgba(0,0,0,0)',
               pointBorderColor: 'rgba(0,0,0,0)',
               borderColor: county.color,
-              lineTension: 0,
+              lineTension: 0.5,
+              borderJoinStyle: 'round',
               label: county.name,
               data: this.chartData[county.name].graph.map(d => {
                 confirmedCumulativeIn7daysQueue.push(d.cumulative)
