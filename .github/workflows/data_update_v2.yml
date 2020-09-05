@@ -69,7 +69,7 @@ jobs:
           echo "Encountered the following errors while scraping:"
           echo "------------------------------------------------"
           echo "${ERRORS}"
-          curl -X POST -H 'Content-type: application/json' --data "{\"text\":\"${ERRORS}\"}' $SLACK_WEBHOOK_URL
+          curl -X POST -H 'Content-type: application/json' --data "{\"text\":\"${ERRORS}\"}" $SLACK_WEBHOOK_URL
         fi
 
     - name: Create PR if New Data
