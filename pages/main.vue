@@ -74,8 +74,8 @@ export default Vue.extend({
         {
           id: 3,
           name: 'Updates',
-          header: 'Latest Updates',
-          subheader: 'Local news and links to updates about COVID-19'
+          header: 'County News & Information',
+          subheader: 'Guidlelines and Resources Specific to your County'
         }
       ]
     }

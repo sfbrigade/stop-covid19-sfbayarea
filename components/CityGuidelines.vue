@@ -2,9 +2,16 @@
   <div class="CityGuidelines">
     <div v-for="(item, i) in info[county].info" :key="i">
       <v-card class="guidelines">
-        <h2>{{ item.header }}</h2>
+        <p class="Header">
+          {{ item.header }}
+        </p>
+        <p class="time-updated">
+          Last updated dd/mm/yy
+        </p>
         <div v-for="(body, j) in item.body" :key="j">
-          <h4>{{ body.h4 }}</h4>
+          <p class="content-header">
+            {{ body.h4 }}
+          </p>
           <div v-for="(content, k) in body.content" :key="k">
             <div v-for="(p, l) in content.p2" :key="l" class="p2">
               <p>{{ p.p }}</p>
@@ -19,7 +26,7 @@
               </ul>
             </div>
             <div class="link-container">
-              <a href="">{{ content.link }}</a>
+              <a href="" class="links">{{ content.link }}</a>
             </div>
           </div>
         </div>
@@ -53,8 +60,40 @@ export default {
     padding: 10px;
     margin-bottom: 20px;
     width: 925px;
-    height: 400px;
+    height: 650px;
     background-color: white;
+    padding-left: 30px;
+    padding-top: 24px;
   }
+}
+
+.Header {
+  font-size: 24px;
+  font-weight: bold;
+  line-height: 24px;
+  letter-spacing: 0.03em;
+}
+
+.time-updated {
+  font-size: 14px;
+  color: #6f6f6f;
+}
+
+.content-header {
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 23px;
+}
+
+.links {
+  font-style: italic;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 140%;
+  padding-bottom: 19px;
+}
+
+ul li {
+  padding: 9px 9px;
 }
 </style>
