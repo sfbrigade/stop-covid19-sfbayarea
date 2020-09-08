@@ -56,6 +56,8 @@ jobs:
         echo "::set-env name=SCRAPER_COMMIT::$(git rev-parse HEAD)"
 
     - name: Scrape Data
+      env:
+        SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
       run: |
         echo "::set-env name=SCRAPER_TIME::$(date)"
         cd ${GITHUB_WORKSPACE}/scraper
