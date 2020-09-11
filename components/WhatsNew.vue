@@ -1,12 +1,13 @@
 <template>
   <div class="WhatsNew">
     <h2 class="WhatsNew-heading">
-      <v-icon size="24" class="WhatsNew-heading-icon">
-        mdi-information
-      </v-icon>
-      {{ feed.title }}
+      News & Updates
     </h2>
     <ul class="WhatsNew-list">
+      <div class="WhatsNew-subheading">
+        <p>Date</p>
+        <p>Link</p>
+      </div>
       <li v-for="(item, i) in feed.items" :key="i" class="WhatsNew-list-item">
         <a
           class="WhatsNew-list-item-anchor"
@@ -86,12 +87,24 @@ export default {
   align-items: center;
   @include card-h2();
   margin-bottom: 12px;
-  color: $gray-2;
+  // color: $gray-2;
   margin-left: 12px;
-
+  height: 28px;
   &-icon {
     margin: 3px;
   }
+}
+
+.WhatsNew-subheading {
+  font-size: 16px;
+  font-weight: bold;
+  margin-left: 12px;
+  display: flex;
+}
+
+.WhatsNew-subheading p {
+  width: 10%;
+  color: $gray-1;
 }
 
 .WhatsNew .WhatsNew-list {
@@ -140,6 +153,8 @@ export default {
   align-items: center;
   width: 925px;
   height: 64px;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 .selection {
@@ -152,6 +167,7 @@ export default {
   height: 33px;
   margin-left: 30px;
   margin-top: 18px;
+  margin-bottom: 18px;
 }
 
 .county-choice {
@@ -161,7 +177,7 @@ export default {
   color: #444;
   line-height: 1.3;
   padding: 0.6em 1.4em 0.5em 0.8em;
-  width: 40%;
+  width: 250px;
   max-width: 60%;
   box-sizing: border-box;
   margin: 0;

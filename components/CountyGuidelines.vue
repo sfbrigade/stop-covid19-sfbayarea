@@ -1,13 +1,13 @@
 <template>
-  <div class="CityGuidelines">
+  <div class="CountyGuidelines">
     <div v-for="(item, i) in info[county].info" :key="i">
       <v-card class="guidelines">
         <p class="Header">
           {{ item.header }}
         </p>
-        <p class="time-updated">
+        <!-- <p class="time-updated">
           Last updated dd/mm/yy
-        </p>
+        </p> -->
         <div v-for="(body, j) in item.body" :key="j">
           <p class="content-header">
             {{ body.h4 }}
@@ -39,7 +39,7 @@
 import Info from '@/data/info.json'
 
 export default {
-  name: 'CityGuidelines',
+  name: 'CountyGuidelines',
   props: {
     county: {
       type: String,
@@ -55,15 +55,16 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.CityGuidelines {
+.CountyGuidelines {
   .guidelines {
     padding: 10px;
     margin-bottom: 20px;
     width: 925px;
-    height: 650px;
     background-color: white;
     padding-left: 30px;
     padding-top: 24px;
+    box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
   }
 }
 
@@ -85,12 +86,15 @@ export default {
   line-height: 23px;
 }
 
+.link-container {
+  margin-bottom: 15px;
+}
+
 .links {
   font-style: italic;
   font-weight: bold;
   font-size: 14px;
   line-height: 140%;
-  padding-bottom: 19px;
 }
 
 ul li {
