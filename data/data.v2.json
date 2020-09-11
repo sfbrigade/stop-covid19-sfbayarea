@@ -1,22 +1,22 @@
 {
   "marin": {
     "name": "Marin County",
-    "update_time": "2020-09-10T10:09:32.337814",
+    "update_time": "2020-09-11T10:09:31.973434",
     "source_url": "https://coronavirus.marinhhs.org/surveillance",
     "meta_from_source": [
       [
         "Information about confirmed COVID-19 cases is updated daily on weekdays by approximately 5pm Pacific Standard Time (PST). Information about respiratory illness activity is updated biweekly each Tuesday and Friday.",
-        "COVID-19 testing and case data are reported as timely, accurately, and completely as we have available. Data are updated as we receive information that is more complete and will change over time as we learn more (see FAQs). Cases are lab-confirmed COVID-19 cases reported to Marin County Public Health by providers, commercial laboratories, and academic laboratories, including reporting results through the California Reportable Disease Information Exchange. A lab-confirmed case is defined as detection of SARS-CoV-2 RNA in a clinical specimen using a molecular amplification detection test. For more information about data sources and methods please reference the FAQs.",
-        "There are two main measures of potential COVID-19 activity locally the number and characteristics of confirmed COVID-19 cases, and the general number of people experiencing severe respiratory illness. Seeing important increases helps our healthcare providers and partners know when COVID-19 activity may be increasing in Marin. Marin County Public Health receives regular updates on episodes of respiratory illness from all Marin County emergency departments (ED), and from Emergency Medical Services (EMS), our countywide 911 ambulance response system. We track these over time, and compare to prior years. Note there arealways ups and downs in our usual activity, and were looking for significant changes."
+        "There are two main measures of potential COVID-19 activity locally the number and characteristics of confirmed COVID-19 cases, and the general number of people experiencing severe respiratory illness. Seeing important increases helps our healthcare providers and partners know when COVID-19 activity may be increasing in Marin. Marin County Public Health receives regular updates on episodes of respiratory illness from all Marin County emergency departments (ED), and from Emergency Medical Services (EMS), our countywide 911 ambulance response system. We track these over time, and compare to prior years. Note there arealways ups and downs in our usual activity, and were looking for significant changes.",
+        "COVID-19 testing and case data are reported as timely, accurately, and completely as we have available. Data are updated as we receive information that is more complete and will change over time as we learn more (see FAQs). Cases are lab-confirmed COVID-19 cases reported to Marin County Public Health by providers, commercial laboratories, and academic laboratories, including reporting results through the California Reportable Disease Information Exchange. A lab-confirmed case is defined as detection of SARS-CoV-2 RNA in a clinical specimen using a molecular amplification detection test. For more information about data sources and methods please reference the FAQs."
       ],
       [
-        "Negative and pending tests are excluded from the Marin County test data.",
-        "*Recovered is currently defined as 14 days post-diagnosis with COVID-19 excluding deaths and those currently hospitalized",
-        "Note: Approximately 65% of confirmed COVID-19 cases have known race/ethnicity. Those who identified as Hispanic/Latino are not counted in any other race/ethnicity category. Native Hawaiian/Pacific Islander, American Indian/Alaska Native, and Multi or Other NH Race/Ethnicity are combined as \"Other\" in the pie charts above.",
-        "Note: On 8/11/2020 the reference date for this chart was changed from report date to test date. This reflects the earliest date on record for a COVID-19 case. Due to the time required for reporting data is lagged by 3 days. Positive cases may be under-reported for up to 10 days.",
         "Note that this test data is about tests done by Marin County residents, not about all tests done in Marin County (includes residents and non-residents).",
         "Note: Age is missing for <1% of cases. Percentages are out of non-missing values.",
-        "Note: Gender is missing for <1% of cases. Percentages are out of non-missing values."
+        "Note: Gender is missing for <1% of cases. Percentages are out of non-missing values.",
+        "Note: On 8/11/2020 the reference date for this chart was changed from report date to test date. This reflects the earliest date on record for a COVID-19 case. Due to the time required for reporting data is lagged by 3 days. Positive cases may be under-reported for up to 10 days.",
+        "Negative and pending tests are excluded from the Marin County test data.",
+        "*Recovered is currently defined as 14 days post-diagnosis with COVID-19 excluding deaths and those currently hospitalized",
+        "Note: Approximately 65% of confirmed COVID-19 cases have known race/ethnicity. Those who identified as Hispanic/Latino are not counted in any other race/ethnicity category. Native Hawaiian/Pacific Islander, American Indian/Alaska Native, and Multi or Other NH Race/Ethnicity are combined as \"Other\" in the pie charts above."
       ]
     ],
     "meta_from_baypd": "",
@@ -971,6 +971,11 @@
           "date": "2020-09-09",
           "cumul_cases": 4141,
           "cases": 11
+        },
+        {
+          "date": "2020-09-10",
+          "cumul_cases": 4170,
+          "cases": 29
         }
       ],
       "deaths": [
@@ -1923,6 +1928,11 @@
           "date": "2020-09-09",
           "cumul_deaths": 73,
           "deaths": 0
+        },
+        {
+          "date": "2020-09-10",
+          "cumul_deaths": 73,
+          "deaths": 0
         }
       ],
       "tests": [
@@ -2860,38 +2870,43 @@
           "date": "2020-09-06",
           "positive": 4,
           "cumul_positive": 4129
+        },
+        {
+          "date": "2020-09-07",
+          "positive": 4,
+          "cumul_positive": 4133
         }
       ]
     },
     "case_totals": {
       "gender": {
-        "male": 2037,
-        "female": 2040
+        "male": 2053,
+        "female": 2050
       },
       "age_group": [
         {
           "group": "0_to_9",
-          "raw_count": 261
+          "raw_count": 264
         },
         {
           "group": "10_to_18",
-          "raw_count": 357
+          "raw_count": 360
         },
         {
           "group": "19_to_34",
-          "raw_count": 1249
+          "raw_count": 1256
         },
         {
           "group": "35_to_49",
-          "raw_count": 1088
+          "raw_count": 1094
         },
         {
           "group": "50_to_64",
-          "raw_count": 634
+          "raw_count": 638
         },
         {
           "group": "65_to_79",
-          "raw_count": 314
+          "raw_count": 321
         },
         {
           "group": "80_to_94",
@@ -3035,7 +3050,7 @@
   },
   "san_francisco": {
     "name": "San Francisco County",
-    "update_time": "2020-09-09T15:30:37+0000",
+    "update_time": "2020-09-10T15:30:22+0000",
     "source_url": "https://data.sfgov.org/stories/s/San-Francisco-COVID-19-Data-and-Reports/fjki-2fab",
     "meta_from_source": "<strong>A. SUMMARY</strong>\nThis dataset represents the COVID-19 positive confirmed cases and deaths by day and transmission type. Demographic and transmission data are based on information reported from case interviews, laboratories, and providers. This data may not be immediately available for recently reported cases and data will change to reflect as information becomes available. \n\n<strong>B. HOW THE DATASET IS CREATED</strong>\nInformation on cases and deaths including case demographic and transmission details is reported from a combination of data sources including electronic and faxed laboratory reports, case interviews, medical providers, and electronic medical record systems. These multiple streams of data are merged, deduplicated, undergo quality assurance and other data verification processes, and are continually updated to maximize completeness of information and reporting on San Francisco residents with COVID-19.\n\n<strong>C. UPDATE PROCESS</strong>\nUpdated daily, dataset uploaded manually by staff\n\n<strong>D. HOW TO USE THIS DATASET</strong>\nCase counts are provided by category of the disposition. Confirmed are those cases where lab testing was positive, deaths are those cases of infection resulting in death. To get counts in either category, you must filter the Case Type Disposition or pivot the data.\n\nInformation on transmission of COVID-19 is based on case interviews with individuals who have a confirmed positive test. Individuals are asked if they have been in close contact with a known COVID-19 case. If they answer yes, transmission category is recorded as contact with a known case.  If they report no contact with a known case, transmission category is recorded as community transmission.  If the case is not interviewed or was not asked the question, they are counted as unknown.\n\nThese data do not reflect the number of COVID-19 recoveries. The San Francisco Department of Public Health (SFDPH) is focused on caring for patients, reducing the spread of COVID-19, and tracking the surge. Recoveries happen in many settings, including homes, residential facilities, and hospitals, and are not routinely reported to the local health department. This is consistent with SFDPH reporting in the regular flu season.\n\nThere are three other datasets related to cases:\n1. <a href=\"https://data.sfgov.org/COVID-19/COVID-19-Cases-Summarized-by-Age-Group-and-Gender/sunc-2t3k\">COVID-19 Cases Summarized by Age Group</a>\n2. <a href=\"https://data.sfgov.org/COVID-19/COVID-19-Cases-Summarized-by-Race-and-Ethnicity/vqqm-nsqg\">COVID-19 Cases Summarized by Race and Ethnicity</a>\n3. <a href=\"https://data.sfgov.org/COVID-19/COVID-19-Cases-Summarized-by-Gender/nhy6-gqam\">COVID-19 Cases Summarized by Gender</a>\n\n<strong>A. SUMMARY</strong>\nThis dataset represents the COVID-19 positive confirmed cases by gender. Demographic and transmission data are based on information reported from case interviews, laboratories, and providers. This data may not be immediately available for recently reported cases and data will change to reflect as information becomes available. Cumulative counts of 5 or fewer are excluded from the dataset.\n\n<strong>B. HOW THE DATASET IS CREATED</strong>\nInformation on cases and deaths including case demographic and transmission details is reported from a combination of data sources including electronic and faxed laboratory reports, case interviews, medical providers, and electronic medical record systems. These multiple streams of data are merged, deduplicated, undergo quality assurance and other data verification processes, and are continually updated to maximize completeness of information and reporting on San Francisco residents with COVID-19. Data are prepared by close of business daily for public display.\n\n<strong>C. UPDATE PROCESS</strong>\nUpdated daily, dataset uploaded manually by staff\n\n<strong>D. HOW TO USE THIS DATASET</strong>\nUnknowns may become known over time as more information is gathered.\n\nGender groups resulting in 5 or fewer cumulative cases are dropped for privacy reasons.\n\nThere are two other datasets related to cases:\n1. <a href=\"https://data.sfgov.org/COVID-19/COVID-19-Cases-Summarized-by-Date-Transmission-and/tvq9-ec9w\">COVID-19 Cases Summarized by Date, Transmission and Case Disposition</a>\n2. <a href=\"https://data.sfgov.org/COVID-19/COVID-19-Cases-Summarized-by-Race-and-Ethnicity/vqqm-nsqg\">COVID-19 Cases Summarized by Race and Ethnicity</a>\n3. <a href=\"https://data.sfgov.org/COVID-19/COVID-19-Cases-Summarized-by-Age-Group/sunc-2t3k\">COVID-19 Cases Summarized by Age Group</a>\n\n<strong>A. SUMMARY</strong>\nThis dataset represents the COVID-19 positive confirmed cases by age group. Demographic and transmission data are based on information reported from case interviews, laboratories, and providers. This data may not be immediately available for recently reported cases and data will change to reflect as information becomes available. Cumulative counts of 5 or fewer are excluded from the dataset.\n\n<strong>B. HOW THE DATASET IS CREATED</strong>\nInformation on cases and deaths including case demographic and transmission details is reported from a combination of data sources including electronic and faxed laboratory reports, case interviews, medical providers, and electronic medical record systems. These multiple streams of data are merged, deduplicated, undergo quality assurance and other data verification processes, and are continually updated to maximize completeness of information and reporting on San Francisco residents with COVID-19. Data are prepared by close of business daily for public display.\n\n<strong>C. UPDATE PROCESS</strong>\nUpdated daily, dataset uploaded manually by staff\n\n<strong>D. HOW TO USE THIS DATASET</strong>\nAge groups are binned in to the following groups to minimize re-identifcation:\n<18, 18-30, 31-40, 41-50, 51-60, 61-70, 71-80, 81+, Unknown\n\nUnknowns may become known over time as more information is gathered.\n\nage groups resulting in 5 or fewer cumulative cases are dropped for privacy reasons.\n\nThere are two other datasets related to cases:\n1. <a href=\"https://data.sfgov.org/COVID-19/COVID-19-Cases-Summarized-by-Date-Transmission-and/tvq9-ec9w\">COVID-19 Cases Summarized by Date, Transmission and Case Disposition</a>\n2. <a href=\"https://data.sfgov.org/COVID-19/COVID-19-Cases-Summarized-by-Race-and-Ethnicity/vqqm-nsqg\">COVID-19 Cases Summarized by Race and Ethnicity</a>\n3. <a href=\"https://data.sfgov.org/COVID-19/COVID-19-Cases-Summarized-by-Gender/nhy6-gqam\">COVID-19 Cases Summarized by Age Group</a>\n\n<strong>A. SUMMARY</strong>\nThis dataset represents the COVID-19 positive confirmed cases by race and ethnicity. Demographic and transmission data are based on information reported from case interviews, laboratories, and providers. This data may not be immediately available for recently reported cases and data will change to reflect as information becomes available. Cumulative counts of 5 or fewer are excluded from the dataset.\n\n<strong>B. HOW THE DATASET IS CREATED</strong>\nInformation on cases and deaths including case demographic and transmission details is reported from a combination of data sources including electronic and faxed laboratory reports, case interviews, medical providers, and electronic medical record systems. These multiple streams of data are merged, deduplicated, undergo quality assurance and other data verification processes, and are continually updated to maximize completeness of information and reporting on San Francisco residents with COVID-19. Data are prepared by close of business daily for public display.\n\n<strong>C. UPDATE PROCESS</strong>\nUpdated daily, dataset uploaded manually by staff\n\n<strong>D. HOW TO USE THIS DATASET</strong>\nUnknowns may become known over time as more information is gathered.\n\nRace/Ethnicity groups resulting in 5 or fewer cumulative cases are dropped for privacy reasons.\n\nThere are three other datasets related to cases:\n1. <a href=\"https://data.sfgov.org/COVID-19/COVID-19-Cases-Summarized-by-Date-Transmission-and/tvq9-ec9w\">COVID-19 Cases Summarized by Date, Transmission and Case Disposition</a>\n2. <a href=\"https://data.sfgov.org/COVID-19/COVID-19-Cases-Summarized-by-Gender/nhy6-gqam\">COVID-19 Cases Summarized by Gender</a>\n3. <a href=\"https://data.sfgov.org/COVID-19/COVID-19-Cases-Summarized-by-Age-Group/sunc-2t3k\">COVID-19 Cases Summarized by Age Group</a>\n\n<strong>A. SUMMARY</strong>\nCase information on COVID-19 Laboratory testing. This data includes a daily count of test results reported, and how many of those were positive, negative, and indeterminate. Reported tests include tests with a positive, negative or indeterminate result. Indeterminate results, which could not conclusively determine whether COVID-19 virus was present, are not included in the calculation of percent positive. Testing for the novel coronavirus is available through commercial, clinical, and hospital laboratories, as well as the SFDPH Public Health Laboratory.\n\n<strong>B. HOW THE DATASET IS CREATED</strong>\nLaboratory test volume and positivity for COVID-19 is based on electronic laboratory test reports. Deduplication, quality assurance measures and other data verification processes maximize accuracy of laboratory test information.\n\n<strong>C. UPDATE PROCESS</strong>\nUpdated daily\n\n<strong>D. HOW TO USE THIS DATASET</strong>\nDue to the high degree of variation in the time needed to complete tests by different labs there is a delay in this reporting. On March 24 the Health Officer ordered all labs in the City to report complete COVID-19 testing information to the local and state health departments. In order to track trends over time, a data user can analyze this data by \"result_date\" and see how the count of reported results and positivity rate have changed over time.\n\n",
     "meta_from_baypd": "SF county reports tests with positive or negative results. The following datapoints are not directly reported, and were calculated by BayPD using available data: cumulative cases, cumulative deaths, cumulative positive tests, cumulative negative tests, cumulative total tests. \n\n Race and Ethnicity: individuals are assigned to just one category. Individuals identified as 'Hispanic or Latino' are assigned 'Latinx_or_Hispanic'. Individuals identified as 'Not Hispanic or Latino' are assigned to their race identification. Due to an error in the source data, it appears that Native American datapoint is not currently assigned a race category in the source data. BayPD assigns those cases without race category, and with ethnicity = 'Unknown', as 'Native American' race. BayPD is not currently reporting deaths by demographic groups. These will be made available when the data is accessible.",
@@ -3848,123 +3863,128 @@
         },
         {
           "date": "2020-08-14",
-          "cases": 108,
-          "cumul_cases": 8533
+          "cases": 107,
+          "cumul_cases": 8532
         },
         {
           "date": "2020-08-15",
           "cases": 66,
-          "cumul_cases": 8599
+          "cumul_cases": 8598
         },
         {
           "date": "2020-08-16",
           "cases": 38,
-          "cumul_cases": 8637
+          "cumul_cases": 8636
         },
         {
           "date": "2020-08-17",
-          "cases": 81,
-          "cumul_cases": 8718
+          "cases": 80,
+          "cumul_cases": 8716
         },
         {
           "date": "2020-08-18",
           "cases": 80,
-          "cumul_cases": 8798
+          "cumul_cases": 8796
         },
         {
           "date": "2020-08-19",
           "cases": 96,
-          "cumul_cases": 8894
+          "cumul_cases": 8892
         },
         {
           "date": "2020-08-20",
           "cases": 85,
-          "cumul_cases": 8979
+          "cumul_cases": 8977
         },
         {
           "date": "2020-08-21",
           "cases": 78,
-          "cumul_cases": 9057
+          "cumul_cases": 9055
         },
         {
           "date": "2020-08-22",
           "cases": 43,
-          "cumul_cases": 9100
+          "cumul_cases": 9098
         },
         {
           "date": "2020-08-23",
           "cases": 41,
-          "cumul_cases": 9141
+          "cumul_cases": 9139
         },
         {
           "date": "2020-08-24",
           "cases": 92,
-          "cumul_cases": 9233
+          "cumul_cases": 9231
         },
         {
           "date": "2020-08-25",
           "cases": 79,
-          "cumul_cases": 9312
+          "cumul_cases": 9310
         },
         {
           "date": "2020-08-26",
           "cases": 91,
-          "cumul_cases": 9403
+          "cumul_cases": 9401
         },
         {
           "date": "2020-08-27",
           "cases": 99,
-          "cumul_cases": 9502
+          "cumul_cases": 9500
         },
         {
           "date": "2020-08-28",
           "cases": 64,
-          "cumul_cases": 9566
+          "cumul_cases": 9564
         },
         {
           "date": "2020-08-29",
           "cases": 45,
-          "cumul_cases": 9611
+          "cumul_cases": 9609
         },
         {
           "date": "2020-08-30",
           "cases": 31,
-          "cumul_cases": 9642
+          "cumul_cases": 9640
         },
         {
           "date": "2020-08-31",
-          "cases": 82,
-          "cumul_cases": 9724
+          "cases": 83,
+          "cumul_cases": 9723
         },
         {
           "date": "2020-09-01",
-          "cases": 80,
+          "cases": 81,
           "cumul_cases": 9804
         },
         {
           "date": "2020-09-02",
-          "cases": 84,
-          "cumul_cases": 9888
+          "cases": 83,
+          "cumul_cases": 9887
         },
         {
           "date": "2020-09-03",
           "cases": 88,
-          "cumul_cases": 9976
+          "cumul_cases": 9975
         },
         {
           "date": "2020-09-04",
-          "cases": 65,
-          "cumul_cases": 10041
+          "cases": 71,
+          "cumul_cases": 10046
         },
         {
           "date": "2020-09-05",
-          "cases": 21,
-          "cumul_cases": 10062
+          "cases": 31,
+          "cumul_cases": 10077
         },
         {
           "date": "2020-09-06",
-          "cases": 12,
-          "cumul_cases": 10074
+          "cases": 24,
+          "cumul_cases": 10101
+        },
+        {
+          "date": "2020-09-07",
+          "cases": 19,
+          "cumul_cases": 10120
         }
       ],
       "deaths": [
@@ -4304,9 +4324,14 @@
           "cumul_deaths": 86
         },
         {
-          "date": "2020-09-05",
+          "date": "2020-09-01",
           "deaths": 1,
           "cumul_deaths": 87
+        },
+        {
+          "date": "2020-09-05",
+          "deaths": 1,
+          "cumul_deaths": 88
         }
       ],
       "tests": [
@@ -5843,11 +5868,11 @@
         {
           "date": "2020-08-17",
           "tests": 4570,
-          "positive": 105,
-          "negative": 4453,
+          "positive": 104,
+          "negative": 4454,
           "cumul_tests": 346604,
-          "cumul_pos": 10993,
-          "cumul_neg": 335233
+          "cumul_pos": 10992,
+          "cumul_neg": 335234
         },
         {
           "date": "2020-08-18",
@@ -5855,8 +5880,8 @@
           "positive": 99,
           "negative": 4791,
           "cumul_tests": 351515,
-          "cumul_pos": 11092,
-          "cumul_neg": 340024
+          "cumul_pos": 11091,
+          "cumul_neg": 340025
         },
         {
           "date": "2020-08-19",
@@ -5864,8 +5889,8 @@
           "positive": 113,
           "negative": 4378,
           "cumul_tests": 356032,
-          "cumul_pos": 11205,
-          "cumul_neg": 344402
+          "cumul_pos": 11204,
+          "cumul_neg": 344403
         },
         {
           "date": "2020-08-20",
@@ -5873,8 +5898,8 @@
           "positive": 96,
           "negative": 4108,
           "cumul_tests": 360241,
-          "cumul_pos": 11301,
-          "cumul_neg": 348510
+          "cumul_pos": 11300,
+          "cumul_neg": 348511
         },
         {
           "date": "2020-08-21",
@@ -5882,8 +5907,8 @@
           "positive": 94,
           "negative": 4174,
           "cumul_tests": 364536,
-          "cumul_pos": 11395,
-          "cumul_neg": 352684
+          "cumul_pos": 11394,
+          "cumul_neg": 352685
         },
         {
           "date": "2020-08-22",
@@ -5891,8 +5916,8 @@
           "positive": 51,
           "negative": 2244,
           "cumul_tests": 366838,
-          "cumul_pos": 11446,
-          "cumul_neg": 354928
+          "cumul_pos": 11445,
+          "cumul_neg": 354929
         },
         {
           "date": "2020-08-23",
@@ -5900,8 +5925,8 @@
           "positive": 49,
           "negative": 1270,
           "cumul_tests": 368158,
-          "cumul_pos": 11495,
-          "cumul_neg": 356198
+          "cumul_pos": 11494,
+          "cumul_neg": 356199
         },
         {
           "date": "2020-08-24",
@@ -5909,8 +5934,8 @@
           "positive": 108,
           "negative": 4083,
           "cumul_tests": 372351,
-          "cumul_pos": 11603,
-          "cumul_neg": 360281
+          "cumul_pos": 11602,
+          "cumul_neg": 360282
         },
         {
           "date": "2020-08-25",
@@ -5918,8 +5943,8 @@
           "positive": 98,
           "negative": 4180,
           "cumul_tests": 376638,
-          "cumul_pos": 11701,
-          "cumul_neg": 364461
+          "cumul_pos": 11700,
+          "cumul_neg": 364462
         },
         {
           "date": "2020-08-26",
@@ -5927,158 +5952,167 @@
           "positive": 109,
           "negative": 4905,
           "cumul_tests": 381671,
-          "cumul_pos": 11810,
-          "cumul_neg": 369366
+          "cumul_pos": 11809,
+          "cumul_neg": 369367
         },
         {
           "date": "2020-08-27",
-          "tests": 4693,
+          "tests": 4694,
           "positive": 112,
-          "negative": 4562,
-          "cumul_tests": 386364,
-          "cumul_pos": 11922,
-          "cumul_neg": 373928
+          "negative": 4563,
+          "cumul_tests": 386365,
+          "cumul_pos": 11921,
+          "cumul_neg": 373930
         },
         {
           "date": "2020-08-28",
-          "tests": 4246,
+          "tests": 4249,
           "positive": 85,
-          "negative": 4142,
-          "cumul_tests": 390610,
-          "cumul_pos": 12007,
-          "cumul_neg": 378070
+          "negative": 4145,
+          "cumul_tests": 390614,
+          "cumul_pos": 12006,
+          "cumul_neg": 378075
         },
         {
           "date": "2020-08-29",
-          "tests": 2479,
+          "tests": 2482,
           "positive": 54,
-          "negative": 2410,
-          "cumul_tests": 393089,
-          "cumul_pos": 12061,
-          "cumul_neg": 380480
+          "negative": 2413,
+          "cumul_tests": 393096,
+          "cumul_pos": 12060,
+          "cumul_neg": 380488
         },
         {
           "date": "2020-08-30",
-          "tests": 2188,
-          "positive": 41,
-          "negative": 2098,
-          "cumul_tests": 395277,
+          "tests": 2190,
+          "positive": 42,
+          "negative": 2099,
+          "cumul_tests": 395286,
           "cumul_pos": 12102,
-          "cumul_neg": 382578
+          "cumul_neg": 382587
         },
         {
           "date": "2020-08-31",
-          "tests": 4897,
+          "tests": 4905,
           "positive": 100,
-          "negative": 4779,
-          "cumul_tests": 400174,
+          "negative": 4787,
+          "cumul_tests": 400191,
           "cumul_pos": 12202,
-          "cumul_neg": 387357
+          "cumul_neg": 387374
         },
         {
           "date": "2020-09-01",
-          "tests": 4654,
-          "positive": 95,
-          "negative": 4522,
-          "cumul_tests": 404828,
-          "cumul_pos": 12297,
-          "cumul_neg": 391879
+          "tests": 4661,
+          "positive": 97,
+          "negative": 4527,
+          "cumul_tests": 404852,
+          "cumul_pos": 12299,
+          "cumul_neg": 391901
         },
         {
           "date": "2020-09-02",
-          "tests": 4567,
+          "tests": 4590,
           "positive": 99,
-          "negative": 4454,
-          "cumul_tests": 409395,
-          "cumul_pos": 12396,
-          "cumul_neg": 396333
+          "negative": 4477,
+          "cumul_tests": 409442,
+          "cumul_pos": 12398,
+          "cumul_neg": 396378
         },
         {
           "date": "2020-09-03",
-          "tests": 3990,
-          "positive": 97,
-          "negative": 3883,
-          "cumul_tests": 413385,
-          "cumul_pos": 12493,
-          "cumul_neg": 400216
+          "tests": 4310,
+          "positive": 98,
+          "negative": 4203,
+          "cumul_tests": 413752,
+          "cumul_pos": 12496,
+          "cumul_neg": 400581
         },
         {
           "date": "2020-09-04",
-          "tests": 3781,
-          "positive": 79,
-          "negative": 3656,
-          "cumul_tests": 417166,
-          "cumul_pos": 12572,
-          "cumul_neg": 403872
+          "tests": 4214,
+          "positive": 82,
+          "negative": 4086,
+          "cumul_tests": 417966,
+          "cumul_pos": 12578,
+          "cumul_neg": 404667
         },
         {
           "date": "2020-09-05",
-          "tests": 2112,
+          "tests": 2249,
           "positive": 38,
-          "negative": 2069,
-          "cumul_tests": 419278,
-          "cumul_pos": 12610,
-          "cumul_neg": 405941
+          "negative": 2206,
+          "cumul_tests": 420215,
+          "cumul_pos": 12616,
+          "cumul_neg": 406873
         },
         {
           "date": "2020-09-06",
-          "tests": 1734,
+          "tests": 1852,
           "positive": 33,
-          "negative": 1695,
-          "cumul_tests": 421012,
-          "cumul_pos": 12643,
-          "cumul_neg": 407636
+          "negative": 1813,
+          "cumul_tests": 422067,
+          "cumul_pos": 12649,
+          "cumul_neg": 408686
         },
         {
           "date": "2020-09-07",
-          "tests": 402,
-          "positive": 14,
-          "negative": 388,
-          "cumul_tests": 421414,
-          "cumul_pos": 12657,
-          "cumul_neg": 408024
+          "tests": 959,
+          "positive": 58,
+          "negative": 897,
+          "cumul_tests": 423026,
+          "cumul_pos": 12707,
+          "cumul_neg": 409583
         },
         {
           "date": "2020-09-08",
-          "tests": 27,
+          "tests": 1842,
+          "positive": 31,
+          "negative": 1811,
+          "cumul_tests": 424868,
+          "cumul_pos": 12738,
+          "cumul_neg": 411394
+        },
+        {
+          "date": "2020-09-09",
+          "tests": 34,
           "positive": 1,
-          "negative": 26,
-          "cumul_tests": 421441,
-          "cumul_pos": 12658,
-          "cumul_neg": 408050
+          "negative": 33,
+          "cumul_tests": 424902,
+          "cumul_pos": 12739,
+          "cumul_neg": 411427
         }
       ]
     },
     "case_totals": {
       "gender": {
-        "male": 5531,
+        "male": 5557,
         "unknown": 55,
-        "female": 4487
+        "female": 4507
       },
       "age_group": [
         {
           "group": "18_and_under",
-          "raw_count": 1175
+          "raw_count": 1176
         },
         {
           "group": "18_to_30",
-          "raw_count": 2494
+          "raw_count": 2509
         },
         {
           "group": "31_to_40",
-          "raw_count": 2388
+          "raw_count": 2397
         },
         {
           "group": "41_to_50",
-          "raw_count": 1615
+          "raw_count": 1621
         },
         {
           "group": "51_to_60",
-          "raw_count": 1135
+          "raw_count": 1142
         },
         {
           "group": "61_to_70",
-          "raw_count": 665
+          "raw_count": 671
         },
         {
           "group": "71_to_80",
@@ -6086,24 +6120,24 @@
         },
         {
           "group": "81_and_older",
-          "raw_count": 251
+          "raw_count": 253
         }
       ],
       "transmission_cat": {
-        "unknown": 354,
-        "from_contact": 3985,
-        "community": 5822
+        "unknown": 345,
+        "from_contact": 4002,
+        "community": 5861
       },
       "race_eth": {
-        "Latinx_or_Hispanic": 5140,
-        "Asian": 1138,
-        "African_Amer": 587,
-        "White": 1474,
-        "Pacific_Islander": 142,
+        "Latinx_or_Hispanic": 5158,
+        "Asian": 1145,
+        "African_Amer": 591,
+        "White": 1480,
+        "Pacific_Islander": 143,
         "Native_Amer": 34,
-        "Multiple_Race": 221,
+        "Multiple_Race": 223,
         "Other": 23,
-        "Unknown": 1315
+        "Unknown": 1323
       }
     },
     "death_totals": {},
@@ -6166,7 +6200,7 @@
   },
   "san_mateo": {
     "name": "San Mateo County",
-    "update_time": "2020-09-08T01:00:00-07:00",
+    "update_time": "2020-09-09T01:00:00-07:00",
     "source_url": "https://www.smchealth.org/post/san-mateo-county-covid-19-data-1",
     "meta_from_source": "Because of limited testing capacity, the number of cases detected through testing represents only a small portion of the total number of likely cases in the County. COVID-19 data are reported as timely, accurately, and completely as we have available. Data are updated as we receive information that is more complete and will change over time as we learn more. Cases are lab-confirmed COVID-19 cases reported to San Mateo County Public Health by providers, commercial laboratories, and academic laboratories, including reporting results through the California Reportable Disease Information Exchange. A lab-confirmed case is defined as detection of SARS-CoV-2 RNA in a clinical specimen using a molecular amplification detection test. Cases are counted by date the lab result was reported.  Deaths reported in this dashboard include only San Mateo County residents; death data last updated September 7, 2020.",
     "meta_from_baypd": "\n            See power_bi_scraper.py for methods.\n            San Mateo does not provide a timestamp for their last dataset update,\n            so BayPD uses midnight of the latest day in the cases timeseries as a proxy.\n\n            San Mateo does not provide a deaths timeseries. In lieu of a\n            timeseries BayPD provides cumulative deaths for the date of the last\n            dataset update.\n         ",
@@ -6804,308 +6838,313 @@
         },
         {
           "date": "2020-07-10",
-          "cases": 108,
-          "cumul_cases": 3991
+          "cases": 107,
+          "cumul_cases": 3990
         },
         {
           "date": "2020-07-11",
           "cases": 46,
-          "cumul_cases": 4037
+          "cumul_cases": 4036
         },
         {
           "date": "2020-07-12",
-          "cases": 66,
-          "cumul_cases": 4103
+          "cases": 65,
+          "cumul_cases": 4101
         },
         {
           "date": "2020-07-13",
           "cases": 110,
-          "cumul_cases": 4213
+          "cumul_cases": 4211
         },
         {
           "date": "2020-07-14",
           "cases": 92,
-          "cumul_cases": 4305
+          "cumul_cases": 4303
         },
         {
           "date": "2020-07-15",
           "cases": 86,
-          "cumul_cases": 4391
+          "cumul_cases": 4389
         },
         {
           "date": "2020-07-16",
           "cases": 68,
-          "cumul_cases": 4459
+          "cumul_cases": 4457
         },
         {
           "date": "2020-07-17",
           "cases": 86,
-          "cumul_cases": 4545
+          "cumul_cases": 4543
         },
         {
           "date": "2020-07-18",
           "cases": 27,
-          "cumul_cases": 4572
+          "cumul_cases": 4570
         },
         {
           "date": "2020-07-19",
           "cases": 49,
-          "cumul_cases": 4621
+          "cumul_cases": 4619
         },
         {
           "date": "2020-07-20",
           "cases": 147,
-          "cumul_cases": 4768
+          "cumul_cases": 4766
         },
         {
           "date": "2020-07-21",
           "cases": 96,
-          "cumul_cases": 4864
+          "cumul_cases": 4862
         },
         {
           "date": "2020-07-22",
           "cases": 97,
-          "cumul_cases": 4961
+          "cumul_cases": 4959
         },
         {
           "date": "2020-07-23",
           "cases": 73,
-          "cumul_cases": 5034
+          "cumul_cases": 5032
         },
         {
           "date": "2020-07-24",
           "cases": 81,
-          "cumul_cases": 5115
+          "cumul_cases": 5113
         },
         {
           "date": "2020-07-25",
           "cases": 86,
-          "cumul_cases": 5201
+          "cumul_cases": 5199
         },
         {
           "date": "2020-07-26",
           "cases": 16,
-          "cumul_cases": 5217
+          "cumul_cases": 5215
         },
         {
           "date": "2020-07-27",
           "cases": 91,
-          "cumul_cases": 5308
+          "cumul_cases": 5306
         },
         {
           "date": "2020-07-28",
           "cases": 112,
-          "cumul_cases": 5420
+          "cumul_cases": 5418
         },
         {
           "date": "2020-07-29",
           "cases": 62,
-          "cumul_cases": 5482
+          "cumul_cases": 5480
         },
         {
           "date": "2020-07-30",
           "cases": 71,
-          "cumul_cases": 5553
+          "cumul_cases": 5551
         },
         {
           "date": "2020-07-31",
           "cases": 97,
-          "cumul_cases": 5650
+          "cumul_cases": 5648
         },
         {
           "date": "2020-08-01",
           "cases": 91,
-          "cumul_cases": 5741
+          "cumul_cases": 5739
         },
         {
           "date": "2020-08-02",
           "cases": 60,
-          "cumul_cases": 5801
+          "cumul_cases": 5799
         },
         {
           "date": "2020-08-03",
           "cases": 58,
-          "cumul_cases": 5859
+          "cumul_cases": 5857
         },
         {
           "date": "2020-08-04",
           "cases": 69,
-          "cumul_cases": 5928
+          "cumul_cases": 5926
         },
         {
           "date": "2020-08-05",
           "cases": 91,
-          "cumul_cases": 6019
+          "cumul_cases": 6017
         },
         {
           "date": "2020-08-06",
           "cases": 102,
-          "cumul_cases": 6121
+          "cumul_cases": 6119
         },
         {
           "date": "2020-08-07",
-          "cases": 91,
-          "cumul_cases": 6212
+          "cases": 90,
+          "cumul_cases": 6209
         },
         {
           "date": "2020-08-08",
           "cases": 79,
-          "cumul_cases": 6291
+          "cumul_cases": 6288
         },
         {
           "date": "2020-08-09",
           "cases": 126,
-          "cumul_cases": 6417
+          "cumul_cases": 6414
         },
         {
           "date": "2020-08-10",
           "cases": 126,
-          "cumul_cases": 6543
+          "cumul_cases": 6540
         },
         {
           "date": "2020-08-11",
           "cases": 186,
-          "cumul_cases": 6729
+          "cumul_cases": 6726
         },
         {
           "date": "2020-08-12",
           "cases": 114,
-          "cumul_cases": 6843
+          "cumul_cases": 6840
         },
         {
           "date": "2020-08-13",
           "cases": 64,
-          "cumul_cases": 6907
+          "cumul_cases": 6904
         },
         {
           "date": "2020-08-14",
           "cases": 101,
-          "cumul_cases": 7008
+          "cumul_cases": 7005
         },
         {
           "date": "2020-08-15",
           "cases": 107,
-          "cumul_cases": 7115
+          "cumul_cases": 7112
         },
         {
           "date": "2020-08-16",
           "cases": 60,
-          "cumul_cases": 7175
+          "cumul_cases": 7172
         },
         {
           "date": "2020-08-17",
           "cases": 81,
-          "cumul_cases": 7256
+          "cumul_cases": 7253
         },
         {
           "date": "2020-08-18",
           "cases": 94,
-          "cumul_cases": 7350
+          "cumul_cases": 7347
         },
         {
           "date": "2020-08-19",
-          "cases": 66,
-          "cumul_cases": 7416
+          "cases": 67,
+          "cumul_cases": 7414
         },
         {
           "date": "2020-08-20",
           "cases": 87,
-          "cumul_cases": 7503
+          "cumul_cases": 7501
         },
         {
           "date": "2020-08-21",
           "cases": 74,
-          "cumul_cases": 7577
+          "cumul_cases": 7575
         },
         {
           "date": "2020-08-22",
           "cases": 46,
-          "cumul_cases": 7623
+          "cumul_cases": 7621
         },
         {
           "date": "2020-08-23",
           "cases": 61,
-          "cumul_cases": 7684
+          "cumul_cases": 7682
         },
         {
           "date": "2020-08-24",
           "cases": 122,
-          "cumul_cases": 7806
+          "cumul_cases": 7804
         },
         {
           "date": "2020-08-25",
           "cases": 75,
-          "cumul_cases": 7881
+          "cumul_cases": 7879
         },
         {
           "date": "2020-08-26",
           "cases": 71,
-          "cumul_cases": 7952
+          "cumul_cases": 7950
         },
         {
           "date": "2020-08-27",
           "cases": 67,
-          "cumul_cases": 8019
+          "cumul_cases": 8017
         },
         {
           "date": "2020-08-28",
           "cases": 129,
-          "cumul_cases": 8148
+          "cumul_cases": 8146
         },
         {
           "date": "2020-08-29",
           "cases": 47,
-          "cumul_cases": 8195
+          "cumul_cases": 8193
         },
         {
           "date": "2020-08-30",
           "cases": 34,
-          "cumul_cases": 8229
+          "cumul_cases": 8227
         },
         {
           "date": "2020-08-31",
           "cases": 103,
-          "cumul_cases": 8332
+          "cumul_cases": 8330
         },
         {
           "date": "2020-09-01",
           "cases": 64,
-          "cumul_cases": 8396
+          "cumul_cases": 8394
         },
         {
           "date": "2020-09-02",
           "cases": 73,
-          "cumul_cases": 8469
+          "cumul_cases": 8467
         },
         {
           "date": "2020-09-03",
           "cases": 64,
-          "cumul_cases": 8533
+          "cumul_cases": 8531
         },
         {
           "date": "2020-09-04",
           "cases": 98,
-          "cumul_cases": 8631
+          "cumul_cases": 8629
         },
         {
           "date": "2020-09-05",
           "cases": 51,
-          "cumul_cases": 8682
+          "cumul_cases": 8680
         },
         {
           "date": "2020-09-06",
           "cases": 21,
-          "cumul_cases": 8703
+          "cumul_cases": 8701
         },
         {
           "date": "2020-09-07",
           "cases": 49,
-          "cumul_cases": 8752
+          "cumul_cases": 8750
         },
         {
           "date": "2020-09-08",
-          "cases": 55,
-          "cumul_cases": 8807
+          "cases": 54,
+          "cumul_cases": 8804
+        },
+        {
+          "date": "2020-09-09",
+          "cases": 91,
+          "cumul_cases": 8895
         }
       ],
       "tests": [
@@ -8200,13 +8239,13 @@
         },
         {
           "date": "2020-05-29",
-          "tests": 1187,
+          "tests": 1186,
           "positive": 41,
-          "negative": 1146,
+          "negative": 1145,
           "pending": 0,
-          "cumul_tests": 36472,
+          "cumul_tests": 36471,
           "cumul_pos": 2220,
-          "cumul_neg": 34251,
+          "cumul_neg": 34250,
           "cumul_pend": 1
         },
         {
@@ -8215,9 +8254,9 @@
           "positive": 19,
           "negative": 697,
           "pending": 0,
-          "cumul_tests": 37188,
+          "cumul_tests": 37187,
           "cumul_pos": 2239,
-          "cumul_neg": 34948,
+          "cumul_neg": 34947,
           "cumul_pend": 1
         },
         {
@@ -8226,9 +8265,9 @@
           "positive": 6,
           "negative": 347,
           "pending": 0,
-          "cumul_tests": 37541,
+          "cumul_tests": 37540,
           "cumul_pos": 2245,
-          "cumul_neg": 35295,
+          "cumul_neg": 35294,
           "cumul_pend": 1
         },
         {
@@ -8237,9 +8276,9 @@
           "positive": 47,
           "negative": 1561,
           "pending": 0,
-          "cumul_tests": 39149,
+          "cumul_tests": 39148,
           "cumul_pos": 2292,
-          "cumul_neg": 36856,
+          "cumul_neg": 36855,
           "cumul_pend": 1
         },
         {
@@ -8248,9 +8287,9 @@
           "positive": 51,
           "negative": 1155,
           "pending": 0,
-          "cumul_tests": 40355,
+          "cumul_tests": 40354,
           "cumul_pos": 2343,
-          "cumul_neg": 38011,
+          "cumul_neg": 38010,
           "cumul_pend": 1
         },
         {
@@ -8259,9 +8298,9 @@
           "positive": 47,
           "negative": 936,
           "pending": 0,
-          "cumul_tests": 41338,
+          "cumul_tests": 41337,
           "cumul_pos": 2390,
-          "cumul_neg": 38947,
+          "cumul_neg": 38946,
           "cumul_pend": 1
         },
         {
@@ -8270,9 +8309,9 @@
           "positive": 36,
           "negative": 957,
           "pending": 0,
-          "cumul_tests": 42331,
+          "cumul_tests": 42330,
           "cumul_pos": 2426,
-          "cumul_neg": 39904,
+          "cumul_neg": 39903,
           "cumul_pend": 1
         },
         {
@@ -8281,9 +8320,9 @@
           "positive": 25,
           "negative": 1151,
           "pending": 0,
-          "cumul_tests": 43507,
+          "cumul_tests": 43506,
           "cumul_pos": 2451,
-          "cumul_neg": 41055,
+          "cumul_neg": 41054,
           "cumul_pend": 1
         },
         {
@@ -8292,9 +8331,9 @@
           "positive": 18,
           "negative": 707,
           "pending": 0,
-          "cumul_tests": 44232,
+          "cumul_tests": 44231,
           "cumul_pos": 2469,
-          "cumul_neg": 41762,
+          "cumul_neg": 41761,
           "cumul_pend": 1
         },
         {
@@ -8303,9 +8342,9 @@
           "positive": 11,
           "negative": 397,
           "pending": 0,
-          "cumul_tests": 44640,
+          "cumul_tests": 44639,
           "cumul_pos": 2480,
-          "cumul_neg": 42159,
+          "cumul_neg": 42158,
           "cumul_pend": 1
         },
         {
@@ -8314,9 +8353,9 @@
           "positive": 33,
           "negative": 1295,
           "pending": 0,
-          "cumul_tests": 45968,
+          "cumul_tests": 45967,
           "cumul_pos": 2513,
-          "cumul_neg": 43454,
+          "cumul_neg": 43453,
           "cumul_pend": 1
         },
         {
@@ -8325,20 +8364,20 @@
           "positive": 36,
           "negative": 1323,
           "pending": 0,
-          "cumul_tests": 47327,
+          "cumul_tests": 47326,
           "cumul_pos": 2549,
-          "cumul_neg": 44777,
+          "cumul_neg": 44776,
           "cumul_pend": 1
         },
         {
           "date": "2020-06-10",
-          "tests": 1118,
+          "tests": 1117,
           "positive": 34,
-          "negative": 1084,
+          "negative": 1083,
           "pending": 0,
-          "cumul_tests": 48445,
+          "cumul_tests": 48443,
           "cumul_pos": 2583,
-          "cumul_neg": 45861,
+          "cumul_neg": 45859,
           "cumul_pend": 1
         },
         {
@@ -8347,9 +8386,9 @@
           "positive": 38,
           "negative": 1132,
           "pending": 0,
-          "cumul_tests": 49615,
+          "cumul_tests": 49613,
           "cumul_pos": 2621,
-          "cumul_neg": 46993,
+          "cumul_neg": 46991,
           "cumul_pend": 1
         },
         {
@@ -8358,9 +8397,9 @@
           "positive": 32,
           "negative": 1205,
           "pending": 1,
-          "cumul_tests": 50853,
+          "cumul_tests": 50851,
           "cumul_pos": 2653,
-          "cumul_neg": 48198,
+          "cumul_neg": 48196,
           "cumul_pend": 2
         },
         {
@@ -8369,9 +8408,9 @@
           "positive": 22,
           "negative": 820,
           "pending": 0,
-          "cumul_tests": 51695,
+          "cumul_tests": 51693,
           "cumul_pos": 2675,
-          "cumul_neg": 49018,
+          "cumul_neg": 49016,
           "cumul_pend": 2
         },
         {
@@ -8380,9 +8419,9 @@
           "positive": 9,
           "negative": 376,
           "pending": 0,
-          "cumul_tests": 52080,
+          "cumul_tests": 52078,
           "cumul_pos": 2684,
-          "cumul_neg": 49394,
+          "cumul_neg": 49392,
           "cumul_pend": 2
         },
         {
@@ -8391,9 +8430,9 @@
           "positive": 44,
           "negative": 1743,
           "pending": 0,
-          "cumul_tests": 53867,
+          "cumul_tests": 53865,
           "cumul_pos": 2728,
-          "cumul_neg": 51137,
+          "cumul_neg": 51135,
           "cumul_pend": 2
         },
         {
@@ -8402,31 +8441,31 @@
           "positive": 55,
           "negative": 1350,
           "pending": 0,
-          "cumul_tests": 55272,
+          "cumul_tests": 55270,
           "cumul_pos": 2783,
-          "cumul_neg": 52487,
+          "cumul_neg": 52485,
           "cumul_pend": 2
         },
         {
           "date": "2020-06-17",
-          "tests": 1463,
+          "tests": 1462,
           "positive": 57,
-          "negative": 1406,
+          "negative": 1405,
           "pending": 0,
-          "cumul_tests": 56735,
+          "cumul_tests": 56732,
           "cumul_pos": 2840,
-          "cumul_neg": 53893,
+          "cumul_neg": 53890,
           "cumul_pend": 2
         },
         {
           "date": "2020-06-18",
-          "tests": 1333,
+          "tests": 1332,
           "positive": 58,
-          "negative": 1275,
+          "negative": 1274,
           "pending": 0,
-          "cumul_tests": 58068,
+          "cumul_tests": 58064,
           "cumul_pos": 2898,
-          "cumul_neg": 55168,
+          "cumul_neg": 55164,
           "cumul_pend": 2
         },
         {
@@ -8435,9 +8474,9 @@
           "positive": 48,
           "negative": 1399,
           "pending": 0,
-          "cumul_tests": 59515,
+          "cumul_tests": 59511,
           "cumul_pos": 2946,
-          "cumul_neg": 56567,
+          "cumul_neg": 56563,
           "cumul_pend": 2
         },
         {
@@ -8446,9 +8485,9 @@
           "positive": 26,
           "negative": 477,
           "pending": 0,
-          "cumul_tests": 60018,
+          "cumul_tests": 60014,
           "cumul_pos": 2972,
-          "cumul_neg": 57044,
+          "cumul_neg": 57040,
           "cumul_pend": 2
         },
         {
@@ -8457,9 +8496,9 @@
           "positive": 27,
           "negative": 355,
           "pending": 0,
-          "cumul_tests": 60400,
+          "cumul_tests": 60396,
           "cumul_pos": 2999,
-          "cumul_neg": 57399,
+          "cumul_neg": 57395,
           "cumul_pend": 2
         },
         {
@@ -8468,9 +8507,9 @@
           "positive": 44,
           "negative": 1726,
           "pending": 0,
-          "cumul_tests": 62170,
+          "cumul_tests": 62166,
           "cumul_pos": 3043,
-          "cumul_neg": 59125,
+          "cumul_neg": 59121,
           "cumul_pend": 2
         },
         {
@@ -8479,9 +8518,9 @@
           "positive": 83,
           "negative": 1427,
           "pending": 2,
-          "cumul_tests": 63682,
+          "cumul_tests": 63678,
           "cumul_pos": 3126,
-          "cumul_neg": 60552,
+          "cumul_neg": 60548,
           "cumul_pend": 4
         },
         {
@@ -8490,9 +8529,9 @@
           "positive": 60,
           "negative": 1297,
           "pending": 1,
-          "cumul_tests": 65040,
+          "cumul_tests": 65036,
           "cumul_pos": 3186,
-          "cumul_neg": 61849,
+          "cumul_neg": 61845,
           "cumul_pend": 5
         },
         {
@@ -8501,9 +8540,9 @@
           "positive": 77,
           "negative": 1388,
           "pending": 1,
-          "cumul_tests": 66506,
+          "cumul_tests": 66502,
           "cumul_pos": 3263,
-          "cumul_neg": 63237,
+          "cumul_neg": 63233,
           "cumul_pend": 6
         },
         {
@@ -8512,9 +8551,9 @@
           "positive": 67,
           "negative": 1869,
           "pending": 1,
-          "cumul_tests": 68443,
+          "cumul_tests": 68439,
           "cumul_pos": 3330,
-          "cumul_neg": 65106,
+          "cumul_neg": 65102,
           "cumul_pend": 7
         },
         {
@@ -8523,9 +8562,9 @@
           "positive": 34,
           "negative": 625,
           "pending": 0,
-          "cumul_tests": 69102,
+          "cumul_tests": 69098,
           "cumul_pos": 3364,
-          "cumul_neg": 65731,
+          "cumul_neg": 65727,
           "cumul_pend": 7
         },
         {
@@ -8534,9 +8573,9 @@
           "positive": 37,
           "negative": 575,
           "pending": 0,
-          "cumul_tests": 69714,
+          "cumul_tests": 69710,
           "cumul_pos": 3401,
-          "cumul_neg": 66306,
+          "cumul_neg": 66302,
           "cumul_pend": 7
         },
         {
@@ -8545,9 +8584,9 @@
           "positive": 77,
           "negative": 2072,
           "pending": 0,
-          "cumul_tests": 71863,
+          "cumul_tests": 71859,
           "cumul_pos": 3478,
-          "cumul_neg": 68378,
+          "cumul_neg": 68374,
           "cumul_pend": 7
         },
         {
@@ -8556,20 +8595,20 @@
           "positive": 69,
           "negative": 1757,
           "pending": 0,
-          "cumul_tests": 73689,
+          "cumul_tests": 73685,
           "cumul_pos": 3547,
-          "cumul_neg": 70135,
+          "cumul_neg": 70131,
           "cumul_pend": 7
         },
         {
           "date": "2020-07-01",
-          "tests": 1723,
+          "tests": 1722,
           "positive": 76,
-          "negative": 1644,
+          "negative": 1643,
           "pending": 3,
-          "cumul_tests": 75412,
+          "cumul_tests": 75407,
           "cumul_pos": 3623,
-          "cumul_neg": 71779,
+          "cumul_neg": 71774,
           "cumul_pend": 10
         },
         {
@@ -8578,9 +8617,9 @@
           "positive": 78,
           "negative": 1551,
           "pending": 0,
-          "cumul_tests": 77041,
+          "cumul_tests": 77036,
           "cumul_pos": 3701,
-          "cumul_neg": 73330,
+          "cumul_neg": 73325,
           "cumul_pend": 10
         },
         {
@@ -8589,9 +8628,9 @@
           "positive": 72,
           "negative": 1154,
           "pending": 0,
-          "cumul_tests": 78267,
+          "cumul_tests": 78262,
           "cumul_pos": 3773,
-          "cumul_neg": 74484,
+          "cumul_neg": 74479,
           "cumul_pend": 10
         },
         {
@@ -8600,9 +8639,9 @@
           "positive": 31,
           "negative": 451,
           "pending": 0,
-          "cumul_tests": 78749,
+          "cumul_tests": 78744,
           "cumul_pos": 3804,
-          "cumul_neg": 74935,
+          "cumul_neg": 74930,
           "cumul_pend": 10
         },
         {
@@ -8611,9 +8650,9 @@
           "positive": 47,
           "negative": 459,
           "pending": 0,
-          "cumul_tests": 79255,
+          "cumul_tests": 79250,
           "cumul_pos": 3851,
-          "cumul_neg": 75394,
+          "cumul_neg": 75389,
           "cumul_pend": 10
         },
         {
@@ -8622,9 +8661,9 @@
           "positive": 72,
           "negative": 2080,
           "pending": 0,
-          "cumul_tests": 81407,
+          "cumul_tests": 81402,
           "cumul_pos": 3923,
-          "cumul_neg": 77474,
+          "cumul_neg": 77469,
           "cumul_pend": 10
         },
         {
@@ -8633,9 +8672,9 @@
           "positive": 79,
           "negative": 1695,
           "pending": 1,
-          "cumul_tests": 83182,
+          "cumul_tests": 83177,
           "cumul_pos": 4002,
-          "cumul_neg": 79169,
+          "cumul_neg": 79164,
           "cumul_pend": 11
         },
         {
@@ -8644,9 +8683,9 @@
           "positive": 112,
           "negative": 1681,
           "pending": 0,
-          "cumul_tests": 84975,
+          "cumul_tests": 84970,
           "cumul_pos": 4114,
-          "cumul_neg": 80850,
+          "cumul_neg": 80845,
           "cumul_pend": 11
         },
         {
@@ -8655,9 +8694,9 @@
           "positive": 134,
           "negative": 1600,
           "pending": 0,
-          "cumul_tests": 86709,
+          "cumul_tests": 86704,
           "cumul_pos": 4248,
-          "cumul_neg": 82450,
+          "cumul_neg": 82445,
           "cumul_pend": 11
         },
         {
@@ -8666,9 +8705,9 @@
           "positive": 114,
           "negative": 1661,
           "pending": 0,
-          "cumul_tests": 88484,
+          "cumul_tests": 88479,
           "cumul_pos": 4362,
-          "cumul_neg": 84111,
+          "cumul_neg": 84106,
           "cumul_pend": 11
         },
         {
@@ -8677,9 +8716,9 @@
           "positive": 64,
           "negative": 838,
           "pending": 0,
-          "cumul_tests": 89386,
+          "cumul_tests": 89381,
           "cumul_pos": 4426,
-          "cumul_neg": 84949,
+          "cumul_neg": 84944,
           "cumul_pend": 11
         },
         {
@@ -8688,9 +8727,9 @@
           "positive": 49,
           "negative": 566,
           "pending": 0,
-          "cumul_tests": 90001,
+          "cumul_tests": 89996,
           "cumul_pos": 4475,
-          "cumul_neg": 85515,
+          "cumul_neg": 85510,
           "cumul_pend": 11
         },
         {
@@ -8699,20 +8738,20 @@
           "positive": 115,
           "negative": 2162,
           "pending": 2,
-          "cumul_tests": 92280,
+          "cumul_tests": 92275,
           "cumul_pos": 4590,
-          "cumul_neg": 87677,
+          "cumul_neg": 87672,
           "cumul_pend": 13
         },
         {
           "date": "2020-07-14",
-          "tests": 1885,
+          "tests": 1884,
           "positive": 133,
-          "negative": 1751,
+          "negative": 1750,
           "pending": 1,
-          "cumul_tests": 94165,
+          "cumul_tests": 94159,
           "cumul_pos": 4723,
-          "cumul_neg": 89428,
+          "cumul_neg": 89422,
           "cumul_pend": 14
         },
         {
@@ -8721,9 +8760,9 @@
           "positive": 117,
           "negative": 1606,
           "pending": 2,
-          "cumul_tests": 95890,
+          "cumul_tests": 95884,
           "cumul_pos": 4840,
-          "cumul_neg": 91034,
+          "cumul_neg": 91028,
           "cumul_pend": 16
         },
         {
@@ -8732,9 +8771,9 @@
           "positive": 112,
           "negative": 1641,
           "pending": 0,
-          "cumul_tests": 97643,
+          "cumul_tests": 97637,
           "cumul_pos": 4952,
-          "cumul_neg": 92675,
+          "cumul_neg": 92669,
           "cumul_pend": 16
         },
         {
@@ -8743,9 +8782,9 @@
           "positive": 102,
           "negative": 1435,
           "pending": 2,
-          "cumul_tests": 99182,
+          "cumul_tests": 99176,
           "cumul_pos": 5054,
-          "cumul_neg": 94110,
+          "cumul_neg": 94104,
           "cumul_pend": 18
         },
         {
@@ -8754,9 +8793,9 @@
           "positive": 73,
           "negative": 867,
           "pending": 0,
-          "cumul_tests": 100122,
+          "cumul_tests": 100116,
           "cumul_pos": 5127,
-          "cumul_neg": 94977,
+          "cumul_neg": 94971,
           "cumul_pend": 18
         },
         {
@@ -8765,20 +8804,20 @@
           "positive": 52,
           "negative": 512,
           "pending": 1,
-          "cumul_tests": 100687,
+          "cumul_tests": 100681,
           "cumul_pos": 5179,
-          "cumul_neg": 95489,
+          "cumul_neg": 95483,
           "cumul_pend": 19
         },
         {
           "date": "2020-07-20",
-          "tests": 1636,
+          "tests": 1637,
           "positive": 105,
-          "negative": 1531,
+          "negative": 1532,
           "pending": 0,
-          "cumul_tests": 102323,
+          "cumul_tests": 102318,
           "cumul_pos": 5284,
-          "cumul_neg": 97020,
+          "cumul_neg": 97015,
           "cumul_pend": 19
         },
         {
@@ -8787,20 +8826,20 @@
           "positive": 107,
           "negative": 1360,
           "pending": 0,
-          "cumul_tests": 103790,
+          "cumul_tests": 103785,
           "cumul_pos": 5391,
-          "cumul_neg": 98380,
+          "cumul_neg": 98375,
           "cumul_pend": 19
         },
         {
           "date": "2020-07-22",
-          "tests": 1244,
+          "tests": 1245,
           "positive": 80,
-          "negative": 1161,
+          "negative": 1162,
           "pending": 3,
-          "cumul_tests": 105034,
+          "cumul_tests": 105030,
           "cumul_pos": 5471,
-          "cumul_neg": 99541,
+          "cumul_neg": 99537,
           "cumul_pend": 22
         },
         {
@@ -8809,16 +8848,16 @@
           "positive": 86,
           "negative": 1201,
           "pending": 1,
-          "cumul_tests": 106322,
+          "cumul_tests": 106318,
           "cumul_pos": 5557,
-          "cumul_neg": 100742,
+          "cumul_neg": 100738,
           "cumul_pend": 23
         },
         {
           "date": "2020-07-24",
-          "tests": 1191,
+          "tests": 1195,
           "positive": 104,
-          "negative": 1087,
+          "negative": 1091,
           "pending": 0,
           "cumul_tests": 107513,
           "cumul_pos": 5661,
@@ -8827,13 +8866,13 @@
         },
         {
           "date": "2020-07-25",
-          "tests": 651,
+          "tests": 655,
           "positive": 59,
-          "negative": 592,
+          "negative": 596,
           "pending": 0,
-          "cumul_tests": 108164,
+          "cumul_tests": 108168,
           "cumul_pos": 5720,
-          "cumul_neg": 102421,
+          "cumul_neg": 102425,
           "cumul_pend": 23
         },
         {
@@ -8842,9 +8881,9 @@
           "positive": 46,
           "negative": 463,
           "pending": 1,
-          "cumul_tests": 108674,
+          "cumul_tests": 108678,
           "cumul_pos": 5766,
-          "cumul_neg": 102884,
+          "cumul_neg": 102888,
           "cumul_pend": 24
         },
         {
@@ -8853,9 +8892,9 @@
           "positive": 105,
           "negative": 1474,
           "pending": 0,
-          "cumul_tests": 110253,
+          "cumul_tests": 110257,
           "cumul_pos": 5871,
-          "cumul_neg": 104358,
+          "cumul_neg": 104362,
           "cumul_pend": 24
         },
         {
@@ -8864,9 +8903,9 @@
           "positive": 94,
           "negative": 1347,
           "pending": 2,
-          "cumul_tests": 111696,
+          "cumul_tests": 111700,
           "cumul_pos": 5965,
-          "cumul_neg": 105705,
+          "cumul_neg": 105709,
           "cumul_pend": 26
         },
         {
@@ -8875,9 +8914,9 @@
           "positive": 70,
           "negative": 1417,
           "pending": 0,
-          "cumul_tests": 113183,
+          "cumul_tests": 113187,
           "cumul_pos": 6035,
-          "cumul_neg": 107122,
+          "cumul_neg": 107126,
           "cumul_pend": 26
         },
         {
@@ -8886,9 +8925,9 @@
           "positive": 92,
           "negative": 1286,
           "pending": 1,
-          "cumul_tests": 114562,
+          "cumul_tests": 114566,
           "cumul_pos": 6127,
-          "cumul_neg": 108408,
+          "cumul_neg": 108412,
           "cumul_pend": 27
         },
         {
@@ -8897,9 +8936,9 @@
           "positive": 106,
           "negative": 1405,
           "pending": 3,
-          "cumul_tests": 116076,
+          "cumul_tests": 116080,
           "cumul_pos": 6233,
-          "cumul_neg": 109813,
+          "cumul_neg": 109817,
           "cumul_pend": 30
         },
         {
@@ -8908,9 +8947,9 @@
           "positive": 57,
           "negative": 770,
           "pending": 0,
-          "cumul_tests": 116903,
+          "cumul_tests": 116907,
           "cumul_pos": 6290,
-          "cumul_neg": 110583,
+          "cumul_neg": 110587,
           "cumul_pend": 30
         },
         {
@@ -8919,9 +8958,9 @@
           "positive": 21,
           "negative": 488,
           "pending": 0,
-          "cumul_tests": 117412,
+          "cumul_tests": 117416,
           "cumul_pos": 6311,
-          "cumul_neg": 111071,
+          "cumul_neg": 111075,
           "cumul_pend": 30
         },
         {
@@ -8930,9 +8969,9 @@
           "positive": 105,
           "negative": 1336,
           "pending": 0,
-          "cumul_tests": 118853,
+          "cumul_tests": 118857,
           "cumul_pos": 6416,
-          "cumul_neg": 112407,
+          "cumul_neg": 112411,
           "cumul_pend": 30
         },
         {
@@ -8941,9 +8980,9 @@
           "positive": 88,
           "negative": 1119,
           "pending": 0,
-          "cumul_tests": 120060,
+          "cumul_tests": 120064,
           "cumul_pos": 6504,
-          "cumul_neg": 113526,
+          "cumul_neg": 113530,
           "cumul_pend": 30
         },
         {
@@ -8952,9 +8991,9 @@
           "positive": 78,
           "negative": 1089,
           "pending": 0,
-          "cumul_tests": 121227,
+          "cumul_tests": 121231,
           "cumul_pos": 6582,
-          "cumul_neg": 114615,
+          "cumul_neg": 114619,
           "cumul_pend": 30
         },
         {
@@ -8963,9 +9002,9 @@
           "positive": 99,
           "negative": 1133,
           "pending": 0,
-          "cumul_tests": 122459,
+          "cumul_tests": 122463,
           "cumul_pos": 6681,
-          "cumul_neg": 115748,
+          "cumul_neg": 115752,
           "cumul_pend": 30
         },
         {
@@ -8974,9 +9013,9 @@
           "positive": 104,
           "negative": 1322,
           "pending": 0,
-          "cumul_tests": 123885,
+          "cumul_tests": 123889,
           "cumul_pos": 6785,
-          "cumul_neg": 117070,
+          "cumul_neg": 117074,
           "cumul_pend": 30
         },
         {
@@ -8985,9 +9024,9 @@
           "positive": 44,
           "negative": 578,
           "pending": 1,
-          "cumul_tests": 124508,
+          "cumul_tests": 124512,
           "cumul_pos": 6829,
-          "cumul_neg": 117648,
+          "cumul_neg": 117652,
           "cumul_pend": 31
         },
         {
@@ -8996,9 +9035,9 @@
           "positive": 42,
           "negative": 426,
           "pending": 0,
-          "cumul_tests": 124976,
+          "cumul_tests": 124980,
           "cumul_pos": 6871,
-          "cumul_neg": 118074,
+          "cumul_neg": 118078,
           "cumul_pend": 31
         },
         {
@@ -9007,9 +9046,9 @@
           "positive": 99,
           "negative": 1243,
           "pending": 0,
-          "cumul_tests": 126318,
+          "cumul_tests": 126322,
           "cumul_pos": 6970,
-          "cumul_neg": 119317,
+          "cumul_neg": 119321,
           "cumul_pend": 31
         },
         {
@@ -9018,9 +9057,9 @@
           "positive": 101,
           "negative": 1319,
           "pending": 1,
-          "cumul_tests": 127739,
+          "cumul_tests": 127743,
           "cumul_pos": 7071,
-          "cumul_neg": 120636,
+          "cumul_neg": 120640,
           "cumul_pend": 32
         },
         {
@@ -9029,9 +9068,9 @@
           "positive": 100,
           "negative": 1251,
           "pending": 4,
-          "cumul_tests": 129094,
+          "cumul_tests": 129098,
           "cumul_pos": 7171,
-          "cumul_neg": 121887,
+          "cumul_neg": 121891,
           "cumul_pend": 36
         },
         {
@@ -9040,20 +9079,20 @@
           "positive": 87,
           "negative": 1167,
           "pending": 3,
-          "cumul_tests": 130351,
+          "cumul_tests": 130355,
           "cumul_pos": 7258,
-          "cumul_neg": 123054,
+          "cumul_neg": 123058,
           "cumul_pend": 39
         },
         {
           "date": "2020-08-14",
-          "tests": 1277,
+          "tests": 1278,
           "positive": 79,
-          "negative": 1196,
+          "negative": 1197,
           "pending": 2,
-          "cumul_tests": 131628,
+          "cumul_tests": 131633,
           "cumul_pos": 7337,
-          "cumul_neg": 124250,
+          "cumul_neg": 124255,
           "cumul_pend": 41
         },
         {
@@ -9062,9 +9101,9 @@
           "positive": 55,
           "negative": 652,
           "pending": 0,
-          "cumul_tests": 132335,
+          "cumul_tests": 132340,
           "cumul_pos": 7392,
-          "cumul_neg": 124902,
+          "cumul_neg": 124907,
           "cumul_pend": 41
         },
         {
@@ -9073,20 +9112,20 @@
           "positive": 25,
           "negative": 417,
           "pending": 0,
-          "cumul_tests": 132777,
+          "cumul_tests": 132782,
           "cumul_pos": 7417,
-          "cumul_neg": 125319,
+          "cumul_neg": 125324,
           "cumul_pend": 41
         },
         {
           "date": "2020-08-17",
-          "tests": 1352,
+          "tests": 1351,
           "positive": 58,
-          "negative": 1294,
+          "negative": 1293,
           "pending": 0,
-          "cumul_tests": 134129,
+          "cumul_tests": 134133,
           "cumul_pos": 7475,
-          "cumul_neg": 126613,
+          "cumul_neg": 126617,
           "cumul_pend": 41
         },
         {
@@ -9095,9 +9134,9 @@
           "positive": 71,
           "negative": 1186,
           "pending": 0,
-          "cumul_tests": 135386,
+          "cumul_tests": 135390,
           "cumul_pos": 7546,
-          "cumul_neg": 127799,
+          "cumul_neg": 127803,
           "cumul_pend": 41
         },
         {
@@ -9106,9 +9145,9 @@
           "positive": 54,
           "negative": 918,
           "pending": 1,
-          "cumul_tests": 136359,
+          "cumul_tests": 136363,
           "cumul_pos": 7600,
-          "cumul_neg": 128717,
+          "cumul_neg": 128721,
           "cumul_pend": 42
         },
         {
@@ -9117,9 +9156,9 @@
           "positive": 67,
           "negative": 938,
           "pending": 0,
-          "cumul_tests": 137364,
+          "cumul_tests": 137368,
           "cumul_pos": 7667,
-          "cumul_neg": 129655,
+          "cumul_neg": 129659,
           "cumul_pend": 42
         },
         {
@@ -9128,9 +9167,9 @@
           "positive": 67,
           "negative": 1050,
           "pending": 2,
-          "cumul_tests": 138483,
+          "cumul_tests": 138487,
           "cumul_pos": 7734,
-          "cumul_neg": 130705,
+          "cumul_neg": 130709,
           "cumul_pend": 44
         },
         {
@@ -9139,20 +9178,20 @@
           "positive": 35,
           "negative": 548,
           "pending": 2,
-          "cumul_tests": 139068,
+          "cumul_tests": 139072,
           "cumul_pos": 7769,
-          "cumul_neg": 131253,
+          "cumul_neg": 131257,
           "cumul_pend": 46
         },
         {
           "date": "2020-08-23",
-          "tests": 408,
+          "tests": 409,
           "positive": 35,
-          "negative": 373,
+          "negative": 374,
           "pending": 0,
-          "cumul_tests": 139476,
+          "cumul_tests": 139481,
           "cumul_pos": 7804,
-          "cumul_neg": 131626,
+          "cumul_neg": 131631,
           "cumul_pend": 46
         },
         {
@@ -9161,9 +9200,9 @@
           "positive": 82,
           "negative": 1014,
           "pending": 0,
-          "cumul_tests": 140572,
+          "cumul_tests": 140577,
           "cumul_pos": 7886,
-          "cumul_neg": 132640,
+          "cumul_neg": 132645,
           "cumul_pend": 46
         },
         {
@@ -9172,9 +9211,9 @@
           "positive": 75,
           "negative": 1043,
           "pending": 0,
-          "cumul_tests": 141690,
+          "cumul_tests": 141695,
           "cumul_pos": 7961,
-          "cumul_neg": 133683,
+          "cumul_neg": 133688,
           "cumul_pend": 46
         },
         {
@@ -9183,20 +9222,20 @@
           "positive": 77,
           "negative": 840,
           "pending": 0,
-          "cumul_tests": 142607,
+          "cumul_tests": 142612,
           "cumul_pos": 8038,
-          "cumul_neg": 134523,
+          "cumul_neg": 134528,
           "cumul_pend": 46
         },
         {
           "date": "2020-08-27",
-          "tests": 764,
-          "positive": 48,
+          "tests": 765,
+          "positive": 49,
           "negative": 716,
           "pending": 0,
-          "cumul_tests": 143371,
-          "cumul_pos": 8086,
-          "cumul_neg": 135239,
+          "cumul_tests": 143377,
+          "cumul_pos": 8087,
+          "cumul_neg": 135244,
           "cumul_pend": 46
         },
         {
@@ -9205,136 +9244,147 @@
           "positive": 80,
           "negative": 818,
           "pending": 4,
-          "cumul_tests": 144273,
-          "cumul_pos": 8166,
-          "cumul_neg": 136057,
+          "cumul_tests": 144279,
+          "cumul_pos": 8167,
+          "cumul_neg": 136062,
           "cumul_pend": 50
         },
         {
           "date": "2020-08-29",
-          "tests": 550,
+          "tests": 556,
           "positive": 33,
-          "negative": 516,
+          "negative": 522,
           "pending": 1,
-          "cumul_tests": 144823,
-          "cumul_pos": 8199,
-          "cumul_neg": 136573,
+          "cumul_tests": 144835,
+          "cumul_pos": 8200,
+          "cumul_neg": 136584,
           "cumul_pend": 51
         },
         {
           "date": "2020-08-30",
-          "tests": 394,
-          "positive": 23,
-          "negative": 371,
+          "tests": 396,
+          "positive": 24,
+          "negative": 372,
           "pending": 0,
-          "cumul_tests": 145217,
-          "cumul_pos": 8222,
-          "cumul_neg": 136944,
+          "cumul_tests": 145231,
+          "cumul_pos": 8224,
+          "cumul_neg": 136956,
           "cumul_pend": 51
         },
         {
           "date": "2020-08-31",
-          "tests": 891,
-          "positive": 61,
-          "negative": 830,
+          "tests": 899,
+          "positive": 60,
+          "negative": 839,
           "pending": 0,
-          "cumul_tests": 146108,
-          "cumul_pos": 8283,
-          "cumul_neg": 137774,
+          "cumul_tests": 146130,
+          "cumul_pos": 8284,
+          "cumul_neg": 137795,
           "cumul_pend": 51
         },
         {
           "date": "2020-09-01",
-          "tests": 922,
-          "positive": 48,
-          "negative": 874,
+          "tests": 926,
+          "positive": 49,
+          "negative": 877,
           "pending": 0,
-          "cumul_tests": 147030,
-          "cumul_pos": 8331,
-          "cumul_neg": 138648,
+          "cumul_tests": 147056,
+          "cumul_pos": 8333,
+          "cumul_neg": 138672,
           "cumul_pend": 51
         },
         {
           "date": "2020-09-02",
-          "tests": 799,
+          "tests": 821,
           "positive": 71,
-          "negative": 727,
+          "negative": 749,
           "pending": 1,
-          "cumul_tests": 147829,
-          "cumul_pos": 8402,
-          "cumul_neg": 139375,
+          "cumul_tests": 147877,
+          "cumul_pos": 8404,
+          "cumul_neg": 139421,
           "cumul_pend": 52
         },
         {
           "date": "2020-09-03",
-          "tests": 748,
-          "positive": 45,
-          "negative": 702,
+          "tests": 783,
+          "positive": 46,
+          "negative": 736,
           "pending": 1,
-          "cumul_tests": 148577,
-          "cumul_pos": 8447,
-          "cumul_neg": 140077,
+          "cumul_tests": 148660,
+          "cumul_pos": 8450,
+          "cumul_neg": 140157,
           "cumul_pend": 53
         },
         {
           "date": "2020-09-04",
-          "tests": 738,
-          "positive": 49,
-          "negative": 686,
+          "tests": 846,
+          "positive": 51,
+          "negative": 792,
           "pending": 3,
-          "cumul_tests": 149315,
-          "cumul_pos": 8496,
-          "cumul_neg": 140763,
+          "cumul_tests": 149506,
+          "cumul_pos": 8501,
+          "cumul_neg": 140949,
           "cumul_pend": 56
         },
         {
           "date": "2020-09-05",
-          "tests": 468,
-          "positive": 13,
-          "negative": 455,
-          "pending": 0,
-          "cumul_tests": 149783,
-          "cumul_pos": 8509,
-          "cumul_neg": 141218,
-          "cumul_pend": 56
+          "tests": 609,
+          "positive": 26,
+          "negative": 582,
+          "pending": 1,
+          "cumul_tests": 150115,
+          "cumul_pos": 8527,
+          "cumul_neg": 141531,
+          "cumul_pend": 57
         },
         {
           "date": "2020-09-06",
-          "tests": 318,
-          "positive": 19,
-          "negative": 299,
+          "tests": 357,
+          "positive": 22,
+          "negative": 335,
           "pending": 0,
-          "cumul_tests": 150101,
-          "cumul_pos": 8528,
-          "cumul_neg": 141517,
-          "cumul_pend": 56
+          "cumul_tests": 150472,
+          "cumul_pos": 8549,
+          "cumul_neg": 141866,
+          "cumul_pend": 57
         },
         {
           "date": "2020-09-07",
-          "tests": 220,
-          "positive": 17,
-          "negative": 203,
+          "tests": 374,
+          "positive": 31,
+          "negative": 343,
           "pending": 0,
-          "cumul_tests": 150321,
-          "cumul_pos": 8545,
-          "cumul_neg": 141720,
-          "cumul_pend": 56
+          "cumul_tests": 150846,
+          "cumul_pos": 8580,
+          "cumul_neg": 142209,
+          "cumul_pend": 57
         },
         {
           "date": "2020-09-08",
-          "tests": 13,
-          "positive": 0,
-          "negative": 13,
+          "tests": 357,
+          "positive": 20,
+          "negative": 337,
           "pending": 0,
-          "cumul_tests": 150334,
-          "cumul_pos": 8545,
-          "cumul_neg": 141733,
-          "cumul_pend": 56
+          "cumul_tests": 151203,
+          "cumul_pos": 8600,
+          "cumul_neg": 142546,
+          "cumul_pend": 57
+        },
+        {
+          "date": "2020-09-09",
+          "tests": 19,
+          "positive": 0,
+          "negative": 19,
+          "pending": 0,
+          "cumul_tests": 151222,
+          "cumul_pos": 8600,
+          "cumul_neg": 142565,
+          "cumul_pend": 57
         }
       ],
       "deaths": [
         {
-          "date": "2020-09-08",
+          "date": "2020-09-09",
           "deaths": -1,
           "cumul_deaths": 136
         }
@@ -9343,47 +9393,50 @@
     "case_totals": {
       "gender": [
         {
-          "female": 4416
+          "female": 4457
         },
         {
-          "male": 4390
+          "male": 4436
         },
         {
           "other": 1
+        },
+        {
+          "unknown": 1
         }
       ],
       "age_group": [
         {
           "group": "< 9",
-          "count": 474
+          "count": 478
         },
         {
           "group": "10-19",
-          "count": 819
+          "count": 828
         },
         {
           "group": "20-29",
-          "count": 1793
+          "count": 1819
         },
         {
           "group": "30-39",
-          "count": 1718
+          "count": 1733
         },
         {
           "group": "40-49",
-          "count": 1412
+          "count": 1423
         },
         {
           "group": "50-59",
-          "count": 1132
+          "count": 1142
         },
         {
           "group": "60-69",
-          "count": 805
+          "count": 815
         },
         {
           "group": "70-79",
-          "count": 318
+          "count": 321
         },
         {
           "group": "80-89",
@@ -9400,14 +9453,14 @@
       ],
       "race_eth": {
         "American Indian/Alaska Native": 3,
-        "Asian": 876,
-        "Black": 101,
-        "Latino/Hispanic": 4431,
-        "Pacific Islander": 213,
-        "White": 1069,
+        "Asian": 883,
+        "Black": 103,
+        "Latino/Hispanic": 4489,
+        "Pacific Islander": 215,
+        "White": 1073,
         "Multirace": 55,
         "Other": 103,
-        "Unknown": 1956
+        "Unknown": 1971
       }
     },
     "death_totals": {
@@ -9531,7 +9584,7 @@
   },
   "sonoma": {
     "name": "Sonoma County",
-    "update_time": "2020-09-09T21:50:30-07:00",
+    "update_time": "2020-09-10T22:18:22-07:00",
     "source": "https://socoemergency.org/emergency/novel-coronavirus/coronavirus-cases/",
     "meta_from_source": "/Definitions/Active: Ongoing cases of COVID-19 /New Cases: Newly reported cases of COVID-19/Cumulative: Sum of active, deaths, and recovered cases of COVID-19//",
     "meta_from_baypd": "",
@@ -10496,6 +10549,11 @@
           "date": "2020-09-09",
           "cases": 28,
           "cumul_cases": 6395
+        },
+        {
+          "date": "2020-09-10",
+          "cases": 45,
+          "cumul_cases": 6440
         }
       ],
       "deaths": [
@@ -11458,15 +11516,20 @@
           "date": "2020-09-09",
           "deaths": 0,
           "cumul_deaths": 98
+        },
+        {
+          "date": "2020-09-10",
+          "deaths": 7,
+          "cumul_deaths": 105
         }
       ]
     },
     "case_totals": {
       "transmission_cat": {
-        "from_contact": 3067,
-        "unknown": 2715,
-        "community": 539,
-        "travel": 195
+        "from_contact": 3139,
+        "unknown": 2679,
+        "community": 547,
+        "travel": 196
       },
       "age_group": [
         {
@@ -11520,14 +11583,14 @@
         "African_Amer": 47
       },
       "gender": {
-        "male": 3166,
-        "female": 3338
+        "male": 3183,
+        "female": 3366
       }
     },
     "tests_totals": {
       "tests": {
-        "positive": 6516,
-        "negative": 101473
+        "positive": 6561,
+        "negative": 101974
       }
     }
   }
