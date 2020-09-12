@@ -71,7 +71,13 @@ jobs:
           echo "Encountered the following errors while scraping:"
           echo "------------------------------------------------"
           echo "${ERRORS}"
-          curl -X POST -H 'Content-type: application/json' --data "{\"text\":\"${ERRORS}\"}" $SLACK_WEBHOOK_URL
+          
+          # The error text can contain unescaped quotes, newlines, etc.
+          # Use jq to make sure we are composing correctly formatted JSON.
+          # `--raw-input` treats the input as strings instead of JSON.
+          # `--slurp` causes all lines to be combined into one string.
+          ERRORS_JSON=`cat errors.txt | jq --slurp --raw-input '{"text": .}'`
+          curl -X POST -H 'Content-type: application/json' --data "${ERRORS_JSON}" $SLACK_WEBHOOK_URL
         fi
 
     - name: Create PR if New Data
