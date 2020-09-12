@@ -79,7 +79,7 @@ export default {
   @include card-container();
   padding: 10px;
   margin-bottom: 20px;
-  width: 925px;
+  width: 100%;
 }
 
 .WhatsNew-heading {
@@ -100,10 +100,11 @@ export default {
   font-weight: bold;
   margin-left: 12px;
   display: flex;
+  width: 100%;
 }
 
 .WhatsNew-subheading p {
-  width: 10%;
+  width: 9%;
   color: $gray-1;
 }
 
@@ -132,6 +133,7 @@ export default {
 
       &-link {
         flex: 0 1 auto;
+        margin-left: 42px;
         @include text-link();
         @include lessThan($medium) {
           padding-left: 8px;
@@ -151,7 +153,7 @@ export default {
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  width: 925px;
+  width: 100%;
   height: 64px;
   margin-top: 20px;
   margin-bottom: 20px;
@@ -168,6 +170,9 @@ export default {
   margin-left: 30px;
   margin-top: 18px;
   margin-bottom: 18px;
+  @include lessThan($small) {
+    display: none;
+  }
 }
 
 .county-choice {

@@ -59,7 +59,7 @@ export default {
   .guidelines {
     padding: 10px;
     margin-bottom: 20px;
-    width: 925px;
+    width: 100%;
     background-color: white;
     padding-left: 30px;
     padding-top: 24px;
