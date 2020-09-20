@@ -8,17 +8,17 @@
         <p v-if="item.date != null" class="time-updated">
           Last updated {{ item.date }}
         </p>
-        <div v-for="(body, j) in item.body" :key="j">
+        <div v-for="(body, j) in item.body" :key="`body-${j}`">
           <p class="content-header">
             {{ body.h4 }}
           </p>
-          <div v-for="(content, k) in body.content" :key="k">
-            <div v-for="(p, l) in content.p2" :key="l" class="p2">
+          <div v-for="(content, k) in body.content" :key="`content-${k}`">
+            <div v-for="(p, l) in content.p2" :key="`p-${l}`" class="p2">
               <p>{{ p.p }}</p>
             </div>
             <div
               v-for="(bullet, m) in content.bullets"
-              :key="m"
+              :key="`bullet-${m}`"
               class="bullets"
             >
               <ul>
