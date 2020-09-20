@@ -67,8 +67,8 @@ export default {
         },
         {
           icon: 'updates',
-          title: 'Updates',
-          tab: 'Updates'
+          title: 'County Info',
+          tab: 'County Info'
         }
       ]
     }
