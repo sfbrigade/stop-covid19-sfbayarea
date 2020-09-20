@@ -104,8 +104,11 @@ export default {
 }
 
 .WhatsNew-subheading p {
-  width: 9%;
   color: $gray-1;
+}
+
+.WhatsNew-subheading p:first-child {
+  width: 130px;
 }
 
 .WhatsNew .WhatsNew-list {

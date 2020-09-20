@@ -5,9 +5,9 @@
         <p class="Header">
           {{ item.header }}
         </p>
-        <!-- <p class="time-updated">
-          Last updated dd/mm/yy
-        </p> -->
+        <p v-if="item.date != null" class="time-updated">
+          Last updated {{ item.date }}
+        </p>
         <div v-for="(body, j) in item.body" :key="j">
           <p class="content-header">
             {{ body.h4 }}
@@ -98,6 +98,6 @@ export default {
 }
 
 ul li {
-  padding: 9px 9px;
+  padding: 9px;
 }
 </style>
