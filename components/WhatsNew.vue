@@ -83,9 +83,10 @@ export default {
 }
 
 .WhatsNew-heading {
+  font-size: 24px;
+  font-weight: bold;
   display: flex;
   align-items: center;
-  @include card-h2();
   margin-bottom: 12px;
   // color: $gray-2;
   margin-left: 12px;
@@ -105,6 +106,7 @@ export default {
 
 .WhatsNew-subheading p {
   color: $gray-1;
+  margin-bottom: 0px;
 }
 
 .WhatsNew-subheading p:first-child {
