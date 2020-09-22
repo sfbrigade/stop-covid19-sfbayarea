@@ -26,7 +26,14 @@
               </ul>
             </div>
             <div class="link-container">
-              <a href="" class="links">{{ content.link }}</a>
+              <a
+                :href="content.link"
+                class="links"
+                target="_blank"
+                rel="noopener"
+              >
+                {{ content.link }}
+              </a>
             </div>
           </div>
         </div>
