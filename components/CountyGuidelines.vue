@@ -1,5 +1,5 @@
 <template>
-  <div class="CountyGuidelines">
+  <div v-if="info[county] != null" class="CountyGuidelines">
     <div v-for="(item, i) in info[county].info" :key="i">
       <v-card class="guidelines">
         <p class="Header">
