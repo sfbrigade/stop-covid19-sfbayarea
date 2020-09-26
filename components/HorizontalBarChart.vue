@@ -65,10 +65,10 @@ export default {
   computed: {
     displayData() {
       return {
-        labels: this.chartData.labels,
+        labels: [...this.chartData.labels],
         datasets: [
           {
-            data: this.chartData.datasets.data,
+            data: [...this.chartData.datasets.data],
             backgroundColor: this.chartData.datasets.backgroundColor
           }
         ]
@@ -112,7 +112,8 @@ export default {
                 maxTicksLimit: 30,
                 fontColor: '#808080',
                 maxRotation: 0,
-                minRotation: 0
+                minRotation: 0,
+                beginAtZero: true
               }
             }
           ],
@@ -132,6 +133,11 @@ export default {
             }
           ]
         },
+        layout: {
+          padding: {
+            right: 55
+          }
+        },
         plugins: this.chartData.customChartOptions.plugins
       }
     }
@@ -141,7 +147,7 @@ export default {
       return !Object.keys(this.chartData.datasets).length
     },
     getPlugins() {
-      // ADD CHECK FOR CHARTS THAT WANT TO ENABLE ALWAYS SHOW TOOLTIPS
+      // TO ENABLE ALWAYS SHOW TOOLTIPS ON BAR CHART, RETURN CHARTDATALABELS
       if (this.chartData.chartType === ChartTypes.GENDER) return ChartDataLabels
       if (this.chartData.chartType === ChartTypes.RACE_ETH)
         return ChartDataLabels

@@ -137,19 +137,22 @@ const buildGenderChartData = (
   genders: GenderData
 ) => {
   const updatedGenderGroup: GenderGroup = { ...defaultGenderGroup }
-  const genderLabels: string[] = []
-  for (const gender in genders) {
-    if (genders[gender] >= 0) genderLabels.push(gender)
-  }
+  const genderEntries = Object.entries(genders)
 
-  updatedGenderGroup.labels = genderLabels
+  // Sort by gender count in descending order
+  genderEntries.sort((a: [string, number], b: [string, number]) => {
+    return b[1] - a[1]
+  })
+
+  updatedGenderGroup.labels = getGenderEntryType(
+    'label',
+    genderEntries
+  ) as string[]
   updatedGenderGroup.datasets = {
     backgroundColor: PURPLE_MAIN,
-    data: getDatasetValues(genderLabels, genders)
+    data: getGenderEntryType('count', genderEntries) as number[]
   }
 
-  sortGenderDesc(updatedGenderGroup.labels, updatedGenderGroup.datasets.data)
-  console.log('genderLabels', genderLabels)
   console.log('updatedGenderGroup.datasets', updatedGenderGroup.datasets)
   updatedGenderGroup.customChartOptions!.plugins = {
     datalabels: {
@@ -274,6 +277,7 @@ const formatRaceEthLabels = (raceEthGroups: Array<string>) => {
 }
 
 export const getCountyShortName = (countyName: string): string => {
+  console.log('countyName', countyName)
   return countyName
     .replace(' County', '')
     .replace(' ', '_')
@@ -293,12 +297,6 @@ const getCustomChartBarColor = (
     finalColors.push(color)
   })
   return finalColors
-}
-
-const getDatasetValues = (labels: Array<string>, data: any) => {
-  return labels.map((label) => {
-    return data[label]
-  })
 }
 
 const getDefaultFormattedData = () => {
@@ -340,6 +338,13 @@ const getDefaultFormattedData = () => {
       }
     }
   }
+}
+
+const getGenderEntryType = (type: string, entries: [string, number][]) => {
+  return entries.map((entry: [string, number]) => {
+    const [label, count] = entry
+    return type === 'label' ? label : count
+  })
 }
 
 const getPercentageData = (target: number, total: number) => {
@@ -405,20 +410,6 @@ const normalizeDataBy = (
 
 const parseDateForYrMoDay = (date: string): string => {
   return date.split('T')[0]
-}
-
-const sortGenderDesc = (labels: string[], count: number[]): void => {
-  const map: any = {}
-  for (let i = 0; i < labels.length; i++) {
-    map[count[i]] = labels[i]
-  }
-  console.log('map', map)
-
-  count.sort((a: number, b: number) => b - a)
-  console.log('count', count)
-
-  labels = []
-  count.forEach((num: number) => labels.push(map[num]))
 }
 
 const sortLabelsAndValuesByValue = (data: any) => {
