@@ -65,17 +65,17 @@ export default {
   computed: {
     displayData() {
       return {
-        labels: [...this.chartData.labels],
+        labels: this.chartData.labels,
         datasets: [
           {
-            data: [...this.chartData.datasets.data],
+            data: this.chartData.datasets.data,
             backgroundColor: this.chartData.datasets.backgroundColor
           }
         ]
       }
     },
     displayOption() {
-      return {
+      const options = {
         tooltips: {
           displayColors: false,
           showAllTooltips: true,
@@ -140,6 +140,22 @@ export default {
         },
         plugins: this.chartData.customChartOptions.plugins
       }
+
+      if (this.chartData.chartType === ChartTypes.RACE_ETH_NORM) {
+        options.tooltips = {
+          ...options.tooltips,
+          callbacks: {
+            label() {
+              return `1000 people`
+            },
+            title(tooltipItem) {
+              if (!tooltipItem) return
+              return `${tooltipItem[0].value} cases /`
+            }
+          }
+        }
+      }
+      return options
     }
   },
   methods: {
