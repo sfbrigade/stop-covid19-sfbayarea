@@ -59,7 +59,8 @@ const RACE_ETH_POP_PERCENTAGE: any = {
       ASIAN: 0.087,
       PACIFIC_ISLANDER: 0.002,
       OTHER: 0.125,
-      MULTIPLE_RACE: 0.041
+      MULTIPLE_RACE: 0.041,
+      LATINX_OR_HISPANIC: 0.339
     }
   },
   SAN_FRANCISCO: {
@@ -84,7 +85,8 @@ const RACE_ETH_POP_PERCENTAGE: any = {
       ASIAN: 0.197,
       PACIFIC_ISLANDER: 0.016,
       OTHER: 0.116,
-      MULTIPLE_RACE: 0.054
+      MULTIPLE_RACE: 0.054,
+      LATINX_OR_HISPANIC: 0.247
     }
   },
   SANTA_CLARA: {
