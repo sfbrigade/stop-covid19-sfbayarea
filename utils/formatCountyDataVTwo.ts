@@ -356,13 +356,6 @@ const buildRaceEthNormalizedChartData = (
     county
   )
 
-  // REMOVE UNKNOWN AS THERE ARE NO UNKNOWN ON CONCENSUS
-  updatedRaceEthGroup.labels = labels.filter(
-    (label: string) => label !== 'Unknown'
-  )
-  // REMOVE UNKNOWN COLOR OF GRAY
-  updatedRaceEthGroup.datasets.backgroundColor = PURPLE_MAIN
-
   updatedRaceEthGroup.customChartOptions!.plugins = {
     datalabels: {
       color: '#000000',
@@ -554,13 +547,14 @@ const updateRaceEthNormalizedChartData = (
       .replace('/', ' or ')
       .replace(/ /g, '_')
       .replace('American', 'Amer')
+      .replace(/multirace/i, 'MULTIPLE_RACE')
+      .replace(/AMERICAN_INDIAN_OR_ALASKA_NATIVE/i, 'NATIVE_AMER')
+      .replace(/black/i, 'AFRICAN_AMER')
       .toUpperCase()
 
     const ethPopulation = TOTAL * RACE[formattedEth]
-    if (!isNaN(ethPopulation)) {
-      const ethPopPerThousand = cases / (ethPopulation / 1000)
-      finalArr.push(+ethPopPerThousand.toFixed(2))
-    }
+    const ethPopPerThousand = cases / (ethPopulation / 1000)
+    finalArr.push(+ethPopPerThousand.toFixed(2))
   })
   return finalArr
 }
