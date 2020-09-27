@@ -89,7 +89,7 @@ jobs:
         reviewers: kengoy, Mr0grog
 
     - name: Send Errors to Slack and Fail
-      if: ${{ steps.scrape_news.outcome == "failure" }}
+      if: ${{ steps.scrape_news.outcome == 'failure' }}
       env:
         SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
       run: |
