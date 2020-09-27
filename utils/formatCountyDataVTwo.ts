@@ -552,6 +552,7 @@ const updateRaceEthNormalizedChartData = (
       .replace(/multirace/i, 'MULTIPLE_RACE')
       .replace(/AMERICAN_INDIAN_OR_ALASKA_NATIVE/i, 'NATIVE_AMER')
       .replace(/black/i, 'AFRICAN_AMER')
+      .replace(/latino/i, 'latinx')
       .toUpperCase()
 
     const ethPopulation = TOTAL * RACE[formattedEth]
