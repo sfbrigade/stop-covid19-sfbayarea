@@ -147,18 +147,19 @@
           :url="CountyDataVTwo[currentCounty].sourceUrl"
         />
       </v-col>
-      <!-- <v-col cols="12" md="6" class="DataCard">
+      <v-col cols="12" md="6" class="DataCard">
         <horizontal-bar-chart
           :title="
-            `County Cases by Race and Ethnicity: ${CountyData[currentCounty].name}`
+            `County Cases per 1000 by Race and Ethnicity: ${CountyData[currentCounty].name}`
           "
           :title-id="'cases-by-race-eth-norm'"
           :chart-id="'horizontal-bar-chart-race-eth-norm'"
           :chart-data="CountyDataVTwo[currentCounty].raceEthNormGroup"
+          :chart-info="chartInfo.raceEthNorm"
           :date="CountyDataVTwo[currentCounty].lastUpdatedAt"
           :url="CountyDataVTwo[currentCounty].sourceUrl"
         />
-      </v-col> -->
+      </v-col>
       <!-- County Comparison Selector -->
       <v-col cols="12" md="12" class="DataCard">
         <DataView>
@@ -338,6 +339,13 @@ export default {
             title: 'What this graph shows',
             description:
               'This chart shows the racial/ethnic breakdown of county cases. This information is gathered from multiple sources including medical records, testing labs and interviews. The large number of unknown cases should be noted when assessing the significance of this data.'
+          }
+        ],
+        raceEthNorm: [
+          {
+            title: 'What this graph shows',
+            description:
+              'Showing cases per 1000 people normalizes the data for population size. This measure reflects the relative prevelance of COVID-19 cases by race and ethnicity. This data is calculated based on US census population data and confirmed cases that registered racial/ethnic data.'
           }
         ],
         casesPerResidents: [

@@ -9,8 +9,126 @@ export enum ChartTypes {
 
 const PURPLE_MAIN = '#473A8C'
 const GRAY_SECONDARY = '#C8C8C8'
-const RACE_ETH_NORMALIZE_NUMBER = 10000
-const TO_FIX_POSITION = 3
+// 2018 CONSENSUS
+const RACE_ETH_POP_PERCENTAGE: any = {
+  ALAMEDA: {
+    TOTAL: 1643700,
+    RACE: {
+      WHITE: 0.415,
+      AFRICAN_AMER: 0.108,
+      NATIVE_AMER: 0.007,
+      ASIAN: 0.296,
+      PACIFIC_ISLANDER: 0.008,
+      OTHER: 0.103,
+      MULTIPLE_RACE: 0.063,
+      LATINX_OR_HISPANIC: 0.225
+    }
+  },
+  CONTRA_COSTA: {
+    TOTAL: 1133247,
+    RACE: {
+      WHITE: 0.572,
+      AFRICAN_AMER: 0.086,
+      NATIVE_AMER: 0.005,
+      ASIAN: 0.163,
+      PACIFIC_ISLANDER: 0.005,
+      OTHER: 0.1,
+      MULTIPLE_RACE: 0.069,
+      LATINX_OR_HISPANIC: 0.254
+    }
+  },
+  MARIN: {
+    TOTAL: 260295,
+    RACE: {
+      WHITE: 0.781,
+      AFRICAN_AMER: 0.022,
+      NATIVE_AMER: 0.003,
+      ASIAN: 0.058,
+      PACIFIC_ISLANDER: 0.002,
+      OTHER: 0.086,
+      MULTIPLE_RACE: 0.049,
+      LATINX_OR_HISPANIC: 0.159
+    }
+  },
+  NAPA: {
+    TOTAL: 118544,
+    RACE: {
+      WHITE: 0.716,
+      AFRICAN_AMER: 0.02,
+      NATIVE_AMER: 0.009,
+      ASIAN: 0.087,
+      PACIFIC_ISLANDER: 0.002,
+      OTHER: 0.125,
+      MULTIPLE_RACE: 0.041,
+      LATINX_OR_HISPANIC: 0.339
+    }
+  },
+  SAN_FRANCISCO: {
+    TOTAL: 870044,
+    RACE: {
+      WHITE: 0.467,
+      AFRICAN_AMER: 0.052,
+      NATIVE_AMER: 0.003,
+      ASIAN: 0.342,
+      PACIFIC_ISLANDER: 0.003,
+      OTHER: 0.077,
+      MULTIPLE_RACE: 0.054,
+      LATINX_OR_HISPANIC: 0.152
+    }
+  },
+  SAN_MATEO: {
+    TOTAL: 411873,
+    RACE: {
+      WHITE: 0.585,
+      AFRICAN_AMER: 0.026,
+      NATIVE_AMER: 0.005,
+      ASIAN: 0.197,
+      PACIFIC_ISLANDER: 0.016,
+      OTHER: 0.116,
+      MULTIPLE_RACE: 0.054,
+      LATINX_OR_HISPANIC: 0.247
+    }
+  },
+  SANTA_CLARA: {
+    TOTAL: 1922200,
+    RACE: {
+      WHITE: 0.45,
+      AFRICAN_AMER: 0.025,
+      NATIVE_AMER: 0.005,
+      ASIAN: 0.359,
+      PACIFIC_ISLANDER: 0.004,
+      OTHER: 0.107,
+      MULTIPLE_RACE: 0.05,
+      LATINX_OR_HISPANIC: 0.258
+    }
+  },
+  SOLANO: {
+    TOTAL: 438530,
+    RACE: {
+      WHITE: 0.527,
+      AFRICAN_AMER: 0.141,
+      NATIVE_AMER: 0.005,
+      ASIAN: 0.155,
+      PACIFIC_ISLANDER: 0.009,
+      OTHER: 0.091,
+      MULTIPLE_RACE: 0.072,
+      LATINX_OR_HISPANIC: 0.261
+    }
+  },
+  SONOMA: {
+    TOTAL: 501317,
+    RACE: {
+      WHITE: 0.749,
+      AFRICAN_AMER: 0.016,
+      NATIVE_AMER: 0.01,
+      ASIAN: 0.04,
+      PACIFIC_ISLANDER: 0.003,
+      OTHER: 0.127,
+      MULTIPLE_RACE: 0.056,
+      LATINX_OR_HISPANIC: 0.265
+    }
+  }
+}
 
 type AgeDataset = {
   backgroundColor: string
@@ -137,16 +255,22 @@ const buildGenderChartData = (
   genders: GenderData
 ) => {
   const updatedGenderGroup: GenderGroup = { ...defaultGenderGroup }
-  const genderLabels: string[] = []
-  for (const gender in genders) {
-    if (genders[gender] >= 0) genderLabels.push(gender)
-  }
+  const genderEntries = Object.entries(genders)
 
-  updatedGenderGroup.labels = genderLabels
+  // Sort by gender count in descending order
+  genderEntries.sort((a: [string, number], b: [string, number]) => {
+    return b[1] - a[1]
+  })
+
+  updatedGenderGroup.labels = getGenderEntryType(
+    'label',
+    genderEntries
+  ) as string[]
   updatedGenderGroup.datasets = {
     backgroundColor: PURPLE_MAIN,
-    data: getDatasetValues(genderLabels, genders)
+    data: getGenderEntryType('count', genderEntries) as number[]
   }
+
   updatedGenderGroup.customChartOptions!.plugins = {
     datalabels: {
       color: '#FFFFFF',
@@ -220,12 +344,20 @@ const buildRaceEthChartData = (
 
 const buildRaceEthNormalizedChartData = (
   defaultRaceEthGroup: RaceEthGroup,
-  raceEths: RaceEthData
+  raceEths: RaceEthData,
+  county: string
 ) => {
   const updatedRaceEthGroup: RaceEthGroup = buildRaceEthUpdatedDataInit(
     defaultRaceEthGroup,
     raceEths
   )
+  const { datasets, labels } = updatedRaceEthGroup
+  updatedRaceEthGroup.datasets.data = updateRaceEthNormalizedChartData(
+    datasets.data,
+    labels,
+    county
+  )
+
   updatedRaceEthGroup.customChartOptions!.plugins = {
     datalabels: {
       color: '#000000',
@@ -233,13 +365,6 @@ const buildRaceEthNormalizedChartData = (
       align: 'right',
       font: {
         size: 14
-      },
-      formatter(value: any) {
-        return normalizeDataBy(
-          RACE_ETH_NORMALIZE_NUMBER,
-          value,
-          TO_FIX_POSITION
-        )
       }
     }
   }
@@ -291,12 +416,6 @@ const getCustomChartBarColor = (
   return finalColors
 }
 
-const getDatasetValues = (labels: Array<string>, data: any) => {
-  return labels.map((label) => {
-    return data[label]
-  })
-}
-
 const getDefaultFormattedData = () => {
   return {
     ageGroup: {
@@ -338,6 +457,13 @@ const getDefaultFormattedData = () => {
   }
 }
 
+const getGenderEntryType = (type: string, entries: [string, number][]) => {
+  return entries.map((entry: [string, number]) => {
+    const [label, count] = entry
+    return type === 'label' ? label : count
+  })
+}
+
 const getPercentageData = (target: number, total: number) => {
   return Math.round((target / total) * 100)
 }
@@ -377,26 +503,19 @@ const getUpdatedCountyData = (
       )
     }
     if (race_eth) {
+      const countyName = county.name.replace(/ /g, '_').replace('_County', '')
       updatedData.raceEthGroup = buildRaceEthChartData(
         defaultFormattedData.raceEthGroup!,
         race_eth
       )
       updatedData.raceEthNormGroup = buildRaceEthNormalizedChartData(
         defaultFormattedData.raceEthNormGroup!,
-        race_eth
+        race_eth,
+        countyName
       )
     }
   }
   return updatedData
-}
-
-const normalizeDataBy = (
-  populationNumber: number,
-  value: number,
-  toFixedNum?: number
-): number => {
-  const normNum = value / populationNumber
-  return toFixedNum ? parseFloat(normNum.toFixed(toFixedNum)) : normNum
 }
 
 const parseDateForYrMoDay = (date: string): string => {
@@ -410,6 +529,37 @@ const sortLabelsAndValuesByValue = (data: any) => {
     return 0
   }
   return Object.entries(data).sort(sortByValue)
+}
+
+/**
+ * ETHNICITY POPULATION = COUNTY POPULATION * ETHNICITY%
+ * cases per 1000
+ * ETHNICITY CASES / (ETHNICITY POPULATION/1000)
+ */
+const updateRaceEthNormalizedChartData = (
+  data: number[],
+  labels: string[],
+  county: string
+): number[] => {
+  const { TOTAL, RACE } = RACE_ETH_POP_PERCENTAGE[county.toUpperCase()]
+  const finalArr: number[] = []
+  data.forEach((cases: number, i: number) => {
+    const ethnicity = labels[i]
+    const formattedEth = ethnicity
+      .replace('/', ' or ')
+      .replace(/ /g, '_')
+      .replace('American', 'Amer')
+      .replace(/multirace/i, 'MULTIPLE_RACE')
+      .replace(/AMERICAN_INDIAN_OR_ALASKA_NATIVE/i, 'NATIVE_AMER')
+      .replace(/black/i, 'AFRICAN_AMER')
+      .replace(/latino/i, 'latinx')
+      .toUpperCase()
+
+    const ethPopulation = TOTAL * RACE[formattedEth]
+    const ethPopPerThousand = cases / (ethPopulation / 1000)
+    finalArr.push(+ethPopPerThousand.toFixed(2))
+  })
+  return finalArr
 }
 
 export default (

@@ -75,7 +75,7 @@ export default {
       }
     },
     displayOption() {
-      return {
+      const options = {
         tooltips: {
           displayColors: false,
           showAllTooltips: true,
@@ -112,7 +112,8 @@ export default {
                 maxTicksLimit: 30,
                 fontColor: '#808080',
                 maxRotation: 0,
-                minRotation: 0
+                minRotation: 0,
+                beginAtZero: true
               }
             }
           ],
@@ -132,8 +133,29 @@ export default {
             }
           ]
         },
+        layout: {
+          padding: {
+            right: 55
+          }
+        },
         plugins: this.chartData.customChartOptions.plugins
       }
+
+      if (this.chartData.chartType === ChartTypes.RACE_ETH_NORM) {
+        options.tooltips = {
+          ...options.tooltips,
+          callbacks: {
+            label() {
+              return `1000 people`
+            },
+            title(tooltipItem) {
+              if (!tooltipItem) return
+              return `${tooltipItem[0].value} cases /`
+            }
+          }
+        }
+      }
+      return options
     }
   },
   methods: {
@@ -141,7 +163,7 @@ export default {
       return !Object.keys(this.chartData.datasets).length
     },
     getPlugins() {
-      // ADD CHECK FOR CHARTS THAT WANT TO ENABLE ALWAYS SHOW TOOLTIPS
+      // TO ENABLE ALWAYS SHOW TOOLTIPS ON BAR CHART, RETURN CHARTDATALABELS
       if (this.chartData.chartType === ChartTypes.GENDER) return ChartDataLabels
       if (this.chartData.chartType === ChartTypes.RACE_ETH)
         return ChartDataLabels
