@@ -11,19 +11,19 @@ const config: Configuration = {
     htmlAttrs: {
       prefix: 'og: http://ogp.me/ns#'
     },
-    titleTemplate: '%s | Stop Coronavirus in the Bay Area',
+    titleTemplate: '%s | COVID Awareness for the Bay Area, by the Bay Area',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       {
         hid: 'description',
         name: 'description',
-        content: 'Stop Coronavirus in the Bay Area'
+        content: 'COVID Awareness for the Bay Area, by the Bay Area'
       },
       {
         hid: 'og:site_name',
         property: 'og:site_name',
-        content: 'Stop Coronavirus in the Bay Area'
+        content: 'COVID Awareness for the Bay Area, by the Bay Area'
       },
       { hid: 'og:type', property: 'og:type', content: 'website' },
       {
@@ -34,12 +34,12 @@ const config: Configuration = {
       {
         hid: 'og:title',
         property: 'og:title',
-        content: 'Stop Coronavirus in the Bay Area'
+        content: 'COVID Awareness for the Bay Area, by the Bay Area'
       },
       {
         hid: 'og:description',
         property: 'og:description',
-        content: 'Stop Coronavirus in the Bay Area'
+        content: 'COVID Awareness for the Bay Area, by the Bay Area'
       },
       {
         hid: 'og:image',

@@ -51,9 +51,8 @@
     </TextCard>
     <TextCard title="Disclaimers">
       Although every effort has been made to ensure the accuracy of the
-      information posted on this site, the team Stop Cornavirus is not
-      responsible for any actions taken by users using the information on this
-      site.<br />
+      information posted on this site, the team Code4SF is not responsible for
+      any actions taken by users using the information on this site.<br />
       <br />
       Website will not be responsible in case any user uses the website data in
       a way that causes, or is likely to cause any damage.<br />
