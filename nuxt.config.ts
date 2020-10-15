@@ -183,7 +183,7 @@ const config: Configuration = {
     hardSource: process.env.NODE_ENV === 'development'
   },
   manifest: {
-    name: 'Bay Area Panda',
+    name: 'COVID Awareness for the Bay Area, by the Bay Area',
     theme_color: '#403774',
     background_color: '#403774',
     display: 'standalone',
