@@ -56,13 +56,13 @@ jobs:
         pip install -r requirements.txt;
 
         # Keep track of the version used so we can use it in commit messages
-        echo "::set-env name=SCRAPER_COMMIT::$(git rev-parse HEAD)"
+        echo "SCRAPER_COMMIT='$(git rev-parse HEAD)'" >> $GITHUB_ENV
 
     - name: Scrape Data
       env:
         SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
       run: |
-        echo "::set-env name=SCRAPER_TIME::$(date)"
+        echo "SCRAPER_TIME='$(date)'" >> $GITHUB_ENV
         cd ${GITHUB_WORKSPACE}/scraper
 
         OUT_PATH="${GITHUB_WORKSPACE}/site/data/data.v2.json"
