@@ -4,7 +4,7 @@ on:
   schedule:
     # Run every 8 hours
     # Test Run
-    - cron: 20 * * * *
+    - cron: 30 * * * *
 
 jobs:
   # This workflow contains a single job called "build"
