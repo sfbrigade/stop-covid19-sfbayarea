@@ -54,7 +54,7 @@ jobs:
         pip install -r requirements.txt;
 
         # Keep track of the version used so we can use it in commit messages
-        echo "::set-env name=SCRAPER_COMMIT::$(git rev-parse HEAD)"
+        echo "SCRAPER_COMMIT='$(git rev-parse HEAD)'" >> $GITHUB_ENV
 
     # Run the news scraper
     - name: Scrape News
@@ -64,7 +64,7 @@ jobs:
       # failures in a later step.
       continue-on-error: true
       run: |
-        echo "::set-env name=SCRAPER_TIME::$(date)"
+        echo "SCRAPER_TIME='$(date)'" >> $GITHUB_ENV
         cd ${GITHUB_WORKSPACE}/scraper
         python scraper_news.py --format json_feed --format rss --output "${GITHUB_WORKSPACE}/site/data/news/" 2> errors.txt
     
