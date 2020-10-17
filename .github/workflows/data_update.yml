@@ -3,8 +3,8 @@ name: data.json update
 on:
   schedule:
     # Run every 8 hours
-    # Test Run for every 10 min
-    - cron: */10 * * * *
+    # Test Run
+    - cron: 20 * * * *
 
 jobs:
   # This workflow contains a single job called "build"
