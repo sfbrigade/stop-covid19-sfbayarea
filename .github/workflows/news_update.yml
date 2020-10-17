@@ -43,6 +43,9 @@ jobs:
           ${{ runner.os }}-pip-
 
     # Install dependencis
+    - name: Install libxml2-dev libxslt-dev
+      run: sudo apt-get install libxml2-dev libxslt-dev
+
     # - The commit that was checked out will be available as $SCRAPER_COMMIT.
     - name: Install Data Scraper & Dependencies
       run: |
