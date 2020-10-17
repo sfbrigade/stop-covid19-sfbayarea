@@ -4,7 +4,7 @@ on:
   schedule:
     # Run every 8 hours
     # Test Run
-    - cron: 30 * * * *
+    - cron: 0 * * * *
 
 jobs:
   # This workflow contains a single job called "build"
@@ -47,6 +47,9 @@ jobs:
 
     # Install dependencies
     # - The commit that was checked out will be available as $SCRAPER_COMMIT.
+    - name: Install libxml2-dev libxslt-dev
+      run: sudo apt-get install libxml2-dev libxslt-dev
+
     - name: Install Data Scraper & Dependencies
       run: |
         cd ${GITHUB_WORKSPACE}/scraper
