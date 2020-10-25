@@ -160,6 +160,29 @@
           :url="CountyDataVTwo[currentCounty].sourceUrl"
         />
       </v-col>
+      <v-col cols="12" md="6" class="DataCard">
+        <time-line-chart
+          :title="
+            `COVID ICU Care and Capacity: ${CountyData[currentCounty].name}`
+          "
+          :title-id="'icu-capacity'"
+          :chart-data="
+            CountyDataHospitalization[
+              renameCountyNameForHospitalization(currentCounty)
+            ].graph
+          "
+          :date="
+            CountyDataHospitalization[
+              renameCountyNameForHospitalization(currentCounty)
+            ].lastUpdatedAt
+          "
+          :url="
+            CountyDataHospitalization[
+              renameCountyNameForHospitalization(currentCounty)
+            ].sourceUrl
+          "
+        />
+      </v-col>
       <!-- County Comparison Selector -->
       <v-col cols="12" md="12" class="DataCard">
         <DataView>
@@ -230,14 +253,17 @@
 
 <script>
 import TimeBarChart from '@/components/TimeBarChart.vue'
+import TimeLineChart from '@/components/TimeLineChart.vue'
 import TimeLineChartCountyComparison from '@/components/TimeLineChartCountyComparison.vue'
 import CasesSummary from '@/components/CasesSummary.vue'
 import HorizontalBarChart from '@/components/HorizontalBarChart'
 import Data from '@/data/data.json'
 import DataVTwo from '@/data/data.v2.json'
+import DataHospitalization from '@/data/data_hospitalization.json'
 import formatCountyData from '@/utils/formatCountyData'
 import formatCountyDataVTwo from '@/utils/formatCountyDataVTwo'
 import consolidateAllData from '@/utils/consolidateAllData'
+import formatCountyHospitalizationData from '@/utils/formatCountyHospitalizationData'
 import DataView from '@/components/DataView.vue'
 import countyColor from '@/static/data/countyColor.json'
 
@@ -245,6 +271,7 @@ export default {
   components: {
     CasesSummary,
     TimeBarChart,
+    TimeLineChart,
     TimeLineChartCountyComparison,
     HorizontalBarChart,
     DataView
@@ -271,11 +298,17 @@ export default {
     const CountyDataVTwo = this.getFormatData()
     const chartInfo = this.getChartInfo()
 
+    const CountyDataHospitalization = formatCountyHospitalizationData(
+      DataHospitalization
+    )
+
     const data = {
       Data,
       DataVTwo,
+      DataHospitalization,
       CountyData,
       CountyDataVTwo,
+      CountyDataHospitalization,
       ConsolidatedData,
       currentCounty,
       countyNames,
@@ -365,6 +398,28 @@ export default {
               'Showing an average value smooths the data curve and makes trends easier to observe. The 14 day period was chosen to match the maximum time frame between contraction of the virus and the onset of symptoms.'
           }
         ]
+      }
+    },
+    renameCountyNameForHospitalization(name) {
+      switch (name) {
+        case 'Alameda County':
+          return 'alameda'
+        case 'Contra Costa County':
+          return 'contra_costa'
+        case 'Marin County':
+          return 'marin'
+        case 'Napa County':
+          return 'napa'
+        case 'San Francisco County':
+          return 'san_francisco'
+        case 'San Mateo County':
+          return 'san_mateo'
+        case 'Santa Clara County':
+          return 'santa_clara'
+        case 'Sonoma County':
+          return 'sonoma'
+        case 'Solano County':
+          return 'solano'
       }
     }
   },
