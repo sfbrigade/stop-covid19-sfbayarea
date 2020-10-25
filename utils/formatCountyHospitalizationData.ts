@@ -1,6 +1,7 @@
+/* eslint-disable camelcase */
+
 type HospitalizationDataType = {
   name: string
-  /* eslint-disable camelcase */
   icu_covid_confirmed_patients: number
   icu_available_beds: number
   date: Date
