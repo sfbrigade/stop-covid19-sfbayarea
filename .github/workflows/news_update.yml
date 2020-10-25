@@ -24,7 +24,7 @@ jobs:
         repository: sfbrigade/data-covid19-sfbayarea
         path: scraper
 
-    # The scraper uses Python 3.7+, so make sure we've got the latest 3.x
+    # The scraper uses Python 3.8+, so make sure we've got the latest 3.x
     - name: Set up Python 3.x
       uses: actions/setup-python@v1
       with:
