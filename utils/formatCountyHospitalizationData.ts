@@ -11,7 +11,7 @@ type CountyHospitalizationDataType = {
   name: string
   update_time: string
   source_url: string
-  series: Array<HospitalizationDataType>
+  series: Array<HospitalizationDataType[]>
 }
 
 type GraphDataType = {
