@@ -1,7 +1,7 @@
 {
   "san_francisco": {
     "name": "San Francisco County",
-    "update_time": "2020-10-24T16:00:42+0000",
+    "update_time": "2020-10-25T16:06:04+0000",
     "source_url": "https://data.sfgov.org/stories/s/San-Francisco-COVID-19-Data-and-Reports/fjki-2fab",
     "meta_from_source": "<strong>A. SUMMARY</strong>\nThis dataset represents the COVID-19 positive confirmed cases and deaths by day and transmission type. Demographic and transmission data are based on information reported from case interviews, laboratories, and providers. This data may not be immediately available for recently reported cases and data will change to reflect as information becomes available. \n\n<strong>B. HOW THE DATASET IS CREATED</strong>\nInformation on cases and deaths including case demographic and transmission details is reported from a combination of data sources including electronic and faxed laboratory reports, case interviews, medical providers, and electronic medical record systems. These multiple streams of data are merged, deduplicated, undergo quality assurance and other data verification processes, and are continually updated to maximize completeness of information and reporting on San Francisco residents with COVID-19.\n\n<strong>C. UPDATE PROCESS</strong>\nUpdated daily, dataset uploaded manually by staff\n\n<strong>D. HOW TO USE THIS DATASET</strong>\nCase counts are provided by category of the disposition. Confirmed are those cases where lab testing was positive, deaths are those cases of infection resulting in death. To get counts in either category, you must filter the Case Type Disposition or pivot the data.\n\nInformation on transmission of COVID-19 is based on case interviews with individuals who have a confirmed positive test. Individuals are asked if they have been in close contact with a known COVID-19 case. If they answer yes, transmission category is recorded as contact with a known case.  If they report no contact with a known case, transmission category is recorded as community transmission.  If the case is not interviewed or was not asked the question, they are counted as unknown.\n\nThese data do not reflect the number of COVID-19 recoveries. The San Francisco Department of Public Health (SFDPH) is focused on caring for patients, reducing the spread of COVID-19, and tracking the surge. Recoveries happen in many settings, including homes, residential facilities, and hospitals, and are not routinely reported to the local health department. This is consistent with SFDPH reporting in the regular flu season.\n\nThere are three other datasets related to cases:\n1. <a href=\"https://data.sfgov.org/COVID-19/COVID-19-Cases-Summarized-by-Age-Group-and-Gender/sunc-2t3k\">COVID-19 Cases Summarized by Age Group</a>\n2. <a href=\"https://data.sfgov.org/COVID-19/COVID-19-Cases-Summarized-by-Race-and-Ethnicity/vqqm-nsqg\">COVID-19 Cases Summarized by Race and Ethnicity</a>\n3. <a href=\"https://data.sfgov.org/COVID-19/COVID-19-Cases-Summarized-by-Gender/nhy6-gqam\">COVID-19 Cases Summarized by Gender</a>\n\n<strong>A. SUMMARY</strong>\nThis dataset represents the COVID-19 positive confirmed cases by gender. Demographic and transmission data are based on information reported from case interviews, laboratories, and providers. This data may not be immediately available for recently reported cases and data will change to reflect as information becomes available. Cumulative counts of 5 or fewer are excluded from the dataset.\n\n<strong>B. HOW THE DATASET IS CREATED</strong>\nInformation on cases and deaths including case demographic and transmission details is reported from a combination of data sources including electronic and faxed laboratory reports, case interviews, medical providers, and electronic medical record systems. These multiple streams of data are merged, deduplicated, undergo quality assurance and other data verification processes, and are continually updated to maximize completeness of information and reporting on San Francisco residents with COVID-19. Data are prepared by close of business daily for public display.\n\n<strong>C. UPDATE PROCESS</strong>\nUpdated daily, dataset uploaded manually by staff\n\n<strong>D. HOW TO USE THIS DATASET</strong>\nUnknowns may become known over time as more information is gathered.\n\nGender groups resulting in 5 or fewer cumulative cases are dropped for privacy reasons.\n\nThere are two other datasets related to cases:\n1. <a href=\"https://data.sfgov.org/COVID-19/COVID-19-Cases-Summarized-by-Date-Transmission-and/tvq9-ec9w\">COVID-19 Cases Summarized by Date, Transmission and Case Disposition</a>\n2. <a href=\"https://data.sfgov.org/COVID-19/COVID-19-Cases-Summarized-by-Race-and-Ethnicity/vqqm-nsqg\">COVID-19 Cases Summarized by Race and Ethnicity</a>\n3. <a href=\"https://data.sfgov.org/COVID-19/COVID-19-Cases-Summarized-by-Age-Group/sunc-2t3k\">COVID-19 Cases Summarized by Age Group</a>\n\n<strong>A. SUMMARY</strong>\nThis dataset represents the COVID-19 positive confirmed cases by age group. Demographic and transmission data are based on information reported from case interviews, laboratories, and providers. This data may not be immediately available for recently reported cases and data will change to reflect as information becomes available. Cumulative counts of 5 or fewer are excluded from the dataset.\n\n<strong>B. HOW THE DATASET IS CREATED</strong>\nInformation on cases and deaths including case demographic and transmission details is reported from a combination of data sources including electronic and faxed laboratory reports, case interviews, medical providers, and electronic medical record systems. These multiple streams of data are merged, deduplicated, undergo quality assurance and other data verification processes, and are continually updated to maximize completeness of information and reporting on San Francisco residents with COVID-19. Data are prepared by close of business daily for public display.\n\n<strong>C. UPDATE PROCESS</strong>\nUpdated daily, dataset uploaded manually by staff\n\n<strong>D. HOW TO USE THIS DATASET</strong>\nAge groups are binned in to the following groups to minimize re-identifcation:\n<18, 18-30, 31-40, 41-50, 51-60, 61-70, 71-80, 81+, Unknown\n\nUnknowns may become known over time as more information is gathered.\n\nage groups resulting in 5 or fewer cumulative cases are dropped for privacy reasons.\n\nThere are two other datasets related to cases:\n1. <a href=\"https://data.sfgov.org/COVID-19/COVID-19-Cases-Summarized-by-Date-Transmission-and/tvq9-ec9w\">COVID-19 Cases Summarized by Date, Transmission and Case Disposition</a>\n2. <a href=\"https://data.sfgov.org/COVID-19/COVID-19-Cases-Summarized-by-Race-and-Ethnicity/vqqm-nsqg\">COVID-19 Cases Summarized by Race and Ethnicity</a>\n3. <a href=\"https://data.sfgov.org/COVID-19/COVID-19-Cases-Summarized-by-Gender/nhy6-gqam\">COVID-19 Cases Summarized by Age Group</a>\n\n<strong>A. SUMMARY</strong>\nThis dataset represents the COVID-19 positive confirmed cases by race and ethnicity. Demographic and transmission data are based on information reported from case interviews, laboratories, and providers. This data may not be immediately available for recently reported cases and data will change to reflect as information becomes available. Cumulative counts of 5 or fewer are excluded from the dataset.\n\n<strong>B. HOW THE DATASET IS CREATED</strong>\nInformation on cases and deaths including case demographic and transmission details is reported from a combination of data sources including electronic and faxed laboratory reports, case interviews, medical providers, and electronic medical record systems. These multiple streams of data are merged, deduplicated, undergo quality assurance and other data verification processes, and are continually updated to maximize completeness of information and reporting on San Francisco residents with COVID-19. Data are prepared by close of business daily for public display.\n\n<strong>C. UPDATE PROCESS</strong>\nUpdated daily, dataset uploaded manually by staff\n\n<strong>D. HOW TO USE THIS DATASET</strong>\nUnknowns may become known over time as more information is gathered.\n\nRace/Ethnicity groups resulting in 5 or fewer cumulative cases are dropped for privacy reasons.\n\nThere are three other datasets related to cases:\n1. <a href=\"https://data.sfgov.org/COVID-19/COVID-19-Cases-Summarized-by-Date-Transmission-and/tvq9-ec9w\">COVID-19 Cases Summarized by Date, Transmission and Case Disposition</a>\n2. <a href=\"https://data.sfgov.org/COVID-19/COVID-19-Cases-Summarized-by-Gender/nhy6-gqam\">COVID-19 Cases Summarized by Gender</a>\n3. <a href=\"https://data.sfgov.org/COVID-19/COVID-19-Cases-Summarized-by-Age-Group/sunc-2t3k\">COVID-19 Cases Summarized by Age Group</a>\n\n<strong>A. SUMMARY</strong>\nCase information on COVID-19 Laboratory testing. This data includes a daily count of test results reported, and how many of those were positive, negative, and indeterminate. Reported tests include tests with a positive, negative or indeterminate result. Indeterminate results, which could not conclusively determine whether COVID-19 virus was present, are not included in the calculation of percent positive. Testing for the novel coronavirus is available through commercial, clinical, and hospital laboratories, as well as the SFDPH Public Health Laboratory.\n\n<strong>B. HOW THE DATASET IS CREATED</strong>\nLaboratory test volume and positivity for COVID-19 is based on electronic laboratory test reports. Deduplication, quality assurance measures and other data verification processes maximize accuracy of laboratory test information.\n\n<strong>C. UPDATE PROCESS</strong>\nUpdated daily\n\n<strong>D. HOW TO USE THIS DATASET</strong>\nDue to the high degree of variation in the time needed to complete tests by different labs there is a delay in this reporting. On March 24 the Health Officer ordered all labs in the City to report complete COVID-19 testing information to the local and state health departments. In order to track trends over time, a data user can analyze this data by \"result_date\" and see how the count of reported results and positivity rate have changed over time.\n\n",
     "meta_from_baypd": "SF county reports tests with positive or negative results. The following datapoints are not directly reported, and were calculated by BayPD using available data: cumulative cases, cumulative deaths, cumulative positive tests, cumulative negative tests, cumulative total tests. \n\n Race and Ethnicity: individuals are assigned to just one category. Individuals identified as 'Hispanic or Latino' are assigned 'Latinx_or_Hispanic'. Individuals identified as 'Not Hispanic or Latino' are assigned to their race identification. Due to an error in the source data, it appears that Native American datapoint is not currently assigned a race category in the source data. BayPD assigns those cases without race category, and with ethnicity = 'Unknown', as 'Native American' race. BayPD is not currently reporting deaths by demographic groups. These will be made available when the data is accessible.",
@@ -1084,57 +1084,57 @@
         },
         {
           "date": "2020-10-07",
-          "cases": 36,
-          "cumul_cases": 11653
+          "cases": 35,
+          "cumul_cases": 11652
         },
         {
           "date": "2020-10-08",
           "cases": 39,
-          "cumul_cases": 11692
+          "cumul_cases": 11691
         },
         {
           "date": "2020-10-09",
           "cases": 36,
-          "cumul_cases": 11728
+          "cumul_cases": 11727
         },
         {
           "date": "2020-10-10",
           "cases": 19,
-          "cumul_cases": 11747
+          "cumul_cases": 11746
         },
         {
           "date": "2020-10-11",
           "cases": 16,
-          "cumul_cases": 11763
+          "cumul_cases": 11762
         },
         {
           "date": "2020-10-12",
           "cases": 34,
-          "cumul_cases": 11797
+          "cumul_cases": 11796
         },
         {
           "date": "2020-10-13",
           "cases": 43,
-          "cumul_cases": 11840
+          "cumul_cases": 11839
         },
         {
           "date": "2020-10-14",
           "cases": 34,
-          "cumul_cases": 11874
+          "cumul_cases": 11873
         },
         {
           "date": "2020-10-15",
           "cases": 40,
-          "cumul_cases": 11914
+          "cumul_cases": 11913
         },
         {
           "date": "2020-10-16",
           "cases": 37,
-          "cumul_cases": 11951
+          "cumul_cases": 11950
         },
         {
           "date": "2020-10-17",
-          "cases": 24,
+          "cases": 25,
           "cumul_cases": 11975
         },
         {
@@ -1144,18 +1144,23 @@
         },
         {
           "date": "2020-10-19",
-          "cases": 35,
-          "cumul_cases": 12019
+          "cases": 37,
+          "cumul_cases": 12021
         },
         {
           "date": "2020-10-20",
-          "cases": 34,
-          "cumul_cases": 12053
+          "cases": 36,
+          "cumul_cases": 12057
         },
         {
           "date": "2020-10-21",
-          "cases": 16,
-          "cumul_cases": 12069
+          "cases": 23,
+          "cumul_cases": 12080
+        },
+        {
+          "date": "2020-10-22",
+          "cases": 23,
+          "cumul_cases": 12103
         }
       ],
       "deaths": [
@@ -3588,250 +3593,259 @@
         },
         {
           "date": "2020-10-01",
-          "tests": 5821,
+          "tests": 5820,
           "positive": 53,
-          "negative": 5767,
-          "cumul_tests": 540060,
+          "negative": 5766,
+          "cumul_tests": 540059,
           "cumul_pos": 14644,
-          "cumul_neg": 524511
+          "cumul_neg": 524510
         },
         {
           "date": "2020-10-02",
           "tests": 5536,
           "positive": 39,
           "negative": 5496,
-          "cumul_tests": 545596,
+          "cumul_tests": 545595,
           "cumul_pos": 14683,
-          "cumul_neg": 530007
+          "cumul_neg": 530006
         },
         {
           "date": "2020-10-03",
           "tests": 2976,
           "positive": 27,
           "negative": 2947,
-          "cumul_tests": 548572,
+          "cumul_tests": 548571,
           "cumul_pos": 14710,
-          "cumul_neg": 532954
+          "cumul_neg": 532953
         },
         {
           "date": "2020-10-04",
           "tests": 2330,
           "positive": 21,
           "negative": 2307,
-          "cumul_tests": 550902,
+          "cumul_tests": 550901,
           "cumul_pos": 14731,
-          "cumul_neg": 535261
+          "cumul_neg": 535260
         },
         {
           "date": "2020-10-05",
-          "tests": 6494,
+          "tests": 6495,
           "positive": 40,
-          "negative": 6413,
+          "negative": 6414,
           "cumul_tests": 557396,
           "cumul_pos": 14771,
           "cumul_neg": 541674
         },
         {
           "date": "2020-10-06",
-          "tests": 6468,
+          "tests": 6467,
           "positive": 52,
-          "negative": 6409,
-          "cumul_tests": 563864,
+          "negative": 6408,
+          "cumul_tests": 563863,
           "cumul_pos": 14823,
-          "cumul_neg": 548083
+          "cumul_neg": 548082
         },
         {
           "date": "2020-10-07",
           "tests": 6438,
           "positive": 60,
           "negative": 6375,
-          "cumul_tests": 570302,
+          "cumul_tests": 570301,
           "cumul_pos": 14883,
-          "cumul_neg": 554458
+          "cumul_neg": 554457
         },
         {
           "date": "2020-10-08",
           "tests": 6440,
           "positive": 56,
           "negative": 6382,
-          "cumul_tests": 576742,
+          "cumul_tests": 576741,
           "cumul_pos": 14939,
-          "cumul_neg": 560840
+          "cumul_neg": 560839
         },
         {
           "date": "2020-10-09",
-          "tests": 6184,
+          "tests": 6183,
           "positive": 50,
-          "negative": 6132,
-          "cumul_tests": 582926,
+          "negative": 6131,
+          "cumul_tests": 582924,
           "cumul_pos": 14989,
-          "cumul_neg": 566972
+          "cumul_neg": 566970
         },
         {
           "date": "2020-10-10",
           "tests": 3342,
           "positive": 25,
           "negative": 3315,
-          "cumul_tests": 586268,
+          "cumul_tests": 586266,
           "cumul_pos": 15014,
-          "cumul_neg": 570287
+          "cumul_neg": 570285
         },
         {
           "date": "2020-10-11",
           "tests": 2731,
           "positive": 23,
           "negative": 2707,
-          "cumul_tests": 588999,
+          "cumul_tests": 588997,
           "cumul_pos": 15037,
-          "cumul_neg": 572994
+          "cumul_neg": 572992
         },
         {
           "date": "2020-10-12",
           "tests": 5582,
           "positive": 53,
           "negative": 5524,
-          "cumul_tests": 594581,
+          "cumul_tests": 594579,
           "cumul_pos": 15090,
-          "cumul_neg": 578518
+          "cumul_neg": 578516
         },
         {
           "date": "2020-10-13",
           "tests": 6334,
           "positive": 51,
           "negative": 6279,
-          "cumul_tests": 600915,
+          "cumul_tests": 600913,
           "cumul_pos": 15141,
-          "cumul_neg": 584797
+          "cumul_neg": 584795
         },
         {
           "date": "2020-10-14",
-          "tests": 6175,
+          "tests": 6178,
           "positive": 40,
-          "negative": 6132,
-          "cumul_tests": 607090,
+          "negative": 6135,
+          "cumul_tests": 607091,
           "cumul_pos": 15181,
-          "cumul_neg": 590929
+          "cumul_neg": 590930
         },
         {
           "date": "2020-10-15",
-          "tests": 6076,
+          "tests": 6077,
           "positive": 51,
-          "negative": 6024,
-          "cumul_tests": 613166,
+          "negative": 6025,
+          "cumul_tests": 613168,
           "cumul_pos": 15232,
-          "cumul_neg": 596953
+          "cumul_neg": 596955
         },
         {
           "date": "2020-10-16",
-          "tests": 5303,
+          "tests": 5306,
           "positive": 53,
-          "negative": 5248,
-          "cumul_tests": 618469,
+          "negative": 5251,
+          "cumul_tests": 618474,
           "cumul_pos": 15285,
-          "cumul_neg": 602201
+          "cumul_neg": 602206
         },
         {
           "date": "2020-10-17",
           "tests": 2688,
           "positive": 33,
           "negative": 2643,
-          "cumul_tests": 621157,
+          "cumul_tests": 621162,
           "cumul_pos": 15318,
-          "cumul_neg": 604844
+          "cumul_neg": 604849
         },
         {
           "date": "2020-10-18",
-          "tests": 2453,
+          "tests": 2454,
           "positive": 18,
-          "negative": 2425,
-          "cumul_tests": 623610,
+          "negative": 2426,
+          "cumul_tests": 623616,
           "cumul_pos": 15336,
-          "cumul_neg": 607269
+          "cumul_neg": 607275
         },
         {
           "date": "2020-10-19",
-          "tests": 6418,
-          "positive": 51,
-          "negative": 6337,
-          "cumul_tests": 630028,
-          "cumul_pos": 15387,
-          "cumul_neg": 613606
+          "tests": 6474,
+          "positive": 53,
+          "negative": 6391,
+          "cumul_tests": 630090,
+          "cumul_pos": 15389,
+          "cumul_neg": 613666
         },
         {
           "date": "2020-10-20",
-          "tests": 5881,
-          "positive": 38,
-          "negative": 5842,
-          "cumul_tests": 635909,
-          "cumul_pos": 15425,
-          "cumul_neg": 619448
+          "tests": 6190,
+          "positive": 41,
+          "negative": 6148,
+          "cumul_tests": 636280,
+          "cumul_pos": 15430,
+          "cumul_neg": 619814
         },
         {
           "date": "2020-10-21",
-          "tests": 4613,
-          "positive": 26,
-          "negative": 4585,
-          "cumul_tests": 640522,
-          "cumul_pos": 15451,
-          "cumul_neg": 624033
+          "tests": 5669,
+          "positive": 35,
+          "negative": 5632,
+          "cumul_tests": 641949,
+          "cumul_pos": 15465,
+          "cumul_neg": 625446
+        },
+        {
+          "date": "2020-10-22",
+          "tests": 4588,
+          "positive": 46,
+          "negative": 4538,
+          "cumul_tests": 646537,
+          "cumul_pos": 15511,
+          "cumul_neg": 629984
         }
       ]
     },
     "case_totals": {
       "gender": {
-        "male": 6608,
+        "male": 6626,
         "unknown": 62,
-        "female": 5397
+        "female": 5413
       },
       "age_group": [
         {
           "group": "18_and_under",
-          "raw_count": 1408
+          "raw_count": 1412
         },
         {
           "group": "18_to_30",
-          "raw_count": 3004
+          "raw_count": 3017
         },
         {
           "group": "31_to_40",
-          "raw_count": 2803
+          "raw_count": 2809
         },
         {
           "group": "41_to_50",
-          "raw_count": 1910
+          "raw_count": 1912
         },
         {
           "group": "51_to_60",
-          "raw_count": 1365
+          "raw_count": 1368
         },
         {
           "group": "61_to_70",
-          "raw_count": 810
+          "raw_count": 813
         },
         {
           "group": "71_to_80",
-          "raw_count": 420
+          "raw_count": 422
         },
         {
           "group": "81_and_older",
-          "raw_count": 346
+          "raw_count": 347
         }
       ],
       "transmission_cat": {
-        "unknown": 346,
-        "from_contact": 4853,
-        "community": 7010
+        "unknown": 337,
+        "from_contact": 4874,
+        "community": 7032
       },
       "race_eth": {
-        "Latinx_or_Hispanic": 5971,
-        "Asian": 1489,
-        "African_Amer": 690,
-        "White": 1904,
-        "Pacific_Islander": 163,
+        "Latinx_or_Hispanic": 5986,
+        "Asian": 1491,
+        "African_Amer": 691,
+        "White": 1920,
+        "Pacific_Islander": 164,
         "Native_Amer": 36,
-        "Multiple_Race": 280,
+        "Multiple_Race": 281,
         "Other": 23,
-        "Unknown": 1513
+        "Unknown": 1511
       }
     },
     "death_totals": {},
@@ -7981,7 +7995,7 @@
   },
   "sonoma": {
     "name": "Sonoma County",
-    "update_time": "2020-10-24T20:52:33-07:00",
+    "update_time": "2020-10-25T21:22:00-07:00",
     "source_url": "https://socoemergency.org/emergency/novel-coronavirus/coronavirus-cases/",
     "meta_from_source": "/Definitions/Active: Ongoing cases of COVID-19 /New Cases: Newly reported cases of COVID-19/Cumulative: Sum of active, deaths, and recovered cases of COVID-19//",
     "meta_from_baypd": "",
@@ -9171,6 +9185,11 @@
           "date": "2020-10-24",
           "cases": 82,
           "cumul_cases": 9124
+        },
+        {
+          "date": "2020-10-25",
+          "cases": 67,
+          "cumul_cases": 9191
         }
       ],
       "deaths": [
@@ -10358,15 +10377,20 @@
           "date": "2020-10-24",
           "deaths": 0,
           "cumul_deaths": 134
+        },
+        {
+          "date": "2020-10-25",
+          "deaths": 2,
+          "cumul_deaths": 136
         }
       ]
     },
     "case_totals": {
       "transmission_cat": {
-        "from_contact": 5017,
-        "unknown": 3274,
-        "community": 715,
-        "travel": 239
+        "from_contact": 5016,
+        "unknown": 3345,
+        "community": 713,
+        "travel": 238
       },
       "age_group": [
         {
@@ -10420,14 +10444,14 @@
         "African_Amer": 71
       },
       "gender": {
-        "male": 4507,
-        "female": 4728
+        "male": 4547,
+        "female": 4755
       }
     },
     "tests_totals": {
       "tests": {
-        "positive": 9600,
-        "negative": 200757
+        "positive": 9715,
+        "negative": 202035
       }
     }
   },
