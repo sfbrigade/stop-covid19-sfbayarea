@@ -3,6 +3,7 @@
 type HospitalizationDataType = {
   name: string
   icu_covid_confirmed_patients: number
+  icu_suspected_covid_patients: number
   icu_available_beds: number
   date: Date
 }
@@ -43,7 +44,8 @@ const formatHospitalizationDataGraph = (data: HospitalizationDataType[]) => {
 
       graphData.push({
         label: `${date.getUTCMonth() + 1}/${date.getUTCDate()}`,
-        icuConfirmed: d.icu_covid_confirmed_patients,
+        icuConfirmed:
+          d.icu_covid_confirmed_patients + d.icu_suspected_covid_patients,
         icuAvailable: d.icu_available_beds
       })
     })
