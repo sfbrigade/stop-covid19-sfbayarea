@@ -109,15 +109,18 @@ export default {
       }
     },
     displayOption() {
-      const unit = this.unit
       return {
         tooltips: {
           displayColors: false,
+          intersect: false,
           callbacks: {
-            label(tooltipItem) {
-              const labelText =
-                parseInt(tooltipItem.value).toLocaleString() + unit
-              return labelText
+            label(tooltipItem, data) {
+              const icuConfirmed = data.datasets[0].data[tooltipItem.index]
+              const icuBedAvailable = data.datasets[1].data[tooltipItem.index]
+              return [
+                'COVID ICU Patients: ' + icuConfirmed,
+                'ICU Bed Available: ' + icuBedAvailable
+              ]
             },
             title(tooltipItem, data) {
               return data.labels[tooltipItem[0].index]
