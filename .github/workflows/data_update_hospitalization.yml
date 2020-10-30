@@ -74,14 +74,14 @@ jobs:
         # supersedes or replaces any previous runs that haven't been reviewed
         # and merged yet.
         branch: auto-update-data
-        title: 'GitHub action: data update'
+        title: 'GitHub action: hospitalization data update'
         body: |
           Created using commit [${{env.SCRAPER_COMMIT}}](https://github.com/sfbrigade/data-covid19-sfbayarea/commit/${{env.SCRAPER_COMMIT}})
           from sfbrigade/data-covid19-sfbayarea.
 
           Scraped at: ${{ env.SCRAPER_TIME }}
         commit-message: |
-          GitHubAction: data update
+          GitHubAction: hospitalization data update
 
           Created with commit ${{env.SCRAPER_COMMIT}} from sfbrigade/data-covid19-sfbayarea
           https://github.com/sfbrigade/data-covid19-sfbayarea/commit/${{env.SCRAPER_COMMIT}}
