@@ -73,7 +73,7 @@ jobs:
         # the PR will be updated. The end result is that each run of this job
         # supersedes or replaces any previous runs that haven't been reviewed
         # and merged yet.
-        branch: auto-update-data
+        branch: auto-update-data-hospitalization
         title: 'GitHub action: hospitalization data update'
         body: |
           Created using commit [${{env.SCRAPER_COMMIT}}](https://github.com/sfbrigade/data-covid19-sfbayarea/commit/${{env.SCRAPER_COMMIT}})
