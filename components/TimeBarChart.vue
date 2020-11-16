@@ -2,6 +2,7 @@
   <data-view :title="title" :title-id="titleId" :date="date" :url="url">
     <template v-slot:button>
       <data-selector v-model="dataKind" class="selectorButton" />
+      <TimePickerDropdown @timePicked="handleTimePick" />
     </template>
     <bar
       :chart-id="chartId"
@@ -23,9 +24,15 @@
 import DataView from '@/components/DataView.vue'
 import DataSelector from '@/components/DataSelector.vue'
 import DataViewBasicInfoPanel from '@/components/DataViewBasicInfoPanel.vue'
+import TimePickerDropdown from '@/components/TimePickerDropdown'
 
 export default {
-  components: { DataView, DataSelector, DataViewBasicInfoPanel },
+  components: {
+    DataView,
+    DataSelector,
+    DataViewBasicInfoPanel,
+    TimePickerDropdown
+  },
   props: {
     title: {
       type: String,
@@ -69,19 +76,21 @@ export default {
     }
   },
   data() {
+    const chartDataClone = [...this.chartData]
     return {
-      dataKind: 'confirmedTransition'
+      dataKind: 'confirmedTransition',
+      chartDataClone
     }
   },
   computed: {
     displayCumulativeRatio() {
       if (this.chartDataType === 'cases') {
-        const lastDay = this.chartData.slice(-1)[0].cumulative
-        const lastDayBefore = this.chartData.slice(-2)[0].cumulative
+        const lastDay = this.chartDataClone.slice(-1)[0].cumulative
+        const lastDayBefore = this.chartDataClone.slice(-2)[0].cumulative
         return this.formatDayBeforeRatio(lastDay - lastDayBefore)
       } else if (this.chartDataType === 'deaths') {
-        const lastDay = this.chartData.slice(-1)[0].deathCumulative
-        const lastDayBefore = this.chartData.slice(-2)[0].deathCumulative
+        const lastDay = this.chartDataClone.slice(-1)[0].deathCumulative
+        const lastDayBefore = this.chartDataClone.slice(-2)[0].deathCumulative
         return this.formatDayBeforeRatio(lastDay - lastDayBefore)
       } else {
         return ''
@@ -89,12 +98,13 @@ export default {
     },
     displayTransitionRatio() {
       if (this.chartDataType === 'cases') {
-        const lastDay = this.chartData.slice(-1)[0].confirmedTransition
-        const lastDayBefore = this.chartData.slice(-2)[0].confirmedTransition
+        const lastDay = this.chartDataClone.slice(-1)[0].confirmedTransition
+        const lastDayBefore = this.chartDataClone.slice(-2)[0]
+          .confirmedTransition
         return this.formatDayBeforeRatio(lastDay - lastDayBefore)
       } else if (this.chartDataType === 'deaths') {
-        const lastDay = this.chartData.slice(-1)[0].deathTransition
-        const lastDayBefore = this.chartData.slice(-2)[0].deathTransition
+        const lastDay = this.chartDataClone.slice(-1)[0].deathTransition
+        const lastDayBefore = this.chartDataClone.slice(-2)[0].deathTransition
         return this.formatDayBeforeRatio(lastDay - lastDayBefore)
       } else {
         return ''
@@ -104,11 +114,11 @@ export default {
       let numText = ''
       if (this.dataKind === 'confirmedTransition') {
         if (this.chartDataType === 'cases') {
-          numText = this.chartData
+          numText = this.chartDataClone
             .slice(-1)[0]
             .confirmedTransition.toLocaleString()
         } else if (this.chartDataType === 'deaths') {
-          numText = `${this.chartData
+          numText = `${this.chartDataClone
             .slice(-1)[0]
             .deathTransition.toLocaleString()}`
         }
@@ -119,17 +129,17 @@ export default {
         }
       }
       if (this.chartDataType === 'cases') {
-        numText = this.chartData[
-          this.chartData.length - 1
+        numText = this.chartDataClone[
+          this.chartDataClone.length - 1
         ].cumulative.toLocaleString()
       } else if (this.chartDataType === 'deaths') {
-        numText = this.chartData[
-          this.chartData.length - 1
+        numText = this.chartDataClone[
+          this.chartDataClone.length - 1
         ].deathCumulative.toLocaleString()
       }
       return {
         lText: numText,
-        sText: `${this.chartData.slice(-1)[0].label}: ${
+        sText: `${this.chartDataClone.slice(-1)[0].label}: ${
           this.displayCumulativeRatio
         } ${this.unit} up from the day before`,
         unit: this.unit
@@ -138,12 +148,12 @@ export default {
     displayData() {
       if (this.dataKind === 'confirmedTransition') {
         return {
-          labels: this.chartData.map(d => {
+          labels: this.chartDataClone.map(d => {
             return d.label
           }),
           datasets: [
             {
-              data: this.chartData.map(d => {
+              data: this.chartDataClone.map(d => {
                 if (this.chartDataType === 'cases') {
                   return d.confirmedTransition
                 } else if (this.chartDataType === 'deaths') {
@@ -156,12 +166,12 @@ export default {
         }
       }
       return {
-        labels: this.chartData.map(d => {
+        labels: this.chartDataClone.map(d => {
           return d.label
         }),
         datasets: [
           {
-            data: this.chartData.map(d => {
+            data: this.chartDataClone.map(d => {
               if (this.chartDataType === 'cases') {
                 return d.cumulative
               } else if (this.chartDataType === 'deaths') {
@@ -274,6 +284,13 @@ export default {
           return `${dayBeforeRatioLocaleString}`
         default:
           return `${dayBeforeRatioLocaleString}`
+      }
+    },
+    handleTimePick(timePicked) {
+      if (timePicked === 'all') {
+        this.chartDataClone = [...this.chartData]
+      } else {
+        this.chartDataClone = this.chartData.slice(-Number(timePicked))
       }
     }
   }

@@ -1,6 +1,10 @@
 <template>
   <div class="dropdown-container">
-    <select v-model="selectedOption" @change="handleSelect($event)">
+    <select
+      v-model="selectedOption"
+      class="select-options"
+      @change="handleSelect($event)"
+    >
       <option v-for="(option, index) in dropdownOptions" :key="index">
         {{ option }}
       </option>
@@ -42,9 +46,14 @@ export default {
   border: 1px solid $gray-5;
   border-radius: 5px;
   background: $white-1;
+  display: inline-block;
 
   select {
-    padding: 0.5em 0.5em 0.5em 1em;
+    padding: 0.435em 0.5em 0.435em 1em;
+  }
+
+  select:hover {
+    cursor: pointer;
   }
 
   .dropdown-icon {
