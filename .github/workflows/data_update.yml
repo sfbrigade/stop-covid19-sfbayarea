@@ -65,7 +65,7 @@ jobs:
         python scraper.py > ${GITHUB_WORKSPACE}/site/data/data.json
 
     - name: Create PR if New Data
-      uses: peter-evans/create-pull-request@v2
+      uses: peter-evans/create-pull-request@v3
       with:
         path: site
         # If this branch already exists, it will be replaced with a commit
