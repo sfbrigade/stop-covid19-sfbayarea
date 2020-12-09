@@ -2,7 +2,7 @@
   <data-view :title="title" :title-id="titleId" :date="date" :url="url">
     <template v-slot:button>
       <data-selector v-model="dataKind" class="selectorButton" />
-      <TimePickerDropdown @timePicked="handleTimePick" />
+      <TimePickerDropdown @timePickerSelected="handleTimePick" />
     </template>
     <bar
       :chart-id="chartId"
@@ -76,10 +76,16 @@ export default {
     }
   },
   data() {
+    /**
+     * ChartDataClone is a clone of chartData and is used by the time picker dropdown
+     * to modify the data by the selected time range (i.e. 7, 14, 30, 60, 90 days)
+     */
     const chartDataClone = [...this.chartData]
+    const timePickerSelected = '14'
     return {
       dataKind: 'confirmedTransition',
-      chartDataClone
+      chartDataClone,
+      timePickerSelected
     }
   },
   computed: {
@@ -146,6 +152,7 @@ export default {
       }
     },
     displayData() {
+      this.updateChartDataByTimePick()
       if (this.dataKind === 'confirmedTransition') {
         return {
           labels: this.chartDataClone.map(d => {
@@ -286,11 +293,22 @@ export default {
           return `${dayBeforeRatioLocaleString}`
       }
     },
-    handleTimePick(timePicked) {
-      if (timePicked === 'all') {
+    handleTimePick(timePickerSelected) {
+      this.timePickerSelected = timePickerSelected
+      this.updateChartDataByTimePick()
+    },
+    /**
+     * This method updates the chartDataClone by limiting the number of data entries by
+     * the dropdown selected time range. All the charts rely on the chartDataClone to
+     * display data.
+     */
+    updateChartDataByTimePick() {
+      if (this.timePickerSelected === 'all') {
         this.chartDataClone = [...this.chartData]
       } else {
-        this.chartDataClone = this.chartData.slice(-Number(timePicked))
+        this.chartDataClone = this.chartData.slice(
+          -Number(this.timePickerSelected)
+        )
       }
     }
   }

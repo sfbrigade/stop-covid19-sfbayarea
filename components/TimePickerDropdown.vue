@@ -13,6 +13,8 @@ export default {
   components: { DropDown },
   data() {
     const timePickerOptions = [
+      'Last 7 days',
+      'Last 14 days',
       'Last 30 days',
       'Last 60 days',
       'Last 90 days',
@@ -20,25 +22,24 @@ export default {
     ]
 
     const timePickerMap = {
-      [timePickerOptions[0]]: '30',
-      [timePickerOptions[1]]: '60',
-      [timePickerOptions[2]]: '90',
-      [timePickerOptions[3]]: 'all'
+      [timePickerOptions[0]]: '7',
+      [timePickerOptions[1]]: '14',
+      [timePickerOptions[2]]: '30',
+      [timePickerOptions[3]]: '60',
+      [timePickerOptions[4]]: '90',
+      [timePickerOptions[5]]: 'all'
     }
 
-    const defaultTimeSelected = timePickerOptions[0]
+    const defaultTimeSelected = timePickerOptions[1]
     return {
       timePickerOptions,
       timePickerMap,
       defaultTimeSelected
     }
   },
-  mounted() {
-    this.$emit('timePicked', this.timePickerMap[this.defaultTimeSelected])
-  },
   methods: {
     handleSelect(event) {
-      this.$emit('timePicked', this.timePickerMap[event])
+      this.$emit('timePickerSelected', this.timePickerMap[event])
     }
   }
 }
