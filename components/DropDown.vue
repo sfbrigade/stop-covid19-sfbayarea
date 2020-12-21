@@ -47,6 +47,7 @@ export default {
   border-radius: 5px;
   background: $white-1;
   display: inline-block;
+  white-space: nowrap;
 
   select {
     padding: 0.435em 0.5em 0.435em 1em;

@@ -423,6 +423,9 @@ export default {
         case 'Solano County':
           return 'solano'
       }
+    },
+    handleSelect(county) {
+      this.currentCounty = county
     }
   },
   head() {
