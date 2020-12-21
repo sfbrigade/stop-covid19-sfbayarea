@@ -3,11 +3,11 @@
     <div class="county-select">
       <v-card color="#7D70BB" class="county-selector-card">
         <label class="selection">Select a County:</label>
-        <select v-model="currentCounty" class="county-choice">
-          <option v-for="(countyName, index) in countyNames" :key="index">
-            {{ countyName }}
-          </option>
-        </select>
+        <DropDown
+          :dropdown-model="currentCounty"
+          :dropdown-options="countyNames"
+          @selectedOption="handleSelect"
+        />
       </v-card>
     </div>
 
@@ -16,6 +16,7 @@
   </div>
 </template>
 <script>
+import DropDown from '@/components/DropDown'
 import WhatsNew from '@/components/WhatsNew.vue'
 import AlamedaNews from '@/data/news/alameda.json'
 import ContraCostaNews from '@/data/news/contra_costa.json'
@@ -31,6 +32,7 @@ import Data from '@/data/data.json'
 
 export default {
   components: {
+    DropDown,
     WhatsNew,
     CountyGuidelines
   },
@@ -54,6 +56,11 @@ export default {
       countyNames
     }
     return data
+  },
+  methods: {
+    handleSelect(event) {
+      this.currentCounty = event
+    }
   },
   head() {
     return {

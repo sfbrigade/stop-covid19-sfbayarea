@@ -98,6 +98,10 @@ export default class DataView extends Vue {
     .v-toolbar__content {
       align-items: start;
       justify-content: space-between;
+
+      @include lessThan($small) {
+        flex-direction: column;
+      }
     }
   }
   &-Header {
@@ -130,6 +134,14 @@ export default class DataView extends Vue {
     }
     .infoIcon-visible {
       visibility: unset;
+    }
+
+    @include lessThan($small) {
+      align-self: flex-end;
+
+      .DataView-DataInfo {
+        text-align: right;
+      }
     }
   }
   &-CardText {
