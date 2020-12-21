@@ -2,7 +2,10 @@
   <data-view :title="title" :title-id="titleId" :date="date" :url="url">
     <template v-slot:button>
       <data-selector v-model="dataKind" class="selectorButton" />
-      <TimePickerDropdown @timePickerSelected="handleTimePick" />
+      <TimePickerDropdown
+        :time-picker-model="timePickerSelected"
+        @timePickerSelected="handleTimePick"
+      />
     </template>
     <bar
       :chart-id="chartId"
@@ -81,7 +84,7 @@ export default {
      * to modify the data by the selected time range (i.e. 7, 14, 30, 60, 90 days)
      */
     const chartDataClone = [...this.chartData]
-    const timePickerSelected = '14'
+    const timePickerSelected = '30'
     return {
       dataKind: 'confirmedTransition',
       chartDataClone,

@@ -11,6 +11,13 @@
 import DropDown from '@/components/DropDown'
 export default {
   components: { DropDown },
+  props: {
+    timePickerModel: {
+      type: String,
+      default: '',
+      required: false
+    }
+  },
   data() {
     const timePickerOptions = [
       'Last 7 days',
@@ -30,7 +37,13 @@ export default {
       [timePickerOptions[5]]: 'all'
     }
 
-    const defaultTimeSelected = timePickerOptions[1]
+    const defaultTimeSelected = !this.timePickerModel
+      ? timePickerOptions[1]
+      : this.getTimePickerSelectedFromModel(
+          this.timePickerModel,
+          timePickerOptions
+        )
+
     return {
       timePickerOptions,
       timePickerMap,
@@ -40,6 +53,19 @@ export default {
   methods: {
     handleSelect(event) {
       this.$emit('timePickerSelected', this.timePickerMap[event])
+    },
+    /**
+     * Method that uses the model to return the corresponding option in options.
+     * It returns the last value if no match was found.
+     */
+    getTimePickerSelectedFromModel(model, options) {
+      const picked = model.toLowerCase()
+      const all = options[options.length - 1]
+      if (picked === 'all') return all
+      for (const option of options) {
+        if (option.includes(picked)) return option
+      }
+      return all
     }
   }
 }
