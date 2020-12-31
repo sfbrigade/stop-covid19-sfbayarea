@@ -21,12 +21,14 @@ export default (data: DataType[]) => {
   let previousDayCases = 0
   let deathSubTotal = 0
   let deathPreviousDayCases = 0
+  let cases = 0
+  let deaths = 0
   data
     .filter(d => new Date(d.date) > lastMonth)
     .forEach((d, idx, array) => {
       const date = new Date(d.date)
-      const cases = d.cases
-      const deaths = d.deaths
+      cases = d.cases || cases
+      deaths = d.deaths || deaths
       if (!isNaN(cases)) {
         if (cases === 0) {
           return
