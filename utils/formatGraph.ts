@@ -28,7 +28,6 @@ export default (data: DataType[]) => {
       const cases = d.cases
       const deaths = d.deaths
       if (!isNaN(cases)) {
-
         // first date in the chart needs to be calculated in the beginning
         if (previousDayCases === 0) {
           previousDayCases = array[idx].cases
