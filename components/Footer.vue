@@ -81,6 +81,11 @@ export default {
 <style lang="scss" scoped>
 .Footer {
   padding: 31px 40px 26px 40px;
+
+  // Adding to show footer above share widget... 
+  // Will need to adjust to apply only to mobile
+  margin-bottom: 40px;
+
   background: $white-2;
   .Content-Container {
     padding: 0;
