@@ -3,7 +3,7 @@
         <div class="row">
             <div class="column">
                 <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" data-show-count="false">
-                    <div class="twitter">
+                    <div class="twitter widge">
                         <i class="fab fa-twitter fa-2x"></i>
                     </div>
                 </a>
@@ -12,7 +12,7 @@
 
             <div class="column">
                 <a href="https://www.facebook.com/sharer/sharer.php?u=https://panda.baybrigades.org/" target="_blank">
-                    <div class="facebook">
+                    <div class="facebook widge">
                         <i class="fab fa-facebook-f fa-2x"></i>
                     </div>
                 </a>    
@@ -20,7 +20,7 @@
 
             <div class="column">
                 <a href="http://www.reddit.com/submit?url=https://panda.baybrigades.org/">
-                    <div class="reddit">
+                    <div class="reddit widge">
                         <i class="fab fa-reddit-alien fa-2x"></i>
                     </div>
                 </a>    
@@ -28,14 +28,14 @@
 
             <div class="column">
                 <a href="http://www.linkedin.com/shareArticle?mini=true&url=https://panda.baybrigades.org/">
-                    <div class="linkedin">
+                    <div class="linkedin widge">
                         <i class="fab fa-linkedin-in fa-2x"></i>
                     </div>
                 </a>
             </div>
 
             <div class="column">
-                <div class="email" v-on:click="share">
+                <div class="email widge" v-on:click="share">
                     <i class="fas fa-share-alt fa-2x"></i>
                 </div>
             </div>
@@ -64,66 +64,47 @@ export default {
 }
 </script>
 
-<style>
+<style lang="css" scoped>
 .ShareWidget {
-    margin: auto;
     width: 100%;
-    position:fixed;
-    bottom:0px;
-    margin-bottom:0px;
+    position: fixed;
+    bottom: 0px;
     z-index: 100;
-
 }
 .row {
     margin: auto;
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
-    /* height: 45px; */
-    
 }
-
 .column {
     display: flex;
     flex-direction: column;
-    flex-basis: 100%;
-    flex: 1;
-    text-align: center;
-    color: white;
-    
+    flex: 1;  
 }
 a {
-    height: 100%;
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+.widge {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 45px;
+    color: white;
 }
 .twitter {
-    
-    padding: 10% 0;
-    color: white;
     background-color: #56ACEE;
-    height: 100%
 }
 .facebook {
-    padding: 10% 0;
-    color: white;
     background-color: #3B5998;
-    height: 100%
 }
 .reddit {
-    padding: 10% 0;
-    color: white;
-    background-color: #FF3F19;
-    height: 100%
+    background-color: #FF3F19; 
 }
 .linkedin {
-    padding: 10% 0;
-    color: white;
-    background-color: #007AB5;
-    height: 100%;
+    background-color: #007AB5;  
 }
 .email {
-    padding: 10% 0;
-    color: white;
-    background-color: #473A8C;
-    height: 100%;
+    background-color: #473A8C; 
 }
 </style>
