@@ -81,11 +81,6 @@ export default {
 <style lang="scss" scoped>
 .Footer {
   padding: 31px 40px 26px 40px;
-
-  // Adding to show footer above share widget... 
-  // Will need to adjust to apply only to mobile
-  margin-bottom: 40px;
-
   background: $white-2;
   .Content-Container {
     padding: 0;
@@ -151,6 +146,9 @@ export default {
   .Footer {
     padding: 22px;
 
+    // Adding to show footer above share widget... 
+    margin-bottom: 40px;
+
     .Content-Container {
       margin-bottom: 25px;
       flex-direction: column;
@@ -190,6 +188,7 @@ export default {
   }
 }
 
+// This looks duplicated from above...
 @include lessThan($small) {
   .Footer {
     padding: 22px;

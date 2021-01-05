@@ -58,6 +58,7 @@ export default {
                 .catch(console.error);
             } else {
                 //Fallback...
+                alert("This feature is not available on your current browser.")
             }
         }
     } 
@@ -85,6 +86,9 @@ a {
     text-decoration: none;
     font-size: 0.9rem;
 }
+a:hover {
+    text-decoration: none;
+}
 .widge {
     display: flex;
     justify-content: center;
@@ -106,5 +110,28 @@ a {
 }
 .email {
     background-color: #473A8C; 
+}
+.email:hover {
+    cursor: pointer;
+}
+
+@media (min-width: 992px) {
+    .ShareWidget {
+        width: 3rem;
+        height: calc(100% - 95px);
+        right: 1rem;
+        /* Recommend position: absolute */
+        position: fixed;
+        z-index: 100;
+    }
+    .row {
+        display: flex;
+        flex-direction: column;
+    }  
+    .widge {
+        border-radius: 50%;
+        margin: 0.3rem 0;
+    } 
+    
 }
 </style>
