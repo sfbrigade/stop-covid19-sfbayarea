@@ -167,11 +167,11 @@ export default {
       for (let i = 0; i < mainCategoriesCount; i++) {
         const offsetHeight = this.$refs.mainContents[i]?.offsetHeight || 0
         allScrollTops.push(top)
-        top += offsetHeight + MARGIN
         if (i === mainCategoriesCount - 1) {
           lastMainContent.top = top
           lastMainContent.height = offsetHeight
         }
+        top += offsetHeight + MARGIN
       }
       return { allScrollTops, lastMainContent }
     },
@@ -180,12 +180,12 @@ export default {
     },
     getScrollLength() {
       // Add extra spacing to the last item so that the last content can fully scroll to top
-      const extraSpaceToExpandLastItem = this.sideNavigationOverviewIsShown()
-        ? 1.65
-        : 1.21
-      const scrollLength =
-        this.lastMainContent.top +
-        this.lastMainContent.height * extraSpaceToExpandLastItem
+      const scrollWindowHeight = this.$refs.contentArea.offsetHeight
+      const extraSpaceToExpandLastItem = Math.max(
+        this.lastMainContent.height,
+        scrollWindowHeight
+      )
+      const scrollLength = this.lastMainContent.top + extraSpaceToExpandLastItem
 
       return `${scrollLength}px`
     },
