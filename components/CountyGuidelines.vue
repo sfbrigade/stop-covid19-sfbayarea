@@ -1,44 +1,42 @@
 <template>
-  <div v-if="info[county] != null" class="CountyGuidelines">
-    <div v-for="(item, i) in info[county].info" :key="i">
-      <v-card class="guidelines">
-        <p class="Header">
-          {{ item.header }}
+  <div class="CountyGuidelines">
+    <v-card class="guidelines">
+      <p class="Header">
+        {{ item.header }}
+      </p>
+      <p v-if="item.date != null" class="time-updated">
+        Last updated {{ item.date }}
+      </p>
+      <div v-for="(body, j) in item.body" :key="`body-${j}`">
+        <p class="content-header">
+          {{ body.h4 }}
         </p>
-        <p v-if="item.date != null" class="time-updated">
-          Last updated {{ item.date }}
-        </p>
-        <div v-for="(body, j) in item.body" :key="`body-${j}`">
-          <p class="content-header">
-            {{ body.h4 }}
-          </p>
-          <div v-for="(content, k) in body.content" :key="`content-${k}`">
-            <div v-for="(p, l) in content.p2" :key="`p-${l}`" class="p2">
-              <p>{{ p.p }}</p>
-            </div>
-            <div
-              v-for="(bullet, m) in content.bullets"
-              :key="`bullet-${m}`"
-              class="bullets"
+        <div v-for="(content, k) in body.content" :key="`content-${k}`">
+          <div v-for="(p, l) in content.p2" :key="`p-${l}`" class="p2">
+            <p>{{ p.p }}</p>
+          </div>
+          <div
+            v-for="(bullet, m) in content.bullets"
+            :key="`bullet-${m}`"
+            class="bullets"
+          >
+            <ul>
+              <li>{{ bullet.bullet }}</li>
+            </ul>
+          </div>
+          <div class="link-container">
+            <a
+              :href="content.link"
+              class="links"
+              target="_blank"
+              rel="noopener"
             >
-              <ul>
-                <li>{{ bullet.bullet }}</li>
-              </ul>
-            </div>
-            <div class="link-container">
-              <a
-                :href="content.link"
-                class="links"
-                target="_blank"
-                rel="noopener"
-              >
-                {{ content.link }}
-              </a>
-            </div>
+              {{ content.link }}
+            </a>
           </div>
         </div>
-      </v-card>
-    </div>
+      </div>
+    </v-card>
   </div>
 </template>
 
@@ -48,8 +46,8 @@ import Info from '@/data/info.json'
 export default {
   name: 'CountyGuidelines',
   props: {
-    county: {
-      type: String,
+    item: {
+      type: Object,
       required: true
     }
   },

@@ -10,9 +10,16 @@
         />
       </v-card>
     </div>
-
-    <whats-new class="mb-4" :feed="counties[currentCounty]" />
-    <CountyGuidelines :county="currentCounty" />
+    <SideNavigationOverview :categories="info(currentCounty)">
+      <template v-slot="{ item, i }">
+        <whats-new
+          v-if="i === 0"
+          class="mb-4"
+          :feed="counties[currentCounty]"
+        />
+        <CountyGuidelines v-else :ref="i" :item="item" />
+      </template>
+    </SideNavigationOverview>
   </div>
 </template>
 <script>
@@ -28,13 +35,16 @@ import SantaClaraNews from '@/data/news/santa_clara.json'
 import SolanoNews from '@/data/news/solano.json'
 import SonomaNews from '@/data/news/sonoma.json'
 import CountyGuidelines from '@/components/CountyGuidelines.vue'
+import SideNavigationOverview from '@/components/SideNavigationOverview.vue'
 import Data from '@/data/data.json'
+import Info from '@/data/info.json'
 
 export default {
   components: {
     DropDown,
     WhatsNew,
-    CountyGuidelines
+    CountyGuidelines,
+    SideNavigationOverview
   },
   data() {
     const currentCounty = 'San Francisco County'
@@ -60,7 +70,13 @@ export default {
   methods: {
     handleSelect(event) {
       this.currentCounty = event
-    }
+    },
+    info: currentCounty => [
+      { title: 'News & Updates' },
+      ...(Info[currentCounty]?.info.map(item =>
+        Object.assign({}, item, { title: item.header })
+      ) || [])
+    ]
   },
   head() {
     return {
