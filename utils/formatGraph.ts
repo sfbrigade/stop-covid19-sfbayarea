@@ -57,7 +57,8 @@ export default (data: DataType[]) => {
         previousDayCases = cases
         deathPreviousDayCases = deaths
         graphData.push({
-          label: `${date.getUTCMonth() + 1}/${date.getUTCDate()}`,
+          label: `${date.getUTCMonth() +
+            1}/${date.getUTCDate()}/${date.getUTCFullYear()}`,
           confirmedTransition: subTotal,
           cumulative: cases,
           deathTransition: deathSubTotal,

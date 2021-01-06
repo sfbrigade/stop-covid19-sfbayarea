@@ -43,7 +43,8 @@ const formatHospitalizationDataGraph = (data: HospitalizationDataType[]) => {
       const date = new Date(d.date)
 
       graphData.push({
-        label: `${date.getUTCMonth() + 1}/${date.getUTCDate()}`,
+        label: `${date.getUTCMonth() +
+          1}/${date.getUTCDate()}/${date.getUTCFullYear()}`,
         icuConfirmed:
           d.icu_covid_confirmed_patients + d.icu_suspected_covid_patients,
         icuAvailable: d.icu_available_beds
