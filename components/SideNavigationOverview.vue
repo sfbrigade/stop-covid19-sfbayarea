@@ -270,6 +270,7 @@ export default {
     overflow-x: scroll;
     height: calc(100vh - 80px);
     padding: 0 10px;
+    width: 100%;
   }
   .SideNav-MainContent-Wrapper {
     margin-bottom: 20px;
