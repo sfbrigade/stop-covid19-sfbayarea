@@ -6,7 +6,7 @@
           v-for="(item, i) in categories"
           :key="i"
           v-ripple="false"
-          :to="`#sidenav-main-content-${i}`"
+          :href="`#${item.title}`"
           :class="{ active: activeCategory === i }"
           class="SideNavigationOverview-Container"
         >
@@ -22,6 +22,7 @@
     </div>
     <!-- Add Scroll Area if SideNavigationOverview is shown -->
     <div
+      ref="contentArea"
       :class="{ 'SideNav-MainContent-Scroll-Area': !isSmallScreenWidth }"
       @scroll.passive="debounce"
     >
@@ -38,7 +39,7 @@
         </div>
         <div
           v-for="(item, i) in categories"
-          :id="`sidenav-main-content-${i}`"
+          ref="mainContents"
           :key="i"
           class="SideNav-MainContent-Wrapper"
         >
@@ -78,29 +79,37 @@ export default {
       isSmallScreenWidth: false
     }
   },
+  watch: {
+    categories() {
+      this.$nextTick(() => this.scrollToCategory(0))
+    }
+  },
   mounted() {
-    // Get all FAQ category's top position to track SideNavigationOverview scroll behavior
-    const mainCategoriesCount = this.categories.length
-    const { allScrollTops, lastMainContent } = this.getAllScrollTop(
-      mainCategoriesCount
-    )
-
-    this.allScrollTops = allScrollTops
-    // last content top and height
-    this.lastMainContent = lastMainContent
-
-    // Set scroll length for the current browser size
-    this.scrollLength = this.getScrollLength()
+    this.updateScrollLengths()
     // Small screen based on SideNavigationOverview display
     this.isSmallScreenWidth = !this.sideNavigationOverviewIsShown()
     this.isPinnedSlotShown()
     if (this.isPinnedSlotShown()) this.activeCategory = null
   },
   methods: {
+    updateScrollLengths() {
+      // Get all FAQ category's top position to track SideNavigationOverview scroll behavior
+      const mainCategoriesCount = this.categories.length
+      const { allScrollTops, lastMainContent } = this.getAllScrollTop(
+        mainCategoriesCount
+      )
+      this.allScrollTops = allScrollTops
+      // last content top and height
+      this.lastMainContent = lastMainContent
+
+      // Set scroll length for the current browser size
+      this.scrollLength = this.getScrollLength()
+    },
     // Clicked function that scrolls to the anchor hash
     scrollToCategory(category) {
       this.activeCategory = category
-      location.hash = `#sidenav-main-content-${category}`
+      this.updateScrollLengths()
+      this.$refs.contentArea.scroll(0, this.allScrollTops[category])
     },
     // Debounce and handleScroll method handles when the content is scrolled
     // and 300ms after the scrolling stopped,
@@ -132,15 +141,14 @@ export default {
           document.location.hash = ''
         }
 
-        // Add title bar 340 + 30 margin + 60 nav bar
-        const NAV_AND_TITLE_BAR = 340 + 30 + 60
+        this.updateScrollLengths()
         const currentScrollTop = event.target.scrollTop
 
         // Set active for item in SideNavigationOverview that matches the current FAQ item
         if (this.isPinnedSlotShown() && currentScrollTop === 0) {
           this.activeCategory = null
         } else {
-          const currentScrollPosition = currentScrollTop + NAV_AND_TITLE_BAR
+          const currentScrollPosition = currentScrollTop
           this.activeCategory = findHashIndexBaseOnScrollPosition(
             currentScrollPosition,
             this.allScrollTops
@@ -154,14 +162,16 @@ export default {
     getAllScrollTop(mainCategoriesCount) {
       const allScrollTops = []
       const lastMainContent = {}
+      const MARGIN = 20
+      let top = -MARGIN
       for (let i = 0; i < mainCategoriesCount; i++) {
-        const elem = document.getElementById(`sidenav-main-content-${i}`)
-        const top = elem.offsetTop
+        const offsetHeight = this.$refs.mainContents[i]?.offsetHeight || 0
         allScrollTops.push(top)
         if (i === mainCategoriesCount - 1) {
           lastMainContent.top = top
-          lastMainContent.height = elem.offsetHeight
+          lastMainContent.height = offsetHeight
         }
+        top += offsetHeight + MARGIN
       }
       return { allScrollTops, lastMainContent }
     },
@@ -170,12 +180,12 @@ export default {
     },
     getScrollLength() {
       // Add extra spacing to the last item so that the last content can fully scroll to top
-      const extraSpaceToExpandLastItem = this.sideNavigationOverviewIsShown()
-        ? 1.65
-        : 1.21
-      const scrollLength =
-        this.lastMainContent.top +
-        this.lastMainContent.height * extraSpaceToExpandLastItem
+      const scrollWindowHeight = this.$refs.contentArea.offsetHeight
+      const extraSpaceToExpandLastItem = Math.max(
+        this.lastMainContent.height,
+        scrollWindowHeight
+      )
+      const scrollLength = this.lastMainContent.top + extraSpaceToExpandLastItem
 
       return `${scrollLength}px`
     },
@@ -260,6 +270,7 @@ export default {
     overflow-x: scroll;
     height: calc(100vh - 80px);
     padding: 0 10px;
+    width: 100%;
   }
   .SideNav-MainContent-Wrapper {
     margin-bottom: 20px;
