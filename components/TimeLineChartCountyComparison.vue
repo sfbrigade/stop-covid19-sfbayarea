@@ -127,6 +127,9 @@ export default {
             return d.label
           }
         )
+        const sliceToTimePick = arr =>
+          arr.slice(-Number(this.timePickerSelected) || 0)
+
         for (const county of this.selectedCounties) {
           dataSets.push({
             type: 'line',
@@ -138,12 +141,12 @@ export default {
             lineTension: 0.5,
             borderJoinStyle: 'round',
             label: county.name,
-            data: this.sliceToTimePick(data[county.name])
+            data: sliceToTimePick(data[county.name])
           })
         }
 
         return {
-          labels: this.sliceToTimePick(labels),
+          labels: sliceToTimePick(labels),
           datasets: dataSets
         }
       } else {
@@ -244,9 +247,6 @@ export default {
   methods: {
     handleTimePick(timePickerSelected) {
       this.timePickerSelected = timePickerSelected
-    },
-    sliceToTimePick(chartData) {
-      return chartData.slice(-Number(this.timePickerSelected) || 0)
     }
   }
 }
