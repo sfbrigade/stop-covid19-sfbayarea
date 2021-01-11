@@ -6,6 +6,13 @@
     :url="url"
     :chart-info="chartInfo"
   >
+    <template v-slot:button>
+      <TimePickerDropdown
+        class="dropdown-container"
+        :time-picker-model="timePickerSelected"
+        @timePickerSelected="handleTimePick"
+      />
+    </template>
     <bar
       v-if="displayData != null"
       :chart-data="displayData"
@@ -17,9 +24,10 @@
 
 <script>
 import DataView from '@/components/DataView.vue'
+import TimePickerDropdown from '@/components/TimePickerDropdown'
 
 export default {
-  components: { DataView },
+  components: { DataView, TimePickerDropdown },
   props: {
     title: {
       type: String,
@@ -68,7 +76,9 @@ export default {
     }
   },
   data() {
-    return {}
+    return {
+      timePickerSelected: '30'
+    }
   },
   computed: {
     displayData() {
@@ -87,30 +97,32 @@ export default {
               lineTension: 0.5,
               borderJoinStyle: 'round',
               label: county.name,
-              data: this.chartData[county.name].graph.map(d => {
-                // calculate new cases per 100,000 residents (14 day average)
-                confirmedDailyIn14daysQueue.push(d.confirmedTransition)
-                if (confirmedDailyIn14daysQueue.length > 14) {
-                  confirmedDailyIn14daysQueue.shift()
+              data: this.sliceToTimePick(this.chartData[county.name].graph).map(
+                d => {
+                  // calculate new cases per 100,000 residents (14 day average)
+                  confirmedDailyIn14daysQueue.push(d.confirmedTransition)
+                  if (confirmedDailyIn14daysQueue.length > 14) {
+                    confirmedDailyIn14daysQueue.shift()
+                  }
+                  const averageDailyCases =
+                    confirmedDailyIn14daysQueue.reduce((pre, curr) => {
+                      return pre + curr
+                    }, 0) / confirmedDailyIn14daysQueue.length
+                  return (
+                    averageDailyCases /
+                    (this.chartData[county.name].population / 100000)
+                  )
                 }
-                const averageDailyCases =
-                  confirmedDailyIn14daysQueue.reduce((pre, curr) => {
-                    return pre + curr
-                  }, 0) / confirmedDailyIn14daysQueue.length
-                return (
-                  averageDailyCases /
-                  (this.chartData[county.name].population / 100000)
-                )
-              })
+              )
             })
           }
 
           return {
-            labels: this.chartData[this.selectedCounties[0].name].graph.map(
-              d => {
-                return d.label
-              }
-            ),
+            labels: this.sliceToTimePick(
+              this.chartData[this.selectedCounties[0].name].graph
+            ).map(d => {
+              return d.label
+            }),
             datasets: dataSets
           }
         } else {
@@ -127,28 +139,30 @@ export default {
               lineTension: 0.5,
               borderJoinStyle: 'round',
               label: county.name,
-              data: this.chartData[county.name].graph.map(d => {
-                confirmedCumulativeIn7daysQueue.push(d.cumulative)
-                if (confirmedCumulativeIn7daysQueue.length > 7) {
-                  const confirmedCumulative7daysBefore = confirmedCumulativeIn7daysQueue.shift()
-                  return (
-                    ((d.cumulative - confirmedCumulative7daysBefore) /
-                      confirmedCumulative7daysBefore) *
-                    100
-                  )
-                } else {
-                  return null
-                }
-              })
+              data: this.sliceToTimePick(
+                this.chartData[county.name].graph.map(d => {
+                  confirmedCumulativeIn7daysQueue.push(d.cumulative)
+                  if (confirmedCumulativeIn7daysQueue.length > 7) {
+                    const confirmedCumulative7daysBefore = confirmedCumulativeIn7daysQueue.shift()
+                    return (
+                      ((d.cumulative - confirmedCumulative7daysBefore) /
+                        confirmedCumulative7daysBefore) *
+                      100
+                    )
+                  } else {
+                    return null
+                  }
+                })
+              )
             })
           }
 
           return {
-            labels: this.chartData[this.selectedCounties[0].name].graph.map(
-              d => {
-                return d.label
-              }
-            ),
+            labels: this.sliceToTimePick(
+              this.chartData[this.selectedCounties[0].name].graph
+            ).map(d => {
+              return d.label
+            }),
             datasets: dataSets
           }
         }
@@ -246,8 +260,20 @@ export default {
         }
       }
     }
+  },
+  methods: {
+    handleTimePick(timePickerSelected) {
+      this.timePickerSelected = timePickerSelected
+    },
+    sliceToTimePick(chartData) {
+      return chartData.slice(-Number(this.timePickerSelected) || 0)
+    }
   }
 }
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.dropdown-container {
+  margin-top: 10px;
+}
+</style>
