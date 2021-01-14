@@ -42,7 +42,6 @@
         <a
           href="http://www.linkedin.com/shareArticle?mini=true&url=https://panda.baybrigades.org/"
         >
-          >
           <div class="linkedin widge">
             <i class="fab fa-linkedin-in fa-2x" />
           </div>
@@ -154,14 +153,15 @@ a:hover {
 .email:hover {
   cursor: pointer;
 }
-
-@media (min-width: 992px) {
+/* Should try 1350px? */
+@media (min-width: 1264px) {
   .ShareWidget {
     width: 3rem;
     height: calc(100% - 95px);
     right: 1rem;
     /* Recommend position: absolute */
     position: absolute;
+    overflow: auto;
     z-index: 100;
   }
   .main {
