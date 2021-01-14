@@ -3,7 +3,7 @@
     <div class="row">
       <div class="column">
         <a
-          href="https://twitter.com/share?ref_src=twsrc%5Etfw"
+          href="https://twitter.com/share?ref_src=twsrc%5Etfw&text=COVID%20Awareness%20for%20the%20Bay%20Area,%20by%20the%20Bay%20Area.%0A"
           data-show-count="false"
         >
           <div class="twitter widge">
@@ -89,15 +89,14 @@ export default {
       } else {
         widget.classList.remove('main')
       }
-      /*
-            if statement below is for testing purposes only!
 
-            if (page === "http://localhost:3000/") {
-                widget.classList.add("main");
-            } else {
-                widget.classList.remove("main");
-            }
-            */
+      //   if statement below is for testing purposes only!
+
+      //   if (page === "http://localhost:3000/") {
+      //     widget.classList.add("main");
+      //   } else {
+      //     widget.classList.remove("main");
+      //   }
     }
   }
 }
@@ -159,7 +158,6 @@ a:hover {
     width: 3rem;
     height: calc(100% - 95px);
     right: 1rem;
-    /* Recommend position: absolute */
     position: absolute;
     overflow: auto;
     z-index: 100;
