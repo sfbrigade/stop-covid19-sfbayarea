@@ -239,6 +239,8 @@ const buildAgeChartData = (
 ) => {
   const updatedAgeGroup: AgeGroup = { ...defaultAgeGroup }
 
+  sortAgeData(ageGroups);
+
   updatedAgeGroup.chartType = ChartTypes.AGE
   updatedAgeGroup.displayLegend = false
   updatedAgeGroup.labels = formatAgeDataLabels(ageGroups)
@@ -382,6 +384,22 @@ const formatAgeDataLabels = (ageGroups: Array<AgeData>) => {
       name = `${name.replace('_and_older', '')}+`
     }
     return name
+  })
+}
+
+
+const sortAgeData = (ageGroups: Array<AgeData>) => {
+  ageGroups.sort((ageA: AgeData, ageB: AgeData) => {
+    let ageNumA = parseInt(ageA?.group?.match(/[0-9]*/)[0]) || 0
+    let ageNumB = parseInt(ageB?.group?.match(/[0-9]*/)[0]) || 0
+
+    if (ageA?.group?.indexOf("Under Investigation") >= 0 || ageA?.group?.indexOf("Unknown") >= 0)
+      ageNumA = 1000
+
+    if (ageB?.group?.indexOf("Under Investigation") >= 0 || ageB?.group?.indexOf("Unknown") >= 0)
+      ageNumB = 1000
+
+    return ageNumA - ageNumB
   })
 }
 

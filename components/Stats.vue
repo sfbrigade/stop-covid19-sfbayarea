@@ -116,7 +116,7 @@
       </v-col>
       <v-col cols="12" md="6" class="DataCard">
         <horizontal-bar-chart
-          :title="`County Cases by Age: ${CountyData[currentCounty].name}`"
+          :title="`Confirmed Cases by Age: ${CountyData[currentCounty].name}`"
           :title-id="'cases-by-age'"
           :chart-id="'horizontal-bar-chart-age'"
           :chart-data="CountyDataVTwo[currentCounty].ageGroup"
