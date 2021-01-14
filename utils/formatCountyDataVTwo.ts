@@ -389,14 +389,14 @@ const formatAgeDataLabels = (ageGroups: Array<AgeData>) => {
 
 
 const sortAgeData = (ageGroups: Array<AgeData>) => {
-  ageGroups.sort((ageA: AgeData, ageB: AgeData) => {
-    let ageNumA = parseInt(ageA?.group?.match(/[0-9]*/)[0]) || 0
-    let ageNumB = parseInt(ageB?.group?.match(/[0-9]*/)[0]) || 0
+  ageGroups.sort((a: any, b: any) => {
+    let ageNumA = parseInt(a.group.match(/[0-9]*/)[0]) || 0
+    let ageNumB = parseInt(b.group.match(/[0-9]*/)[0]) || 0
 
-    if (ageA?.group?.indexOf("Under Investigation") >= 0 || ageA?.group?.indexOf("Unknown") >= 0)
+    if (a.group.includes("Under Investigation") || a.group.includes("Unknown"))
       ageNumA = 1000
 
-    if (ageB?.group?.indexOf("Under Investigation") >= 0 || ageB?.group?.indexOf("Unknown") >= 0)
+    if (b.group.includes("Under Investigation") || b.group.includes("Unknown"))
       ageNumB = 1000
 
     return ageNumA - ageNumB
