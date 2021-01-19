@@ -578,10 +578,10 @@ const updateRaceEthNormalizedChartData = (
 
     const ethFound = Object.entries(formattedEthnicityMap).filter(
       (entry: [string, number | string[]]) => {
-        if (entry[0] == ethnicity.toUpperCase())
+        if (entry[0] === ethnicity.toUpperCase())
           return true
         const values = entry[1] as string[]  
-        for(let value of values)
+        for(const value of values)
           if (ethnicity.toUpperCase().includes(value.toUpperCase()))
             return true;
          return false     
