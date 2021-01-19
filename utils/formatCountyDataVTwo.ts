@@ -360,6 +360,8 @@ const buildRaceEthNormalizedChartData = (
     county
   )
 
+  sortNormalizedChartData(updatedRaceEthGroup)
+
   updatedRaceEthGroup.customChartOptions!.plugins = {
     datalabels: {
       color: '#000000',
@@ -408,7 +410,7 @@ const formatRaceEthLabels = (raceEthGroups: Array<string>) => {
     return group
       .replace('_or_', '/')
       .replace('_', ' ')
-      .replace('Amer', 'American')
+      .replace(/Amer$/g, 'American')
   })
 }
 
@@ -563,21 +565,57 @@ const updateRaceEthNormalizedChartData = (
   const finalArr: number[] = []
   data.forEach((cases: number, i: number) => {
     const ethnicity = labels[i]
-    const formattedEth = ethnicity
-      .replace('/', ' or ')
-      .replace(/ /g, '_')
-      .replace('American', 'Amer')
-      .replace(/multirace/i, 'MULTIPLE_RACE')
-      .replace(/AMERICAN_INDIAN_OR_ALASKA_NATIVE/i, 'NATIVE_AMER')
-      .replace(/black/i, 'AFRICAN_AMER')
-      .replace(/latino/i, 'latinx')
-      .toUpperCase()
+    const formattedEthnicityMap = {
+      WHITE: [],
+      AFRICAN_AMER: ['African American', 'Black'],
+      NATIVE_AMER: ['Native American', 'American Indian', 'Alaska Native', 'AI_AN', 'AI AN'],
+      ASIAN: [],
+      PACIFIC_ISLANDER: ['Pacific Islander'],
+      OTHER: [],
+      MULTIPLE_RACE: ['Multirace'],
+      LATINX_OR_HISPANIC: ['Hispanic/Latino', 'Hispanic']
+    }
 
-    const ethPopulation = TOTAL * RACE[formattedEth]
+    const ethFound = Object.entries(formattedEthnicityMap).filter(
+      (entry: [string, number | string[]]) => {
+        if (entry[0] == ethnicity.toUpperCase())
+          return true
+        const values = entry[1] as string[]  
+        for(let value of values)
+          if (ethnicity.toUpperCase().includes(value.toUpperCase()))
+            return true;
+         return false     
+      }
+    )
+
+    let formattedEth = ethnicity.toUpperCase()
+
+    if (ethFound.length > 0)
+      formattedEth = ethFound[0][0]
+
+    const ethPopulation = TOTAL * RACE[formattedEth.replace(/ /g,'_')]
     const ethPopPerThousand = cases / (ethPopulation / 1000)
     finalArr.push(+ethPopPerThousand.toFixed(2))
   })
   return finalArr
+}
+
+const sortNormalizedChartData = (updatedRaceEthGroup: RaceEthGroup) => {
+  const backgroundColor: Array<string> = []
+  const normalizedRaceEths: any = {}
+  updatedRaceEthGroup.datasets.data.forEach((cases: number, i: number) => {
+    const label = updatedRaceEthGroup.labels[i]
+    if (label !== 'Unknown' && label !== 'Total RE') {
+      normalizedRaceEths[updatedRaceEthGroup.labels[i]] = cases
+      backgroundColor.push(PURPLE_MAIN)
+    }
+  })
+  const sortedNormalizedRaceEths = sortLabelsAndValuesByValue(normalizedRaceEths)
+  const raceEthLabels = sortedNormalizedRaceEths.map((race) => race[0])
+  const raceEthValues = sortedNormalizedRaceEths.map((race: any) => race[1])
+  updatedRaceEthGroup.datasets.data = raceEthValues
+  updatedRaceEthGroup.labels = raceEthLabels
+  updatedRaceEthGroup.datasets.backgroundColor = backgroundColor
 }
 
 export default (
