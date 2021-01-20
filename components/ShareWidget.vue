@@ -3,7 +3,7 @@
     <div class="row">
       <div class="column">
         <a
-          href="https://twitter.com/share?ref_src=twsrc%5Etfw&text=COVID%20Awareness%20for%20the%20Bay%20Area,%20by%20the%20Bay%20Area.%0A"
+          href="https://twitter.com/share?ref_src=twsrc%5Etfw&text=COVID%20Awareness%20for%20the%20Bay%20Area,%20by%20the%20Bay%20Area."
           data-show-count="false"
         >
           <div class="twitter widge">
@@ -49,7 +49,7 @@
       </div>
 
       <div class="column">
-        <div class="email widge" @click="share">
+        <div id="emailWidget" class="email widge" @click="share">
           <i class="fas fa-share-alt fa-2x" />
         </div>
       </div>
@@ -75,28 +75,46 @@ export default {
             console.log('Thanks for sharing!')
           })
           .catch(console.error)
-      } else {
-        // Fallback...
-        alert('This feature is not available on your current browser.')
       }
     },
     getPage() {
-      const widget = document.getElementById('ShareWidget')
+      const shareWidget = document.getElementById('ShareWidget')
       const page = location.href
 
       if (page === 'https://panda.baybrigades.org/') {
-        widget.classList.add('main')
+        shareWidget.classList.add('main')
+        this.checkNav(true)
       } else {
-        widget.classList.remove('main')
+        shareWidget.classList.remove('main')
+        this.checkNav(false)
       }
 
-      //   if statement below is for testing purposes only!
+      // if statement below is for testing purposes only!
+      // if (page === 'http://localhost:3000/') {
+      //   shareWidget.classList.add('main')
+      //   this.checkNav(true)
+      // } else {
+      //   shareWidget.classList.remove('main')
+      //   this.checkNav(false)
+      // }
+    },
+    checkNav(main) {
+      const shareWidget = document.getElementById('ShareWidget')
+      const emailWidget = document.getElementById('emailWidget')
 
-      //   if (page === "http://localhost:3000/") {
-      //     widget.classList.add("main");
-      //   } else {
-      //     widget.classList.remove("main");
-      //   }
+      if (navigator.share && main) {
+        emailWidget.classList.remove('hide')
+        shareWidget.classList.remove('mainpad')
+      } else if (navigator.share && !main) {
+        emailWidget.classList.remove('hide')
+        shareWidget.classList.remove('pad')
+      } else if (!navigator.share && main) {
+        emailWidget.classList.add('hide')
+        shareWidget.classList.add('mainpad')
+      } else {
+        emailWidget.classList.add('hide')
+        shareWidget.classList.add('pad')
+      }
     }
   }
 }
@@ -152,7 +170,8 @@ a:hover {
 .email:hover {
   cursor: pointer;
 }
-/* Should try 1350px? */
+
+/* Could try 1350px? */
 @media (min-width: 1264px) {
   .ShareWidget {
     width: 3rem;
@@ -172,6 +191,15 @@ a:hover {
   .widge {
     border-radius: 50%;
     margin: 0.3rem 0;
+  }
+  .hide {
+    visibility: hidden;
+  }
+  .pad {
+    padding-top: 25px;
+  }
+  .mainpad {
+    padding-top: 60px;
   }
 }
 </style>
