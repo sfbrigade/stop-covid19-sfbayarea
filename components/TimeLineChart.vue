@@ -5,6 +5,14 @@
     :date="date.split('T')[0]"
     :url="url"
   >
+    <template v-slot:button>
+      <TimePickerDropdown
+        class="dropdown-container"
+        :time-picker-model="timePickerSelected"
+        @timePickerSelected="handleTimePick"
+      />
+    </template>
+
     <bar
       :chart-id="chartId"
       :chart-data="displayData"
@@ -24,9 +32,10 @@
 <script>
 import DataView from '@/components/DataView.vue'
 import DataViewBasicInfoPanel from '@/components/DataViewBasicInfoPanel.vue'
+import TimePickerDropdown from '@/components/TimePickerDropdown'
 
 export default {
-  components: { DataView, DataViewBasicInfoPanel },
+  components: { DataView, DataViewBasicInfoPanel, TimePickerDropdown },
   props: {
     title: {
       type: String,
@@ -65,7 +74,7 @@ export default {
     }
   },
   data() {
-    return {}
+    return { timePickerSelected: '30' }
   },
   computed: {
     displayInfo() {
@@ -76,8 +85,9 @@ export default {
       }
     },
     displayData() {
+      const data = this.chartData.slice(-Number(this.timePickerSelected) || 0)
       return {
-        labels: this.chartData.map(d => {
+        labels: data.map(d => {
           return d.label
         }),
         datasets: [
@@ -88,7 +98,7 @@ export default {
             lineTension: 0.5,
             borderJoinStyle: 'round',
             label: 'COVID ICU patients',
-            data: this.chartData.map(d => {
+            data: data.map(d => {
               return d.icuConfirmed
             }),
             backgroundColor: '#453D88'
@@ -100,7 +110,7 @@ export default {
             lineTension: 0.5,
             borderJoinStyle: 'round',
             label: 'ICU Beds Available',
-            data: this.chartData.map(d => {
+            data: data.map(d => {
               return d.icuAvailable
             }),
             backgroundColor: '#AFACCA'
@@ -196,6 +206,11 @@ export default {
           ]
         }
       }
+    }
+  },
+  methods: {
+    handleTimePick(timePickerSelected) {
+      this.timePickerSelected = timePickerSelected
     }
   }
 }
