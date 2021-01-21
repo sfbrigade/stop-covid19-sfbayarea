@@ -89,7 +89,8 @@ export default {
         this.checkNav(false)
       }
 
-      // if statement below is for testing purposes only!
+      // To test on localhost, uncomment the code below and comment out the if statement above
+
       // if (page === 'http://localhost:3000/') {
       //   shareWidget.classList.add('main')
       //   this.checkNav(true)
