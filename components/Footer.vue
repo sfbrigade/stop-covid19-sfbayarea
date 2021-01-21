@@ -146,7 +146,7 @@ export default {
   .Footer {
     padding: 22px;
 
-    // Adding to show footer above share widget... 
+    // Adding to show footer above share widget...
     margin-bottom: 40px;
 
     .Content-Container {

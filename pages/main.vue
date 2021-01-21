@@ -44,7 +44,7 @@ export default Vue.extend({
     Faq,
     Stats,
     News,
-    Footer, 
+    Footer,
     ShareWidget
   },
   asyncData(context) {

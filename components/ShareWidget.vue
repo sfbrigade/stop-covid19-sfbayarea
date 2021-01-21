@@ -66,15 +66,10 @@ export default {
   methods: {
     share() {
       if (navigator.share) {
-        navigator
-          .share({
-            title: 'Bay Area Pandemic Dashboard',
-            url: 'https://panda.baybrigades.org/'
-          })
-          .then(() => {
-            console.log('Thanks for sharing!')
-          })
-          .catch(console.error)
+        navigator.share({
+          title: 'Bay Area Pandemic Dashboard',
+          url: 'https://panda.baybrigades.org/'
+        })
       }
     },
     getPage() {
