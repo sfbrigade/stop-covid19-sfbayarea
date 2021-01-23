@@ -605,7 +605,7 @@ const sortNormalizedChartData = (updatedRaceEthGroup: RaceEthGroup) => {
   const normalizedRaceEths: any = {}
   updatedRaceEthGroup.datasets.data.forEach((cases: number, i: number) => {
     const label = updatedRaceEthGroup.labels[i]
-    if (label !== 'Unknown' && label !== 'Total RE') {
+    if (label !== 'Unknown' && label !== 'Total RE' && cases >= 0) {
       normalizedRaceEths[updatedRaceEthGroup.labels[i]] = cases
       backgroundColor.push(PURPLE_MAIN)
     }
