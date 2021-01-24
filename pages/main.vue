@@ -19,8 +19,8 @@
           </v-tab-item>
         </v-tabs-items>
       </div>
-      <Footer />
       <ShareWidget />
+      <Footer />
     </div>
   </v-app>
 </template>

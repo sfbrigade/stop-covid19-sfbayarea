@@ -1,9 +1,17 @@
 <template>
-  <div id="ShareWidget" class="ShareWidget main">
+  <div
+    id="ShareWidget"
+    class="ShareWidget"
+    :class="[
+      onMain ? 'main' : 'index',
+      !navigatorShare && onMain ? 'mainPad' : 'indexPad',
+      navigatorShare ? 'noPad' : null
+    ]"
+  >
     <div class="row">
       <div class="column">
         <a
-          href="https://twitter.com/share?ref_src=twsrc%5Etfw&text=COVID%20Awareness%20for%20the%20Bay%20Area,%20by%20the%20Bay%20Area."
+          href="https://twitter.com/share?ref_src=twsrc%5Etfw&text=Up%20to%20the%20minute%20Bay%20Area%20COVID%20statistics%20and%20county%20information:&url=https://panda.baybrigades.org/"
           data-show-count="false"
         >
           <div class="twitter widge">
@@ -48,7 +56,7 @@
         </a>
       </div>
 
-      <div class="column">
+      <div v-if="navigatorShare" class="column">
         <div id="emailWidget" class="email widge" @click="share">
           <i class="fas fa-share-alt fa-2x" />
         </div>
@@ -60,8 +68,12 @@
 <script>
 export default {
   name: 'ShareWidget',
+  data() {
+    return { navigatorShare: true, onMain: true }
+  },
   mounted() {
-    this.getPage()
+    this.onMain = location.pathname === '/main'
+    this.navigatorShare = navigator.share !== undefined
   },
   methods: {
     share() {
@@ -70,46 +82,6 @@ export default {
           title: 'Bay Area Pandemic Dashboard',
           url: 'https://panda.baybrigades.org/'
         })
-      }
-    },
-    getPage() {
-      const shareWidget = document.getElementById('ShareWidget')
-      const page = location.href
-
-      if (page === 'https://panda.baybrigades.org/') {
-        shareWidget.classList.add('main')
-        this.checkNav(true)
-      } else {
-        shareWidget.classList.remove('main')
-        this.checkNav(false)
-      }
-
-      // To test on localhost, uncomment the code below and comment out the if statement above
-
-      // if (page === 'http://localhost:3000/') {
-      //   shareWidget.classList.add('main')
-      //   this.checkNav(true)
-      // } else {
-      //   shareWidget.classList.remove('main')
-      //   this.checkNav(false)
-      // }
-    },
-    checkNav(main) {
-      const shareWidget = document.getElementById('ShareWidget')
-      const emailWidget = document.getElementById('emailWidget')
-
-      if (navigator.share && main) {
-        emailWidget.classList.remove('hide')
-        shareWidget.classList.remove('mainpad')
-      } else if (navigator.share && !main) {
-        emailWidget.classList.remove('hide')
-        shareWidget.classList.remove('pad')
-      } else if (!navigator.share && main) {
-        emailWidget.classList.add('hide')
-        shareWidget.classList.add('mainpad')
-      } else {
-        emailWidget.classList.add('hide')
-        shareWidget.classList.add('pad')
       }
     }
   }
@@ -167,18 +139,12 @@ a:hover {
   cursor: pointer;
 }
 
-/* Could try 1350px? */
-@media (min-width: 1264px) {
+@media (min-width: 1440px) {
   .ShareWidget {
     width: 3rem;
-    height: calc(100% - 95px);
     right: 1rem;
     position: absolute;
     overflow: auto;
-    z-index: 100;
-  }
-  .main {
-    height: calc(100% - 225px);
   }
   .row {
     display: flex;
@@ -188,14 +154,20 @@ a:hover {
     border-radius: 50%;
     margin: 0.3rem 0;
   }
-  .hide {
-    visibility: hidden;
+  .index {
+    height: calc(100% - 225px);
   }
-  .pad {
+  .indexPad {
+    padding-top: 60px;
+  }
+  .main {
+    height: calc(100% - 95px);
+  }
+  .mainPad {
     padding-top: 25px;
   }
-  .mainpad {
-    padding-top: 60px;
+  .noPad {
+    padding-top: 0px;
   }
 }
 </style>

@@ -41,8 +41,8 @@
           </div>
         </div>
       </div>
-      <Footer />
       <ShareWidget />
+      <Footer />
     </v-container>
   </v-app>
 </template>
