@@ -72,7 +72,8 @@ export default {
     return { navigatorShare: true, onMain: true }
   },
   mounted() {
-    this.onMain = location.pathname === '/main'
+    this.onMain =
+      location.pathname === '/main' || location.pathname === '/about'
     this.navigatorShare = navigator.share !== undefined
   },
   methods: {
