@@ -1,6 +1,5 @@
 <template>
   <div
-    id="ShareWidget"
     class="ShareWidget"
     :class="[
       onMain ? 'main' : 'index',
@@ -140,7 +139,7 @@ a:hover {
   cursor: pointer;
 }
 
-@media (min-width: 1440px) {
+@media (min-width: 600px) {
   .ShareWidget {
     width: 3rem;
     right: 1rem;
@@ -156,18 +155,23 @@ a:hover {
     margin: 0.3rem 0;
   }
   .index {
+    /* Used to align bottom of ShareWidget with bottom of cards on index page */
     height: calc(100% - 225px);
   }
   .indexPad {
+    /* Padding for when emailWidget is not available */
     padding-top: 60px;
   }
   .main {
+    /* Used to center ShareWidget within background-wrapper on main and about pages */
     height: calc(100% - 95px);
   }
   .mainPad {
+    /* Padding for when emailWidget is not available */
     padding-top: 25px;
   }
   .noPad {
+    /* Reset padding-top */
     padding-top: 0px;
   }
 }
