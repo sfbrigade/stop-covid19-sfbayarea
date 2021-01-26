@@ -19,7 +19,7 @@
           </v-tab-item>
         </v-tabs-items>
       </div>
-      <ShareWidget />
+      <ShareWidget :on-main="true" />
       <Footer />
     </div>
   </v-app>

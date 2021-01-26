@@ -67,12 +67,11 @@
 <script>
 export default {
   name: 'ShareWidget',
+  props: { onMain: Boolean },
   data() {
-    return { navigatorShare: true, onMain: true }
+    return { navigatorShare: true }
   },
   mounted() {
-    this.onMain =
-      location.pathname === '/main' || location.pathname === '/about'
     this.navigatorShare = navigator.share !== undefined
   },
   methods: {

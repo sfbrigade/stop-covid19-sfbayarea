@@ -84,7 +84,7 @@
       <br />
       Thank you for helping us in this mission!
     </TextCard>
-    <ShareWidget />
+    <ShareWidget :on-main="true" />
     <Footer />
   </div>
 </template>
