@@ -41,6 +41,7 @@
           </div>
         </div>
       </div>
+      <ShareWidget />
       <Footer />
     </v-container>
   </v-app>
@@ -49,10 +50,12 @@
 <script lang="ts">
 import Vue from 'vue'
 import Footer from '@/components/Footer.vue'
+import ShareWidget from '@/components/ShareWidget.vue'
 
 export default Vue.extend({
   components: {
-    Footer
+    Footer,
+    ShareWidget
   },
   data() {
     return {

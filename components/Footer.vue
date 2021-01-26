@@ -146,48 +146,8 @@ export default {
   .Footer {
     padding: 22px;
 
-    .Content-Container {
-      margin-bottom: 25px;
-      flex-direction: column;
-      flex-wrap: wrap;
-      max-height: 270px;
-
-      .Category-Container {
-        margin: 0;
-        max-width: 165px;
-
-        &:first-child {
-          margin-bottom: 1rem;
-        }
-        &:last-child {
-          margin-left: 3rem;
-        }
-
-        p {
-          @include font-size(14);
-        }
-
-        span {
-          @include font-size(12);
-        }
-      }
-    }
-
-    &-SocialLinkContainer {
-      a > i {
-        margin-right: 5px;
-      }
-    }
-
-    &-Copyright {
-      @include font-size(12);
-    }
-  }
-}
-
-@include lessThan($small) {
-  .Footer {
-    padding: 22px;
+    // Adding to show footer above share widget...
+    margin-bottom: 40px;
 
     .Content-Container {
       margin-bottom: 25px;
