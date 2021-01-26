@@ -19,7 +19,6 @@
           </v-tab-item>
         </v-tabs-items>
       </div>
-      <ShareWidget />
       <Footer />
     </div>
   </v-app>
@@ -33,7 +32,6 @@ import Faq from '@/components/Faq.vue'
 import Stats from '@/components/Stats.vue'
 import News from '@/components/News.vue'
 import Footer from '@/components/Footer.vue'
-import ShareWidget from '@/components/ShareWidget.vue'
 import TitleBar from '@/components/TitleBar.vue'
 
 export default Vue.extend({
@@ -44,8 +42,7 @@ export default Vue.extend({
     Faq,
     Stats,
     News,
-    Footer,
-    ShareWidget
+    Footer
   },
   asyncData(context) {
     if (context.params.tab === 'updates') {

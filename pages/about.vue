@@ -84,7 +84,7 @@
       <br />
       Thank you for helping us in this mission!
     </TextCard>
-    <ShareWidget />
+
     <Footer />
   </div>
 </template>
@@ -94,15 +94,13 @@ import TextCard from '@/components/TextCard.vue'
 import TopNavigation from '@/components/TopNavigation'
 import Footer from '@/components/Footer.vue'
 import AboutTitleBar from '@/components/AboutTitleBar.vue'
-import ShareWidget from '@/components/ShareWidget.vue'
 
 export default {
   components: {
     TextCard,
     TopNavigation,
     Footer,
-    AboutTitleBar,
-    ShareWidget
+    AboutTitleBar
   },
   computed: {
     cardItems() {
