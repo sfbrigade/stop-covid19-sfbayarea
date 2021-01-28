@@ -1,8 +1,8 @@
 This is a document for internal team members who can help update the latest statistics and county news data. It's easy! Anyone can update the statistic data on this GitHub repository site only.
 
-1. Check [Pull requests](https://github.com/sfbrigade/stop-covid19-sfbayarea/pulls) to see if there is any new data update request.
+As a starting point,check [Pull requests](https://github.com/sfbrigade/stop-covid19-sfbayarea/pulls) to see if there is any new data update request.
 
-There are 4 types of Pull requests
+There are 4 types of Pull requests. Please follow the steps below for each.
 
 ## GitHub action: data update
 
