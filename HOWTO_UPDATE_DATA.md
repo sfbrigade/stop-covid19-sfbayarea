@@ -33,7 +33,7 @@ Hooray! You done the update for statistics data! As a note, you do not need to d
 
 This is the age/race/ethnicity/gender data we call as v2, which the filename is data/data.v2.json scraped from the Bay Area counties publlic helth department web site. 
 
-1. Follow the same steps described above for GitHub action: data update. Only difference is the chart you need to review on the preview site. For data v2 update, please review the following 4 charts to see the chart works fine the data which sounds right. If possible, please review all 9 counties to see the chart is reflected for the selected county. Note that, there are a few counties that we do not support yet.
+1. Follow the same steps described above for GitHub action: data update. Only difference is the chart you need to review on the preview site. For data v2 update, please review the following 4 charts to see the chart works fine the data which sounds right. If possible, please review all 9 counties to see the chart is reflected for the selected county. Note that, there are a few counties that we do not support for data v2 yet.
  ![data2-review1](https://user-images.githubusercontent.com/61864097/106184436-5f5dda00-6156-11eb-855f-927112274c92.png)
 
 
@@ -41,7 +41,7 @@ This is the age/race/ethnicity/gender data we call as v2, which the filename is 
 
 This is the ICU bed availability data, which the filename is data/data_hospitalization.json scraped from data.ca.gov.
 
-1. Follow the same steps described above for GitHub action: data update. Only difference is the chart you need to review on the preview site. For hospitalization data update, please review the following chart to see the chart works fine the data which sounds right.
+1. Follow the same steps described above for GitHub action: data update. Only difference is the chart you need to review on the preview site. For hospitalization data update, please review the following chart to see the chart works fine the data which sounds right. If possible, please review all 9 counties to see the chart is reflected for the selected county.
  ![data-hospi-review1](https://user-images.githubusercontent.com/61864097/106184841-edd25b80-6156-11eb-95f8-f3cb9ada3e8e.png)
 
 
