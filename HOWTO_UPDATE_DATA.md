@@ -8,7 +8,13 @@ There are 4 types of Pull requests
 
 This is the cases/death data we call as v1, which the filename is data/data.json scraped from CDS(Corona Data Scraper). 
 
-TO BE UPDATED with screen shots.
+1. Click "Details" on the "deploy/netlify" to review the preview site with the latest data.
+
+1. On the preview site, review all the cases and death number sounds right. If nothing specific strange value shown up, it should be good. You can review the chart by clicking "DAILY", "TOTAL", and "Last XX days" to see the chart works fine.
+
+1. School down to the county selection, try different counties (if possible, all 9 counties) to review each chart reflects properly.
+
+
 
 ## GitHub action: data v2 update
 
