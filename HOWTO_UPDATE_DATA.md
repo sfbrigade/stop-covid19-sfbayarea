@@ -49,4 +49,6 @@ This is the ICU bed availability data, which the filename is data/data_hospitali
 
 This is the for News & Updates in the County Info page, which the filename is data/news/COUNTYNAME.json(and .rss) scraped from the Bay Area counties official web site.
 
-TO BE UPDATED with screen shots.
+1. Follow the same steps described above for GitHub action: data update. Only difference is the places you need to review on the preview site. For news update, please review the "Count Info" page to see we have the latest date of News & Updates. If possible, please review all 9 counties to see the "News & Updates" is reflected for the selected county. Note that as of today Jan 28th 2021, only San Francisco County has additional county information such as County Guidelines, Testing etc. You do not need to review the additional county information as those are managed seperately in a different data set. 
+ ![data-news-review1](https://user-images.githubusercontent.com/61864097/106185407-a6989a80-6157-11eb-8f5b-f19c60d32a01.png)
+ ![data-news-review2](https://user-images.githubusercontent.com/61864097/106185416-a9938b00-6157-11eb-8a5a-9b9bd9955271.png)
