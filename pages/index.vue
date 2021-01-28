@@ -41,7 +41,7 @@
           </div>
         </div>
       </div>
-      <ShareWidget />
+      <ShareWidget :on-main="false" />
       <Footer />
     </v-container>
   </v-app>
