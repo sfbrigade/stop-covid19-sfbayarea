@@ -4,8 +4,26 @@
     :title-id="titleId"
     :date="date.split('T')[0]"
     :url="url"
+    :chart-info="chartInfo"
   >
     <template v-slot:button>
+      <v-btn
+        v-for="dataset in datasets"
+        :key="dataset.id"
+        outlined
+        class="data-selector-button"
+        :style="{
+          'background-color': dataset.active
+            ? dataset.backgroundColor
+            : 'white',
+          color: dataset.active ? 'white' : 'black'
+        }"
+        small
+        type="button"
+        @click="toggleActive(dataset)"
+      >
+        {{ dataset.label }}
+      </v-btn>
       <TimePickerDropdown
         class="dropdown-container"
         :time-picker-model="timePickerSelected"
@@ -57,6 +75,11 @@ export default {
       required: false,
       default: () => []
     },
+    chartInfo: {
+      type: Array,
+      required: false,
+      default: () => []
+    },
     date: {
       type: String,
       required: true,
@@ -74,7 +97,21 @@ export default {
     }
   },
   data() {
-    return { timePickerSelected: '30' }
+    const datasets = [
+      {
+        label: 'COVID ICU Patients',
+        backgroundColor: '#453D88',
+        active: true,
+        id: 'icuConfirmed'
+      },
+      {
+        label: 'ICU Beds Available',
+        backgroundColor: '#AFACCA',
+        active: false,
+        id: 'icuAvailable'
+      }
+    ]
+    return { timePickerSelected: '30', datasets }
   },
   computed: {
     displayInfo() {
@@ -90,32 +127,19 @@ export default {
         labels: data.map(d => {
           return d.label
         }),
-        datasets: [
-          {
-            type: 'line',
-            pointBackgroundColor: 'rgba(0,0,0,0)',
-            pointBorderColor: 'rgba(0,0,0,0)',
-            lineTension: 0.5,
-            borderJoinStyle: 'round',
-            label: 'COVID ICU patients',
-            data: data.map(d => {
-              return d.icuConfirmed
-            }),
-            backgroundColor: '#453D88'
-          },
-          {
-            type: 'line',
-            pointBackgroundColor: 'rgba(0,0,0,0)',
-            pointBorderColor: 'rgba(0,0,0,0)',
-            lineTension: 0.5,
-            borderJoinStyle: 'round',
-            label: 'ICU Beds Available',
-            data: data.map(d => {
-              return d.icuAvailable
-            }),
-            backgroundColor: '#AFACCA'
-          }
-        ]
+        datasets: this.datasets
+          .filter(d => d.active)
+          .map(dataset => {
+            const displayOptions = {
+              type: 'line',
+              pointBackgroundColor: 'rgba(0,0,0,0)',
+              pointBorderColor: 'rgba(0,0,0,0)',
+              lineTension: 0.5,
+              borderJoinStyle: 'round',
+              data: data.map(d => d[dataset.id])
+            }
+            return Object.assign({}, dataset, displayOptions)
+          })
       }
     },
     displayOption() {
@@ -125,12 +149,9 @@ export default {
           intersect: false,
           callbacks: {
             label(tooltipItem, data) {
-              const icuConfirmed = data.datasets[0].data[tooltipItem.index]
-              const icuBedAvailable = data.datasets[1].data[tooltipItem.index]
-              return [
-                'COVID ICU Patients: ' + icuConfirmed,
-                'ICU Bed Available: ' + icuBedAvailable
-              ]
+              return data.datasets.map(
+                d => `${d.label}: ${d.data[tooltipItem.index]}`
+              )
             },
             title(tooltipItem, data) {
               return data.labels[tooltipItem[0].index]
@@ -140,7 +161,7 @@ export default {
         responsive: true,
         maintainAspectRatio: false,
         legend: {
-          display: true
+          display: false
         },
         scales: {
           xAxes: [
@@ -211,13 +232,16 @@ export default {
   methods: {
     handleTimePick(timePickerSelected) {
       this.timePickerSelected = timePickerSelected
+    },
+    toggleActive(dataset) {
+      dataset.active = !dataset.active
     }
   }
 }
 </script>
 
 <style lang="scss" scoped>
-.selectorButton {
-  margin-top: 24px;
+.data-selector-button {
+  margin: 0.2rem;
 }
 </style>
