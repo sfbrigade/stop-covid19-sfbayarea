@@ -388,7 +388,7 @@ export default {
           {
             title: 'What this graph shows',
             description:
-              'This graph shows the ICU capacity and number of COVID ICU patients in the selected county. Use the control buttons to toggle each metric on or off.'
+              'This graph shows the number of suspected and confirmed COVID ICU patients, and the number of available ICU beds (including neonatal, pediatric, and adult ICU) in the selected county. Use the control buttons to toggle each metric on or off.'
           }
         ],
         casesPerResidents: [
