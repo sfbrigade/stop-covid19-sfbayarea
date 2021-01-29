@@ -244,4 +244,7 @@ export default {
 .data-selector-button {
   margin: 0.2rem;
 }
+.dropdown-container {
+  margin-top: 24px;
+}
 </style>
