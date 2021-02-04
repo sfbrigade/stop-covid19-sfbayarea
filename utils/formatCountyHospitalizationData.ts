@@ -34,9 +34,7 @@ type CountyMapType = {
 
 const formatHospitalizationDataGraph = (data: HospitalizationDataType[]) => {
   const graphData: GraphDataType[] = []
-  const today = new Date()
-  const lastMonth = new Date()
-  lastMonth.setMonth(today.getMonth() - 3)
+  const lastMonth = new Date('2020-01-23')
   data
     .filter(d => new Date(d.date) > lastMonth)
     .forEach(d => {

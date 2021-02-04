@@ -171,6 +171,7 @@
               renameCountyNameForHospitalization(currentCounty)
             ].graph
           "
+          :chart-info="chartInfo.icuCareCapacity"
           :date="
             CountyDataHospitalization[
               renameCountyNameForHospitalization(currentCounty)
@@ -381,6 +382,13 @@ export default {
             title: 'What this graph shows',
             description:
               'Showing cases per 1000 people normalizes the data for population size. This measure reflects the relative prevelance of COVID-19 cases by race and ethnicity. This data is calculated based on US census population data and confirmed cases that registered racial/ethnic data.'
+          }
+        ],
+        icuCareCapacity: [
+          {
+            title: 'What this graph shows',
+            description:
+              'This graph shows the number of suspected and confirmed COVID ICU patients, and the number of available ICU beds (including neonatal, pediatric, and adult ICU) in the selected county. Use the control buttons to toggle each metric on or off.'
           }
         ],
         casesPerResidents: [
