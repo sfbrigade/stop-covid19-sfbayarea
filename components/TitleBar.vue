@@ -105,6 +105,9 @@ export default {
       @media screen and (max-width: 1150px) {
         display: none;
       }
+      @media screen and (max-width: 1400px) {
+        margin-right: 75px;
+      }
       //Help us raise bay area...
 
       .cardheader {
