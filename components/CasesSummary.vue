@@ -141,16 +141,13 @@ export default {
   },
   computed: {
     calcTotalCasesSummary() {
+      const [previousCases, currentCases] = this.data.cases.slice(-2)
       return {
-        cases: this.data.cases[this.data.cases.length - 1].cumulative,
-        deaths: this.data.cases[this.data.cases.length - 1].deathCumulative,
+        cases: currentCases.cumulative,
+        deaths: currentCases.deathCumulative,
         population: this.data.totalPopulation,
-        newCases:
-          this.data.cases[this.data.cases.length - 1].cumulative -
-          this.data.cases[this.data.cases.length - 2].cumulative,
-        newDeaths:
-          this.data.cases[this.data.cases.length - 1].deathCumulative -
-          this.data.cases[this.data.cases.length - 2].deathCumulative
+        newCases: currentCases.cumulative - previousCases.cumulative,
+        newDeaths: currentCases.deathCumulative - previousCases.deathCumulative
       }
     },
     calcCases7DayLaggingAverage() {
