@@ -11,12 +11,8 @@
           }}
         </div>
         <div class="stat-note">
-          <strong>{{ `${calcTotalCasesSummary.percentChange}%` }}</strong>
-          {{
-            parseInt(calcTotalCasesSummary.percentChange) >= 0
-              ? `daily increase`
-              : `daily decrease`
-          }}
+          <strong>{{ calcTotalCasesSummary.newCases }}</strong>
+          new daily cases
         </div>
       </div>
       <div class="case-frequency">
@@ -24,13 +20,13 @@
         <div class="stat-number">
           {{
             (
-              calcAverageCasesInLast14Days /
+              calcCases7DayLaggingAverage /
               (calcTotalCasesSummary.population / 100000)
             ).toFixed(2)
           }}
         </div>
         <div class="stat-note">
-          on average in the past 14 days
+          7 day rolling avg with 7 day lag
         </div>
       </div>
       <div class="deaths">
@@ -44,14 +40,9 @@
         </div>
         <div class="stat-note">
           <strong>
-            {{
-              `${(
-                (calcTotalCasesSummary.deaths / calcTotalCasesSummary.cases) *
-                100
-              ).toFixed(2)}%`
-            }}
+            {{ calcTotalCasesSummary.newDeaths }}
           </strong>
-          death rate
+          new daily deaths
         </div>
       </div>
     </div>
@@ -120,7 +111,6 @@
 <script>
 import DataView from '@/components/DataView.vue'
 import Data from '@/data/data.json'
-import { calculatePercentage } from '@/utils/calculations'
 
 export default {
   components: { DataView },
@@ -151,22 +141,21 @@ export default {
   },
   computed: {
     calcTotalCasesSummary() {
+      const [previousCases, currentCases] = this.data.cases.slice(-2)
       return {
-        cases: this.data.cases[this.data.cases.length - 1].cumulative,
-        deaths: this.data.cases[this.data.cases.length - 1].deathCumulative,
+        cases: currentCases.cumulative,
+        deaths: currentCases.deathCumulative,
         population: this.data.totalPopulation,
-        percentChange: calculatePercentage(
-          this.data.cases[this.data.cases.length - 2].cumulative,
-          this.data.cases[this.data.cases.length - 1].cumulative
-        )
+        newCases: currentCases.cumulative - previousCases.cumulative,
+        newDeaths: currentCases.deathCumulative - previousCases.deathCumulative
       }
     },
-    calcAverageCasesInLast14Days() {
-      const last14DaysCases = this.data.cases.slice(-14)
+    calcCases7DayLaggingAverage() {
+      const lagging7DayCases = this.data.cases.slice(-14, -7)
       const averageDailyCases =
-        last14DaysCases.reduce((pre, curr) => {
+        lagging7DayCases.reduce((pre, curr) => {
           return pre + curr.confirmedTransition
-        }, 0) / last14DaysCases.length
+        }, 0) / lagging7DayCases.length
       return averageDailyCases
     }
   }

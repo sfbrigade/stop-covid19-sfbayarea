@@ -221,7 +221,7 @@
       >
         <time-line-chart-county-comparison
           :title="`New Cases per 100,000 Residents`"
-          :sub-title="'14 day rolling average'"
+          :sub-title="'7 day average w/ 7 day delay'"
           :title-id="'cases-per-people'"
           :chart-data="CountyData"
           :selected-counties="selectedCounties"
@@ -395,17 +395,17 @@ export default {
           {
             title: 'What this graph shows',
             description:
-              'The daily values shown on this graph are the 14-day rolling average for new confirmed cases adjusted for county population size.'
+              'The daily values shown on this graph are the 7 day rolling average for the number of new cases with a one-week delay. This is one of the primary metrics for determining county tier assignments which directly affect which safety restrictions are in place.'
           },
           {
             title: 'Why ‘per 100,000 residents’?',
             description:
-              'Showing a population-adjusted value puts larger and smaller counties on the same scale and allows for more accurate comparison.'
+              'Showing a population-adjusted value puts differently-sized counties on the same scale and allows for more accurate comparison.'
           },
           {
-            title: 'Why a 14 day average?',
+            title: 'Why a 7 day average?',
             description:
-              'Showing an average value smooths the data curve and makes trends easier to observe. The 14 day period was chosen to match the maximum time frame between contraction of the virus and the onset of symptoms.'
+              'Showing an average value smooths the data curve and makes trends easier to observe.'
           }
         ]
       }

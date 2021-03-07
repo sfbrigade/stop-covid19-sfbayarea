@@ -86,11 +86,15 @@ export default {
         if (confirmedDailyIn14daysQueue.length > 14) {
           confirmedDailyIn14daysQueue.shift()
         }
-        const averageDailyCases =
-          confirmedDailyIn14daysQueue.reduce((pre, curr) => {
+        const laggingQueue = confirmedDailyIn14daysQueue.slice(0, 7)
+        const dailyCasesLaggingAverage =
+          laggingQueue.reduce((pre, curr) => {
             return pre + curr
-          }, 0) / confirmedDailyIn14daysQueue.length
-        return averageDailyCases / (this.chartData[county].population / 100000)
+          }, 0) / laggingQueue.length
+        return (
+          dailyCasesLaggingAverage /
+          (this.chartData[county].population / 100000)
+        )
       })
 
       const confirmedCumulativeIn7daysQueue = []
