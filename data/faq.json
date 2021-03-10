@@ -1,5 +1,50 @@
 {
-    "faqItems": [{
+    "faqItems": 
+           [{
+            "title": "Vaccination",
+            "lastUpdatedAt": "2021-03-10",
+            "qa": [{
+                    "q": "How do I know if I'm eligible for receiving a vaccination?",
+                    "a": "Visit the state's myturn website to check your eligibility and schedule an appointment if one is available. If you are not yet elligible, you can sign up to receive updates as new groups become elligble. For offline information and appointment scheduling, call (833) 422-4255.",
+                    "url": "https://myturn.ca.gov/"
+                },
+                {
+                    "q": "How does the vaccine work?",
+                    "a": "There are three types of vaccine currently authorized or entering large scale trials, each is designed to provoke a immune response from the body that will protect the user from the virus that causes COVID-19. The three different approaches to provoking this response are through mRNA vaccines, protein subunit vaccines, and vector vaccines. Learn more about each of these approaches by visiting the link below.",
+                    "url": "https://www.cdc.gov/coronavirus/2019-ncov/vaccines/different-vaccines/how-they-work.html"
+                },
+                {
+                    "q": "If I've received the vaccine, can I still spread the virus to others?",
+                    "a": "While vaccines greatly reduce the severity of symptoms, there is no evidence that they can completely prevent infection witht he virus that causes COVID-19. Thus it is important to continue to take precautions such as wearing a mask and keeping physicaly distanced from people not in your household in order to reduce the risk of spreading the virus to people who have not yet recevied the vaccine.",
+                    "url": "https://www.bbc.com/future/article/20210203-why-vaccinated-people-may-still-be-able-to-spread-covid-19"
+                }
+             ]
+           },
+           {
+            "title": "Current Safety Precautions",
+            "lastUpdatedAt": "2021-03-10",
+            "qa": [{
+                "q": "How does the county tier system work?",
+                "a": "To slow the spread of COVID-19, the state of California has enacted a system that assigns counties to colored tiers which identify what restrictions are in place. Tiers are updated weekly every Tuesday based on number of new cases, ICU capacity, and test posititity rate. Learn more and see current county tier assignments at the link below.",
+                "url": "https://covid19.ca.gov/safer-economy/"
+                },
+                {
+                "q": "What general precautions are still recommended?",
+                "a": "To combat the spread of the virus and help your county reach a lower tier, the following precautions are still recommended: Stay home except for essential needs, wear a mask while in public, wash your hands regularly, keep 6 feet of physical distance between yourself and people not in your household, limit mixing with people you don't live with.",
+                },
+                {
+                "q": "What does self quarantine and isolation mean? How do I self quarantine?",
+                "a": "If you or a member of your household starts exhibiting symptoms of COVID-19, you should begin self-quarantine procedures. Isolation and quarantine help protect the public by preventing exposure to people who have or may have a contagious disease. Isolation separates sick people with a contagious disease from people who are not sick. Quarantine restricts the movement of people who were or might have been exposed to a contagious disease, to see if they become sick or not. For COVID-19 the standard quarantine period is 14 days.",
+                "url": "https://www.cdc.gov/quarantine/quarantineisolation.html"
+                },   
+                {
+                "q": "What do I do if a family member has to quarantine?",
+                "a": "See suitability assessment checklist at the Centers for Disease Control and Prevention (CDC) website for whether or not home care is recommended first",
+                "url": "https://www.cdc.gov/coronavirus/2019-ncov/hcp/guidance-home-care.html"
+                },
+              ]
+           },
+           {
             "title": "About COVID-19",
             "lastUpdatedAt": "2020-05-05",
             "qa": [{
@@ -31,7 +76,7 @@
         },
         {
             "title": "Preventative Information",
-            "lastUpdatedAt": "2020-05-05",
+            "lastUpdatedAt": "2021-03-10",
             "qa": [{
                     "q": "Who can I talk to for advice?",
                     "a": "Anyone with a primary care physician should contact them with concerns about COVID-19. Alternatively, a free statewide hotline is available between 8am and 5pm, seven days a week, on (833) 544-2374. This can offer advice on everything from preventing the virus' spread, to getting help if you don’t have health insurance, to local services like food delivery and mental health care.",
@@ -39,43 +84,43 @@
                 },
                 {
                     "q": "Should I wear a mask or facial covering?",
-                    "a": "As of April 22, six of nine Bay Area counties (Alameda, Contra Costa, Marin, San Francisco, San Mateo and Sonoma) require people to wear masks or facial coverings when outside of their homes. Businesses have the right to refuse service to anybody not wearing a mask and many public tranist agencies have adopted similar stances. Masks are not necessary when driving your personal vehicle or while excercising, provided you keep 6 feet of distance between yourself and anybody not from your household.",
-                    "url": "https://www.mercurynews.com/2020/04/22/coronavirus-bay-area-mask-order-takes-effect-wednesday-heres-what-you-need-to-know/"
+                    "a": "There is a mask mandate in place for the entire state of California until further notice. General exemptions to this mandate exist for certain medical conditions, however, businesses may still refuse service or require service accomodations to protect their staff and other customers. Masks are not required for children under two years of age. Additionally, masks are not required when driving your personal vehicle or while excercising outdoors, provided you keep 6 feet of distance between yourself and anybody not from your household. For information about the madate, exemptions and proper handling of facial coverings, visit the link below.",
+                    "url": "https://www.cdph.ca.gov/Programs/CID/DCDC/Pages/COVID-19/guidance-for-face-coverings.aspx"
                 }
             ]
         },
         {
             "title": "Testing",
-            "lastUpdatedAt": "2020-05-05",
+            "lastUpdatedAt": "2021-03-10",
             "qa": [{
                     "q": "How can I get tested?",
-                    "a": "In most places, testing is only available if you are exhibiting symptoms of COVID-19. However, in San Francisco essential workers and anyone displaying one known symptom of COVID-19 (see \"What are the symptoms?\" above) can now get tested free at one of the two CityTestSF sites at the Embarcadero and in SoMa. For more information about COVID-19 testing, contact your primary health care provider or call 311. In San Francisco you can also visit the website linked here:",
-                    "url": "https://sf.gov/find-out-how-get-tested-coronavirus"
+                    "a": "In most cases, testing is only available if you are exhibiting symptoms of COVID-19. Call your healthcare provider to make an appointment or to perform a screening questionaire over the phone.In most places, testing is only available if you are exhibiting symptoms of COVID-19. The state of California provides a resource at the link below to find testing sites.",
+                    "url": "https://www.arcgis.com/apps/Nearby/index.html?appid=43118dc0d5d348d8ab20a81967a15401"
                 },
                 {
                     "q": "I don't have insurance, how can I get tested?",
-                    "a": "There are multiple options around the Bay Area to get testing if you don't have health insurance, including many urgent care facilities and mobile testing sites. The link below describes a number of possibilities.",
-                    "url": "https://www.sfchronicle.com/health/article/Where-can-I-get-a-coronavirus-test-in-the-Bay-15136054.php"
+                    "a": "There are multiple options around the Bay Area to get testing if you don't have health insurance, including many urgent care facilities, CVS drug stores, and mobile testing sites. For some counties, we offer more detailed information on the county info tab avove.  The link below describes a number of possibilities.",
+                    "url": "https://www.kqed.org/news/11818312/map-free-covid-19-testing-sites-in-the-bay-area"
                 }
             ]
         },
         {
             "title": "Transportation",
-            "lastUpdatedAt": "2020-05-05",
+            "lastUpdatedAt": "2021-03-10",
             "qa": [{
                     "q": "Is BART running through the COVID-19 emergency period?",
-                    "a": "BART operates Monday through Friday from 5am - 9pm, with the same train frequency as before the emergency. Weekend trains now run from 8am - 9pm instead of 6am - midnight, but also with the same frequency as before. SFO is currently offering a late-night shuttle service to and from several BART stations. Details for specific journeys at the BART trip planner link below.",
-                    "url": "https://www.bart.gov/planner"
+                    "a": "BART remains in operation with reduced hours, operating 5am-9pm on weekdays and 8am-9pm on weekends. There are many resources for trip planning, occupancy numbers and safety precautions on the BART website. Updates relating to the Coronavirus are available at the link below.",
+                    "url": "https://www.bart.gov/news/articles/2020/news20200225"
                 },
                 {
-                    "q": "Is SFO open and how do I get to it?",
-                    "a": "SFO is operating at reduced levels. Details of services to and from the airport are available at the link below.",
-                    "url": "https://www.flysfo.com/important-travel-information-regarding-covid-19-novel-corona-virus/sfo-covid-19-faqs"
+                    "q": "What do I need to know if I'm travelling through SFO?",
+                    "a": "SFO is open, however there are additional health protocols in place. It is recommended that you review these on the airport's website below before travelling to the airport.",
+                    "url": "https://www.flysfo.com/travel-well/new-health-protocols"
                 },
                 {
                     "q": "Is Oakland Airport open?",
-                    "a": "Airports are regarded as essential infrastructure and Oakland is open. Up-to-date service info here:",
-                    "url": "https://www.oaklandairport.com/oakland-international-airport-is-open-with-flights-operating-across-the-us-including-hawaii-and-mexico/"
+                    "a": "Oakland International is open with face coverings and physical distance required between all travellers not from the same household. Details about additional health protocols are available on their website, link below.",
+                    "url": "https://www.oaklandairport.com/traveling-with-confidence/the-steps-were-taking/"
                 },
                 {
                     "q": "Is San Jose Airport open?",
@@ -92,7 +137,7 @@
         },
         {
             "title": "Helping Your Community",
-            "lastUpdatedAt": "2020-05-05",
+            "lastUpdatedAt": "2021-03-10",
             "qa": [{
                     "q": "How can I help high risk individuals in my neighborhood?",
                     "a": "The CDC considers the elderly and people with chronic illnesses to be at higher risk from COVID-19. If you're in a lower risk group, you can help your neighbors and foster community by offering to pick up prescriptions and groceries for them (while following safe handling precautions - see above). Social visits from a safe distance can help brighten people's moods and provide an opportunity to share information and stay in touch.",
@@ -109,11 +154,6 @@
                     "url": "https://www.7x7.com/how-to-help-the-community-coronavirus-bay-area-2645591886.html/"
                 },
                 {
-                    "q": "What local initiatives are there that support community response to the pandemic?",
-                    "a": "Here are some Bay Area brands giving back in this pandemic, many have initiatives that you as a consumer can participate in:",
-                    "url": "https://www.7x7.com/bay-area-companies-that-give-back-2645814589/allbirds-buy-one-give-one-program-gives-sneakers-to-healthcare-heroes./"
-                },
-                {
                     "q": "How can I donate masks?",
                     "a": "Sf.gov is accepting bulk donations (minimum quantity one shipping pallet) of the N-95 masks (3M and Moldex preferred) and medical masks (isolation or surgical). More detail at the link below, with the complete form at the link underneath.",
                     "url": "https://sf.gov/give-city-respond-covid-19",
@@ -123,7 +163,7 @@
         },
         {
             "title": "Mental Health",
-            "lastUpdatedAt": "2020-05-05",
+            "lastUpdatedAt": "2021-03-10",
             "qa": [{
                     "q": "Where can I talk to someone to get support when self isolating?",
                     "a": "San Francisco Mental Health Warm Line which has statewide coverage at (855) 845-7415 as well as the option to chat online.",
@@ -141,42 +181,7 @@
                 },
                 {
                     "q": "Where can I go to access AA meetings and/or access substance abuse resources?",
-                    "a": "Call the Alcoholics Anonymous helpline at (415) 674-1821 or email them at help@aasfmarin.org. To reach Narcotics Anonymous call (415) 610-7294. Online meetings are also available at https://www.aa-intergroup.org/ https://, www.weconnectrecovery.com and www.intherooms.com."
-                }
-            ]
-        },
-        {
-            "title": "Social Distancing",
-            "lastUpdatedAt": "2020-05-05",
-            "qa": [{
-                    "q": "What is Social Distancing?",
-                    "a": "Social distancing means deliberately increasing the physical space between people to avoid spreading illness.",
-                    "url": "https://www.cdc.gov/coronavirus/2019-ncov/prevent-getting-sick/social-distancing.html"
-                },
-                {
-                    "q": "What activities are allowed/restricted under shelter in place guidelines?",
-                    "a": "Stay home and avoid non-essential travel. If you must go out, maintain 6ft separation from people you do not live with. Conduct work and/or school from home if possible. Visit with friends and loved ones via phone or video call rather than in person.",
-                    "url": "https://www.redcross.org/about-us/news-and-events/news/2020/coronavirus-what-social-distancing-means.html"
-                },
-                {
-                    "q": "What is shelter in place? How long will it be for?",
-                    "a": "Since March 19 Californians have been sheltering in place. Individuals have been instructed to stay home unless they are getting food, caring for relatives, seeking urgent medical care or working in essential services. On May 4, however, Governor Gavin Newsom announced a relaxing of the state-wide shelter in place order and restrictions on business, based on improving data about the virus' spread. Broadly, from Friday May 8, non-essential businesses are able to re-open for curbside service. Individual counties have latitude to act on this as they see fit so long as certain safeguards are in place. Watch this space.",
-                    "url": "https://covid19.ca.gov/stay-home-except-for-essential-needs/#top"
-                },
-                {
-                    "q": "What does self quarantine and isolation mean? How do I self quarantine?",
-                    "a": "Isolation and quarantine help protect the public by preventing exposure to people who have or may have a contagious disease. Isolation separates sick people with a contagious disease from people who are not sick. Quarantine restricts the movement of people who were or might have been exposed to a contagious disease, to see if they become sick or not. For COVID-19 the standard quarantine period is 14 days.",
-                    "url": "https://www.cdc.gov/quarantine/quarantineisolation.html"
-                },
-                {
-                    "q": "What do I do if a family member has to quarantine?",
-                    "a": "See the suitability assessment checklist at the Centers for Disease Control and Prevention (CDC) website for whether or not home care is recommended first.",
-                    "url": "https://www.cdc.gov/coronavirus/2019-ncov/hcp/guidance-home-care.html"
-                },
-                {
-                    "q": "What qualifies as an \"essential\" business?",
-                    "a": "A broad range of businesses qualify, but only under strict operational conditions.",
-                    "url": "https://sf.gov/check-if-your-business-essential"
+                    "a": "Call the Alcoholics Anonymous helpline at (415) 674-1821 or email them at help@aasfmarin.org. To reach Narcotics Anonymous call (415) 610-7294. Online meetings are also available at https://www.aa-intergroup.org/, https://www.weconnectrecovery.com and www.intherooms.com."
                 }
             ]
         }
