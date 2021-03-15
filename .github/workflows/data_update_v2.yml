@@ -59,6 +59,11 @@ jobs:
         echo "SCRAPER_COMMIT='$(git rev-parse HEAD)'" >> $GITHUB_ENV
 
     - name: Scrape Data
+      id: scrape_data
+      # The scraper may error on some counties but succeed on others. We want to
+      # continue so that we still generate PRs for partial successes. We'll handle
+      # failures in a later step.
+      continue-on-error: true
       env:
         SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
       run: |
@@ -68,7 +73,13 @@ jobs:
         OUT_PATH="${GITHUB_WORKSPACE}/site/data/data.v2.json"
 
         python scraper_data.py > today.json 2> errors.txt || true
-        jq -s '.[0] + .[1]' $OUT_PATH today.json > $OUT_PATH
+
+        # Merge new data into previous data. (Note this has to be two steps;
+        # if we read $OUT_PATH as input for jq and write stdout to it at the
+        # same time, we get conflicts and bad output.)
+        jq -s '.[0] + .[1]' $OUT_PATH today.json > merged.json
+        mv merged.json $OUT_PATH
+
         ERRORS=`cat errors.txt`
         if [ -n "${ERRORS}" ]; then
           echo "Encountered the following errors while scraping:"
@@ -81,6 +92,9 @@ jobs:
           # `--slurp` causes all lines to be combined into one string.
           ERRORS_JSON=`cat errors.txt | jq --slurp --raw-input '{"text": .}'`
           curl -X POST -H 'Content-type: application/json' --data "${ERRORS_JSON}" $SLACK_WEBHOOK_URL
+          
+          # Raise an error so this step fails.
+          false
         fi
 
     - name: Create PR if New Data
@@ -105,3 +119,9 @@ jobs:
           Created with commit ${{env.SCRAPER_COMMIT}} from sfbrigade/data-covid19-sfbayarea
           https://github.com/sfbrigade/data-covid19-sfbayarea/commit/${{env.SCRAPER_COMMIT}}
         reviewers: kengoy
+
+    - name: Fail Workflow if the Scraper Had Errors
+      if: ${{ steps.scrape_data.outcome == 'failure' }}
+      run: |
+        echo "Marking workflow as failed."
+        false
