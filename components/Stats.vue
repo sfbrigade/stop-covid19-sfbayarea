@@ -210,6 +210,38 @@
               {{ countyName.name }}
             </v-btn>
           </div>
+          <hr />
+          <div class="county-compare-select-container">
+            <div class="county-compare-overlay-select-container">
+              <div class="county-compare-overlay-select-buttons">
+                <label>Overlays:</label>
+                <v-btn
+                  v-for="overlay in countyCompareOverlays"
+                  :key="overlay.name"
+                  class="county-select-button"
+                  outlined
+                  :style="{
+                    'background-color': overlay.selected
+                      ? overlay.color
+                      : 'white',
+                    color: overlay.selected ? 'white' : 'black'
+                  }"
+                  type="button"
+                  @click="() => (overlay.selected = !overlay.selected)"
+                >
+                  {{ overlay.name }}
+                </v-btn>
+              </div>
+              <p class="tier-description">
+                County tier benchmarks are determined according to the statewide
+                safety blueprint. For more details, visit
+                <a
+                  href="https://www.cdph.ca.gov/Programs/CID/DCDC/Pages/COVID-19/COVID19CountyMonitoringOverview.aspx"
+                  >CDPH's Blueprint for a Safer Economy</a
+                >.
+              </p>
+            </div>
+          </div>
         </DataView>
       </v-col>
       <!-- County Comparison Graphs -->
@@ -229,6 +261,7 @@
           :chart-info="chartInfo.casesPerResidents"
           :date="CountyData[currentCounty].lastUpdatedAt"
           :url="'https://coronadatascraper.com'"
+          :overlays="countyCompareOverlays"
         />
       </v-col>
       <v-col
@@ -246,6 +279,10 @@
           :date="CountyData[currentCounty].lastUpdatedAt"
           :unit="'%'"
           :url="'https://coronadatascraper.com'"
+          :overlays="{
+            ...countyCompareOverlays,
+            ...{ tiers: { selected: false } }
+          }"
         />
       </v-col>
     </v-row>
@@ -298,6 +335,20 @@ export default {
       })
     }
     const selectedCounties = []
+
+    const countyCompareOverlays = {
+      average: {
+        name: 'Bay Area Average',
+        selected: false,
+        color: '#2d2d2d'
+      },
+      tiers: {
+        name: 'Tier Benchmarks',
+        selected: false,
+        color: '#b1004b'
+      }
+    }
+
     const CountyDataVTwo = this.getFormatData()
     const chartInfo = this.getChartInfo()
 
@@ -319,6 +370,7 @@ export default {
       totalDeaths,
       countiesForCompare,
       selectedCounties,
+      countyCompareOverlays,
       chartInfo
     }
 
@@ -517,6 +569,21 @@ export default {
     .county-select-buttons {
       padding: 20px;
     }
+    .county-compare-overlay-select-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      .county-compare-overlay-select-buttons {
+        padding: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      p.tier-description {
+        max-width: 530px;
+      }
+    }
+
     .county-select-button {
       margin: 10px 10px;
     }
