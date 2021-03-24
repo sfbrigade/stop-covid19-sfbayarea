@@ -131,19 +131,35 @@ export default {
     drawTiers() {
       return {
         beforeDraw: chart => {
-          const gradientBreakpoints = this.displayData.gradient
+          if (!this.displayData.displayTiers) return
+          const [YELLOW, ORANGE, RED, PURPLE] = [
+            '#fcfaae',
+            '#fdddae',
+            '#fc7e7e',
+            '#ccaefd'
+          ]
+          const TIER_BREAKPOINTS = [
+            [YELLOW, 0],
+            [ORANGE, 1],
+            [RED, 4],
+            [PURPLE, 7]
+          ]
+
+          const maxTick = chart.scales['y-axis-0'].ticksAsNumbers[0]
+
+          const gradientConfig = TIER_BREAKPOINTS.map(([color, breakpoint]) => [
+            color,
+            breakpoint / maxTick
+          ]).filter(([, breakpoint]) => breakpoint <= 1)
           const ctx = chart.chart.ctx
           const chartArea = chart.chartArea
 
-          const gradient = gradientBreakpoints
+          const gradient = gradientConfig
             ? ctx.createLinearGradient(0, chartArea.bottom, 0, chartArea.top)
             : '#fff'
-          if (gradientBreakpoints)
-            gradientBreakpoints.forEach(([color, breakpoint], index) => {
-              const [, nextBreakpoint] = gradientBreakpoints[index + 1] || [
-                null,
-                1
-              ]
+          if (gradientConfig)
+            gradientConfig.forEach(([color, breakpoint], index) => {
+              const [, nextBreakpoint] = gradientConfig[index + 1] || [null, 1]
               gradient.addColorStop(breakpoint, color)
               gradient.addColorStop(nextBreakpoint, color)
             })
@@ -166,6 +182,7 @@ export default {
         ...this.selectedCounties,
         ...(this.overlays.average.selected ? [bayAreaAverage] : [])
       ]
+      const displayTiers = this.overlays.tiers?.selected
       if (countiesToDisplay.length) {
         const dataSets = []
         const data =
@@ -195,14 +212,10 @@ export default {
           })
         }
 
-        const gradient = this.overlays.tiers.selected
-          ? this.getTierGradientBreakpoints(dataSets.map(({ data }) => data))
-          : null
-
         return {
           labels: sliceToTimePick(labels),
           datasets: dataSets,
-          gradient
+          displayTiers
         }
       } else {
         return {
@@ -303,29 +316,6 @@ export default {
     handleTimePick(timePickerSelected) {
       this.timePickerSelected = timePickerSelected
     },
-    getTierGradientBreakpoints(dataSets) {
-      const [YELLOW, ORANGE, RED, PURPLE] = [
-        '#fcfaae',
-        '#fdddae',
-        '#fc7e7e',
-        '#ccaefd'
-      ]
-      const TIER_BREAKPOINTS = [
-        [YELLOW, 0],
-        [ORANGE, 1],
-        [RED, 4],
-        [PURPLE, 7]
-      ]
-
-      const maxVal = Math.max(...dataSets.map(data => Math.max(...data)))
-      const maxTick = Math.ceil(maxVal / 5) * 5 || 1
-
-      const gradientBreakpoints = TIER_BREAKPOINTS.map(
-        ([color, breakpoint]) => [color, breakpoint / maxTick]
-      )
-
-      return gradientBreakpoints.filter(([, breakpoint]) => breakpoint <= 1)
-    },
     getBayAreaTotals() {
       const dateSort = (a, b) => {
         const dateRegex = /(\d+)\/(\d+)\/(\d+)/
@@ -343,14 +333,15 @@ export default {
           ? 1
           : -1
       }
-      const chartDataArray = Object.values(this.chartData)
+      const chartDataArray = Object.values(this.chartData).filter(
+        county => county.name !== 'San Mateo'
+      )
       const bayAreaTotal = {
         name: 'Bay Area Average',
         population: 0,
         graph: []
       }
       chartDataArray.forEach(county => {
-        if (county.name === 'San Mateo') return
         bayAreaTotal.population += county.population
         county.graph.forEach(data => {
           const dataDefaults = {
@@ -370,7 +361,13 @@ export default {
         })
       })
       bayAreaTotal.graph.sort(dateSort)
-      bayAreaTotal.graph.splice(-3, 3)
+      let lastValidIndex = bayAreaTotal.graph.length - 1
+      const hasLastValidIndexLabel = ({ graph }) =>
+        graph.find(
+          data => data.label === bayAreaTotal.graph[lastValidIndex].label
+        )
+      while (!chartDataArray.every(hasLastValidIndexLabel)) lastValidIndex--
+      bayAreaTotal.graph.splice(lastValidIndex + 1)
       return bayAreaTotal
     }
   }
