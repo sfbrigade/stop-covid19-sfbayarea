@@ -192,54 +192,55 @@
       }
     ]
   },
-	"Alameda County": {
-		"info": [
-			{
-				"header": "Testing Locations",
-				"date": "2021-03-24",
-				"Body": [
-					{
-						"h4": "COVID-19 Testing Sites in Alameda County",
-						"Content": [
-							{
-								"p2": [
-										{
-											"p": "Alameda County residents, including those who don’t have insurance, can contact the testing sites listed at the link below. You will not be asked immigration status and you are not required to give insurance information."
-										}
-									],
-									"link": "http://www.acphd.org/2019-ncov/testing.aspx",
-									"p2": [
-										{
-											"p": "Information includes when to get tested, what to look for, and where to go."
-										}
-										],
-									"Bullets": [
-										{
-											"Bullet": "General Public (most serve both insured and uninsured at no cost)."
-										},
-										{
-											"Bullet": "Members and existing patients of specific health plans or clinics."
-										},
-										{
-											"Bullet": "Specialty populations (children-only sites, veterans, and individuals experiencing homlessness.)"
-										}
-									],
-									"link": "http://www.acphd.org/media/571443/alameda-county-covid-testing.pdf”
-								}
-							]
-							}
-						]
-					},
-			{
-				"header": "Transportation",
-				"Body": [
-					{
-						"h4": "AC Transit"
-					},
-					{
-						"h4": "General updates related to COVID-19",
-						"Content": [
-								"link": "http://www.actransit.org/covid19/"
+ "Alameda County": {
+   "info": [
+   {
+	   "header": "Testing Locations",
+	   "date": "2021-03-24",
+	   "body": [
+		    {
+			"h4": "COVID-19 Testing Sites in Alameda County",
+			"content": [
+				    {
+					"p2": [
+						{
+						"p": "Alameda County residents, including those who don’t have insurance, can contact the testing sites listed at the link below. You will not be asked immigration status and you are not required to give insurance information."
+						}
+					      ],
+					        "link": "http://www.acphd.org/2019-ncov/testing.aspx",
+					"p2": [
+						{
+						"p": "Information includes when to get tested, what to look for, and where to go."
+						}
+					      ],
+					"Bullets": [
+						    {
+						    "Bullet": "General Public (most serve both insured and uninsured at no cost)."
+						    },
+						    {
+						    "Bullet": "Members and existing patients of specific health plans or clinics."
+						    },
+						    {
+						    "Bullet": "Specialty populations (children-only sites, veterans, and individuals experiencing homlessness.)"
+						    }
+						  ],
+						    "link": "http://www.acphd.org/media/571443/alameda-county-covid-testing.pdf”
+						}
+					  ]
+		 }
+	   	]
+   },
+   {
+	"header": "Transportation",
+	"date": null,
+	"Body": [
+				{
+					"h4": "AC Transit"
+				},
+				{
+					"h4": "General updates related to COVID-19",
+					"Content": [
+							"link": "http://www.actransit.org/covid19/"
 						]
 					},
 					{
