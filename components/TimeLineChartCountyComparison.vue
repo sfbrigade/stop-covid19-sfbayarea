@@ -18,6 +18,7 @@
       :chart-data="displayData"
       :options="displayOption"
       :height="240"
+      :plugins="[drawTiers]"
     />
   </data-view>
 </template>
@@ -73,11 +74,19 @@ export default {
       type: String,
       required: false,
       default: ''
+    },
+    overlays: {
+      type: Object,
+      required: false,
+      default: () => Object()
     }
   },
   data() {
     const caseData = {}
     const percentData = {}
+    if (!('Bay Area Average' in this.chartData)) {
+      this.chartData['Bay Area Average'] = this.getBayAreaTotals()
+    }
     for (const county in this.chartData) {
       const confirmedDailyIn14daysQueue = []
       caseData[county] = this.chartData[county].graph.map(d => {
@@ -119,14 +128,68 @@ export default {
     }
   },
   computed: {
+    drawTiers() {
+      return {
+        beforeDraw: chart => {
+          if (!this.displayData.displayTiers) return
+          const [YELLOW, ORANGE, RED, PURPLE] = [
+            '#fcfaae',
+            '#fdddae',
+            '#fc7e7e',
+            '#ccaefd'
+          ]
+          const TIER_BREAKPOINTS = [
+            [YELLOW, 0],
+            [ORANGE, 1],
+            [RED, 4],
+            [PURPLE, 7]
+          ]
+
+          const maxTick = chart.scales['y-axis-0'].ticksAsNumbers[0]
+
+          const gradientConfig = TIER_BREAKPOINTS.map(([color, breakpoint]) => [
+            color,
+            breakpoint / maxTick
+          ]).filter(([, breakpoint]) => breakpoint <= 1)
+          const ctx = chart.chart.ctx
+          const chartArea = chart.chartArea
+
+          const gradient = gradientConfig
+            ? ctx.createLinearGradient(0, chartArea.bottom, 0, chartArea.top)
+            : '#fff'
+          if (gradientConfig)
+            gradientConfig.forEach(([color, breakpoint], index) => {
+              const [, nextBreakpoint] = gradientConfig[index + 1] || [null, 1]
+              gradient.addColorStop(breakpoint, color)
+              gradient.addColorStop(nextBreakpoint, color)
+            })
+
+          ctx.save()
+          ctx.fillStyle = gradient
+          ctx.fillRect(
+            chartArea.left,
+            chartArea.top,
+            chartArea.right - chartArea.left,
+            chartArea.bottom - chartArea.top
+          )
+          ctx.restore()
+        }
+      }
+    },
     displayData() {
-      if (this.selectedCounties.length) {
+      const bayAreaAverage = { color: '#2d2d2d', name: 'Bay Area Average' }
+      const countiesToDisplay = [
+        ...this.selectedCounties,
+        ...(this.overlays.average.selected ? [bayAreaAverage] : [])
+      ]
+      const displayTiers = this.overlays.tiers?.selected
+      if (countiesToDisplay.length) {
         const dataSets = []
         const data =
           this.chartDataType === 'casesperpeople'
             ? this.caseData
             : this.percentData
-        const labels = this.chartData[this.selectedCounties[0].name].graph.map(
+        const labels = this.chartData[countiesToDisplay[0].name].graph.map(
           d => {
             return d.label
           }
@@ -134,7 +197,7 @@ export default {
         const sliceToTimePick = arr =>
           arr.slice(-Number(this.timePickerSelected) || 0)
 
-        for (const county of this.selectedCounties) {
+        for (const county of countiesToDisplay) {
           dataSets.push({
             type: 'line',
             fill: false,
@@ -151,7 +214,8 @@ export default {
 
         return {
           labels: sliceToTimePick(labels),
-          datasets: dataSets
+          datasets: dataSets,
+          displayTiers
         }
       } else {
         return {
@@ -251,6 +315,60 @@ export default {
   methods: {
     handleTimePick(timePickerSelected) {
       this.timePickerSelected = timePickerSelected
+    },
+    getBayAreaTotals() {
+      const dateSort = (a, b) => {
+        const dateRegex = /(\d+)\/(\d+)\/(\d+)/
+        const [, monthA, dayA, yearA] = a.label.match(dateRegex)
+        const [, monthB, dayB, yearB] = b.label.match(dateRegex)
+        return +yearA > +yearB
+          ? 1
+          : +yearB > +yearA
+          ? -1
+          : +monthA > +monthB
+          ? 1
+          : +monthB > +monthA
+          ? -1
+          : +dayA > +dayB
+          ? 1
+          : -1
+      }
+      const chartDataArray = Object.values(this.chartData).filter(
+        county => county.name !== 'San Mateo'
+      )
+      const bayAreaTotal = {
+        name: 'Bay Area Average',
+        population: 0,
+        graph: []
+      }
+      chartDataArray.forEach(county => {
+        bayAreaTotal.population += county.population
+        county.graph.forEach(data => {
+          const dataDefaults = {
+            label: data.label,
+            confirmedTransition: 0,
+            cumulative: 0,
+            deathTransition: 0,
+            deathCumulative: 0
+          }
+          const graph = bayAreaTotal.graph
+          const currentTotals =
+            graph.find(totals => totals.label === data.label) ||
+            (graph[graph.length] = dataDefaults)
+          for (const key in data) {
+            if (key !== 'label') currentTotals[key] += data[key]
+          }
+        })
+      })
+      bayAreaTotal.graph.sort(dateSort)
+      let lastValidIndex = bayAreaTotal.graph.length - 1
+      const hasLastValidIndexLabel = ({ graph }) =>
+        graph.find(
+          data => data.label === bayAreaTotal.graph[lastValidIndex].label
+        )
+      while (!chartDataArray.every(hasLastValidIndexLabel)) lastValidIndex--
+      bayAreaTotal.graph.splice(lastValidIndex + 1)
+      return bayAreaTotal
     }
   }
 }
