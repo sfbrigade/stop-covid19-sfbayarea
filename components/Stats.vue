@@ -323,7 +323,7 @@ export default {
         return this.totalPopulation
       }
     }
-    const CountyData = Object.assign([], formatCountyData(Data), {
+    const CountyData = Object.assign(formatCountyData(Data), {
       'Bay Area Average': {
         name: 'Bay Area Average',
         ...ConsolidatedData
