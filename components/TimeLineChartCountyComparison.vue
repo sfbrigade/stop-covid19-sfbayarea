@@ -84,9 +84,6 @@ export default {
   data() {
     const caseData = {}
     const percentData = {}
-    if (!('Bay Area Average' in this.chartData)) {
-      this.chartData['Bay Area Average'] = this.getBayAreaTotals()
-    }
     for (const county in this.chartData) {
       const confirmedDailyIn14daysQueue = []
       caseData[county] = this.chartData[county].graph.map(d => {
@@ -315,60 +312,6 @@ export default {
   methods: {
     handleTimePick(timePickerSelected) {
       this.timePickerSelected = timePickerSelected
-    },
-    getBayAreaTotals() {
-      const dateSort = (a, b) => {
-        const dateRegex = /(\d+)\/(\d+)\/(\d+)/
-        const [, monthA, dayA, yearA] = a.label.match(dateRegex)
-        const [, monthB, dayB, yearB] = b.label.match(dateRegex)
-        return +yearA > +yearB
-          ? 1
-          : +yearB > +yearA
-          ? -1
-          : +monthA > +monthB
-          ? 1
-          : +monthB > +monthA
-          ? -1
-          : +dayA > +dayB
-          ? 1
-          : -1
-      }
-      const chartDataArray = Object.values(this.chartData).filter(
-        county => county.name !== 'San Mateo'
-      )
-      const bayAreaTotal = {
-        name: 'Bay Area Average',
-        population: 0,
-        graph: []
-      }
-      chartDataArray.forEach(county => {
-        bayAreaTotal.population += county.population
-        county.graph.forEach(data => {
-          const dataDefaults = {
-            label: data.label,
-            confirmedTransition: 0,
-            cumulative: 0,
-            deathTransition: 0,
-            deathCumulative: 0
-          }
-          const graph = bayAreaTotal.graph
-          const currentTotals =
-            graph.find(totals => totals.label === data.label) ||
-            (graph[graph.length] = dataDefaults)
-          for (const key in data) {
-            if (key !== 'label') currentTotals[key] += data[key]
-          }
-        })
-      })
-      bayAreaTotal.graph.sort(dateSort)
-      let lastValidIndex = bayAreaTotal.graph.length - 1
-      const hasLastValidIndexLabel = ({ graph }) =>
-        graph.find(
-          data => data.label === bayAreaTotal.graph[lastValidIndex].label
-        )
-      while (!chartDataArray.every(hasLastValidIndexLabel)) lastValidIndex--
-      bayAreaTotal.graph.splice(lastValidIndex + 1)
-      return bayAreaTotal
     }
   }
 }

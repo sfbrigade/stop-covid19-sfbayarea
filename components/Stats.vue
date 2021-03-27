@@ -314,8 +314,21 @@ export default {
   },
   data() {
     const currentCounty = 'San Francisco County'
-    const CountyData = formatCountyData(Data)
-    const ConsolidatedData = consolidateAllData(Data)
+    const ConsolidatedData = {
+      ...consolidateAllData(Data),
+      get graph() {
+        return this.cases
+      },
+      get population() {
+        return this.totalPopulation
+      }
+    }
+    const CountyData = Object.assign(formatCountyData(Data), {
+      'Bay Area Average': {
+        name: 'Bay Area Average',
+        ...ConsolidatedData
+      }
+    })
     const countyNames = Object.keys(Data)
 
     const totalCases =
