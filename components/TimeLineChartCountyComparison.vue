@@ -197,7 +197,7 @@ export default {
         const timePickIndex =
           Math.floor(
             (Date.now() - new Date('2020-01-23')) / (1000 * 3600 * 24)
-          ) - (parseInt(this.timePickerSelected) || 0)
+          ) - parseInt(this.timePickerSelected) || 0
         const sliceToTimePick = arr => arr.slice(timePickIndex)
 
         for (const county of countiesToDisplay) {

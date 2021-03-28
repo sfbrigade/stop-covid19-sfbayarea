@@ -6,8 +6,8 @@
         <cases-summary
           :title="'Summary for 9 Bay Area Counties'"
           :title-id="'confirmed-cases'"
-          :data="ConsolidatedData"
-          :date="ConsolidatedData.lastUpdatedAt"
+          :data="CountyData.totals"
+          :date="CountyData.totals.lastUpdatedAt"
           :url="'https://coronadatascraper.com'"
         />
       </v-col>
@@ -17,9 +17,9 @@
           :title="`Confirmed Cases: Bay Area Total`"
           :title-id="'number-of-confirmed-cases'"
           :chart-id="'time-bar-chart-patients'"
-          :chart-data="ConsolidatedData.cases"
+          :chart-data="CountyData.totals.cases"
           :chart-data-type="'cases'"
-          :date="ConsolidatedData.lastUpdatedAt"
+          :date="CountyData.totals.lastUpdatedAt"
           :url="'https://coronadatascraper.com'"
         />
       </v-col>
@@ -28,9 +28,9 @@
           :title="`COVID Related Deaths: Bay Area Total`"
           :title-id="'number-of-confirmed-cases'"
           :chart-id="'time-bar-chart-patients'"
-          :chart-data="ConsolidatedData.cases"
+          :chart-data="CountyData.totals.cases"
           :chart-data-type="'deaths'"
-          :date="ConsolidatedData.lastUpdatedAt"
+          :date="CountyData.totals.lastUpdatedAt"
           :url="'https://coronadatascraper.com'"
         />
       </v-col>
@@ -302,15 +302,12 @@ export default {
   data() {
     const currentCounty = 'san_francisco'
     const CountyData = formatCountyData(DataVTwo)
-    const ConsolidatedData = CountyData.totals
     const countyNames = Object.values(DataVTwo)
       .map(({ name }) => name)
       .filter(name => name !== 'Bay Area Average')
 
-    const totalCases =
-      ConsolidatedData.cases[ConsolidatedData.cases.length - 1].cumulative
-    const totalDeaths =
-      ConsolidatedData.cases[ConsolidatedData.cases.length - 1].deathCumulative
+    const totalCases = CountyData.totals.cases.slice(-1)[0].cumulative
+    const totalDeaths = CountyData.totals.cases.slice(-1)[0].deathCumulative
 
     const selectedCounties = []
 
@@ -340,7 +337,6 @@ export default {
       CountyData,
       CountyDataVTwo,
       CountyDataHospitalization,
-      ConsolidatedData,
       currentCounty,
       countyNames,
       totalCases,
