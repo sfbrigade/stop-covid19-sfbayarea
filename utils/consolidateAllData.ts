@@ -77,9 +77,18 @@ const consolidateAllData = (
     })
   }
 
+  const dataToFormat = [...dailyData]
+  dataToFormat.shift()
   const consolidatedData: ConsolidatedDataType = {
     totalPopulation,
-    cases: formatGraph(dailyData)
+    cases: formatGraph({
+      cases: dataToFormat.map(({ date, cases }) => {
+        return { date, cumul_cases: cases }
+      }),
+      deaths: dataToFormat.map(({ date, deaths }) => {
+        return { date, cumul_deaths: deaths }
+      })
+    })
   }
 
   return consolidatedData

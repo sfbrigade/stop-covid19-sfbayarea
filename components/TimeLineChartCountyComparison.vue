@@ -41,9 +41,9 @@ export default {
       default: ''
     },
     chartData: {
-      type: Array,
+      type: Object,
       required: false,
-      default: () => []
+      default: () => Object()
     },
     selectedCounties: {
       type: Array,
@@ -186,13 +186,19 @@ export default {
           this.chartDataType === 'casesperpeople'
             ? this.caseData
             : this.percentData
-        const labels = this.chartData[countiesToDisplay[0].name].graph.map(
-          d => {
-            return d.label
+        const labels = countiesToDisplay.reduce((ls, county) => {
+          const { graph } = this.chartData[county.name]
+          if (graph.length > ls.length) {
+            return graph.map(({ label }) => label)
+          } else {
+            return ls
           }
-        )
-        const sliceToTimePick = arr =>
-          arr.slice(-Number(this.timePickerSelected) || 0)
+        }, [])
+        const timePickIndex =
+          Math.floor(
+            (Date.now() - new Date('2020-01-23')) / (1000 * 3600 * 24)
+          ) - (parseInt(this.timePickerSelected) || 0)
+        const sliceToTimePick = arr => arr.slice(timePickIndex)
 
         for (const county of countiesToDisplay) {
           dataSets.push({

@@ -7,7 +7,7 @@
           :title="'Summary for 9 Bay Area Counties'"
           :title-id="'confirmed-cases'"
           :data="ConsolidatedData"
-          :date="CountyData[currentCounty].lastUpdatedAt"
+          :date="ConsolidatedData.lastUpdatedAt"
           :url="'https://coronadatascraper.com'"
         />
       </v-col>
@@ -19,7 +19,7 @@
           :chart-id="'time-bar-chart-patients'"
           :chart-data="ConsolidatedData.cases"
           :chart-data-type="'cases'"
-          :date="CountyData[currentCounty].lastUpdatedAt"
+          :date="ConsolidatedData.lastUpdatedAt"
           :url="'https://coronadatascraper.com'"
         />
       </v-col>
@@ -30,7 +30,7 @@
           :chart-id="'time-bar-chart-patients'"
           :chart-data="ConsolidatedData.cases"
           :chart-data-type="'deaths'"
-          :date="CountyData[currentCounty].lastUpdatedAt"
+          :date="ConsolidatedData.lastUpdatedAt"
           :url="'https://coronadatascraper.com'"
         />
       </v-col>
@@ -49,7 +49,7 @@
             <div class="county-stats">
               <div class="border">
                 <span class="stat-title">Confirmed Cases</span>
-                <div class="stat-number" :county="Data[currentCounty]">
+                <div class="stat-number">
                   {{ getCurrentCountyLatestCases.cases.toLocaleString() }}
                 </div>
                 <div class="stat-note">
@@ -191,7 +191,9 @@
             <label>Select Counties to Compare:</label>
             <div class="county-select-buttons">
               <v-btn
-                v-for="countyName in countiesForCompare"
+                v-for="countyName in Object.values(CountyData).filter(
+                  ({ name }) => name !== 'Bay Area Average'
+                )"
                 :key="countyName.name"
                 class="county-select-button"
                 outlined
@@ -292,15 +294,12 @@ import TimeLineChart from '@/components/TimeLineChart.vue'
 import TimeLineChartCountyComparison from '@/components/TimeLineChartCountyComparison.vue'
 import CasesSummary from '@/components/CasesSummary.vue'
 import HorizontalBarChart from '@/components/HorizontalBarChart'
-import Data from '@/data/data.json'
 import DataVTwo from '@/data/data.v2.json'
 import DataHospitalization from '@/data/data_hospitalization.json'
 import formatCountyData from '@/utils/formatCountyData'
 import formatCountyDataVTwo from '@/utils/formatCountyDataVTwo'
-import consolidateAllData from '@/utils/consolidateAllData'
 import formatCountyHospitalizationData from '@/utils/formatCountyHospitalizationData'
 import DataView from '@/components/DataView.vue'
-import countyColor from '@/static/data/countyColor.json'
 
 export default {
   components: {
@@ -314,8 +313,12 @@ export default {
   },
   data() {
     const currentCounty = 'San Francisco County'
+    const CountyData = formatCountyData(DataVTwo)
     const ConsolidatedData = {
-      ...consolidateAllData(Data),
+      name: 'Bay Area Average',
+      totalPopulation: 0,
+      cases: new Array(5000),
+      lastUpdatedAt: '2025-01-01',
       get graph() {
         return this.cases
       },
@@ -323,26 +326,44 @@ export default {
         return this.totalPopulation
       }
     }
-    const CountyData = Object.assign(formatCountyData(Data), {
-      'Bay Area Average': {
-        name: 'Bay Area Average',
-        ...ConsolidatedData
+    for (const county in CountyData) {
+      const countyData = CountyData[county]
+      const { population } = countyData
+      const graph = countyData.graph.slice(0, ConsolidatedData.cases.length)
+      ConsolidatedData.totalPopulation += population
+      const oldestUpdate = new Date(ConsolidatedData.lastUpdatedAt)
+      if (new Date(countyData.lastUpdatedAt) < oldestUpdate) {
+        ConsolidatedData.lastUpdatedAt = countyData.lastUpdatedAt
       }
+      graph.map((data, index) => {
+        const defaultDay = {
+          label: data.label,
+          cumulative: 0,
+          confirmedTransition: 0,
+          deathTransition: 0,
+          deathCumulative: 0
+        }
+        const day =
+          ConsolidatedData.cases[index] ||
+          (ConsolidatedData.cases[index] = defaultDay)
+        for (const key in data) {
+          if (key === 'label') continue
+          day[key] += data[key]
+        }
+      })
+      ConsolidatedData.cases = ConsolidatedData.cases.slice(0, graph.length)
+    }
+    Object.assign(CountyData, { 'Bay Area Average': ConsolidatedData })
+    const countyNames = Object.keys(DataVTwo).map(key => {
+      const { name } = DataVTwo[key]
+      return name + (name.endsWith('County') ? '' : ' County')
     })
-    const countyNames = Object.keys(Data)
 
     const totalCases =
       ConsolidatedData.cases[ConsolidatedData.cases.length - 1].cumulative
     const totalDeaths =
       ConsolidatedData.cases[ConsolidatedData.cases.length - 1].deathCumulative
 
-    const countiesForCompare = []
-    for (const countyName of countyNames) {
-      countiesForCompare.push({
-        name: countyName,
-        color: countyColor[countyName]
-      })
-    }
     const selectedCounties = []
 
     const countyCompareOverlays = {
@@ -358,7 +379,7 @@ export default {
       }
     }
 
-    const CountyDataVTwo = this.getFormatData()
+    const CountyDataVTwo = formatCountyDataVTwo(DataVTwo, countyNames)
     const chartInfo = this.getChartInfo()
 
     const CountyDataHospitalization = formatCountyHospitalizationData(
@@ -366,7 +387,6 @@ export default {
     )
 
     const data = {
-      Data,
       DataVTwo,
       DataHospitalization,
       CountyData,
@@ -377,7 +397,6 @@ export default {
       countyNames,
       totalCases,
       totalDeaths,
-      countiesForCompare,
       selectedCounties,
       countyCompareOverlays,
       chartInfo
@@ -387,30 +406,13 @@ export default {
   },
   computed: {
     getCurrentCountyLatestCases() {
-      let offsetDay = 0
-      let cases = 0
-      let deaths = 0
-      // Sometimes data does not contain proper number so we need to find the latest valid number
-      while (
-        cases === undefined ||
-        cases === 0 ||
-        deaths === undefined ||
-        deaths === 0
-      ) {
-        offsetDay++
-        cases =
-          Data[this.currentCounty].cases[
-            Data[this.currentCounty].cases.length - offsetDay
-          ].cases
-        deaths =
-          Data[this.currentCounty].cases[
-            Data[this.currentCounty].cases.length - offsetDay
-          ].deaths
-      }
+      const [{ cumulative, deathCumulative }] = this.CountyData[
+        this.currentCounty
+      ].graph.slice(-1)
 
       return {
-        cases,
-        deaths
+        cases: cumulative,
+        deaths: deathCumulative
       }
     }
   },
@@ -424,10 +426,6 @@ export default {
     },
     contains(arr, item) {
       return arr.includes(item)
-    },
-    getFormatData() {
-      const allCounties = Object.keys(Data)
-      return formatCountyDataVTwo(DataVTwo, allCounties)
     },
     getChartInfo() {
       return {

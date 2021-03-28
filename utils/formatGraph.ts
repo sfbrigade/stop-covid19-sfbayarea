@@ -1,7 +1,16 @@
-type DataType = {
-  cases: number
-  deaths: number
+type CaseType = {
+  ['cumul_cases']: number
   date: Date
+}
+
+type DeathType = {
+  ['cumul_deaths']: number
+  date: Date
+}
+
+type DataType = {
+  cases: Array<CaseType>
+  deaths: Array<DeathType>
 }
 
 type GraphDataType = {
@@ -12,59 +21,41 @@ type GraphDataType = {
   deathCumulative: number
 }
 
-export default (data: DataType[]) => {
+export default (data: DataType) => {
   const graphData: GraphDataType[] = []
-  const lastMonth = new Date('2020-01-23')
-  let subTotal = 0
-  let previousDayCases = 0
-  let deathSubTotal = 0
-  let deathPreviousDayCases = 0
+  const latestCaseUpdate = new Date(data.cases.slice(-1)[0].date)
+  const latestDeathUpdate = new Date(data.deaths.slice(-1)[0].date)
+  let currentDate = new Date('2020-01-22')
   let cases = 0
   let deaths = 0
-  data
-    .filter(d => new Date(d.date) > lastMonth)
-    .forEach((d, idx, array) => {
-      const date = new Date(d.date)
-      cases = d.cases || cases
-      deaths = d.deaths || deaths
-      if (!isNaN(cases)) {
-        if (cases === 0) {
-          return
-        }
 
-        // first date in the chart needs to be calculated in the beginning
-        if (previousDayCases === 0) {
-          previousDayCases = array[idx].cases
-          deathPreviousDayCases = array[idx].deaths
-          return
-        }
-        subTotal = cases - previousDayCases
-        deathSubTotal = deaths - deathPreviousDayCases
+  while (currentDate < latestCaseUpdate || currentDate < latestDeathUpdate) {
+    currentDate = new Date(currentDate.setDate(currentDate.getDate() + 1))
 
-        // if the latest date data is 0, it handles as the date is not ready
-        if (subTotal === 0 && idx === array.length - 1) {
-          return
-        }
+    const dateString = `${currentDate.getUTCFullYear()}-${(
+      currentDate.getUTCMonth() + 1
+    )
+      .toString()
+      .padStart(2, '0')}-${currentDate
+      .getUTCDate()
+      .toString()
+      .padStart(2, '0')}`
+    const matchDateString = ({ date }) => date === dateString
+    const previousDayCases = cases
+    const previousDayDeaths = deaths
 
-        // sometimes error data exists, handle as 0
-        if (subTotal < 0) {
-          subTotal = 0
-        }
-        if (deathSubTotal < 0) {
-          deathSubTotal = 0
-        }
+    cases = data.cases.find(matchDateString)?.['cumul_cases'] || cases
+    deaths = data.deaths.find(matchDateString)?.['cumul_deaths'] || deaths
 
-        previousDayCases = cases
-        deathPreviousDayCases = deaths
-        graphData.push({
-          label: `${date.getUTCMonth() +
-            1}/${date.getUTCDate()}/${date.getUTCFullYear()}`,
-          confirmedTransition: subTotal,
-          cumulative: cases,
-          deathTransition: deathSubTotal,
-          deathCumulative: deaths
-        })
-      }
+    graphData.push({
+      label: `${currentDate.getUTCMonth() +
+        1}/${currentDate.getUTCDate()}/${currentDate.getUTCFullYear()}`,
+      confirmedTransition: cases - previousDayCases,
+      cumulative: cases,
+      deathTransition: deaths - previousDayDeaths,
+      deathCumulative: deaths
     })
+  }
+
   return graphData
 }
