@@ -180,7 +180,7 @@
             <div class="county-select-buttons">
               <v-btn
                 v-for="countyName in Object.keys(CountyData).filter(
-                  name => name !== 'Bay Area Average'
+                  name => name !== 'totals'
                 )"
                 :key="countyName"
                 class="county-select-button"
@@ -302,48 +302,10 @@ export default {
   data() {
     const currentCounty = 'san_francisco'
     const CountyData = formatCountyData(DataVTwo)
-    const ConsolidatedData = {
-      name: 'Bay Area Average',
-      totalPopulation: 0,
-      cases: new Array(5000),
-      color: '#2d2d2d',
-      lastUpdatedAt: '2025-01-01',
-      get graph() {
-        return this.cases
-      },
-      get population() {
-        return this.totalPopulation
-      }
-    }
-    for (const county in CountyData) {
-      const countyData = CountyData[county]
-      const { population } = countyData
-      const graph = countyData.graph.slice(0, ConsolidatedData.cases.length)
-      ConsolidatedData.totalPopulation += population
-      const oldestUpdate = new Date(ConsolidatedData.lastUpdatedAt)
-      if (new Date(countyData.lastUpdatedAt) < oldestUpdate) {
-        ConsolidatedData.lastUpdatedAt = countyData.lastUpdatedAt
-      }
-      graph.map((data, index) => {
-        const defaultDay = {
-          label: data.label,
-          cumulative: 0,
-          confirmedTransition: 0,
-          deathTransition: 0,
-          deathCumulative: 0
-        }
-        const day =
-          ConsolidatedData.cases[index] ||
-          (ConsolidatedData.cases[index] = defaultDay)
-        for (const key in data) {
-          if (key === 'label') continue
-          day[key] += data[key]
-        }
-      })
-      ConsolidatedData.cases = ConsolidatedData.cases.slice(0, graph.length)
-    }
-    Object.assign(CountyData, { 'Bay Area Average': ConsolidatedData })
-    const countyNames = Object.values(DataVTwo).map(({ name }) => name)
+    const ConsolidatedData = CountyData.totals
+    const countyNames = Object.values(DataVTwo)
+      .map(({ name }) => name)
+      .filter(name => name !== 'Bay Area Average')
 
     const totalCases =
       ConsolidatedData.cases[ConsolidatedData.cases.length - 1].cumulative

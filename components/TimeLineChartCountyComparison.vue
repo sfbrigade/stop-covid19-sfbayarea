@@ -176,7 +176,7 @@ export default {
     displayData() {
       const countiesToDisplay = [
         ...this.selectedCounties,
-        ...(this.overlays.average.selected ? ['Bay Area Average'] : [])
+        ...(this.overlays.average.selected ? ['totals'] : [])
       ]
       const displayTiers = this.overlays.tiers?.selected
       if (countiesToDisplay.length) {

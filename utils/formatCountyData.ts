@@ -34,7 +34,7 @@ type DeathType = {
   date: Date
 }
 
-type CountyDataType = {
+type countiesType = {
   name: string
   ['update_time']: string
   series: {
@@ -49,7 +49,7 @@ type GraphDataType = {
   cumulative: number
 }
 
-type CountyDataFormattedType = {
+type countiesFormattedType = {
   name: string
   population: number
   color: string
@@ -57,23 +57,57 @@ type CountyDataFormattedType = {
   lastUpdatedAt: Date
 }
 
-export default (data: Array<CountyDataType>) => {
-  const counties = {}
+export default (data: Array<countiesType>) => {
+  const totals = {
+    name: 'Bay Area Average',
+    totalPopulation: 0,
+    cases: new Array(5000),
+    color: '#2d2d2d',
+    lastUpdatedAt: '2025-01-01',
+    get graph() {
+      return this.cases
+    },
+    get population() {
+      return this.totalPopulation
+    }
+  }
+  const counties = { totals }
 
   for (const countyName in data) {
-    const { name } = data[countyName]
-    const updateTime = data[countyName].update_time
-    const series = data[countyName].series
+    const { name, series, update_time: updateTime } = data[countyName]
     const population = COUNTY_POPULATIONS[countyName]
     const color = COUNTY_COLORS[countyName]
-    const county: CountyDataFormattedType = {
+    const graph = formatGraph(series)
+    const lastUpdatedAt = updateTime.match(/\d+-\d+-\d+/)[0]
+
+    totals.totalPopulation += population
+    if (new Date(lastUpdatedAt) < new Date(totals.lastUpdatedAt)) {
+      totals.lastUpdatedAt = lastUpdatedAt
+    }
+    graph.slice(0, totals.cases.length).map((data, index) => {
+      const defaultDay = {
+        label: data.label,
+        cumulative: 0,
+        confirmedTransition: 0,
+        deathTransition: 0,
+        deathCumulative: 0
+      }
+      const day = totals.cases[index] || (totals.cases[index] = defaultDay)
+      for (const key in data) {
+        if (key === 'label') continue
+        day[key] += data[key]
+      }
+    })
+    totals.cases = totals.cases.slice(0, graph.length)
+
+    counties[countyName] = {
       name,
       population,
       color,
-      graph: formatGraph(series),
-      lastUpdatedAt: updateTime.match(/\d+-\d+-\d+/)[0]
+      graph,
+      lastUpdatedAt
     }
-    counties[countyName] = county
   }
+
   return counties
 }
