@@ -41,7 +41,7 @@
             <div class="county-select">
               <label class="selection">Show Data For:</label>
               <DropDown
-                :dropdown-model="currentCounty"
+                :dropdown-model="CountyData[currentCounty].name"
                 :dropdown-options="countyNames"
                 @selectedOption="handleSelect"
               />
@@ -166,22 +166,10 @@
             `COVID ICU Care and Capacity: ${CountyData[currentCounty].name}`
           "
           :title-id="'icu-capacity'"
-          :chart-data="
-            CountyDataHospitalization[
-              renameCountyNameForHospitalization(currentCounty)
-            ].graph
-          "
+          :chart-data="CountyDataHospitalization[currentCounty].graph"
           :chart-info="chartInfo.icuCareCapacity"
-          :date="
-            CountyDataHospitalization[
-              renameCountyNameForHospitalization(currentCounty)
-            ].lastUpdatedAt
-          "
-          :url="
-            CountyDataHospitalization[
-              renameCountyNameForHospitalization(currentCounty)
-            ].sourceUrl
-          "
+          :date="CountyDataHospitalization[currentCounty].lastUpdatedAt"
+          :url="CountyDataHospitalization[currentCounty].sourceUrl"
         />
       </v-col>
       <!-- County Comparison Selector -->
@@ -191,24 +179,24 @@
             <label>Select Counties to Compare:</label>
             <div class="county-select-buttons">
               <v-btn
-                v-for="countyName in Object.values(CountyData).filter(
-                  ({ name }) => name !== 'Bay Area Average'
+                v-for="countyName in Object.keys(CountyData).filter(
+                  name => name !== 'Bay Area Average'
                 )"
-                :key="countyName.name"
+                :key="countyName"
                 class="county-select-button"
                 outlined
                 :style="{
-                  'background-color': contains(selectedCounties, countyName)
-                    ? countyName.color
+                  'background-color': selectedCounties.includes(countyName)
+                    ? CountyData[countyName].color
                     : 'white',
-                  color: contains(selectedCounties, countyName)
+                  color: selectedCounties.includes(countyName)
                     ? 'white'
                     : 'black'
                 }"
                 type="button"
                 @click="provide(countyName)"
               >
-                {{ countyName.name }}
+                {{ CountyData[countyName].name }}
               </v-btn>
             </div>
             <hr />
@@ -312,12 +300,13 @@ export default {
     DropDown
   },
   data() {
-    const currentCounty = 'San Francisco County'
+    const currentCounty = 'san_francisco'
     const CountyData = formatCountyData(DataVTwo)
     const ConsolidatedData = {
       name: 'Bay Area Average',
       totalPopulation: 0,
       cases: new Array(5000),
+      color: '#2d2d2d',
       lastUpdatedAt: '2025-01-01',
       get graph() {
         return this.cases
@@ -354,10 +343,7 @@ export default {
       ConsolidatedData.cases = ConsolidatedData.cases.slice(0, graph.length)
     }
     Object.assign(CountyData, { 'Bay Area Average': ConsolidatedData })
-    const countyNames = Object.keys(DataVTwo).map(key => {
-      const { name } = DataVTwo[key]
-      return name + (name.endsWith('County') ? '' : ' County')
-    })
+    const countyNames = Object.values(DataVTwo).map(({ name }) => name)
 
     const totalCases =
       ConsolidatedData.cases[ConsolidatedData.cases.length - 1].cumulative
@@ -379,7 +365,7 @@ export default {
       }
     }
 
-    const CountyDataVTwo = formatCountyDataVTwo(DataVTwo, countyNames)
+    const CountyDataVTwo = formatCountyDataVTwo(DataVTwo)
     const chartInfo = this.getChartInfo()
 
     const CountyDataHospitalization = formatCountyHospitalizationData(
@@ -424,9 +410,6 @@ export default {
         this.selectedCounties.splice(this.selectedCounties.indexOf(item), 1)
       }
     },
-    contains(arr, item) {
-      return arr.includes(item)
-    },
     getChartInfo() {
       return {
         raceEth: [
@@ -469,30 +452,12 @@ export default {
         ]
       }
     },
-    renameCountyNameForHospitalization(name) {
-      switch (name) {
-        case 'Alameda County':
-          return 'alameda'
-        case 'Contra Costa County':
-          return 'contra_costa'
-        case 'Marin County':
-          return 'marin'
-        case 'Napa County':
-          return 'napa'
-        case 'San Francisco County':
-          return 'san_francisco'
-        case 'San Mateo County':
-          return 'san_mateo'
-        case 'Santa Clara County':
-          return 'santa_clara'
-        case 'Sonoma County':
-          return 'sonoma'
-        case 'Solano County':
-          return 'solano'
+    handleSelect(countyName) {
+      for (const countyId in this.CountyData) {
+        if (this.CountyData[countyId].name === countyName) {
+          this.currentCounty = countyId
+        }
       }
-    },
-    handleSelect(county) {
-      this.currentCounty = county
     }
   },
   head() {

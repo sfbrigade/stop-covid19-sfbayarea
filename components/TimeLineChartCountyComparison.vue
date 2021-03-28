@@ -174,10 +174,9 @@ export default {
       }
     },
     displayData() {
-      const bayAreaAverage = { color: '#2d2d2d', name: 'Bay Area Average' }
       const countiesToDisplay = [
         ...this.selectedCounties,
-        ...(this.overlays.average.selected ? [bayAreaAverage] : [])
+        ...(this.overlays.average.selected ? ['Bay Area Average'] : [])
       ]
       const displayTiers = this.overlays.tiers?.selected
       if (countiesToDisplay.length) {
@@ -186,8 +185,9 @@ export default {
           this.chartDataType === 'casesperpeople'
             ? this.caseData
             : this.percentData
+        const chartData = this.chartData
         const labels = countiesToDisplay.reduce((ls, county) => {
-          const { graph } = this.chartData[county.name]
+          const { graph } = chartData[county]
           if (graph.length > ls.length) {
             return graph.map(({ label }) => label)
           } else {
@@ -207,11 +207,11 @@ export default {
             borderWidth: 3,
             pointBackgroundColor: 'rgba(0,0,0,0)',
             pointBorderColor: 'rgba(0,0,0,0)',
-            borderColor: county.color,
+            borderColor: this.chartData[county].color,
             lineTension: 0.5,
             borderJoinStyle: 'round',
-            label: county.name,
-            data: sliceToTimePick(data[county.name])
+            label: chartData[county].name,
+            data: sliceToTimePick(data[county])
           })
         }
 

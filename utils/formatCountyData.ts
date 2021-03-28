@@ -61,12 +61,11 @@ export default (data: Array<CountyDataType>) => {
   const counties = {}
 
   for (const countyName in data) {
-    let { name } = data[countyName]
+    const { name } = data[countyName]
     const updateTime = data[countyName].update_time
     const series = data[countyName].series
     const population = COUNTY_POPULATIONS[countyName]
     const color = COUNTY_COLORS[countyName]
-    name = name + (name.endsWith('County') ? '' : ' County')
     const county: CountyDataFormattedType = {
       name,
       population,
@@ -74,7 +73,7 @@ export default (data: Array<CountyDataType>) => {
       graph: formatGraph(series),
       lastUpdatedAt: updateTime.match(/\d+-\d+-\d+/)[0]
     }
-    counties[name] = county
+    counties[countyName] = county
   }
   return counties
 }

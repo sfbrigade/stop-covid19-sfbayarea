@@ -414,13 +414,6 @@ const formatRaceEthLabels = (raceEthGroups: Array<string>) => {
   })
 }
 
-export const getCountyShortName = (countyName: string): string => {
-  return countyName
-    .replace(' County', '')
-    .replace(' ', '_')
-    .toLocaleLowerCase()
-}
-
 const getCustomChartBarColor = (
   normalColor: string,
   customColor: string,
@@ -618,26 +611,20 @@ const sortNormalizedChartData = (updatedRaceEthGroup: RaceEthGroup) => {
   updatedRaceEthGroup.datasets.backgroundColor = backgroundColor
 }
 
-export default (
-  data: CountiesData,
-  allCounties: Array<string>
-): FormattedCountyData => {
+export default (data: CountiesData): FormattedCountyData => {
   const finalData: FormattedCountiesData = {}
 
-  for (const countyName of allCounties) {
+  for (const countyId in data) {
     const defaultFormattedData: any = getDefaultFormattedData()
-    finalData[countyName] = defaultFormattedData
-    finalData[countyName].name = countyName
-    finalData[countyName].lastUpdatedAt = parseDateForYrMoDay(
+    finalData[countyId] = defaultFormattedData
+    finalData[countyId].name = data[countyId].name
+    finalData[countyId].lastUpdatedAt = parseDateForYrMoDay(
       new Date().toISOString()
     )
 
-    const countyNameIndex = getCountyShortName(countyName)
-    const county = data[countyNameIndex]
+    const updatedData = getUpdatedCountyData(data[countyId], finalData[countyId])
 
-    const updatedData = getUpdatedCountyData(county, finalData[countyName])
-
-    finalData[countyName] = Object.assign(finalData[countyName], updatedData)
+    finalData[countyId] = Object.assign(finalData[countyId], updatedData)
   }
 
   return finalData
