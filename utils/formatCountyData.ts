@@ -1,40 +1,16 @@
 import formatGraph from './formatGraph'
 
-const COUNTY_POPULATIONS = {
-  alameda: 1671329,
-  contra_costa: 1153526,
-  marin: 258826,
-  napa: 137744,
-  san_francisco: 881549,
-  san_mateo: 766573,
-  santa_clara: 1927852,
-  solano: 447643,
-  sonoma: 494336
-}
-
-const COUNTY_COLORS = {
-  solano: '#999900',
-  alameda: '#009900',
-  santa_clara: '#ff0000',
-  san_francisco: '#7f00ff',
-  contra_costa: '#ff8800',
-  san_mateo: '#0080ff',
-  sonoma: '#ff00ff',
-  napa: '#808080',
-  marin: '#0000ff'
-}
-
 type CaseType = {
   ['cumul_cases']: number
-  date: Date
+  date: string
 }
 
 type DeathType = {
   ['cumul_deaths']: number
-  date: Date
+  date: string
 }
 
-type countiesType = {
+type CountiesType = {
   name: string
   ['update_time']: string
   series: {
@@ -47,58 +23,133 @@ type GraphDataType = {
   label: string
   confirmedTransition: number
   cumulative: number
+  deathTransition: number
+  deathCumulative: number
 }
 
-type countiesFormattedType = {
+type CountiesFormattedType = {
   name: string
   population: number
   color: string
   graph: Array<GraphDataType>
-  lastUpdatedAt: Date
+  lastUpdatedAt: string
 }
 
-export default (data: Array<countiesType>) => {
-  const totals = {
+interface TotalsFormattedType extends CountiesFormattedType {
+  totalPopulation: number
+  cases: Array<GraphDataType>
+}
+
+interface CountyInterface<Type> {
+  solano: Type
+  alameda: Type
+  ['santa_clara']: Type
+  ['san_francisco']: Type
+  ['contra_costa']: Type
+  ['san_mateo']: Type
+  sonoma: Type
+  napa: Type
+  marin: Type
+}
+
+type CountyCollection = {
+  totals: TotalsFormattedType
+  solano?: CountiesFormattedType
+  alameda?: CountiesFormattedType
+  ['santa_clara']?: CountiesFormattedType
+  ['san_francisco']?: CountiesFormattedType
+  ['contra_costa']?: CountiesFormattedType
+  ['san_mateo']?: CountiesFormattedType
+  sonoma?: CountiesFormattedType
+  napa?: CountiesFormattedType
+  marin?: CountiesFormattedType
+}
+
+const COUNTY_POPULATIONS: CountyInterface<number> = {
+  alameda: 1671329,
+  contra_costa: 1153526,
+  marin: 258826,
+  napa: 137744,
+  san_francisco: 881549,
+  san_mateo: 766573,
+  santa_clara: 1927852,
+  solano: 447643,
+  sonoma: 494336
+}
+
+const COUNTY_COLORS: CountyInterface<string> = {
+  solano: '#999900',
+  alameda: '#009900',
+  santa_clara: '#ff0000',
+  san_francisco: '#7f00ff',
+  contra_costa: '#ff8800',
+  san_mateo: '#0080ff',
+  sonoma: '#ff00ff',
+  napa: '#808080',
+  marin: '#0000ff'
+}
+
+function getInitialTotals(): TotalsFormattedType {
+  return {
     name: 'Bay Area Average',
-    totalPopulation: 0,
-    cases: new Array(5000),
+    population: 0,
+    graph: new Array(5000),
     color: '#2d2d2d',
     lastUpdatedAt: '2025-01-01',
-    get graph() {
-      return this.cases
+    get cases(): Array<GraphDataType> {
+      return this.graph
     },
-    get population() {
-      return this.totalPopulation
+    get totalPopulation(): number {
+      return this.population
     }
   }
-  const counties = { totals }
+}
 
-  for (const countyName in data) {
+function accumulateCaseData(
+  totals: TotalsFormattedType,
+  data: GraphDataType,
+  index: number
+): void {
+  const defaults: GraphDataType = {
+    label: data.label,
+    cumulative: 0,
+    confirmedTransition: 0,
+    deathTransition: 0,
+    deathCumulative: 0
+  }
+  const totalData = totals.graph[index] || (totals.graph[index] = defaults)
+  let key: keyof GraphDataType
+  for (key in data) {
+    if (key === 'label') continue
+    totalData[key] += data[key]
+  }
+}
+
+function updateTotals(
+  totals: TotalsFormattedType,
+  county: CountiesFormattedType
+): void {
+  const graphAccumulator = accumulateCaseData.bind(null, totals)
+  county.graph.slice(0, totals.graph.length).map(graphAccumulator)
+  totals.graph = totals.graph.slice(0, county.graph.length)
+
+  totals.population += county.population
+
+  if (new Date(county.lastUpdatedAt) < new Date(totals.lastUpdatedAt)) {
+    totals.lastUpdatedAt = county.lastUpdatedAt
+  }
+}
+
+export default (data: CountyInterface<CountiesType>): CountyCollection => {
+  const counties: CountyCollection = { totals: getInitialTotals() }
+  let countyName: keyof CountyInterface<null>
+
+  for (countyName in data) {
     const { name, series, update_time: updateTime } = data[countyName]
-    const population = COUNTY_POPULATIONS[countyName]
-    const color = COUNTY_COLORS[countyName]
+    const population: number = COUNTY_POPULATIONS[countyName]
+    const color: string = COUNTY_COLORS[countyName]
     const graph = formatGraph(series)
-    const lastUpdatedAt = updateTime.match(/\d+-\d+-\d+/)[0]
-
-    totals.totalPopulation += population
-    if (new Date(lastUpdatedAt) < new Date(totals.lastUpdatedAt)) {
-      totals.lastUpdatedAt = lastUpdatedAt
-    }
-    graph.slice(0, totals.cases.length).map((data, index) => {
-      const defaultDay = {
-        label: data.label,
-        cumulative: 0,
-        confirmedTransition: 0,
-        deathTransition: 0,
-        deathCumulative: 0
-      }
-      const day = totals.cases[index] || (totals.cases[index] = defaultDay)
-      for (const key in data) {
-        if (key === 'label') continue
-        day[key] += data[key]
-      }
-    })
-    totals.cases = totals.cases.slice(0, graph.length)
+    const lastUpdatedAt = updateTime.match(/\d+-\d+-\d+/)?.[0] || ''
 
     counties[countyName] = {
       name,
@@ -107,6 +158,8 @@ export default (data: Array<countiesType>) => {
       graph,
       lastUpdatedAt
     }
+
+    updateTotals(counties.totals, counties[countyName]!)
   }
 
   return counties

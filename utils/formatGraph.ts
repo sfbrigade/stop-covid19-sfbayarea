@@ -1,11 +1,11 @@
 type CaseType = {
   ['cumul_cases']: number
-  date: Date
+  date: string
 }
 
 type DeathType = {
   ['cumul_deaths']: number
-  date: Date
+  date: string
 }
 
 type DataType = {
@@ -32,27 +32,30 @@ export default (data: DataType) => {
   while (currentDate < latestCaseUpdate || currentDate < latestDeathUpdate) {
     currentDate = new Date(currentDate.setDate(currentDate.getDate() + 1))
 
-    const dateString = `${currentDate.getUTCFullYear()}-${(
-      currentDate.getUTCMonth() + 1
-    )
-      .toString()
-      .padStart(2, '0')}-${currentDate
-      .getUTCDate()
-      .toString()
-      .padStart(2, '0')}`
-    const matchDateString = ({ date }) => date === dateString
+    const dateStrings = [
+      currentDate.getUTCFullYear(),
+      currentDate.getUTCMonth() + 1,
+      currentDate.getUTCDate()
+    ].map(String)
+    const dateForCompare = dateStrings
+      .map(str => str.padStart(2, '0'))
+      .join('-')
+    const label = [...dateStrings.slice(1), dateStrings[0]].join('/')
+    const matchDate = (day: CaseType | DeathType) => day.date === dateForCompare
     const previousDayCases = cases
     const previousDayDeaths = deaths
 
-    cases = data.cases.find(matchDateString)?.['cumul_cases'] || cases
-    deaths = data.deaths.find(matchDateString)?.['cumul_deaths'] || deaths
+    cases = data.cases.find(matchDate)?.['cumul_cases'] || cases
+    deaths = data.deaths.find(matchDate)?.['cumul_deaths'] || deaths
+
+    const confirmedTransition = Math.max(cases - previousDayCases, 0)
+    const deathTransition = Math.max(deaths - previousDayDeaths, 0)
 
     graphData.push({
-      label: `${currentDate.getUTCMonth() +
-        1}/${currentDate.getUTCDate()}/${currentDate.getUTCFullYear()}`,
-      confirmedTransition: cases - previousDayCases,
+      label,
+      confirmedTransition,
       cumulative: cases,
-      deathTransition: deaths - previousDayDeaths,
+      deathTransition,
       deathCumulative: deaths
     })
   }
