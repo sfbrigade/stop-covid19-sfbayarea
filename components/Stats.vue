@@ -300,6 +300,13 @@ export default {
     DropDown
   },
   data() {
+    for (const countyId in DataVTwo) {
+      const { name } = DataVTwo[countyId]
+      if (!name.endsWith('County')) {
+        DataVTwo[countyId].name = name + ' County'
+      }
+    }
+
     const currentCounty = 'san_francisco'
     const CountyData = formatCountyData(DataVTwo)
     const countyNames = Object.values(DataVTwo)
