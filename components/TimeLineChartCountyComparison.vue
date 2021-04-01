@@ -174,10 +174,9 @@ export default {
       }
     },
     displayData() {
-      const countiesToDisplay = [
-        ...this.selectedCounties,
-        ...(this.overlays.average.selected ? ['totals'] : [])
-      ]
+      const countiesToDisplay = this.selectedCounties.concat(
+        this.overlays.average.selected ? ['totals'] : []
+      )
       const displayTiers = this.overlays.tiers?.selected
       if (countiesToDisplay.length) {
         const dataSets = []
