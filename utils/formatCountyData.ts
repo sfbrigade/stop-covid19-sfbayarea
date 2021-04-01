@@ -10,7 +10,7 @@ type DeathType = {
   date: string
 }
 
-type CountiesType = {
+type CountyDataType = {
   name: string
   ['update_time']: string
   series: {
@@ -52,17 +52,8 @@ interface CountyInterface<Type> {
   marin: Type
 }
 
-type CountyCollection = {
+type CountyCollection = Partial<CountyInterface<CountiesFormattedType>> & {
   totals: TotalsFormattedType
-  solano?: CountiesFormattedType
-  alameda?: CountiesFormattedType
-  ['santa_clara']?: CountiesFormattedType
-  ['san_francisco']?: CountiesFormattedType
-  ['contra_costa']?: CountiesFormattedType
-  ['san_mateo']?: CountiesFormattedType
-  sonoma?: CountiesFormattedType
-  napa?: CountiesFormattedType
-  marin?: CountiesFormattedType
 }
 
 const COUNTY_POPULATIONS: CountyInterface<number> = {
@@ -140,7 +131,7 @@ function updateTotals(
   }
 }
 
-export default (data: CountyInterface<CountiesType>): CountyCollection => {
+export default (data: CountyInterface<CountyDataType>): CountyCollection => {
   const counties: CountyCollection = { totals: getInitialTotals() }
   let countyName: keyof CountyInterface<null>
 
