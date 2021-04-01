@@ -193,9 +193,15 @@ export default {
             return ls
           }
         }, [])
+        const latestUpdate = countiesToDisplay.reduce((latestDate, county) => {
+          const latestCountyUpdate = new Date(chartData[county].lastUpdatedAt)
+          return latestCountyUpdate > latestDate
+            ? latestCountyUpdate
+            : latestDate
+        }, new Date('2020-01-23'))
         const timePickIndex =
           Math.floor(
-            (Date.now() - new Date('2020-01-23')) / (1000 * 3600 * 24)
+            (latestUpdate - new Date('2020-01-23')) / (1000 * 3600 * 24)
           ) - parseInt(this.timePickerSelected) || 0
         const sliceToTimePick = arr => arr.slice(timePickIndex)
 
