@@ -12,19 +12,18 @@
       <v-card class="card">
         <h4>
           <span class="cardheader">
-            Help us raise Bay Area COVID awareness.
+            {{ cardheader }}
           </span>
         </h4>
         <p>
           <span class="cardsubheader">
-            Have ways to improve this site? We welcome all who wish to help
-            contribute!
+            {{ cardsubheader }}
           </span>
         </p>
-        <a href="/about">
+        <a :href="cardhref" :target="cardtarget">
           <v-card color="#4738AC" class="learn">
             <h5>
-              <span class="learnheader">Learn more about the Project</span>
+              <span class="learnheader">{{ learnheader }}</span>
             </h5>
           </v-card>
         </a>
@@ -46,6 +45,26 @@ export default {
       default: null
     },
     subheader: {
+      type: String,
+      default: ''
+    },
+    cardheader: {
+      type: String,
+      default: ''
+    },
+    cardsubheader: {
+      type: String,
+      default: ''
+    },
+    learnheader: {
+      type: String,
+      default: ''
+    },
+    cardhref: {
+      type: String,
+      default: ''
+    },
+    cardtarget: {
       type: String,
       default: ''
     }

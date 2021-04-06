@@ -11,6 +11,11 @@
             :header="tabs[active_tab].header"
             :subheader="tabs[active_tab].subheader"
             :title-id="tabs[active_tab].id"
+            :cardheader="tabs[active_tab].cardheader"
+            :cardsubheader="tabs[active_tab].cardsubheader"
+            :learnheader="tabs[active_tab].learnheader"
+            :cardhref="tabs[active_tab].cardhref"
+            :cardtarget="tabs[active_tab].cardtarget"
           />
           <v-tab-item v-for="tab in tabs" :key="tab.id">
             <Faq v-if="tab.name === 'FAQ'" />
@@ -58,6 +63,14 @@ export default Vue.extend({
     }
   },
   data() {
+    const cardDefaults = {
+      cardheader: 'Help us raise Bay Area COVID awareness.',
+      cardsubheader:
+        'Have ways to improve this site? We welcome all who wish to help contribute!',
+      learnheader: 'Learn more about the Project',
+      cardhref: '/about',
+      cardtarget: ''
+    }
     return {
       loading: true,
       active_tab: null,
@@ -66,19 +79,27 @@ export default Vue.extend({
           id: 1,
           name: 'FAQ',
           header: 'Frequently Asked Questions',
-          subheader: 'Questions and Answers about COVID-19 in the Bay Area'
+          subheader: 'Questions and Answers about COVID-19 in the Bay Area',
+          ...cardDefaults
         },
         {
           id: 2,
           name: 'Stats',
           header: 'Bay Area Statistics',
-          subheader: 'Numbers and figures about COVID-19 in the Bay Area'
+          subheader: 'Numbers and figures about COVID-19 in the Bay Area',
+          cardheader: 'Explore the Database',
+          cardsubheader:
+            'Get direct access to the data that Code4SF has collected from local government websited throughout the pandemic.',
+          learnheader: 'Visit BAPD Open Database',
+          cardhref: 'https://bapd-opendb.herokuapp.com',
+          cardtarget: '_blank'
         },
         {
           id: 3,
           name: 'Updates',
           header: 'County News & Information',
-          subheader: 'Guidlelines and Resources Specific to your County'
+          subheader: 'Guidlelines and Resources Specific to your County',
+          ...cardDefaults
         }
       ]
     }
