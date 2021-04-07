@@ -6,8 +6,8 @@
         <cases-summary
           :title="'Summary for 9 Bay Area Counties'"
           :title-id="'confirmed-cases'"
-          :data="ConsolidatedData"
-          :date="CountyData[currentCounty].lastUpdatedAt"
+          :data="CountyData.totals"
+          :date="CountyData.totals.lastUpdatedAt"
           :url="'https://coronadatascraper.com'"
         />
       </v-col>
@@ -17,9 +17,9 @@
           :title="`Confirmed Cases: Bay Area Total`"
           :title-id="'number-of-confirmed-cases'"
           :chart-id="'time-bar-chart-patients'"
-          :chart-data="ConsolidatedData.cases"
+          :chart-data="CountyData.totals.cases"
           :chart-data-type="'cases'"
-          :date="CountyData[currentCounty].lastUpdatedAt"
+          :date="CountyData.totals.lastUpdatedAt"
           :url="'https://coronadatascraper.com'"
         />
       </v-col>
@@ -28,9 +28,9 @@
           :title="`COVID Related Deaths: Bay Area Total`"
           :title-id="'number-of-confirmed-cases'"
           :chart-id="'time-bar-chart-patients'"
-          :chart-data="ConsolidatedData.cases"
+          :chart-data="CountyData.totals.cases"
           :chart-data-type="'deaths'"
-          :date="CountyData[currentCounty].lastUpdatedAt"
+          :date="CountyData.totals.lastUpdatedAt"
           :url="'https://coronadatascraper.com'"
         />
       </v-col>
@@ -41,7 +41,7 @@
             <div class="county-select">
               <label class="selection">Show Data For:</label>
               <DropDown
-                :dropdown-model="currentCounty"
+                :dropdown-model="CountyData[currentCounty].name"
                 :dropdown-options="countyNames"
                 @selectedOption="handleSelect"
               />
@@ -49,7 +49,7 @@
             <div class="county-stats">
               <div class="border">
                 <span class="stat-title">Confirmed Cases</span>
-                <div class="stat-number" :county="Data[currentCounty]">
+                <div class="stat-number">
                   {{ getCurrentCountyLatestCases.cases.toLocaleString() }}
                 </div>
                 <div class="stat-note">
@@ -119,9 +119,9 @@
           :title="`Confirmed Cases by Age: ${CountyData[currentCounty].name}`"
           :title-id="'cases-by-age'"
           :chart-id="'horizontal-bar-chart-age'"
-          :chart-data="CountyDataVTwo[currentCounty].ageGroup"
-          :date="CountyDataVTwo[currentCounty].lastUpdatedAt"
-          :url="CountyDataVTwo[currentCounty].sourceUrl"
+          :chart-data="CountyData[currentCounty].ageGroup"
+          :date="CountyData[currentCounty].lastUpdatedAt"
+          :url="CountyData[currentCounty].sourceUrl"
         />
       </v-col>
       <v-col cols="12" md="6" class="DataCard">
@@ -129,9 +129,9 @@
           :title="`Confirmed Cases by Sex: ${CountyData[currentCounty].name}`"
           :title-id="'cases-by-gender'"
           :chart-id="'horizontal-bar-chart-gender'"
-          :chart-data="CountyDataVTwo[currentCounty].genderGroup"
-          :date="CountyDataVTwo[currentCounty].lastUpdatedAt"
-          :url="CountyDataVTwo[currentCounty].sourceUrl"
+          :chart-data="CountyData[currentCounty].genderGroup"
+          :date="CountyData[currentCounty].lastUpdatedAt"
+          :url="CountyData[currentCounty].sourceUrl"
         />
       </v-col>
       <v-col cols="12" md="6" class="DataCard">
@@ -141,10 +141,10 @@
           "
           :title-id="'cases-by-race-eth'"
           :chart-id="'horizontal-bar-chart-race-eth'"
-          :chart-data="CountyDataVTwo[currentCounty].raceEthGroup"
+          :chart-data="CountyData[currentCounty].raceEthGroup"
           :chart-info="chartInfo.raceEth"
-          :date="CountyDataVTwo[currentCounty].lastUpdatedAt"
-          :url="CountyDataVTwo[currentCounty].sourceUrl"
+          :date="CountyData[currentCounty].lastUpdatedAt"
+          :url="CountyData[currentCounty].sourceUrl"
         />
       </v-col>
       <v-col cols="12" md="6" class="DataCard">
@@ -154,10 +154,10 @@
           "
           :title-id="'cases-by-race-eth-norm'"
           :chart-id="'horizontal-bar-chart-race-eth-norm'"
-          :chart-data="CountyDataVTwo[currentCounty].raceEthNormGroup"
+          :chart-data="CountyData[currentCounty].raceEthNormGroup"
           :chart-info="chartInfo.raceEthNorm"
-          :date="CountyDataVTwo[currentCounty].lastUpdatedAt"
-          :url="CountyDataVTwo[currentCounty].sourceUrl"
+          :date="CountyData[currentCounty].lastUpdatedAt"
+          :url="CountyData[currentCounty].sourceUrl"
         />
       </v-col>
       <v-col cols="12" md="6" class="DataCard">
@@ -166,22 +166,10 @@
             `COVID ICU Care and Capacity: ${CountyData[currentCounty].name}`
           "
           :title-id="'icu-capacity'"
-          :chart-data="
-            CountyDataHospitalization[
-              renameCountyNameForHospitalization(currentCounty)
-            ].graph
-          "
+          :chart-data="CountyDataHospitalization[currentCounty].graph"
           :chart-info="chartInfo.icuCareCapacity"
-          :date="
-            CountyDataHospitalization[
-              renameCountyNameForHospitalization(currentCounty)
-            ].lastUpdatedAt
-          "
-          :url="
-            CountyDataHospitalization[
-              renameCountyNameForHospitalization(currentCounty)
-            ].sourceUrl
-          "
+          :date="CountyDataHospitalization[currentCounty].lastUpdatedAt"
+          :url="CountyDataHospitalization[currentCounty].sourceUrl"
         />
       </v-col>
       <!-- County Comparison Selector -->
@@ -191,22 +179,24 @@
             <label>Select Counties to Compare:</label>
             <div class="county-select-buttons">
               <v-btn
-                v-for="countyName in countiesForCompare"
-                :key="countyName.name"
+                v-for="countyName in Object.keys(CountyData).filter(
+                  name => name !== 'totals'
+                )"
+                :key="countyName"
                 class="county-select-button"
                 outlined
                 :style="{
-                  'background-color': contains(selectedCounties, countyName)
-                    ? countyName.color
+                  'background-color': selectedCounties.includes(countyName)
+                    ? CountyData[countyName].color
                     : 'white',
-                  color: contains(selectedCounties, countyName)
+                  color: selectedCounties.includes(countyName)
                     ? 'white'
                     : 'black'
                 }"
                 type="button"
                 @click="provide(countyName)"
               >
-                {{ countyName.name }}
+                {{ CountyData[countyName].name }}
               </v-btn>
             </div>
             <hr />
@@ -292,15 +282,11 @@ import TimeLineChart from '@/components/TimeLineChart.vue'
 import TimeLineChartCountyComparison from '@/components/TimeLineChartCountyComparison.vue'
 import CasesSummary from '@/components/CasesSummary.vue'
 import HorizontalBarChart from '@/components/HorizontalBarChart'
-import Data from '@/data/data.json'
 import DataVTwo from '@/data/data.v2.json'
 import DataHospitalization from '@/data/data_hospitalization.json'
-import formatCountyData from '@/utils/formatCountyData'
-import formatCountyDataVTwo from '@/utils/formatCountyDataVTwo'
-import consolidateAllData from '@/utils/consolidateAllData'
+import formatCountyData from '@/utils/formatCountyDataVTwo'
 import formatCountyHospitalizationData from '@/utils/formatCountyHospitalizationData'
 import DataView from '@/components/DataView.vue'
-import countyColor from '@/static/data/countyColor.json'
 
 export default {
   components: {
@@ -313,23 +299,22 @@ export default {
     DropDown
   },
   data() {
-    const currentCounty = 'San Francisco County'
-    const CountyData = formatCountyData(Data)
-    const ConsolidatedData = consolidateAllData(Data)
-    const countyNames = Object.keys(Data)
-
-    const totalCases =
-      ConsolidatedData.cases[ConsolidatedData.cases.length - 1].cumulative
-    const totalDeaths =
-      ConsolidatedData.cases[ConsolidatedData.cases.length - 1].deathCumulative
-
-    const countiesForCompare = []
-    for (const countyName of countyNames) {
-      countiesForCompare.push({
-        name: countyName,
-        color: countyColor[countyName]
-      })
+    for (const countyId in DataVTwo) {
+      const { name } = DataVTwo[countyId]
+      if (!name.endsWith('County')) {
+        DataVTwo[countyId].name = name + ' County'
+      }
     }
+
+    const currentCounty = 'san_francisco'
+    const CountyData = formatCountyData(DataVTwo)
+    const countyNames = Object.values(DataVTwo)
+      .map(({ name }) => name)
+      .filter(name => name !== 'Bay Area Average')
+
+    const totalCases = CountyData.totals.cases.slice(-1)[0].cumulative
+    const totalDeaths = CountyData.totals.cases.slice(-1)[0].deathCumulative
+
     const selectedCounties = []
 
     const countyCompareOverlays = {
@@ -345,7 +330,6 @@ export default {
       }
     }
 
-    const CountyDataVTwo = this.getFormatData()
     const chartInfo = this.getChartInfo()
 
     const CountyDataHospitalization = formatCountyHospitalizationData(
@@ -353,18 +337,14 @@ export default {
     )
 
     const data = {
-      Data,
       DataVTwo,
       DataHospitalization,
       CountyData,
-      CountyDataVTwo,
       CountyDataHospitalization,
-      ConsolidatedData,
       currentCounty,
       countyNames,
       totalCases,
       totalDeaths,
-      countiesForCompare,
       selectedCounties,
       countyCompareOverlays,
       chartInfo
@@ -374,30 +354,13 @@ export default {
   },
   computed: {
     getCurrentCountyLatestCases() {
-      let offsetDay = 0
-      let cases = 0
-      let deaths = 0
-      // Sometimes data does not contain proper number so we need to find the latest valid number
-      while (
-        cases === undefined ||
-        cases === 0 ||
-        deaths === undefined ||
-        deaths === 0
-      ) {
-        offsetDay++
-        cases =
-          Data[this.currentCounty].cases[
-            Data[this.currentCounty].cases.length - offsetDay
-          ].cases
-        deaths =
-          Data[this.currentCounty].cases[
-            Data[this.currentCounty].cases.length - offsetDay
-          ].deaths
-      }
+      const [{ cumulative, deathCumulative }] = this.CountyData[
+        this.currentCounty
+      ].graph.slice(-1)
 
       return {
-        cases,
-        deaths
+        cases: cumulative,
+        deaths: deathCumulative
       }
     }
   },
@@ -408,13 +371,6 @@ export default {
       } else {
         this.selectedCounties.splice(this.selectedCounties.indexOf(item), 1)
       }
-    },
-    contains(arr, item) {
-      return arr.includes(item)
-    },
-    getFormatData() {
-      const allCounties = Object.keys(Data)
-      return formatCountyDataVTwo(DataVTwo, allCounties)
     },
     getChartInfo() {
       return {
@@ -458,30 +414,12 @@ export default {
         ]
       }
     },
-    renameCountyNameForHospitalization(name) {
-      switch (name) {
-        case 'Alameda County':
-          return 'alameda'
-        case 'Contra Costa County':
-          return 'contra_costa'
-        case 'Marin County':
-          return 'marin'
-        case 'Napa County':
-          return 'napa'
-        case 'San Francisco County':
-          return 'san_francisco'
-        case 'San Mateo County':
-          return 'san_mateo'
-        case 'Santa Clara County':
-          return 'santa_clara'
-        case 'Sonoma County':
-          return 'sonoma'
-        case 'Solano County':
-          return 'solano'
+    handleSelect(countyName) {
+      for (const countyId in this.CountyData) {
+        if (this.CountyData[countyId].name === countyName) {
+          this.currentCounty = countyId
+        }
       }
-    },
-    handleSelect(county) {
-      this.currentCounty = county
     }
   },
   head() {

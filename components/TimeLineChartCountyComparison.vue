@@ -41,9 +41,9 @@ export default {
       default: ''
     },
     chartData: {
-      type: Array,
+      type: Object,
       required: false,
-      default: () => []
+      default: () => Object()
     },
     selectedCounties: {
       type: Array,
@@ -84,9 +84,6 @@ export default {
   data() {
     const caseData = {}
     const percentData = {}
-    if (!('Bay Area Average' in this.chartData)) {
-      this.chartData['Bay Area Average'] = this.getBayAreaTotals()
-    }
     for (const county in this.chartData) {
       const confirmedDailyIn14daysQueue = []
       caseData[county] = this.chartData[county].graph.map(d => {
@@ -177,11 +174,9 @@ export default {
       }
     },
     displayData() {
-      const bayAreaAverage = { color: '#2d2d2d', name: 'Bay Area Average' }
-      const countiesToDisplay = [
-        ...this.selectedCounties,
-        ...(this.overlays.average.selected ? [bayAreaAverage] : [])
-      ]
+      const countiesToDisplay = this.selectedCounties.concat(
+        this.overlays.average.selected ? ['totals'] : []
+      )
       const displayTiers = this.overlays.tiers?.selected
       if (countiesToDisplay.length) {
         const dataSets = []
@@ -189,13 +184,26 @@ export default {
           this.chartDataType === 'casesperpeople'
             ? this.caseData
             : this.percentData
-        const labels = this.chartData[countiesToDisplay[0].name].graph.map(
-          d => {
-            return d.label
+        const chartData = this.chartData
+        const labels = countiesToDisplay.reduce((ls, county) => {
+          const { graph } = chartData[county]
+          if (graph.length > ls.length) {
+            return graph.map(({ label }) => label)
+          } else {
+            return ls
           }
-        )
-        const sliceToTimePick = arr =>
-          arr.slice(-Number(this.timePickerSelected) || 0)
+        }, [])
+        const latestUpdate = countiesToDisplay.reduce((latestDate, county) => {
+          const latestCountyUpdate = new Date(chartData[county].lastUpdatedAt)
+          return latestCountyUpdate > latestDate
+            ? latestCountyUpdate
+            : latestDate
+        }, new Date('2020-01-23'))
+        const timePickIndex =
+          Math.floor(
+            (latestUpdate - new Date('2020-01-23')) / (1000 * 3600 * 24)
+          ) - parseInt(this.timePickerSelected) || 0
+        const sliceToTimePick = arr => arr.slice(timePickIndex)
 
         for (const county of countiesToDisplay) {
           dataSets.push({
@@ -204,11 +212,11 @@ export default {
             borderWidth: 3,
             pointBackgroundColor: 'rgba(0,0,0,0)',
             pointBorderColor: 'rgba(0,0,0,0)',
-            borderColor: county.color,
+            borderColor: this.chartData[county].color,
             lineTension: 0.5,
             borderJoinStyle: 'round',
-            label: county.name,
-            data: sliceToTimePick(data[county.name])
+            label: chartData[county].name,
+            data: sliceToTimePick(data[county])
           })
         }
 
@@ -315,60 +323,6 @@ export default {
   methods: {
     handleTimePick(timePickerSelected) {
       this.timePickerSelected = timePickerSelected
-    },
-    getBayAreaTotals() {
-      const dateSort = (a, b) => {
-        const dateRegex = /(\d+)\/(\d+)\/(\d+)/
-        const [, monthA, dayA, yearA] = a.label.match(dateRegex)
-        const [, monthB, dayB, yearB] = b.label.match(dateRegex)
-        return +yearA > +yearB
-          ? 1
-          : +yearB > +yearA
-          ? -1
-          : +monthA > +monthB
-          ? 1
-          : +monthB > +monthA
-          ? -1
-          : +dayA > +dayB
-          ? 1
-          : -1
-      }
-      const chartDataArray = Object.values(this.chartData).filter(
-        county => county.name !== 'San Mateo'
-      )
-      const bayAreaTotal = {
-        name: 'Bay Area Average',
-        population: 0,
-        graph: []
-      }
-      chartDataArray.forEach(county => {
-        bayAreaTotal.population += county.population
-        county.graph.forEach(data => {
-          const dataDefaults = {
-            label: data.label,
-            confirmedTransition: 0,
-            cumulative: 0,
-            deathTransition: 0,
-            deathCumulative: 0
-          }
-          const graph = bayAreaTotal.graph
-          const currentTotals =
-            graph.find(totals => totals.label === data.label) ||
-            (graph[graph.length] = dataDefaults)
-          for (const key in data) {
-            if (key !== 'label') currentTotals[key] += data[key]
-          }
-        })
-      })
-      bayAreaTotal.graph.sort(dateSort)
-      let lastValidIndex = bayAreaTotal.graph.length - 1
-      const hasLastValidIndexLabel = ({ graph }) =>
-        graph.find(
-          data => data.label === bayAreaTotal.graph[lastValidIndex].label
-        )
-      while (!chartDataArray.every(hasLastValidIndexLabel)) lastValidIndex--
-      bayAreaTotal.graph.splice(lastValidIndex + 1)
-      return bayAreaTotal
     }
   }
 }
