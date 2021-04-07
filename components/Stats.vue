@@ -119,9 +119,9 @@
           :title="`Confirmed Cases by Age: ${CountyData[currentCounty].name}`"
           :title-id="'cases-by-age'"
           :chart-id="'horizontal-bar-chart-age'"
-          :chart-data="CountyDataVTwo[currentCounty].ageGroup"
-          :date="CountyDataVTwo[currentCounty].lastUpdatedAt"
-          :url="CountyDataVTwo[currentCounty].sourceUrl"
+          :chart-data="CountyData[currentCounty].ageGroup"
+          :date="CountyData[currentCounty].lastUpdatedAt"
+          :url="CountyData[currentCounty].sourceUrl"
         />
       </v-col>
       <v-col cols="12" md="6" class="DataCard">
@@ -129,9 +129,9 @@
           :title="`Confirmed Cases by Sex: ${CountyData[currentCounty].name}`"
           :title-id="'cases-by-gender'"
           :chart-id="'horizontal-bar-chart-gender'"
-          :chart-data="CountyDataVTwo[currentCounty].genderGroup"
-          :date="CountyDataVTwo[currentCounty].lastUpdatedAt"
-          :url="CountyDataVTwo[currentCounty].sourceUrl"
+          :chart-data="CountyData[currentCounty].genderGroup"
+          :date="CountyData[currentCounty].lastUpdatedAt"
+          :url="CountyData[currentCounty].sourceUrl"
         />
       </v-col>
       <v-col cols="12" md="6" class="DataCard">
@@ -141,10 +141,10 @@
           "
           :title-id="'cases-by-race-eth'"
           :chart-id="'horizontal-bar-chart-race-eth'"
-          :chart-data="CountyDataVTwo[currentCounty].raceEthGroup"
+          :chart-data="CountyData[currentCounty].raceEthGroup"
           :chart-info="chartInfo.raceEth"
-          :date="CountyDataVTwo[currentCounty].lastUpdatedAt"
-          :url="CountyDataVTwo[currentCounty].sourceUrl"
+          :date="CountyData[currentCounty].lastUpdatedAt"
+          :url="CountyData[currentCounty].sourceUrl"
         />
       </v-col>
       <v-col cols="12" md="6" class="DataCard">
@@ -154,10 +154,10 @@
           "
           :title-id="'cases-by-race-eth-norm'"
           :chart-id="'horizontal-bar-chart-race-eth-norm'"
-          :chart-data="CountyDataVTwo[currentCounty].raceEthNormGroup"
+          :chart-data="CountyData[currentCounty].raceEthNormGroup"
           :chart-info="chartInfo.raceEthNorm"
-          :date="CountyDataVTwo[currentCounty].lastUpdatedAt"
-          :url="CountyDataVTwo[currentCounty].sourceUrl"
+          :date="CountyData[currentCounty].lastUpdatedAt"
+          :url="CountyData[currentCounty].sourceUrl"
         />
       </v-col>
       <v-col cols="12" md="6" class="DataCard">
@@ -284,8 +284,7 @@ import CasesSummary from '@/components/CasesSummary.vue'
 import HorizontalBarChart from '@/components/HorizontalBarChart'
 import DataVTwo from '@/data/data.v2.json'
 import DataHospitalization from '@/data/data_hospitalization.json'
-import formatCountyData from '@/utils/formatCountyData'
-import formatCountyDataVTwo from '@/utils/formatCountyDataVTwo'
+import formatCountyData from '@/utils/formatCountyDataVTwo'
 import formatCountyHospitalizationData from '@/utils/formatCountyHospitalizationData'
 import DataView from '@/components/DataView.vue'
 
@@ -331,7 +330,6 @@ export default {
       }
     }
 
-    const CountyDataVTwo = formatCountyDataVTwo(DataVTwo)
     const chartInfo = this.getChartInfo()
 
     const CountyDataHospitalization = formatCountyHospitalizationData(
@@ -342,7 +340,6 @@ export default {
       DataVTwo,
       DataHospitalization,
       CountyData,
-      CountyDataVTwo,
       CountyDataHospitalization,
       currentCounty,
       countyNames,

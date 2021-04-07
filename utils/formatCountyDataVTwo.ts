@@ -1,5 +1,7 @@
 /* eslint-disable prettier/prettier */
 /* eslint-disable camelcase */
+import formatGraph from './formatGraph'
+
 export enum ChartTypes {
   AGE = 'CHART-AGE',
   GENDER = 'CHART-GENDER',
@@ -130,6 +132,30 @@ const RACE_ETH_POP_PERCENTAGE: any = {
   }
 }
 
+const COUNTY_COLORS: any = {
+  solano: '#999900',
+  alameda: '#009900',
+  santa_clara: '#ff0000',
+  san_francisco: '#7f00ff',
+  contra_costa: '#ff8800',
+  san_mateo: '#0080ff',
+  sonoma: '#ff00ff',
+  napa: '#808080',
+  marin: '#0000ff'
+}
+
+interface CountyInterface<Type> {
+  solano: Type
+  alameda: Type
+  santa_clara: Type
+  san_francisco: Type
+  contra_costa: Type
+  san_mateo: Type
+  sonoma: Type
+  napa: Type
+  marin: Type
+}
+
 type AgeDataset = {
   backgroundColor: string
   data: Array<number>
@@ -163,11 +189,33 @@ type CountiesData = {
   [county: string]: CountyData
 }
 
+type CaseData = {
+  ['cumul_cases']: number
+  date: string
+}
+
+type DeathData = {
+  ['cumul_deaths']: number
+  date: string
+}
+
 type CountyData = {
   case_totals: CaseTotals
   name: string
   source_url: string
   update_time: string
+  series: {
+    cases: Array<CaseData>
+    deaths: Array<DeathData>
+  }
+}
+
+type GraphData = {
+  label: string
+  confirmedTransition: number
+  cumulative: number
+  deathTransition: number
+  deathCumulative: number
 }
 
 type CustomChartOptions = {
@@ -177,6 +225,7 @@ type CustomChartOptions = {
 
 type FormattedCountiesData = {
   [county: string]: FormattedCountyData
+  totals: FormattedTotals
 }
 
 type FormattedCountyData = {
@@ -184,9 +233,17 @@ type FormattedCountyData = {
   genderGroup?: GenderGroup
   raceEthGroup?: RaceEthGroup
   raceEthNormGroup?: RaceEthGroup
-  lastUpdatedAt?: string
-  name?: string
+  lastUpdatedAt: string
+  name: string
   sourceUrl?: string
+  population: number
+  color: string
+  graph: Array<GraphData>
+}
+
+interface FormattedTotals extends FormattedCountyData {
+  totalPopulation: number
+  cases: Array<GraphData>
 }
 
 type GenderData = {
@@ -431,6 +488,11 @@ const getCustomChartBarColor = (
 
 const getDefaultFormattedData = () => {
   return {
+    name: '',
+    color: '#fff',
+    graph: [],
+    lastUpdatedAt: '',
+    population: 0,
     ageGroup: {
       chartType: ChartTypes.AGE,
       datasets: {},
@@ -611,8 +673,59 @@ const sortNormalizedChartData = (updatedRaceEthGroup: RaceEthGroup) => {
   updatedRaceEthGroup.datasets.backgroundColor = backgroundColor
 }
 
-export default (data: CountiesData): FormattedCountyData => {
-  const finalData: FormattedCountiesData = {}
+function getInitialTotals(): FormattedTotals {
+  return {
+    name: 'Bay Area Average',
+    population: 0,
+    graph: new Array(5000),
+    color: '#2d2d2d',
+    lastUpdatedAt: '2025-01-01',
+    get cases(): Array<GraphData> {
+      return this.graph
+    },
+    get totalPopulation(): number {
+      return this.population
+    }
+  }
+}
+
+function accumulateCaseData(
+  totals: FormattedTotals,
+  data: GraphData,
+  index: number
+): void {
+  const defaults: GraphData = {
+    label: data.label,
+    cumulative: 0,
+    confirmedTransition: 0,
+    deathTransition: 0,
+    deathCumulative: 0
+  }
+  const totalData = totals.graph[index] || (totals.graph[index] = defaults)
+  let key: keyof GraphData
+  for (key in data) {
+    if (key === 'label') continue
+    totalData[key] += data[key]
+  }
+}
+
+function updateTotals(
+  totals: FormattedTotals,
+  county: FormattedCountyData
+): void {
+  const graphAccumulator = accumulateCaseData.bind(null, totals)
+  county.graph.slice(0, totals.graph.length).map(graphAccumulator)
+  totals.graph = totals.graph.slice(0, county.graph.length)
+
+  totals.population += county.population
+
+  if (new Date(county.lastUpdatedAt) < new Date(totals.lastUpdatedAt)) {
+    totals.lastUpdatedAt = county.lastUpdatedAt
+  }
+}
+
+export default (data: CountiesData): FormattedCountiesData => {
+  const finalData: FormattedCountiesData = { totals: getInitialTotals() }
 
   for (const countyId in data) {
     const defaultFormattedData: any = getDefaultFormattedData()
@@ -621,10 +734,15 @@ export default (data: CountiesData): FormattedCountyData => {
     finalData[countyId].lastUpdatedAt = parseDateForYrMoDay(
       new Date().toISOString()
     )
+    finalData[countyId].color = COUNTY_COLORS[countyId]
+    finalData[countyId].population = RACE_ETH_POP_PERCENTAGE[countyId.toUpperCase()].TOTAL
+    finalData[countyId].graph = formatGraph(data[countyId].series)
 
     const updatedData = getUpdatedCountyData(data[countyId], finalData[countyId])
 
     finalData[countyId] = Object.assign(finalData[countyId], updatedData)
+
+    updateTotals(finalData.totals, finalData[countyId]!)
   }
 
   return finalData
