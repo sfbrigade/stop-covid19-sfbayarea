@@ -20,6 +20,37 @@
       understand the current situation while having the right information about
       the necessary precautions and measures.
     </TextCard>
+    <TextCard title="Access the Open Database">
+      The BAPD Open Database gives researchers and other interested members of
+      the public direct access to the data that Code for San Francisco has
+      collected from local government web sites throughout the pandemic to build
+      this dashboard. You can explore the data right in your web browser, write
+      analytical queries in SQL, or download the data in a tidy,
+      spreadsheet-friendly format.<br />
+      <div class="About-Navigation">
+        <v-card
+          width="276px"
+          height="74px"
+          outlined
+          @click="getCreateUrl('OpenDatabase')"
+        >
+          <v-list-item>
+            <v-list-item-content>
+              <v-list-item-title class="About-Navigation-Cardtitle">
+                BAPD Open Database
+              </v-list-item-title>
+              <v-list-item-subtitle class="About-Navigation-Carddescription">
+                Explore the data behind the dashboard
+              </v-list-item-subtitle>
+            </v-list-item-content>
+            <img
+              class="About-Navigation--Navigationicon"
+              src="/right-arrow.png"
+            />
+          </v-list-item>
+        </v-card>
+      </div>
+    </TextCard>
     <TextCard title="How you can help contribute">
       As an open source project, we want help! Learn how you can help out by
       clicking on one of the following links:<br />
@@ -139,6 +170,8 @@ export default {
         )
       } else if (to === 'JoinTeam') {
         open('https://sfbrigade-slackin.herokuapp.com/')
+      } else if (to === 'OpenDatabase') {
+        open('https://bapd-opendb.herokuapp.com/')
       }
     },
     navigateToTab(event) {
