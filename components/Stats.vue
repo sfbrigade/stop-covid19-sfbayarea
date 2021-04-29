@@ -446,6 +446,7 @@ export default {
     .county-select-container {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: auto;
       align-items: center;
       label {
         font-style: normal;
@@ -458,6 +459,7 @@ export default {
       .county-stats {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: auto;
         text-align: center;
         .stat-title {
           font-size: 16px;
@@ -524,9 +526,11 @@ export default {
       .county-select-container {
         display: initial;
         grid-template-columns: initial;
+        grid-template-rows: auto;
         .county-stats {
           display: initial;
           grid-template-columns: initial;
+          grid-template-rows: auto;
           .stat-title {
             margin-top: 50px;
           }
