@@ -233,7 +233,7 @@ export default {
           white-space: break-spaces;
           height: 40px;
           display: flex;
-          justify-content: start;
+          justify-content: flex-start;
           align-items: center;
         }
       }
@@ -244,7 +244,7 @@ export default {
           color: $purple-2 !important;
           height: 40px;
           display: flex;
-          justify-content: start;
+          justify-content: flex-start;
           align-items: center;
         }
         &.v-list-item--active {
