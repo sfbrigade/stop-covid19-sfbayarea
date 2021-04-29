@@ -447,7 +447,9 @@ export default {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       grid-template-rows: auto;
-      align-items: center;
+      * {
+        align-self: center;
+      }
       label {
         font-style: normal;
         font-weight: bold;
