@@ -218,6 +218,11 @@ type GraphData = {
   deathCumulative: number
 }
 
+type ProjectionData = {
+  confirmedTransition: number
+  deathTransition: number
+}
+
 type CustomChartOptions = {
   plugins: Object
   callbacks: CallBacks
@@ -677,9 +682,9 @@ function getInitialTotals(): FormattedTotals {
   return {
     name: 'Bay Area Average',
     population: 0,
-    graph: new Array(5000),
+    graph: [],
     color: '#2d2d2d',
-    lastUpdatedAt: '2025-01-01',
+    lastUpdatedAt: '2020-01-01',
     get cases(): Array<GraphData> {
       return this.graph
     },
@@ -687,6 +692,18 @@ function getInitialTotals(): FormattedTotals {
       return this.population
     }
   }
+}
+
+function getProjectionAverages(graph: Array<GraphData>): ProjectionData{
+  const datesToAverage = graph.slice(-7)
+  const averages = datesToAverage.reduce((totals: ProjectionData, data: GraphData) => {
+    let key: keyof ProjectionData
+    for (key in totals) totals[key] += data[key] / 7
+    return totals
+  }, {confirmedTransition: 0, deathTransition: 0})
+  averages.confirmedTransition = Math.round(averages.confirmedTransition)
+  averages.deathTransition = Math.round(averages.deathTransition)
+  return averages
 }
 
 function accumulateCaseData(
@@ -709,17 +726,42 @@ function accumulateCaseData(
   }
 }
 
+function createProjectionGraph(
+  countyGraph: Array<GraphData>,
+  totalsGraph: Array<GraphData>,
+  projectionAverages: ProjectionData
+): Array<GraphData> {
+  const defaults: GraphData = {
+    label: '',
+    cumulative: 0,
+    confirmedTransition: projectionAverages.confirmedTransition,
+    deathTransition: projectionAverages.deathTransition,
+    deathCumulative: 0
+  }
+  if(!totalsGraph.length) return countyGraph
+  const projectionGraph = [...countyGraph]
+  let i = countyGraph.length
+  while(i < totalsGraph.length){
+    projectionGraph[i] = {...defaults, label: totalsGraph[i].label}
+    projectionGraph[i].cumulative = projectionGraph[i - 1].cumulative + projectionAverages.confirmedTransition
+    projectionGraph[i].deathCumulative = projectionGraph[i - 1].deathCumulative + projectionAverages.deathTransition
+    i++
+  }
+  return projectionGraph
+}
+
 function updateTotals(
   totals: FormattedTotals,
-  county: FormattedCountyData
+  county: FormattedCountyData,
 ): void {
+  const projectionAverages = getProjectionAverages(county.graph)
   const graphAccumulator = accumulateCaseData.bind(null, totals)
-  county.graph.slice(0, totals.graph.length).map(graphAccumulator)
-  totals.graph = totals.graph.slice(0, county.graph.length)
+  const projectionGraph = createProjectionGraph(county.graph, totals.graph, projectionAverages)
+  projectionGraph.forEach(graphAccumulator)
 
   totals.population += county.population
 
-  if (new Date(county.lastUpdatedAt) < new Date(totals.lastUpdatedAt)) {
+  if (new Date(county.lastUpdatedAt) > new Date(totals.lastUpdatedAt)) {
     totals.lastUpdatedAt = county.lastUpdatedAt
   }
 }
@@ -741,9 +783,11 @@ export default (data: CountiesData): FormattedCountiesData => {
     const updatedData = getUpdatedCountyData(data[countyId], finalData[countyId])
 
     finalData[countyId] = Object.assign(finalData[countyId], updatedData)
-
-    updateTotals(finalData.totals, finalData[countyId]!)
   }
+
+  const counties = Object.values(finalData).filter(county => county !== finalData.totals)
+  counties.sort(({graph: g1}, {graph: g2}) => g1.length > g2.length ? -1 : 1)
+  counties.forEach(county => updateTotals(finalData.totals, county))
 
   return finalData
 }
