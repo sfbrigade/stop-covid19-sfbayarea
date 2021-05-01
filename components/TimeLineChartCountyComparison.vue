@@ -229,7 +229,7 @@ export default {
               0,
               chartData.totals.graph.findIndex(
                 ({ label }) => label === this.projectionStart
-              )
+              ) + 1
             )
             dataSets.push({
               type: 'line',

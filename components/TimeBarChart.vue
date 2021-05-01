@@ -162,7 +162,7 @@ export default {
     displayData() {
       this.updateChartDataByTimePick()
       const colors = this.chartDataClone.map(({ label }) =>
-        new Date(label) < new Date(this.projectionStart) ? '#473A8C' : '#7d70bb'
+        new Date(label) > new Date(this.projectionStart) ? '#7d70bb' : '#473A8C'
       )
       if (this.dataKind === 'confirmedTransition') {
         return {
