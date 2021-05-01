@@ -21,6 +21,7 @@
           :chart-data-type="'cases'"
           :date="CountyData.totals.lastUpdatedAt"
           :url="'https://coronadatascraper.com'"
+          :projection-start="lastDateWithAllCountyData"
         />
       </v-col>
       <v-col cols="12" md="6" class="DataCard">
@@ -32,6 +33,7 @@
           :chart-data-type="'deaths'"
           :date="CountyData.totals.lastUpdatedAt"
           :url="'https://coronadatascraper.com'"
+          :projection-start="lastDateWithAllCountyData"
         />
       </v-col>
       <!-- County Selector & Stats Card -->
@@ -248,6 +250,7 @@
           :date="CountyData[currentCounty].lastUpdatedAt"
           :url="'https://coronadatascraper.com'"
           :overlays="countyCompareOverlays"
+          :projection-start="lastDateWithAllCountyData"
         />
       </v-col>
       <v-col
@@ -269,6 +272,7 @@
             ...countyCompareOverlays,
             ...{ tiers: { selected: false } }
           }"
+          :projection-start="lastDateWithAllCountyData"
         />
       </v-col>
     </v-row>
@@ -311,6 +315,15 @@ export default {
     const countyNames = Object.values(DataVTwo)
       .map(({ name }) => name)
       .filter(name => name !== 'Bay Area Average')
+    const lastDateWithAllCountyData = Object.values(CountyData).reduce(
+      (dateLabel, county) => {
+        const lastDateLabel = county.graph.slice(-1)[0].label
+        return new Date(lastDateLabel) < new Date(dateLabel)
+          ? lastDateLabel
+          : dateLabel
+      },
+      '1/1/3000'
+    )
 
     const totalCases = CountyData.totals.cases.slice(-1)[0].cumulative
     const totalDeaths = CountyData.totals.cases.slice(-1)[0].deathCumulative
@@ -347,7 +360,8 @@ export default {
       totalDeaths,
       selectedCounties,
       countyCompareOverlays,
-      chartInfo
+      chartInfo,
+      lastDateWithAllCountyData
     }
 
     return data

@@ -76,6 +76,11 @@ export default {
       type: String,
       required: false,
       default: ''
+    },
+    projectionStart: {
+      type: String,
+      required: false,
+      default: '1/1/3000'
     }
   },
   data() {
@@ -156,6 +161,9 @@ export default {
     },
     displayData() {
       this.updateChartDataByTimePick()
+      const colors = this.chartDataClone.map(({ label }) =>
+        new Date(label) < new Date(this.projectionStart) ? '#473A8C' : '#7d70bb'
+      )
       if (this.dataKind === 'confirmedTransition') {
         return {
           labels: this.chartDataClone.map(d => {
@@ -170,7 +178,7 @@ export default {
                   return d.deathTransition
                 }
               }),
-              backgroundColor: '#473A8C'
+              backgroundColor: colors
             }
           ]
         }
