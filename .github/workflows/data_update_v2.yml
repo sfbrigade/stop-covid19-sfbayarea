@@ -4,6 +4,7 @@ on:
   schedule:
     # Run at 3 AM PDT every day
     - cron: 0 10 * * *
+  workflow_dispatch: {}
 
 jobs:
   # This workflow contains a single job called "build"
