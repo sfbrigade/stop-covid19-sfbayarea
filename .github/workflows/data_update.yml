@@ -4,6 +4,7 @@ on:
   schedule:
     # Run every 8 hours
     - cron: 0 */8 * * *
+  workflow_dispatch: {}
 
 jobs:
   # This workflow contains a single job called "build"
