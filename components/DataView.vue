@@ -47,7 +47,7 @@
         target="_blank"
         rel="noopener"
       >
-        {{ $t('Link to the Open Data Source') }}
+        {{ 'Link to the Open Data Source' }}
         <v-icon class="ExternalLinkIcon" size="15">mdi-open-in-new</v-icon>
       </a>
     </v-footer>
