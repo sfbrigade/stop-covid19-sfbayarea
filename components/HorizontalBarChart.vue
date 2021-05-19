@@ -48,8 +48,7 @@ export default {
     },
     chartInfo: {
       type: Array,
-      required: false,
-      default: () => []
+      required: false
     },
     date: {
       type: String,
