@@ -1,5 +1,11 @@
 <template>
-  <data-view :title="title" :title-id="titleId" :date="date" :url="url">
+  <data-view
+    :title="title"
+    :title-id="titleId"
+    :date="date"
+    :url="url"
+    :chart-info="chartInfo"
+  >
     <template v-slot:button>
       <data-selector v-model="dataKind" class="selectorButton" />
       <TimePickerDropdown
@@ -81,6 +87,10 @@ export default {
       type: String,
       required: false,
       default: '1/1/3000'
+    },
+    chartInfo: {
+      type: Array,
+      required: false
     }
   },
   data() {

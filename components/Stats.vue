@@ -19,6 +19,7 @@
           :chart-id="'time-bar-chart-patients'"
           :chart-data="CountyData.totals.cases"
           :chart-data-type="'cases'"
+          :chart-info="chartInfo.bayAreaTotal"
           :date="CountyData.totals.lastUpdatedAt"
           :url="'https://coronadatascraper.com'"
           :projection-start="lastDateWithAllCountyData"
@@ -31,6 +32,7 @@
           :chart-id="'time-bar-chart-patients'"
           :chart-data="CountyData.totals.cases"
           :chart-data-type="'deaths'"
+          :chart-info="chartInfo.bayAreaTotal"
           :date="CountyData.totals.lastUpdatedAt"
           :url="'https://coronadatascraper.com'"
           :projection-start="lastDateWithAllCountyData"
@@ -265,6 +267,7 @@
           :chart-data="CountyData"
           :selected-counties="selectedCounties"
           :chart-data-type="'percentincrease'"
+          :chart-info="chartInfo.percentIncrease7Days"
           :date="CountyData[currentCounty].lastUpdatedAt"
           :unit="'%'"
           :url="'https://coronadatascraper.com'"
@@ -424,6 +427,25 @@ export default {
             title: 'Why a 7 day average?',
             description:
               'Showing an average value smooths the data curve and makes trends easier to observe.'
+          },
+          {
+            title: 'How is the Projected Bay Area Average calculated?',
+            description:
+              'In calculating totals for the Projected Bay Area Average counties that have not yet reported data are assumed to continue reporting new cases and deaths at the same rate as their current 7 day average.'
+          }
+        ],
+        percentIncrease7Days: [
+          {
+            title: 'How is the Projected Bay Area Average calculated?',
+            description:
+              'In calculating totals for the Projected Bay Area Average counties that have not yet reported data are assumed to continue reporting new cases and deaths at the same rate as their current 7 day average.'
+          }
+        ],
+        bayAreaTotal: [
+          {
+            title: 'How are the projected totals calculated?',
+            description:
+              'Counties that have not yet reported data are projected to continue reporting new cases and deaths at the same rate as their current 7 day average.'
           }
         ]
       }
