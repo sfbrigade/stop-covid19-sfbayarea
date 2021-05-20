@@ -14,8 +14,8 @@
         <span
           :class="{ 'infoIcon-visible': chartInfo }"
           class="infoIcon"
-          @mouseenter="showInfo()"
-          @mouseleave="hideInfo()"
+          @mouseover="showInfo()"
+          @mouseout="hideInfo()"
         >
           <InfoOutlineIcon />
         </span>
