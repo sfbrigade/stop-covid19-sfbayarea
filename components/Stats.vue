@@ -445,7 +445,7 @@ export default {
           {
             title: 'How are the projected totals calculated?',
             description:
-              'Counties that have not yet reported data are projected to continue reporting new cases and deaths at the same rate as their current 7 day average.'
+              'For each date confirmed numbers from counties that have reported data are added to projected numbers for those that have not. Counties that have not reported data are assumed to keep reporting at the same rate as their current 7 day average.'
           }
         ]
       }
