@@ -1,5 +1,11 @@
 <template>
-  <data-view :title="title" :title-id="titleId" :date="date" :url="url">
+  <data-view
+    :title="title"
+    :title-id="titleId"
+    :date="date"
+    :url="url"
+    :chart-info="chartInfo"
+  >
     <template v-slot:button>
       <data-selector v-model="dataKind" class="selectorButton" />
       <TimePickerDropdown
@@ -76,6 +82,15 @@ export default {
       type: String,
       required: false,
       default: ''
+    },
+    projectionStart: {
+      type: String,
+      required: false,
+      default: '1/1/3000'
+    },
+    chartInfo: {
+      type: Array,
+      required: false
     }
   },
   data() {
@@ -156,42 +171,39 @@ export default {
     },
     displayData() {
       this.updateChartDataByTimePick()
-      if (this.dataKind === 'confirmedTransition') {
-        return {
-          labels: this.chartDataClone.map(d => {
-            return d.label
-          }),
-          datasets: [
-            {
-              data: this.chartDataClone.map(d => {
-                if (this.chartDataType === 'cases') {
-                  return d.confirmedTransition
-                } else if (this.chartDataType === 'deaths') {
-                  return d.deathTransition
-                }
-              }),
-              backgroundColor: '#473A8C'
-            }
-          ]
-        }
+      const confirmed = this.chartDataClone.map(
+        ({ label }) => !(new Date(label) > new Date(this.projectionStart))
+      )
+      const data = this.chartDataClone.map(d => {
+        return this.dataKind === 'confirmedTransition'
+          ? this.chartDataType === 'cases'
+            ? d.confirmedTransition
+            : d.deathTransition
+          : this.chartDataType === 'cases'
+          ? d.cumulative
+          : d.deathCumulative
+      })
+      const labels = this.chartDataClone.map(d => {
+        return d.label
+      })
+      const dataConfig = {
+        data,
+        categoryPercentage: 0.1
       }
       return {
-        labels: this.chartDataClone.map(d => {
-          return d.label
-        }),
+        labels,
         datasets: [
           {
-            data: this.chartDataClone.map(d => {
-              if (this.chartDataType === 'cases') {
-                return d.cumulative
-              } else if (this.chartDataType === 'deaths') {
-                return d.deathCumulative
-              } else {
-                return null
-              }
-            }),
+            ...dataConfig,
+            label: 'Confirmed',
             backgroundColor: '#473A8C',
-            borderWidth: 0
+            barPercentage: confirmed.map(isConfirmed => (isConfirmed ? 15 : 0))
+          },
+          {
+            ...dataConfig,
+            label: 'Projected',
+            backgroundColor: '#7d70bb',
+            barPercentage: confirmed.map(isConfirmed => (isConfirmed ? 0 : 15))
           }
         ]
       }
@@ -216,7 +228,7 @@ export default {
         responsive: true,
         maintainAspectRatio: false,
         legend: {
-          display: false
+          display: this.title.match('Bay Area Total')
         },
         scales: {
           xAxes: [

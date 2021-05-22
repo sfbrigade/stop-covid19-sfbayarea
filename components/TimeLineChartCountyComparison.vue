@@ -57,8 +57,7 @@ export default {
     },
     chartInfo: {
       type: Array,
-      required: false,
-      default: () => []
+      required: false
     },
     date: {
       type: String,
@@ -79,6 +78,11 @@ export default {
       type: Object,
       required: false,
       default: () => Object()
+    },
+    projectionStart: {
+      type: String,
+      required: false,
+      default: '1/1/3000'
     }
   },
   data() {
@@ -206,18 +210,38 @@ export default {
         const sliceToTimePick = arr => arr.slice(timePickIndex)
 
         for (const county of countiesToDisplay) {
-          dataSets.push({
+          const countyDataSet = {
             type: 'line',
             fill: false,
             borderWidth: 3,
             pointBackgroundColor: 'rgba(0,0,0,0)',
             pointBorderColor: 'rgba(0,0,0,0)',
-            borderColor: this.chartData[county].color,
             lineTension: 0.5,
             borderJoinStyle: 'round',
+            borderColor: this.chartData[county].color,
             label: chartData[county].name,
             data: sliceToTimePick(data[county])
-          })
+          }
+          const projectionConfig = {
+            borderDash: [5, 5],
+            borderColor: '#777',
+            label: 'Projected Bay Area Average'
+          }
+
+          if (county === 'totals') {
+            const projectionStartIndex =
+              chartData.totals.graph.findIndex(
+                ({ label }) => label === this.projectionStart
+              ) + 1
+            const confirmedData = data.totals.slice(0, projectionStartIndex)
+            dataSets.push({
+              ...countyDataSet,
+              data: sliceToTimePick(confirmedData)
+            })
+            Object.assign(countyDataSet, projectionConfig)
+          }
+
+          dataSets.push(countyDataSet)
         }
 
         return {

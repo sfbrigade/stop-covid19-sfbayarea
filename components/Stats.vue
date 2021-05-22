@@ -19,8 +19,10 @@
           :chart-id="'time-bar-chart-patients'"
           :chart-data="CountyData.totals.cases"
           :chart-data-type="'cases'"
+          :chart-info="chartInfo.bayAreaTotal"
           :date="CountyData.totals.lastUpdatedAt"
           :url="'https://coronadatascraper.com'"
+          :projection-start="lastDateWithAllCountyData"
         />
       </v-col>
       <v-col cols="12" md="6" class="DataCard">
@@ -30,8 +32,10 @@
           :chart-id="'time-bar-chart-patients'"
           :chart-data="CountyData.totals.cases"
           :chart-data-type="'deaths'"
+          :chart-info="chartInfo.bayAreaTotal"
           :date="CountyData.totals.lastUpdatedAt"
           :url="'https://coronadatascraper.com'"
+          :projection-start="lastDateWithAllCountyData"
         />
       </v-col>
       <!-- County Selector & Stats Card -->
@@ -248,6 +252,7 @@
           :date="CountyData[currentCounty].lastUpdatedAt"
           :url="'https://coronadatascraper.com'"
           :overlays="countyCompareOverlays"
+          :projection-start="lastDateWithAllCountyData"
         />
       </v-col>
       <v-col
@@ -262,6 +267,7 @@
           :chart-data="CountyData"
           :selected-counties="selectedCounties"
           :chart-data-type="'percentincrease'"
+          :chart-info="chartInfo.percentIncrease7Days"
           :date="CountyData[currentCounty].lastUpdatedAt"
           :unit="'%'"
           :url="'https://coronadatascraper.com'"
@@ -269,6 +275,7 @@
             ...countyCompareOverlays,
             ...{ tiers: { selected: false } }
           }"
+          :projection-start="lastDateWithAllCountyData"
         />
       </v-col>
     </v-row>
@@ -311,6 +318,15 @@ export default {
     const countyNames = Object.values(DataVTwo)
       .map(({ name }) => name)
       .filter(name => name !== 'Bay Area Average')
+    const lastDateWithAllCountyData = Object.values(CountyData).reduce(
+      (dateLabel, county) => {
+        const lastDateLabel = county.graph.slice(-1)[0].label
+        return new Date(lastDateLabel) < new Date(dateLabel)
+          ? lastDateLabel
+          : dateLabel
+      },
+      '1/1/3000'
+    )
 
     const totalCases = CountyData.totals.cases.slice(-1)[0].cumulative
     const totalDeaths = CountyData.totals.cases.slice(-1)[0].deathCumulative
@@ -347,7 +363,8 @@ export default {
       totalDeaths,
       selectedCounties,
       countyCompareOverlays,
-      chartInfo
+      chartInfo,
+      lastDateWithAllCountyData
     }
 
     return data
@@ -410,6 +427,25 @@ export default {
             title: 'Why a 7 day average?',
             description:
               'Showing an average value smooths the data curve and makes trends easier to observe.'
+          },
+          {
+            title: 'How is the Projected Bay Area Average calculated?',
+            description:
+              'In calculating totals for the Projected Bay Area Average counties that have not yet reported data are assumed to continue reporting new cases and deaths at the same rate as their current 7 day average.'
+          }
+        ],
+        percentIncrease7Days: [
+          {
+            title: 'How is the Projected Bay Area Average calculated?',
+            description:
+              'In calculating totals for the Projected Bay Area Average counties that have not yet reported data are assumed to continue reporting new cases and deaths at the same rate as their current 7 day average.'
+          }
+        ],
+        bayAreaTotal: [
+          {
+            title: 'How are the projected totals calculated?',
+            description:
+              'For each date confirmed numbers from counties that have reported data are added to projected numbers for those that have not. Counties that have not reported data are assumed to keep reporting at the same rate as their current 7 day average.'
           }
         ]
       }

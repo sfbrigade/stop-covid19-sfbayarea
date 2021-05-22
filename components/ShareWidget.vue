@@ -92,7 +92,6 @@ export default {
   box-sizing: inherit;
   width: 100%;
   position: fixed;
-  bottom: 0px;
   z-index: 100;
 }
 .row {
@@ -155,7 +154,7 @@ a:hover {
   }
   .index {
     /* Used to align bottom of ShareWidget with bottom of cards on index page */
-    height: calc(100% - 225px);
+    top: 225px;
   }
   .indexPad {
     /* Padding for when emailWidget is not available */
@@ -163,7 +162,7 @@ a:hover {
   }
   .main {
     /* Used to center ShareWidget within background-wrapper on main and about pages */
-    height: calc(100% - 95px);
+    top: 95px;
   }
   .mainPad {
     /* Padding for when emailWidget is not available */
