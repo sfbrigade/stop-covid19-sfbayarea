@@ -89,7 +89,7 @@ export default Vue.extend({
           subheader: 'Numbers and figures about COVID-19 in the Bay Area',
           cardheader: 'Explore the Database',
           cardsubheader:
-            'Get direct access to the data that Code4SF has collected from local government websited throughout the pandemic.',
+            'Get direct access to the data that Code4SF has collected from local government websites throughout the pandemic.',
           learnheader: 'Visit BAPD Open Database',
           cardhref: 'https://bapd-opendb.herokuapp.com',
           cardtarget: '_blank'
