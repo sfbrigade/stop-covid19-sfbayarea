@@ -27,6 +27,10 @@
       <ShareWidget :on-main="true" />
       <Footer />
     </div>
+    <NoMaintenanceModal
+      :is-modal-shown="isModalShown"
+      @onModalCloseClick="handleModalCloseClick"
+    />
   </v-app>
 </template>
 
@@ -40,6 +44,7 @@ import News from '@/components/News.vue'
 import Footer from '@/components/Footer.vue'
 import ShareWidget from '@/components/ShareWidget.vue'
 import TitleBar from '@/components/TitleBar.vue'
+import NoMaintenanceModal from '@/components/NoMaintenanceModal.vue'
 
 export default Vue.extend({
   components: {
@@ -50,7 +55,8 @@ export default Vue.extend({
     Stats,
     News,
     Footer,
-    ShareWidget
+    ShareWidget,
+    NoMaintenanceModal
   },
   asyncData(context) {
     if (context.params.tab === 'updates') {
@@ -101,7 +107,8 @@ export default Vue.extend({
           subheader: 'Guidlelines and Resources Specific to your County',
           ...cardDefaults
         }
-      ]
+      ],
+      isModalShown: true
     }
   },
   mounted() {
@@ -111,6 +118,9 @@ export default Vue.extend({
   methods: {
     navigateToTab(event) {
       this.active_tab = event
+    },
+    handleModalCloseClick() {
+      this.isModalShown = false
     }
   }
 })
