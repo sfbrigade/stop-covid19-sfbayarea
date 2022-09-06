@@ -18393,7 +18393,7 @@
   },
   "contra_costa": {
     "name": "Contra Costa",
-    "update_time": "2022-09-04T18:30:22.141000+00:00",
+    "update_time": "2022-09-05T18:30:21.855000+00:00",
     "source_url": "https://www.coronavirus.cchealth.org/overview",
     "meta_from_source": "",
     "meta_from_baypd": "Positive test counts are not published by the county, so they are estimated from daily positivity rates. Positivity rates are are not published for dates as early as some tests are, so positive test counts before 2020-03-18 may incorrectly show 0. Unlike other counties, Contra Costa separates hispanic ethnicity from racial demographics, so \"latinx\" is not included in `case_totals.race_eth` or `death_totals.race_eth`. Latinx vs. non-latinx is shown in separate `case_totals.ethnicity` and `death_total.ethnicity` groupings. Contra Costa also does not tally native american or pacific islander as races, and they are instead included as \"other\".Demographic information is not available for tests.",
@@ -59602,7 +59602,7 @@
   },
   "santa_clara": {
     "name": "Santa Clara",
-    "update_time": "2022-09-05T00:03:51+00:00",
+    "update_time": "2022-09-06T00:05:04+00:00",
     "source_url": "https://www.sccgov.org/sites/covid19/Pages/dashboard.aspx",
     "meta_from_source": "",
     "meta_from_baypd": "Santa Clara does not report pending tests in its data, so `series.tests[].pending` will always be -1. An \"outbreak\" (in the `transmission_cat` breakdown) is defined as 3+ cases linked to exposures at a particular location/event (usually a workplace) like a factory, construction site, restaurant, etc. Santa Clara does not distinguish cases with an unkown transmission vector from community spread, so unknown and community spread cases are both categorized as \"unknown\" and \"community\" is set to -1. In race/ethnicity breakdowns, American Indian/Alaska Native and people who identify as multi-racial are included in the \"other\" category.",
@@ -64240,118 +64240,118 @@
         },
         {
           "date": "2022-08-10",
-          "cases": 592,
-          "cumul_cases": 417324
+          "cases": 593,
+          "cumul_cases": 417325
         },
         {
           "date": "2022-08-11",
           "cases": 547,
-          "cumul_cases": 417871
+          "cumul_cases": 417872
         },
         {
           "date": "2022-08-12",
           "cases": 445,
-          "cumul_cases": 418316
+          "cumul_cases": 418317
         },
         {
           "date": "2022-08-13",
           "cases": 335,
-          "cumul_cases": 418651
+          "cumul_cases": 418652
         },
         {
           "date": "2022-08-14",
           "cases": 287,
-          "cumul_cases": 418938
+          "cumul_cases": 418939
         },
         {
           "date": "2022-08-15",
           "cases": 595,
-          "cumul_cases": 419533
+          "cumul_cases": 419534
         },
         {
           "date": "2022-08-16",
           "cases": 541,
-          "cumul_cases": 420074
+          "cumul_cases": 420075
         },
         {
           "date": "2022-08-17",
           "cases": 503,
-          "cumul_cases": 420577
+          "cumul_cases": 420578
         },
         {
           "date": "2022-08-18",
           "cases": 484,
-          "cumul_cases": 421061
+          "cumul_cases": 421062
         },
         {
           "date": "2022-08-19",
           "cases": 457,
-          "cumul_cases": 421518
+          "cumul_cases": 421519
         },
         {
           "date": "2022-08-20",
           "cases": 313,
-          "cumul_cases": 421831
+          "cumul_cases": 421832
         },
         {
           "date": "2022-08-21",
           "cases": 240,
-          "cumul_cases": 422071
+          "cumul_cases": 422072
         },
         {
           "date": "2022-08-22",
           "cases": 516,
-          "cumul_cases": 422587
+          "cumul_cases": 422588
         },
         {
           "date": "2022-08-23",
           "cases": 442,
-          "cumul_cases": 423029
+          "cumul_cases": 423030
         },
         {
           "date": "2022-08-24",
           "cases": 395,
-          "cumul_cases": 423424
+          "cumul_cases": 423425
         },
         {
           "date": "2022-08-25",
           "cases": 333,
-          "cumul_cases": 423757
+          "cumul_cases": 423758
         },
         {
           "date": "2022-08-26",
           "cases": 328,
-          "cumul_cases": 424085
+          "cumul_cases": 424086
         },
         {
           "date": "2022-08-27",
           "cases": 237,
-          "cumul_cases": 424322
+          "cumul_cases": 424323
         },
         {
           "date": "2022-08-28",
           "cases": 208,
-          "cumul_cases": 424530
+          "cumul_cases": 424531
         },
         {
           "date": "2022-08-29",
           "cases": 384,
-          "cumul_cases": 424914
+          "cumul_cases": 424915
         },
         {
           "date": "2022-08-30",
           "cases": 402,
-          "cumul_cases": 425316
+          "cumul_cases": 425317
         },
         {
           "date": "2022-08-31",
           "cases": 297,
-          "cumul_cases": 425613
+          "cumul_cases": 425614
         },
         {
           "date": "2022-09-01",
           "cases": 42,
-          "cumul_cases": 425655
+          "cumul_cases": 425656
         }
       ],
       "deaths": [
