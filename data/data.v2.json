@@ -18404,7 +18404,7 @@
   },
   "contra_costa": {
     "name": "Contra Costa",
-    "update_time": "2022-09-13T18:30:21.771000+00:00",
+    "update_time": "2022-09-14T18:30:21.571000+00:00",
     "source_url": "https://www.coronavirus.cchealth.org/overview",
     "meta_from_source": "",
     "meta_from_baypd": "Positive test counts are not published by the county, so they are estimated from daily positivity rates. Positivity rates are are not published for dates as early as some tests are, so positive test counts before 2020-03-18 may incorrectly show 0. Unlike other counties, Contra Costa separates hispanic ethnicity from racial demographics, so \"latinx\" is not included in `case_totals.race_eth` or `death_totals.race_eth`. Latinx vs. non-latinx is shown in separate `case_totals.ethnicity` and `death_total.ethnicity` groupings. Contra Costa also does not tally native american or pacific islander as races, and they are instead included as \"other\".Demographic information is not available for tests.",
@@ -59613,7 +59613,7 @@
   },
   "santa_clara": {
     "name": "Santa Clara",
-    "update_time": "2022-09-14T00:08:38+00:00",
+    "update_time": "2022-09-15T00:12:28+00:00",
     "source_url": "https://www.sccgov.org/sites/covid19/Pages/dashboard.aspx",
     "meta_from_source": "",
     "meta_from_baypd": "Santa Clara does not report pending tests in its data, so `series.tests[].pending` will always be -1. An \"outbreak\" (in the `transmission_cat` breakdown) is defined as 3+ cases linked to exposures at a particular location/event (usually a workplace) like a factory, construction site, restaurant, etc. Santa Clara does not distinguish cases with an unkown transmission vector from community spread, so unknown and community spread cases are both categorized as \"unknown\" and \"community\" is set to -1. In race/ethnicity breakdowns, American Indian/Alaska Native and people who identify as multi-racial are included in the \"other\" category.",
@@ -63176,1192 +63176,1192 @@
         },
         {
           "date": "2022-01-07",
-          "cases": 5125,
-          "cumul_cases": 209285
+          "cases": 5126,
+          "cumul_cases": 209286
         },
         {
           "date": "2022-01-08",
-          "cases": 3079,
+          "cases": 3078,
           "cumul_cases": 212364
         },
         {
           "date": "2022-01-09",
-          "cases": 2858,
-          "cumul_cases": 215222
+          "cases": 2857,
+          "cumul_cases": 215221
         },
         {
           "date": "2022-01-10",
-          "cases": 5866,
-          "cumul_cases": 221088
+          "cases": 5864,
+          "cumul_cases": 221085
         },
         {
           "date": "2022-01-11",
           "cases": 5829,
-          "cumul_cases": 226917
+          "cumul_cases": 226914
         },
         {
           "date": "2022-01-12",
           "cases": 5636,
-          "cumul_cases": 232553
+          "cumul_cases": 232550
         },
         {
           "date": "2022-01-13",
-          "cases": 4897,
-          "cumul_cases": 237450
+          "cases": 4895,
+          "cumul_cases": 237445
         },
         {
           "date": "2022-01-14",
-          "cases": 4508,
-          "cumul_cases": 241958
+          "cases": 4506,
+          "cumul_cases": 241951
         },
         {
           "date": "2022-01-15",
-          "cases": 2380,
-          "cumul_cases": 244338
+          "cases": 2379,
+          "cumul_cases": 244330
         },
         {
           "date": "2022-01-16",
           "cases": 2029,
-          "cumul_cases": 246367
+          "cumul_cases": 246359
         },
         {
           "date": "2022-01-17",
           "cases": 3742,
-          "cumul_cases": 250109
+          "cumul_cases": 250101
         },
         {
           "date": "2022-01-18",
           "cases": 4707,
-          "cumul_cases": 254816
+          "cumul_cases": 254808
         },
         {
           "date": "2022-01-19",
           "cases": 4278,
-          "cumul_cases": 259094
+          "cumul_cases": 259086
         },
         {
           "date": "2022-01-20",
           "cases": 4082,
-          "cumul_cases": 263176
+          "cumul_cases": 263168
         },
         {
           "date": "2022-01-21",
           "cases": 3433,
-          "cumul_cases": 266609
+          "cumul_cases": 266601
         },
         {
           "date": "2022-01-22",
           "cases": 1735,
-          "cumul_cases": 268344
+          "cumul_cases": 268336
         },
         {
           "date": "2022-01-23",
-          "cases": 1618,
-          "cumul_cases": 269962
+          "cases": 1617,
+          "cumul_cases": 269953
         },
         {
           "date": "2022-01-24",
           "cases": 3618,
-          "cumul_cases": 273580
+          "cumul_cases": 273571
         },
         {
           "date": "2022-01-25",
           "cases": 3039,
-          "cumul_cases": 276619
+          "cumul_cases": 276610
         },
         {
           "date": "2022-01-26",
-          "cases": 2788,
-          "cumul_cases": 279407
+          "cases": 2787,
+          "cumul_cases": 279397
         },
         {
           "date": "2022-01-27",
           "cases": 2395,
-          "cumul_cases": 281802
+          "cumul_cases": 281792
         },
         {
           "date": "2022-01-28",
           "cases": 2276,
-          "cumul_cases": 284078
+          "cumul_cases": 284068
         },
         {
           "date": "2022-01-29",
           "cases": 1264,
-          "cumul_cases": 285342
+          "cumul_cases": 285332
         },
         {
           "date": "2022-01-30",
           "cases": 963,
-          "cumul_cases": 286305
+          "cumul_cases": 286295
         },
         {
           "date": "2022-01-31",
           "cases": 2191,
-          "cumul_cases": 288496
+          "cumul_cases": 288486
         },
         {
           "date": "2022-02-01",
           "cases": 1665,
-          "cumul_cases": 290161
+          "cumul_cases": 290151
         },
         {
           "date": "2022-02-02",
           "cases": 1645,
-          "cumul_cases": 291806
+          "cumul_cases": 291796
         },
         {
           "date": "2022-02-03",
           "cases": 1258,
-          "cumul_cases": 293064
+          "cumul_cases": 293054
         },
         {
           "date": "2022-02-04",
           "cases": 1204,
-          "cumul_cases": 294268
+          "cumul_cases": 294258
         },
         {
           "date": "2022-02-05",
           "cases": 612,
-          "cumul_cases": 294880
+          "cumul_cases": 294870
         },
         {
           "date": "2022-02-06",
           "cases": 604,
-          "cumul_cases": 295484
+          "cumul_cases": 295474
         },
         {
           "date": "2022-02-07",
           "cases": 1183,
-          "cumul_cases": 296667
+          "cumul_cases": 296657
         },
         {
           "date": "2022-02-08",
           "cases": 975,
-          "cumul_cases": 297642
+          "cumul_cases": 297632
         },
         {
           "date": "2022-02-09",
           "cases": 985,
-          "cumul_cases": 298627
+          "cumul_cases": 298617
         },
         {
           "date": "2022-02-10",
           "cases": 778,
-          "cumul_cases": 299405
+          "cumul_cases": 299395
         },
         {
           "date": "2022-02-11",
           "cases": 705,
-          "cumul_cases": 300110
+          "cumul_cases": 300100
         },
         {
           "date": "2022-02-12",
           "cases": 463,
-          "cumul_cases": 300573
+          "cumul_cases": 300563
         },
         {
           "date": "2022-02-13",
           "cases": 344,
-          "cumul_cases": 300917
+          "cumul_cases": 300907
         },
         {
           "date": "2022-02-14",
           "cases": 659,
-          "cumul_cases": 301576
+          "cumul_cases": 301566
         },
         {
           "date": "2022-02-15",
           "cases": 555,
-          "cumul_cases": 302131
+          "cumul_cases": 302121
         },
         {
           "date": "2022-02-16",
           "cases": 543,
-          "cumul_cases": 302674
+          "cumul_cases": 302664
         },
         {
           "date": "2022-02-17",
           "cases": 390,
-          "cumul_cases": 303064
+          "cumul_cases": 303054
         },
         {
           "date": "2022-02-18",
           "cases": 375,
-          "cumul_cases": 303439
+          "cumul_cases": 303429
         },
         {
           "date": "2022-02-19",
           "cases": 240,
-          "cumul_cases": 303679
+          "cumul_cases": 303669
         },
         {
           "date": "2022-02-20",
           "cases": 188,
-          "cumul_cases": 303867
+          "cumul_cases": 303857
         },
         {
           "date": "2022-02-21",
           "cases": 277,
-          "cumul_cases": 304144
+          "cumul_cases": 304134
         },
         {
           "date": "2022-02-22",
           "cases": 391,
-          "cumul_cases": 304535
+          "cumul_cases": 304525
         },
         {
           "date": "2022-02-23",
-          "cases": 273,
-          "cumul_cases": 304808
+          "cases": 272,
+          "cumul_cases": 304797
         },
         {
           "date": "2022-02-24",
           "cases": 270,
-          "cumul_cases": 305078
+          "cumul_cases": 305067
         },
         {
           "date": "2022-02-25",
           "cases": 273,
-          "cumul_cases": 305351
+          "cumul_cases": 305340
         },
         {
           "date": "2022-02-26",
           "cases": 173,
-          "cumul_cases": 305524
+          "cumul_cases": 305513
         },
         {
           "date": "2022-02-27",
           "cases": 134,
-          "cumul_cases": 305658
+          "cumul_cases": 305647
         },
         {
           "date": "2022-02-28",
           "cases": 311,
-          "cumul_cases": 305969
+          "cumul_cases": 305958
         },
         {
           "date": "2022-03-01",
-          "cases": 274,
-          "cumul_cases": 306243
+          "cases": 273,
+          "cumul_cases": 306231
         },
         {
           "date": "2022-03-02",
           "cases": 242,
-          "cumul_cases": 306485
+          "cumul_cases": 306473
         },
         {
           "date": "2022-03-03",
           "cases": 251,
-          "cumul_cases": 306736
+          "cumul_cases": 306724
         },
         {
           "date": "2022-03-04",
-          "cases": 191,
-          "cumul_cases": 306927
+          "cases": 190,
+          "cumul_cases": 306914
         },
         {
           "date": "2022-03-05",
           "cases": 131,
-          "cumul_cases": 307058
+          "cumul_cases": 307045
         },
         {
           "date": "2022-03-06",
           "cases": 105,
-          "cumul_cases": 307163
+          "cumul_cases": 307150
         },
         {
           "date": "2022-03-07",
           "cases": 247,
-          "cumul_cases": 307410
+          "cumul_cases": 307397
         },
         {
           "date": "2022-03-08",
           "cases": 211,
-          "cumul_cases": 307621
+          "cumul_cases": 307608
         },
         {
           "date": "2022-03-09",
           "cases": 222,
-          "cumul_cases": 307843
+          "cumul_cases": 307830
         },
         {
           "date": "2022-03-10",
           "cases": 142,
-          "cumul_cases": 307985
+          "cumul_cases": 307972
         },
         {
           "date": "2022-03-11",
           "cases": 141,
-          "cumul_cases": 308126
+          "cumul_cases": 308113
         },
         {
           "date": "2022-03-12",
           "cases": 99,
-          "cumul_cases": 308225
+          "cumul_cases": 308212
         },
         {
           "date": "2022-03-13",
           "cases": 71,
-          "cumul_cases": 308296
+          "cumul_cases": 308283
         },
         {
           "date": "2022-03-14",
           "cases": 180,
-          "cumul_cases": 308476
+          "cumul_cases": 308463
         },
         {
           "date": "2022-03-15",
           "cases": 172,
-          "cumul_cases": 308648
+          "cumul_cases": 308635
         },
         {
           "date": "2022-03-16",
           "cases": 182,
-          "cumul_cases": 308830
+          "cumul_cases": 308817
         },
         {
           "date": "2022-03-17",
           "cases": 179,
-          "cumul_cases": 309009
+          "cumul_cases": 308996
         },
         {
           "date": "2022-03-18",
           "cases": 148,
-          "cumul_cases": 309157
+          "cumul_cases": 309144
         },
         {
           "date": "2022-03-19",
           "cases": 93,
-          "cumul_cases": 309250
+          "cumul_cases": 309237
         },
         {
           "date": "2022-03-20",
           "cases": 96,
-          "cumul_cases": 309346
+          "cumul_cases": 309333
         },
         {
           "date": "2022-03-21",
           "cases": 184,
-          "cumul_cases": 309530
+          "cumul_cases": 309517
         },
         {
           "date": "2022-03-22",
           "cases": 237,
-          "cumul_cases": 309767
+          "cumul_cases": 309754
         },
         {
           "date": "2022-03-23",
           "cases": 162,
-          "cumul_cases": 309929
+          "cumul_cases": 309916
         },
         {
           "date": "2022-03-24",
           "cases": 186,
-          "cumul_cases": 310115
+          "cumul_cases": 310102
         },
         {
           "date": "2022-03-25",
           "cases": 148,
-          "cumul_cases": 310263
+          "cumul_cases": 310250
         },
         {
           "date": "2022-03-26",
           "cases": 142,
-          "cumul_cases": 310405
+          "cumul_cases": 310392
         },
         {
           "date": "2022-03-27",
           "cases": 141,
-          "cumul_cases": 310546
+          "cumul_cases": 310533
         },
         {
           "date": "2022-03-28",
           "cases": 211,
-          "cumul_cases": 310757
+          "cumul_cases": 310744
         },
         {
           "date": "2022-03-29",
           "cases": 245,
-          "cumul_cases": 311002
+          "cumul_cases": 310989
         },
         {
           "date": "2022-03-30",
           "cases": 261,
-          "cumul_cases": 311263
+          "cumul_cases": 311250
         },
         {
           "date": "2022-03-31",
           "cases": 200,
-          "cumul_cases": 311463
+          "cumul_cases": 311450
         },
         {
           "date": "2022-04-01",
           "cases": 201,
-          "cumul_cases": 311664
+          "cumul_cases": 311651
         },
         {
           "date": "2022-04-02",
           "cases": 128,
-          "cumul_cases": 311792
+          "cumul_cases": 311779
         },
         {
           "date": "2022-04-03",
           "cases": 144,
-          "cumul_cases": 311936
+          "cumul_cases": 311923
         },
         {
           "date": "2022-04-04",
           "cases": 300,
-          "cumul_cases": 312236
+          "cumul_cases": 312223
         },
         {
           "date": "2022-04-05",
           "cases": 263,
-          "cumul_cases": 312499
+          "cumul_cases": 312486
         },
         {
           "date": "2022-04-06",
           "cases": 282,
-          "cumul_cases": 312781
+          "cumul_cases": 312768
         },
         {
           "date": "2022-04-07",
-          "cases": 223,
-          "cumul_cases": 313004
+          "cases": 222,
+          "cumul_cases": 312990
         },
         {
           "date": "2022-04-08",
           "cases": 226,
-          "cumul_cases": 313230
+          "cumul_cases": 313216
         },
         {
           "date": "2022-04-09",
           "cases": 152,
-          "cumul_cases": 313382
+          "cumul_cases": 313368
         },
         {
           "date": "2022-04-10",
           "cases": 166,
-          "cumul_cases": 313548
+          "cumul_cases": 313534
         },
         {
           "date": "2022-04-11",
           "cases": 279,
-          "cumul_cases": 313827
+          "cumul_cases": 313813
         },
         {
           "date": "2022-04-12",
           "cases": 352,
-          "cumul_cases": 314179
+          "cumul_cases": 314165
         },
         {
           "date": "2022-04-13",
           "cases": 290,
-          "cumul_cases": 314469
+          "cumul_cases": 314455
         },
         {
           "date": "2022-04-14",
           "cases": 269,
-          "cumul_cases": 314738
+          "cumul_cases": 314724
         },
         {
           "date": "2022-04-15",
           "cases": 305,
-          "cumul_cases": 315043
+          "cumul_cases": 315029
         },
         {
           "date": "2022-04-16",
           "cases": 261,
-          "cumul_cases": 315304
+          "cumul_cases": 315290
         },
         {
           "date": "2022-04-17",
           "cases": 199,
-          "cumul_cases": 315503
+          "cumul_cases": 315489
         },
         {
           "date": "2022-04-18",
           "cases": 455,
-          "cumul_cases": 315958
+          "cumul_cases": 315944
         },
         {
           "date": "2022-04-19",
-          "cases": 449,
-          "cumul_cases": 316407
+          "cases": 448,
+          "cumul_cases": 316392
         },
         {
           "date": "2022-04-20",
           "cases": 425,
-          "cumul_cases": 316832
+          "cumul_cases": 316817
         },
         {
           "date": "2022-04-21",
           "cases": 415,
-          "cumul_cases": 317247
+          "cumul_cases": 317232
         },
         {
           "date": "2022-04-22",
           "cases": 463,
-          "cumul_cases": 317710
+          "cumul_cases": 317695
         },
         {
           "date": "2022-04-23",
           "cases": 306,
-          "cumul_cases": 318016
+          "cumul_cases": 318001
         },
         {
           "date": "2022-04-24",
           "cases": 335,
-          "cumul_cases": 318351
+          "cumul_cases": 318336
         },
         {
           "date": "2022-04-25",
           "cases": 687,
-          "cumul_cases": 319038
+          "cumul_cases": 319023
         },
         {
           "date": "2022-04-26",
           "cases": 641,
-          "cumul_cases": 319679
+          "cumul_cases": 319664
         },
         {
           "date": "2022-04-27",
           "cases": 578,
-          "cumul_cases": 320257
+          "cumul_cases": 320242
         },
         {
           "date": "2022-04-28",
           "cases": 543,
-          "cumul_cases": 320800
+          "cumul_cases": 320785
         },
         {
           "date": "2022-04-29",
           "cases": 562,
-          "cumul_cases": 321362
+          "cumul_cases": 321347
         },
         {
           "date": "2022-04-30",
           "cases": 452,
-          "cumul_cases": 321814
+          "cumul_cases": 321799
         },
         {
           "date": "2022-05-01",
           "cases": 390,
-          "cumul_cases": 322204
+          "cumul_cases": 322189
         },
         {
           "date": "2022-05-02",
           "cases": 893,
-          "cumul_cases": 323097
+          "cumul_cases": 323082
         },
         {
           "date": "2022-05-03",
           "cases": 932,
-          "cumul_cases": 324029
+          "cumul_cases": 324014
         },
         {
           "date": "2022-05-04",
-          "cases": 853,
-          "cumul_cases": 324882
+          "cases": 852,
+          "cumul_cases": 324866
         },
         {
           "date": "2022-05-05",
           "cases": 814,
-          "cumul_cases": 325696
+          "cumul_cases": 325680
         },
         {
           "date": "2022-05-06",
           "cases": 785,
-          "cumul_cases": 326481
+          "cumul_cases": 326465
         },
         {
           "date": "2022-05-07",
           "cases": 556,
-          "cumul_cases": 327037
+          "cumul_cases": 327021
         },
         {
           "date": "2022-05-08",
           "cases": 473,
-          "cumul_cases": 327510
+          "cumul_cases": 327494
         },
         {
           "date": "2022-05-09",
           "cases": 1040,
-          "cumul_cases": 328550
+          "cumul_cases": 328534
         },
         {
           "date": "2022-05-10",
-          "cases": 1207,
-          "cumul_cases": 329757
+          "cases": 1206,
+          "cumul_cases": 329740
         },
         {
           "date": "2022-05-11",
           "cases": 1060,
-          "cumul_cases": 330817
+          "cumul_cases": 330800
         },
         {
           "date": "2022-05-12",
-          "cases": 1045,
-          "cumul_cases": 331862
+          "cases": 1044,
+          "cumul_cases": 331844
         },
         {
           "date": "2022-05-13",
           "cases": 968,
-          "cumul_cases": 332830
+          "cumul_cases": 332812
         },
         {
           "date": "2022-05-14",
           "cases": 714,
-          "cumul_cases": 333544
+          "cumul_cases": 333526
         },
         {
           "date": "2022-05-15",
           "cases": 740,
-          "cumul_cases": 334284
+          "cumul_cases": 334266
         },
         {
           "date": "2022-05-16",
-          "cases": 1386,
-          "cumul_cases": 335670
+          "cases": 1384,
+          "cumul_cases": 335650
         },
         {
           "date": "2022-05-17",
           "cases": 1348,
-          "cumul_cases": 337018
+          "cumul_cases": 336998
         },
         {
           "date": "2022-05-18",
           "cases": 1268,
-          "cumul_cases": 338286
+          "cumul_cases": 338266
         },
         {
           "date": "2022-05-19",
           "cases": 1265,
-          "cumul_cases": 339551
+          "cumul_cases": 339531
         },
         {
           "date": "2022-05-20",
           "cases": 1100,
-          "cumul_cases": 340651
+          "cumul_cases": 340631
         },
         {
           "date": "2022-05-21",
-          "cases": 728,
-          "cumul_cases": 341379
+          "cases": 727,
+          "cumul_cases": 341358
         },
         {
           "date": "2022-05-22",
           "cases": 748,
-          "cumul_cases": 342127
+          "cumul_cases": 342106
         },
         {
           "date": "2022-05-23",
-          "cases": 1411,
-          "cumul_cases": 343538
+          "cases": 1412,
+          "cumul_cases": 343518
         },
         {
           "date": "2022-05-24",
           "cases": 1417,
-          "cumul_cases": 344955
+          "cumul_cases": 344935
         },
         {
           "date": "2022-05-25",
-          "cases": 1377,
-          "cumul_cases": 346332
+          "cases": 1376,
+          "cumul_cases": 346311
         },
         {
           "date": "2022-05-26",
-          "cases": 1161,
-          "cumul_cases": 347493
+          "cases": 1160,
+          "cumul_cases": 347471
         },
         {
           "date": "2022-05-27",
           "cases": 1042,
-          "cumul_cases": 348535
+          "cumul_cases": 348513
         },
         {
           "date": "2022-05-28",
-          "cases": 721,
-          "cumul_cases": 349256
+          "cases": 720,
+          "cumul_cases": 349233
         },
         {
           "date": "2022-05-29",
-          "cases": 717,
-          "cumul_cases": 349973
+          "cases": 716,
+          "cumul_cases": 349949
         },
         {
           "date": "2022-05-30",
           "cases": 713,
-          "cumul_cases": 350686
+          "cumul_cases": 350662
         },
         {
           "date": "2022-05-31",
           "cases": 1651,
-          "cumul_cases": 352337
+          "cumul_cases": 352313
         },
         {
           "date": "2022-06-01",
-          "cases": 1433,
-          "cumul_cases": 353770
+          "cases": 1432,
+          "cumul_cases": 353745
         },
         {
           "date": "2022-06-02",
-          "cases": 1209,
-          "cumul_cases": 354979
+          "cases": 1208,
+          "cumul_cases": 354953
         },
         {
           "date": "2022-06-03",
           "cases": 1145,
-          "cumul_cases": 356124
+          "cumul_cases": 356098
         },
         {
           "date": "2022-06-04",
           "cases": 862,
-          "cumul_cases": 356986
+          "cumul_cases": 356960
         },
         {
           "date": "2022-06-05",
           "cases": 783,
-          "cumul_cases": 357769
+          "cumul_cases": 357743
         },
         {
           "date": "2022-06-06",
           "cases": 1426,
-          "cumul_cases": 359195
+          "cumul_cases": 359169
         },
         {
           "date": "2022-06-07",
           "cases": 1264,
-          "cumul_cases": 360459
+          "cumul_cases": 360433
         },
         {
           "date": "2022-06-08",
           "cases": 1205,
-          "cumul_cases": 361664
+          "cumul_cases": 361638
         },
         {
           "date": "2022-06-09",
           "cases": 1072,
-          "cumul_cases": 362736
+          "cumul_cases": 362710
         },
         {
           "date": "2022-06-10",
           "cases": 1058,
-          "cumul_cases": 363794
+          "cumul_cases": 363768
         },
         {
           "date": "2022-06-11",
           "cases": 700,
-          "cumul_cases": 364494
+          "cumul_cases": 364468
         },
         {
           "date": "2022-06-12",
           "cases": 653,
-          "cumul_cases": 365147
+          "cumul_cases": 365121
         },
         {
           "date": "2022-06-13",
           "cases": 1104,
-          "cumul_cases": 366251
+          "cumul_cases": 366225
         },
         {
           "date": "2022-06-14",
           "cases": 1116,
-          "cumul_cases": 367367
+          "cumul_cases": 367341
         },
         {
           "date": "2022-06-15",
           "cases": 1123,
-          "cumul_cases": 368490
+          "cumul_cases": 368464
         },
         {
           "date": "2022-06-16",
-          "cases": 972,
-          "cumul_cases": 369462
+          "cases": 973,
+          "cumul_cases": 369437
         },
         {
           "date": "2022-06-17",
           "cases": 970,
-          "cumul_cases": 370432
+          "cumul_cases": 370407
         },
         {
           "date": "2022-06-18",
           "cases": 761,
-          "cumul_cases": 371193
+          "cumul_cases": 371168
         },
         {
           "date": "2022-06-19",
           "cases": 667,
-          "cumul_cases": 371860
+          "cumul_cases": 371835
         },
         {
           "date": "2022-06-20",
           "cases": 1148,
-          "cumul_cases": 373008
+          "cumul_cases": 372983
         },
         {
           "date": "2022-06-21",
           "cases": 1284,
-          "cumul_cases": 374292
+          "cumul_cases": 374267
         },
         {
           "date": "2022-06-22",
           "cases": 1187,
-          "cumul_cases": 375479
+          "cumul_cases": 375454
         },
         {
           "date": "2022-06-23",
           "cases": 1120,
-          "cumul_cases": 376599
+          "cumul_cases": 376574
         },
         {
           "date": "2022-06-24",
           "cases": 1032,
-          "cumul_cases": 377631
+          "cumul_cases": 377606
         },
         {
           "date": "2022-06-25",
           "cases": 786,
-          "cumul_cases": 378417
+          "cumul_cases": 378392
         },
         {
           "date": "2022-06-26",
           "cases": 738,
-          "cumul_cases": 379155
+          "cumul_cases": 379130
         },
         {
           "date": "2022-06-27",
           "cases": 1332,
-          "cumul_cases": 380487
+          "cumul_cases": 380462
         },
         {
           "date": "2022-06-28",
           "cases": 1520,
-          "cumul_cases": 382007
+          "cumul_cases": 381982
         },
         {
           "date": "2022-06-29",
           "cases": 1239,
-          "cumul_cases": 383246
+          "cumul_cases": 383221
         },
         {
           "date": "2022-06-30",
           "cases": 1076,
-          "cumul_cases": 384322
+          "cumul_cases": 384297
         },
         {
           "date": "2022-07-01",
           "cases": 1053,
-          "cumul_cases": 385375
+          "cumul_cases": 385350
         },
         {
           "date": "2022-07-02",
           "cases": 665,
-          "cumul_cases": 386040
+          "cumul_cases": 386015
         },
         {
           "date": "2022-07-03",
           "cases": 652,
-          "cumul_cases": 386692
+          "cumul_cases": 386667
         },
         {
           "date": "2022-07-04",
           "cases": 531,
-          "cumul_cases": 387223
+          "cumul_cases": 387198
         },
         {
           "date": "2022-07-05",
           "cases": 1572,
-          "cumul_cases": 388795
+          "cumul_cases": 388770
         },
         {
           "date": "2022-07-06",
           "cases": 1214,
-          "cumul_cases": 390009
+          "cumul_cases": 389984
         },
         {
           "date": "2022-07-07",
           "cases": 1188,
-          "cumul_cases": 391197
+          "cumul_cases": 391172
         },
         {
           "date": "2022-07-08",
           "cases": 1026,
-          "cumul_cases": 392223
+          "cumul_cases": 392198
         },
         {
           "date": "2022-07-09",
           "cases": 774,
-          "cumul_cases": 392997
+          "cumul_cases": 392972
         },
         {
           "date": "2022-07-10",
           "cases": 663,
-          "cumul_cases": 393660
+          "cumul_cases": 393635
         },
         {
           "date": "2022-07-11",
           "cases": 1133,
-          "cumul_cases": 394793
+          "cumul_cases": 394768
         },
         {
           "date": "2022-07-12",
           "cases": 1104,
-          "cumul_cases": 395897
+          "cumul_cases": 395872
         },
         {
           "date": "2022-07-13",
           "cases": 1015,
-          "cumul_cases": 396912
+          "cumul_cases": 396887
         },
         {
           "date": "2022-07-14",
-          "cases": 924,
-          "cumul_cases": 397836
+          "cases": 928,
+          "cumul_cases": 397815
         },
         {
           "date": "2022-07-15",
-          "cases": 907,
-          "cumul_cases": 398743
+          "cases": 909,
+          "cumul_cases": 398724
         },
         {
           "date": "2022-07-16",
           "cases": 655,
-          "cumul_cases": 399398
+          "cumul_cases": 399379
         },
         {
           "date": "2022-07-17",
           "cases": 623,
-          "cumul_cases": 400021
+          "cumul_cases": 400002
         },
         {
           "date": "2022-07-18",
           "cases": 1115,
-          "cumul_cases": 401136
+          "cumul_cases": 401117
         },
         {
           "date": "2022-07-19",
-          "cases": 1006,
-          "cumul_cases": 402142
+          "cases": 1009,
+          "cumul_cases": 402126
         },
         {
           "date": "2022-07-20",
-          "cases": 978,
-          "cumul_cases": 403120
+          "cases": 982,
+          "cumul_cases": 403108
         },
         {
           "date": "2022-07-21",
-          "cases": 879,
-          "cumul_cases": 403999
+          "cases": 880,
+          "cumul_cases": 403988
         },
         {
           "date": "2022-07-22",
           "cases": 857,
-          "cumul_cases": 404856
+          "cumul_cases": 404845
         },
         {
           "date": "2022-07-23",
           "cases": 609,
-          "cumul_cases": 405465
+          "cumul_cases": 405454
         },
         {
           "date": "2022-07-24",
           "cases": 517,
-          "cumul_cases": 405982
+          "cumul_cases": 405971
         },
         {
           "date": "2022-07-25",
-          "cases": 1014,
-          "cumul_cases": 406996
+          "cases": 1015,
+          "cumul_cases": 406986
         },
         {
           "date": "2022-07-26",
-          "cases": 925,
-          "cumul_cases": 407921
+          "cases": 927,
+          "cumul_cases": 407913
         },
         {
           "date": "2022-07-27",
-          "cases": 931,
-          "cumul_cases": 408852
+          "cases": 933,
+          "cumul_cases": 408846
         },
         {
           "date": "2022-07-28",
-          "cases": 715,
-          "cumul_cases": 409567
+          "cases": 716,
+          "cumul_cases": 409562
         },
         {
           "date": "2022-07-29",
           "cases": 693,
-          "cumul_cases": 410260
+          "cumul_cases": 410255
         },
         {
           "date": "2022-07-30",
           "cases": 474,
-          "cumul_cases": 410734
+          "cumul_cases": 410729
         },
         {
           "date": "2022-07-31",
           "cases": 463,
-          "cumul_cases": 411197
+          "cumul_cases": 411192
         },
         {
           "date": "2022-08-01",
           "cases": 733,
-          "cumul_cases": 411930
+          "cumul_cases": 411925
         },
         {
           "date": "2022-08-02",
           "cases": 836,
-          "cumul_cases": 412766
+          "cumul_cases": 412761
         },
         {
           "date": "2022-08-03",
           "cases": 669,
-          "cumul_cases": 413435
+          "cumul_cases": 413430
         },
         {
           "date": "2022-08-04",
           "cases": 470,
-          "cumul_cases": 413905
+          "cumul_cases": 413900
         },
         {
           "date": "2022-08-05",
           "cases": 580,
-          "cumul_cases": 414485
+          "cumul_cases": 414480
         },
         {
           "date": "2022-08-06",
           "cases": 490,
-          "cumul_cases": 414975
+          "cumul_cases": 414970
         },
         {
           "date": "2022-08-07",
           "cases": 431,
-          "cumul_cases": 415406
+          "cumul_cases": 415401
         },
         {
           "date": "2022-08-08",
           "cases": 712,
-          "cumul_cases": 416118
+          "cumul_cases": 416113
         },
         {
           "date": "2022-08-09",
           "cases": 627,
-          "cumul_cases": 416745
+          "cumul_cases": 416740
         },
         {
           "date": "2022-08-10",
           "cases": 594,
-          "cumul_cases": 417339
+          "cumul_cases": 417334
         },
         {
           "date": "2022-08-11",
           "cases": 546,
-          "cumul_cases": 417885
+          "cumul_cases": 417880
         },
         {
           "date": "2022-08-12",
           "cases": 446,
-          "cumul_cases": 418331
+          "cumul_cases": 418326
         },
         {
           "date": "2022-08-13",
           "cases": 336,
-          "cumul_cases": 418667
+          "cumul_cases": 418662
         },
         {
           "date": "2022-08-14",
           "cases": 286,
-          "cumul_cases": 418953
+          "cumul_cases": 418948
         },
         {
           "date": "2022-08-15",
           "cases": 596,
-          "cumul_cases": 419549
+          "cumul_cases": 419544
         },
         {
           "date": "2022-08-16",
           "cases": 541,
-          "cumul_cases": 420090
+          "cumul_cases": 420085
         },
         {
           "date": "2022-08-17",
           "cases": 503,
-          "cumul_cases": 420593
+          "cumul_cases": 420588
         },
         {
           "date": "2022-08-18",
           "cases": 485,
-          "cumul_cases": 421078
+          "cumul_cases": 421073
         },
         {
           "date": "2022-08-19",
           "cases": 458,
-          "cumul_cases": 421536
+          "cumul_cases": 421531
         },
         {
           "date": "2022-08-20",
           "cases": 313,
-          "cumul_cases": 421849
+          "cumul_cases": 421844
         },
         {
           "date": "2022-08-21",
           "cases": 241,
-          "cumul_cases": 422090
+          "cumul_cases": 422085
         },
         {
           "date": "2022-08-22",
           "cases": 517,
-          "cumul_cases": 422607
+          "cumul_cases": 422602
         },
         {
           "date": "2022-08-23",
           "cases": 442,
-          "cumul_cases": 423049
+          "cumul_cases": 423044
         },
         {
           "date": "2022-08-24",
           "cases": 399,
-          "cumul_cases": 423448
+          "cumul_cases": 423443
         },
         {
           "date": "2022-08-25",
-          "cases": 338,
-          "cumul_cases": 423786
+          "cases": 339,
+          "cumul_cases": 423782
         },
         {
           "date": "2022-08-26",
           "cases": 331,
-          "cumul_cases": 424117
+          "cumul_cases": 424113
         },
         {
           "date": "2022-08-27",
           "cases": 236,
-          "cumul_cases": 424353
+          "cumul_cases": 424349
         },
         {
           "date": "2022-08-28",
           "cases": 207,
-          "cumul_cases": 424560
+          "cumul_cases": 424556
         },
         {
           "date": "2022-08-29",
           "cases": 388,
-          "cumul_cases": 424948
+          "cumul_cases": 424944
         },
         {
           "date": "2022-08-30",
           "cases": 411,
-          "cumul_cases": 425359
+          "cumul_cases": 425355
         },
         {
           "date": "2022-08-31",
-          "cases": 355,
-          "cumul_cases": 425714
+          "cases": 356,
+          "cumul_cases": 425711
         },
         {
           "date": "2022-09-01",
-          "cases": 286,
+          "cases": 289,
           "cumul_cases": 426000
         },
         {
@@ -64371,17 +64371,17 @@
         },
         {
           "date": "2022-09-03",
-          "cases": 187,
-          "cumul_cases": 426504
+          "cases": 188,
+          "cumul_cases": 426505
         },
         {
           "date": "2022-09-04",
           "cases": 178,
-          "cumul_cases": 426682
+          "cumul_cases": 426683
         },
         {
           "date": "2022-09-05",
-          "cases": 166,
+          "cases": 165,
           "cumul_cases": 426848
         },
         {
@@ -64391,33 +64391,38 @@
         },
         {
           "date": "2022-09-07",
-          "cases": 290,
-          "cumul_cases": 427494
+          "cases": 291,
+          "cumul_cases": 427495
         },
         {
           "date": "2022-09-08",
           "cases": 270,
-          "cumul_cases": 427764
+          "cumul_cases": 427765
         },
         {
           "date": "2022-09-09",
-          "cases": 255,
-          "cumul_cases": 428019
+          "cases": 256,
+          "cumul_cases": 428021
         },
         {
           "date": "2022-09-10",
-          "cases": 156,
-          "cumul_cases": 428175
+          "cases": 166,
+          "cumul_cases": 428187
         },
         {
           "date": "2022-09-11",
-          "cases": 171,
-          "cumul_cases": 428346
+          "cases": 193,
+          "cumul_cases": 428380
         },
         {
           "date": "2022-09-12",
-          "cases": 55,
-          "cumul_cases": 428401
+          "cases": 256,
+          "cumul_cases": 428636
+        },
+        {
+          "date": "2022-09-13",
+          "cases": 34,
+          "cumul_cases": 428670
         }
       ],
       "deaths": [
@@ -75615,12 +75620,12 @@
         },
         {
           "date": "2022-01-07",
-          "tests": 39908,
-          "positive": 6457,
+          "tests": 39909,
+          "positive": 6458,
           "negative": 33451,
           "pending": -1,
-          "cumul_tests": 7173655,
-          "cumul_pos": 244205,
+          "cumul_tests": 7173656,
+          "cumul_pos": 244206,
           "cumul_neg": 6929450,
           "cumul_pend": -1
         },
@@ -75630,8 +75635,8 @@
           "positive": 3873,
           "negative": 14694,
           "pending": -1,
-          "cumul_tests": 7192222,
-          "cumul_pos": 248078,
+          "cumul_tests": 7192223,
+          "cumul_pos": 248079,
           "cumul_neg": 6944144,
           "cumul_pend": -1
         },
@@ -75641,8 +75646,8 @@
           "positive": 3641,
           "negative": 13987,
           "pending": -1,
-          "cumul_tests": 7209850,
-          "cumul_pos": 251719,
+          "cumul_tests": 7209851,
+          "cumul_pos": 251720,
           "cumul_neg": 6958131,
           "cumul_pend": -1
         },
@@ -75652,8 +75657,8 @@
           "positive": 7715,
           "negative": 41310,
           "pending": -1,
-          "cumul_tests": 7258875,
-          "cumul_pos": 259434,
+          "cumul_tests": 7258876,
+          "cumul_pos": 259435,
           "cumul_neg": 6999441,
           "cumul_pend": -1
         },
@@ -75663,8 +75668,8 @@
           "positive": 7395,
           "negative": 39569,
           "pending": -1,
-          "cumul_tests": 7305839,
-          "cumul_pos": 266829,
+          "cumul_tests": 7305840,
+          "cumul_pos": 266830,
           "cumul_neg": 7039010,
           "cumul_pend": -1
         },
@@ -75674,8 +75679,8 @@
           "positive": 7138,
           "negative": 37424,
           "pending": -1,
-          "cumul_tests": 7350401,
-          "cumul_pos": 273967,
+          "cumul_tests": 7350402,
+          "cumul_pos": 273968,
           "cumul_neg": 7076434,
           "cumul_pend": -1
         },
@@ -75685,8 +75690,8 @@
           "positive": 6346,
           "negative": 35610,
           "pending": -1,
-          "cumul_tests": 7392357,
-          "cumul_pos": 280313,
+          "cumul_tests": 7392358,
+          "cumul_pos": 280314,
           "cumul_neg": 7112044,
           "cumul_pend": -1
         },
@@ -75696,8 +75701,8 @@
           "positive": 5993,
           "negative": 26675,
           "pending": -1,
-          "cumul_tests": 7425025,
-          "cumul_pos": 286306,
+          "cumul_tests": 7425026,
+          "cumul_pos": 286307,
           "cumul_neg": 7138719,
           "cumul_pend": -1
         },
@@ -75707,8 +75712,8 @@
           "positive": 3197,
           "negative": 12221,
           "pending": -1,
-          "cumul_tests": 7440443,
-          "cumul_pos": 289503,
+          "cumul_tests": 7440444,
+          "cumul_pos": 289504,
           "cumul_neg": 7150940,
           "cumul_pend": -1
         },
@@ -75718,8 +75723,8 @@
           "positive": 2793,
           "negative": 11938,
           "pending": -1,
-          "cumul_tests": 7455174,
-          "cumul_pos": 292296,
+          "cumul_tests": 7455175,
+          "cumul_pos": 292297,
           "cumul_neg": 7162878,
           "cumul_pend": -1
         },
@@ -75729,8 +75734,8 @@
           "positive": 5097,
           "negative": 22517,
           "pending": -1,
-          "cumul_tests": 7482788,
-          "cumul_pos": 297393,
+          "cumul_tests": 7482789,
+          "cumul_pos": 297394,
           "cumul_neg": 7185395,
           "cumul_pend": -1
         },
@@ -75740,8 +75745,8 @@
           "positive": 6159,
           "negative": 41049,
           "pending": -1,
-          "cumul_tests": 7529996,
-          "cumul_pos": 303552,
+          "cumul_tests": 7529997,
+          "cumul_pos": 303553,
           "cumul_neg": 7226444,
           "cumul_pend": -1
         },
@@ -75751,8 +75756,8 @@
           "positive": 5556,
           "negative": 35383,
           "pending": -1,
-          "cumul_tests": 7570935,
-          "cumul_pos": 309108,
+          "cumul_tests": 7570936,
+          "cumul_pos": 309109,
           "cumul_neg": 7261827,
           "cumul_pend": -1
         },
@@ -75762,8 +75767,8 @@
           "positive": 5307,
           "negative": 35140,
           "pending": -1,
-          "cumul_tests": 7611382,
-          "cumul_pos": 314415,
+          "cumul_tests": 7611383,
+          "cumul_pos": 314416,
           "cumul_neg": 7296967,
           "cumul_pend": -1
         },
@@ -75773,8 +75778,8 @@
           "positive": 4551,
           "negative": 26610,
           "pending": -1,
-          "cumul_tests": 7642543,
-          "cumul_pos": 318966,
+          "cumul_tests": 7642544,
+          "cumul_pos": 318967,
           "cumul_neg": 7323577,
           "cumul_pend": -1
         },
@@ -75784,8 +75789,8 @@
           "positive": 2336,
           "negative": 10939,
           "pending": -1,
-          "cumul_tests": 7655818,
-          "cumul_pos": 321302,
+          "cumul_tests": 7655819,
+          "cumul_pos": 321303,
           "cumul_neg": 7334516,
           "cumul_pend": -1
         },
@@ -75795,8 +75800,8 @@
           "positive": 2273,
           "negative": 10583,
           "pending": -1,
-          "cumul_tests": 7668674,
-          "cumul_pos": 323575,
+          "cumul_tests": 7668675,
+          "cumul_pos": 323576,
           "cumul_neg": 7345099,
           "cumul_pend": -1
         },
@@ -75806,8 +75811,8 @@
           "positive": 4865,
           "negative": 33979,
           "pending": -1,
-          "cumul_tests": 7707518,
-          "cumul_pos": 328440,
+          "cumul_tests": 7707519,
+          "cumul_pos": 328441,
           "cumul_neg": 7379078,
           "cumul_pend": -1
         },
@@ -75817,8 +75822,8 @@
           "positive": 4128,
           "negative": 33334,
           "pending": -1,
-          "cumul_tests": 7744980,
-          "cumul_pos": 332568,
+          "cumul_tests": 7744981,
+          "cumul_pos": 332569,
           "cumul_neg": 7412412,
           "cumul_pend": -1
         },
@@ -75828,8 +75833,8 @@
           "positive": 3764,
           "negative": 35581,
           "pending": -1,
-          "cumul_tests": 7784325,
-          "cumul_pos": 336332,
+          "cumul_tests": 7784326,
+          "cumul_pos": 336333,
           "cumul_neg": 7447993,
           "cumul_pend": -1
         },
@@ -75839,8 +75844,8 @@
           "positive": 3331,
           "negative": 34436,
           "pending": -1,
-          "cumul_tests": 7822092,
-          "cumul_pos": 339663,
+          "cumul_tests": 7822093,
+          "cumul_pos": 339664,
           "cumul_neg": 7482429,
           "cumul_pend": -1
         },
@@ -75850,8 +75855,8 @@
           "positive": 3233,
           "negative": 25737,
           "pending": -1,
-          "cumul_tests": 7851062,
-          "cumul_pos": 342896,
+          "cumul_tests": 7851063,
+          "cumul_pos": 342897,
           "cumul_neg": 7508166,
           "cumul_pend": -1
         },
@@ -75861,8 +75866,8 @@
           "positive": 1763,
           "negative": 9277,
           "pending": -1,
-          "cumul_tests": 7862102,
-          "cumul_pos": 344659,
+          "cumul_tests": 7862103,
+          "cumul_pos": 344660,
           "cumul_neg": 7517443,
           "cumul_pend": -1
         },
@@ -75872,8 +75877,8 @@
           "positive": 1459,
           "negative": 8795,
           "pending": -1,
-          "cumul_tests": 7872356,
-          "cumul_pos": 346118,
+          "cumul_tests": 7872357,
+          "cumul_pos": 346119,
           "cumul_neg": 7526238,
           "cumul_pend": -1
         },
@@ -75883,8 +75888,8 @@
           "positive": 3049,
           "negative": 33950,
           "pending": -1,
-          "cumul_tests": 7909355,
-          "cumul_pos": 349167,
+          "cumul_tests": 7909356,
+          "cumul_pos": 349168,
           "cumul_neg": 7560188,
           "cumul_pend": -1
         },
@@ -75894,8 +75899,8 @@
           "positive": 2317,
           "negative": 31734,
           "pending": -1,
-          "cumul_tests": 7943406,
-          "cumul_pos": 351484,
+          "cumul_tests": 7943407,
+          "cumul_pos": 351485,
           "cumul_neg": 7591922,
           "cumul_pend": -1
         },
@@ -75905,8 +75910,8 @@
           "positive": 2275,
           "negative": 28965,
           "pending": -1,
-          "cumul_tests": 7974646,
-          "cumul_pos": 353759,
+          "cumul_tests": 7974647,
+          "cumul_pos": 353760,
           "cumul_neg": 7620887,
           "cumul_pend": -1
         },
@@ -75916,8 +75921,8 @@
           "positive": 1772,
           "negative": 30297,
           "pending": -1,
-          "cumul_tests": 8006715,
-          "cumul_pos": 355531,
+          "cumul_tests": 8006716,
+          "cumul_pos": 355532,
           "cumul_neg": 7651184,
           "cumul_pend": -1
         },
@@ -75927,8 +75932,8 @@
           "positive": 1749,
           "negative": 22454,
           "pending": -1,
-          "cumul_tests": 8030918,
-          "cumul_pos": 357280,
+          "cumul_tests": 8030919,
+          "cumul_pos": 357281,
           "cumul_neg": 7673638,
           "cumul_pend": -1
         },
@@ -75938,8 +75943,8 @@
           "positive": 946,
           "negative": 6647,
           "pending": -1,
-          "cumul_tests": 8038511,
-          "cumul_pos": 358226,
+          "cumul_tests": 8038512,
+          "cumul_pos": 358227,
           "cumul_neg": 7680285,
           "cumul_pend": -1
         },
@@ -75949,8 +75954,8 @@
           "positive": 874,
           "negative": 7337,
           "pending": -1,
-          "cumul_tests": 8046722,
-          "cumul_pos": 359100,
+          "cumul_tests": 8046723,
+          "cumul_pos": 359101,
           "cumul_neg": 7687622,
           "cumul_pend": -1
         },
@@ -75960,8 +75965,8 @@
           "positive": 1726,
           "negative": 31793,
           "pending": -1,
-          "cumul_tests": 8080241,
-          "cumul_pos": 360826,
+          "cumul_tests": 8080242,
+          "cumul_pos": 360827,
           "cumul_neg": 7719415,
           "cumul_pend": -1
         },
@@ -75971,8 +75976,8 @@
           "positive": 1316,
           "negative": 29498,
           "pending": -1,
-          "cumul_tests": 8111055,
-          "cumul_pos": 362142,
+          "cumul_tests": 8111056,
+          "cumul_pos": 362143,
           "cumul_neg": 7748913,
           "cumul_pend": -1
         },
@@ -75982,8 +75987,8 @@
           "positive": 1347,
           "negative": 27230,
           "pending": -1,
-          "cumul_tests": 8139632,
-          "cumul_pos": 363489,
+          "cumul_tests": 8139633,
+          "cumul_pos": 363490,
           "cumul_neg": 7776143,
           "cumul_pend": -1
         },
@@ -75993,8 +75998,8 @@
           "positive": 1053,
           "negative": 27548,
           "pending": -1,
-          "cumul_tests": 8168233,
-          "cumul_pos": 364542,
+          "cumul_tests": 8168234,
+          "cumul_pos": 364543,
           "cumul_neg": 7803691,
           "cumul_pend": -1
         },
@@ -76004,8 +76009,8 @@
           "positive": 994,
           "negative": 20779,
           "pending": -1,
-          "cumul_tests": 8190006,
-          "cumul_pos": 365536,
+          "cumul_tests": 8190007,
+          "cumul_pos": 365537,
           "cumul_neg": 7824470,
           "cumul_pend": -1
         },
@@ -76015,8 +76020,8 @@
           "positive": 641,
           "negative": 5769,
           "pending": -1,
-          "cumul_tests": 8196416,
-          "cumul_pos": 366177,
+          "cumul_tests": 8196417,
+          "cumul_pos": 366178,
           "cumul_neg": 7830239,
           "cumul_pend": -1
         },
@@ -76026,8 +76031,8 @@
           "positive": 479,
           "negative": 5618,
           "pending": -1,
-          "cumul_tests": 8202513,
-          "cumul_pos": 366656,
+          "cumul_tests": 8202514,
+          "cumul_pos": 366657,
           "cumul_neg": 7835857,
           "cumul_pend": -1
         },
@@ -76037,8 +76042,8 @@
           "positive": 921,
           "negative": 28124,
           "pending": -1,
-          "cumul_tests": 8231558,
-          "cumul_pos": 367577,
+          "cumul_tests": 8231559,
+          "cumul_pos": 367578,
           "cumul_neg": 7863981,
           "cumul_pend": -1
         },
@@ -76048,8 +76053,8 @@
           "positive": 756,
           "negative": 28528,
           "pending": -1,
-          "cumul_tests": 8260842,
-          "cumul_pos": 368333,
+          "cumul_tests": 8260843,
+          "cumul_pos": 368334,
           "cumul_neg": 7892509,
           "cumul_pend": -1
         },
@@ -76059,8 +76064,8 @@
           "positive": 729,
           "negative": 25307,
           "pending": -1,
-          "cumul_tests": 8286878,
-          "cumul_pos": 369062,
+          "cumul_tests": 8286879,
+          "cumul_pos": 369063,
           "cumul_neg": 7917816,
           "cumul_pend": -1
         },
@@ -76070,8 +76075,8 @@
           "positive": 529,
           "negative": 24510,
           "pending": -1,
-          "cumul_tests": 8311917,
-          "cumul_pos": 369591,
+          "cumul_tests": 8311918,
+          "cumul_pos": 369592,
           "cumul_neg": 7942326,
           "cumul_pend": -1
         },
@@ -76081,8 +76086,8 @@
           "positive": 548,
           "negative": 16922,
           "pending": -1,
-          "cumul_tests": 8329387,
-          "cumul_pos": 370139,
+          "cumul_tests": 8329388,
+          "cumul_pos": 370140,
           "cumul_neg": 7959248,
           "cumul_pend": -1
         },
@@ -76092,8 +76097,8 @@
           "positive": 309,
           "negative": 4551,
           "pending": -1,
-          "cumul_tests": 8334247,
-          "cumul_pos": 370448,
+          "cumul_tests": 8334248,
+          "cumul_pos": 370449,
           "cumul_neg": 7963799,
           "cumul_pend": -1
         },
@@ -76103,8 +76108,8 @@
           "positive": 248,
           "negative": 4448,
           "pending": -1,
-          "cumul_tests": 8338943,
-          "cumul_pos": 370696,
+          "cumul_tests": 8338944,
+          "cumul_pos": 370697,
           "cumul_neg": 7968247,
           "cumul_pend": -1
         },
@@ -76114,8 +76119,8 @@
           "positive": 373,
           "negative": 9066,
           "pending": -1,
-          "cumul_tests": 8348382,
-          "cumul_pos": 371069,
+          "cumul_tests": 8348383,
+          "cumul_pos": 371070,
           "cumul_neg": 7977313,
           "cumul_pend": -1
         },
@@ -76125,8 +76130,8 @@
           "positive": 477,
           "negative": 18698,
           "pending": -1,
-          "cumul_tests": 8367557,
-          "cumul_pos": 371546,
+          "cumul_tests": 8367558,
+          "cumul_pos": 371547,
           "cumul_neg": 7996011,
           "cumul_pend": -1
         },
@@ -76136,8 +76141,8 @@
           "positive": 400,
           "negative": 14787,
           "pending": -1,
-          "cumul_tests": 8382744,
-          "cumul_pos": 371946,
+          "cumul_tests": 8382745,
+          "cumul_pos": 371947,
           "cumul_neg": 8010798,
           "cumul_pend": -1
         },
@@ -76147,8 +76152,8 @@
           "positive": 355,
           "negative": 16357,
           "pending": -1,
-          "cumul_tests": 8399456,
-          "cumul_pos": 372301,
+          "cumul_tests": 8399457,
+          "cumul_pos": 372302,
           "cumul_neg": 8027155,
           "cumul_pend": -1
         },
@@ -76158,8 +76163,8 @@
           "positive": 340,
           "negative": 11538,
           "pending": -1,
-          "cumul_tests": 8411334,
-          "cumul_pos": 372641,
+          "cumul_tests": 8411335,
+          "cumul_pos": 372642,
           "cumul_neg": 8038693,
           "cumul_pend": -1
         },
@@ -76169,8 +76174,8 @@
           "positive": 239,
           "negative": 5046,
           "pending": -1,
-          "cumul_tests": 8416619,
-          "cumul_pos": 372880,
+          "cumul_tests": 8416620,
+          "cumul_pos": 372881,
           "cumul_neg": 8043739,
           "cumul_pend": -1
         },
@@ -76180,8 +76185,8 @@
           "positive": 191,
           "negative": 5501,
           "pending": -1,
-          "cumul_tests": 8422311,
-          "cumul_pos": 373071,
+          "cumul_tests": 8422312,
+          "cumul_pos": 373072,
           "cumul_neg": 8049240,
           "cumul_pend": -1
         },
@@ -76191,8 +76196,8 @@
           "positive": 407,
           "negative": 25646,
           "pending": -1,
-          "cumul_tests": 8448364,
-          "cumul_pos": 373478,
+          "cumul_tests": 8448365,
+          "cumul_pos": 373479,
           "cumul_neg": 8074886,
           "cumul_pend": -1
         },
@@ -76202,8 +76207,8 @@
           "positive": 342,
           "negative": 23346,
           "pending": -1,
-          "cumul_tests": 8472052,
-          "cumul_pos": 373820,
+          "cumul_tests": 8472053,
+          "cumul_pos": 373821,
           "cumul_neg": 8098232,
           "cumul_pend": -1
         },
@@ -76213,8 +76218,8 @@
           "positive": 324,
           "negative": 18361,
           "pending": -1,
-          "cumul_tests": 8490737,
-          "cumul_pos": 374144,
+          "cumul_tests": 8490738,
+          "cumul_pos": 374145,
           "cumul_neg": 8116593,
           "cumul_pend": -1
         },
@@ -76224,8 +76229,8 @@
           "positive": 324,
           "negative": 21507,
           "pending": -1,
-          "cumul_tests": 8512568,
-          "cumul_pos": 374468,
+          "cumul_tests": 8512569,
+          "cumul_pos": 374469,
           "cumul_neg": 8138100,
           "cumul_pend": -1
         },
@@ -76235,8 +76240,8 @@
           "positive": 257,
           "negative": 14747,
           "pending": -1,
-          "cumul_tests": 8527572,
-          "cumul_pos": 374725,
+          "cumul_tests": 8527573,
+          "cumul_pos": 374726,
           "cumul_neg": 8152847,
           "cumul_pend": -1
         },
@@ -76246,8 +76251,8 @@
           "positive": 161,
           "negative": 3651,
           "pending": -1,
-          "cumul_tests": 8531384,
-          "cumul_pos": 374886,
+          "cumul_tests": 8531385,
+          "cumul_pos": 374887,
           "cumul_neg": 8156498,
           "cumul_pend": -1
         },
@@ -76257,8 +76262,8 @@
           "positive": 128,
           "negative": 4187,
           "pending": -1,
-          "cumul_tests": 8535699,
-          "cumul_pos": 375014,
+          "cumul_tests": 8535700,
+          "cumul_pos": 375015,
           "cumul_neg": 8160685,
           "cumul_pend": -1
         },
@@ -76268,8 +76273,8 @@
           "positive": 329,
           "negative": 20664,
           "pending": -1,
-          "cumul_tests": 8556692,
-          "cumul_pos": 375343,
+          "cumul_tests": 8556693,
+          "cumul_pos": 375344,
           "cumul_neg": 8181349,
           "cumul_pend": -1
         },
@@ -76279,8 +76284,8 @@
           "positive": 259,
           "negative": 20725,
           "pending": -1,
-          "cumul_tests": 8577676,
-          "cumul_pos": 375602,
+          "cumul_tests": 8577677,
+          "cumul_pos": 375603,
           "cumul_neg": 8202074,
           "cumul_pend": -1
         },
@@ -76290,8 +76295,8 @@
           "positive": 272,
           "negative": 17246,
           "pending": -1,
-          "cumul_tests": 8595194,
-          "cumul_pos": 375874,
+          "cumul_tests": 8595195,
+          "cumul_pos": 375875,
           "cumul_neg": 8219320,
           "cumul_pend": -1
         },
@@ -76301,8 +76306,8 @@
           "positive": 184,
           "negative": 16526,
           "pending": -1,
-          "cumul_tests": 8611904,
-          "cumul_pos": 376058,
+          "cumul_tests": 8611905,
+          "cumul_pos": 376059,
           "cumul_neg": 8235846,
           "cumul_pend": -1
         },
@@ -76312,8 +76317,8 @@
           "positive": 206,
           "negative": 13456,
           "pending": -1,
-          "cumul_tests": 8625566,
-          "cumul_pos": 376264,
+          "cumul_tests": 8625567,
+          "cumul_pos": 376265,
           "cumul_neg": 8249302,
           "cumul_pend": -1
         },
@@ -76323,8 +76328,8 @@
           "positive": 130,
           "negative": 3865,
           "pending": -1,
-          "cumul_tests": 8629561,
-          "cumul_pos": 376394,
+          "cumul_tests": 8629562,
+          "cumul_pos": 376395,
           "cumul_neg": 8253167,
           "cumul_pend": -1
         },
@@ -76334,8 +76339,8 @@
           "positive": 97,
           "negative": 3646,
           "pending": -1,
-          "cumul_tests": 8633304,
-          "cumul_pos": 376491,
+          "cumul_tests": 8633305,
+          "cumul_pos": 376492,
           "cumul_neg": 8256813,
           "cumul_pend": -1
         },
@@ -76345,8 +76350,8 @@
           "positive": 246,
           "negative": 16031,
           "pending": -1,
-          "cumul_tests": 8649581,
-          "cumul_pos": 376737,
+          "cumul_tests": 8649582,
+          "cumul_pos": 376738,
           "cumul_neg": 8272844,
           "cumul_pend": -1
         },
@@ -76356,8 +76361,8 @@
           "positive": 226,
           "negative": 19503,
           "pending": -1,
-          "cumul_tests": 8669310,
-          "cumul_pos": 376963,
+          "cumul_tests": 8669311,
+          "cumul_pos": 376964,
           "cumul_neg": 8292347,
           "cumul_pend": -1
         },
@@ -76367,8 +76372,8 @@
           "positive": 230,
           "negative": 15735,
           "pending": -1,
-          "cumul_tests": 8685275,
-          "cumul_pos": 377193,
+          "cumul_tests": 8685276,
+          "cumul_pos": 377194,
           "cumul_neg": 8308082,
           "cumul_pend": -1
         },
@@ -76378,8 +76383,8 @@
           "positive": 221,
           "negative": 17038,
           "pending": -1,
-          "cumul_tests": 8702534,
-          "cumul_pos": 377414,
+          "cumul_tests": 8702535,
+          "cumul_pos": 377415,
           "cumul_neg": 8325120,
           "cumul_pend": -1
         },
@@ -76389,8 +76394,8 @@
           "positive": 182,
           "negative": 13328,
           "pending": -1,
-          "cumul_tests": 8716044,
-          "cumul_pos": 377596,
+          "cumul_tests": 8716045,
+          "cumul_pos": 377597,
           "cumul_neg": 8338448,
           "cumul_pend": -1
         },
@@ -76400,8 +76405,8 @@
           "positive": 129,
           "negative": 3401,
           "pending": -1,
-          "cumul_tests": 8719574,
-          "cumul_pos": 377725,
+          "cumul_tests": 8719575,
+          "cumul_pos": 377726,
           "cumul_neg": 8341849,
           "cumul_pend": -1
         },
@@ -76411,8 +76416,8 @@
           "positive": 123,
           "negative": 3340,
           "pending": -1,
-          "cumul_tests": 8723037,
-          "cumul_pos": 377848,
+          "cumul_tests": 8723038,
+          "cumul_pos": 377849,
           "cumul_neg": 8345189,
           "cumul_pend": -1
         },
@@ -76422,8 +76427,8 @@
           "positive": 233,
           "negative": 17298,
           "pending": -1,
-          "cumul_tests": 8740568,
-          "cumul_pos": 378081,
+          "cumul_tests": 8740569,
+          "cumul_pos": 378082,
           "cumul_neg": 8362487,
           "cumul_pend": -1
         },
@@ -76433,8 +76438,8 @@
           "positive": 297,
           "negative": 18383,
           "pending": -1,
-          "cumul_tests": 8759248,
-          "cumul_pos": 378378,
+          "cumul_tests": 8759249,
+          "cumul_pos": 378379,
           "cumul_neg": 8380870,
           "cumul_pend": -1
         },
@@ -76444,8 +76449,8 @@
           "positive": 198,
           "negative": 14676,
           "pending": -1,
-          "cumul_tests": 8774122,
-          "cumul_pos": 378576,
+          "cumul_tests": 8774123,
+          "cumul_pos": 378577,
           "cumul_neg": 8395546,
           "cumul_pend": -1
         },
@@ -76455,8 +76460,8 @@
           "positive": 211,
           "negative": 17022,
           "pending": -1,
-          "cumul_tests": 8791355,
-          "cumul_pos": 378787,
+          "cumul_tests": 8791356,
+          "cumul_pos": 378788,
           "cumul_neg": 8412568,
           "cumul_pend": -1
         },
@@ -76466,8 +76471,8 @@
           "positive": 182,
           "negative": 13842,
           "pending": -1,
-          "cumul_tests": 8805379,
-          "cumul_pos": 378969,
+          "cumul_tests": 8805380,
+          "cumul_pos": 378970,
           "cumul_neg": 8426410,
           "cumul_pend": -1
         },
@@ -76477,8 +76482,8 @@
           "positive": 168,
           "negative": 3471,
           "pending": -1,
-          "cumul_tests": 8809018,
-          "cumul_pos": 379137,
+          "cumul_tests": 8809019,
+          "cumul_pos": 379138,
           "cumul_neg": 8429881,
           "cumul_pend": -1
         },
@@ -76488,8 +76493,8 @@
           "positive": 177,
           "negative": 4044,
           "pending": -1,
-          "cumul_tests": 8813239,
-          "cumul_pos": 379314,
+          "cumul_tests": 8813240,
+          "cumul_pos": 379315,
           "cumul_neg": 8433925,
           "cumul_pend": -1
         },
@@ -76499,8 +76504,8 @@
           "positive": 270,
           "negative": 19177,
           "pending": -1,
-          "cumul_tests": 8832686,
-          "cumul_pos": 379584,
+          "cumul_tests": 8832687,
+          "cumul_pos": 379585,
           "cumul_neg": 8453102,
           "cumul_pend": -1
         },
@@ -76510,8 +76515,8 @@
           "positive": 298,
           "negative": 19089,
           "pending": -1,
-          "cumul_tests": 8852073,
-          "cumul_pos": 379882,
+          "cumul_tests": 8852074,
+          "cumul_pos": 379883,
           "cumul_neg": 8472191,
           "cumul_pend": -1
         },
@@ -76521,8 +76526,8 @@
           "positive": 307,
           "negative": 14931,
           "pending": -1,
-          "cumul_tests": 8867311,
-          "cumul_pos": 380189,
+          "cumul_tests": 8867312,
+          "cumul_pos": 380190,
           "cumul_neg": 8487122,
           "cumul_pend": -1
         },
@@ -76532,8 +76537,8 @@
           "positive": 248,
           "negative": 13692,
           "pending": -1,
-          "cumul_tests": 8881251,
-          "cumul_pos": 380437,
+          "cumul_tests": 8881252,
+          "cumul_pos": 380438,
           "cumul_neg": 8500814,
           "cumul_pend": -1
         },
@@ -76543,8 +76548,8 @@
           "positive": 246,
           "negative": 13626,
           "pending": -1,
-          "cumul_tests": 8895123,
-          "cumul_pos": 380683,
+          "cumul_tests": 8895124,
+          "cumul_pos": 380684,
           "cumul_neg": 8514440,
           "cumul_pend": -1
         },
@@ -76554,8 +76559,8 @@
           "positive": 158,
           "negative": 3614,
           "pending": -1,
-          "cumul_tests": 8898895,
-          "cumul_pos": 380841,
+          "cumul_tests": 8898896,
+          "cumul_pos": 380842,
           "cumul_neg": 8518054,
           "cumul_pend": -1
         },
@@ -76565,8 +76570,8 @@
           "positive": 177,
           "negative": 3322,
           "pending": -1,
-          "cumul_tests": 8902394,
-          "cumul_pos": 381018,
+          "cumul_tests": 8902395,
+          "cumul_pos": 381019,
           "cumul_neg": 8521376,
           "cumul_pend": -1
         },
@@ -76576,8 +76581,8 @@
           "positive": 359,
           "negative": 15661,
           "pending": -1,
-          "cumul_tests": 8918414,
-          "cumul_pos": 381377,
+          "cumul_tests": 8918415,
+          "cumul_pos": 381378,
           "cumul_neg": 8537037,
           "cumul_pend": -1
         },
@@ -76587,8 +76592,8 @@
           "positive": 308,
           "negative": 15813,
           "pending": -1,
-          "cumul_tests": 8934535,
-          "cumul_pos": 381685,
+          "cumul_tests": 8934536,
+          "cumul_pos": 381686,
           "cumul_neg": 8552850,
           "cumul_pend": -1
         },
@@ -76598,8 +76603,8 @@
           "positive": 325,
           "negative": 12615,
           "pending": -1,
-          "cumul_tests": 8947475,
-          "cumul_pos": 382010,
+          "cumul_tests": 8947476,
+          "cumul_pos": 382011,
           "cumul_neg": 8565465,
           "cumul_pend": -1
         },
@@ -76609,8 +76614,8 @@
           "positive": 263,
           "negative": 14172,
           "pending": -1,
-          "cumul_tests": 8961910,
-          "cumul_pos": 382273,
+          "cumul_tests": 8961911,
+          "cumul_pos": 382274,
           "cumul_neg": 8579637,
           "cumul_pend": -1
         },
@@ -76620,8 +76625,8 @@
           "positive": 286,
           "negative": 11650,
           "pending": -1,
-          "cumul_tests": 8973846,
-          "cumul_pos": 382559,
+          "cumul_tests": 8973847,
+          "cumul_pos": 382560,
           "cumul_neg": 8591287,
           "cumul_pend": -1
         },
@@ -76631,8 +76636,8 @@
           "positive": 178,
           "negative": 3425,
           "pending": -1,
-          "cumul_tests": 8977449,
-          "cumul_pos": 382737,
+          "cumul_tests": 8977450,
+          "cumul_pos": 382738,
           "cumul_neg": 8594712,
           "cumul_pend": -1
         },
@@ -76642,8 +76647,8 @@
           "positive": 210,
           "negative": 3442,
           "pending": -1,
-          "cumul_tests": 8981101,
-          "cumul_pos": 382947,
+          "cumul_tests": 8981102,
+          "cumul_pos": 382948,
           "cumul_neg": 8598154,
           "cumul_pend": -1
         },
@@ -76653,8 +76658,8 @@
           "positive": 337,
           "negative": 16371,
           "pending": -1,
-          "cumul_tests": 8997809,
-          "cumul_pos": 383284,
+          "cumul_tests": 8997810,
+          "cumul_pos": 383285,
           "cumul_neg": 8614525,
           "cumul_pend": -1
         },
@@ -76664,8 +76669,8 @@
           "positive": 411,
           "negative": 15497,
           "pending": -1,
-          "cumul_tests": 9013717,
-          "cumul_pos": 383695,
+          "cumul_tests": 9013718,
+          "cumul_pos": 383696,
           "cumul_neg": 8630022,
           "cumul_pend": -1
         },
@@ -76675,8 +76680,8 @@
           "positive": 345,
           "negative": 11632,
           "pending": -1,
-          "cumul_tests": 9025694,
-          "cumul_pos": 384040,
+          "cumul_tests": 9025695,
+          "cumul_pos": 384041,
           "cumul_neg": 8641654,
           "cumul_pend": -1
         },
@@ -76686,8 +76691,8 @@
           "positive": 310,
           "negative": 11353,
           "pending": -1,
-          "cumul_tests": 9037357,
-          "cumul_pos": 384350,
+          "cumul_tests": 9037358,
+          "cumul_pos": 384351,
           "cumul_neg": 8653007,
           "cumul_pend": -1
         },
@@ -76697,8 +76702,8 @@
           "positive": 355,
           "negative": 9561,
           "pending": -1,
-          "cumul_tests": 9047273,
-          "cumul_pos": 384705,
+          "cumul_tests": 9047274,
+          "cumul_pos": 384706,
           "cumul_neg": 8662568,
           "cumul_pend": -1
         },
@@ -76708,8 +76713,8 @@
           "positive": 296,
           "negative": 3329,
           "pending": -1,
-          "cumul_tests": 9050898,
-          "cumul_pos": 385001,
+          "cumul_tests": 9050899,
+          "cumul_pos": 385002,
           "cumul_neg": 8665897,
           "cumul_pend": -1
         },
@@ -76719,8 +76724,8 @@
           "positive": 229,
           "negative": 2744,
           "pending": -1,
-          "cumul_tests": 9053871,
-          "cumul_pos": 385230,
+          "cumul_tests": 9053872,
+          "cumul_pos": 385231,
           "cumul_neg": 8668641,
           "cumul_pend": -1
         },
@@ -76730,8 +76735,8 @@
           "positive": 510,
           "negative": 12862,
           "pending": -1,
-          "cumul_tests": 9067243,
-          "cumul_pos": 385740,
+          "cumul_tests": 9067244,
+          "cumul_pos": 385741,
           "cumul_neg": 8681503,
           "cumul_pend": -1
         },
@@ -76741,8 +76746,8 @@
           "positive": 510,
           "negative": 13608,
           "pending": -1,
-          "cumul_tests": 9081361,
-          "cumul_pos": 386250,
+          "cumul_tests": 9081362,
+          "cumul_pos": 386251,
           "cumul_neg": 8695111,
           "cumul_pend": -1
         },
@@ -76752,8 +76757,8 @@
           "positive": 471,
           "negative": 10155,
           "pending": -1,
-          "cumul_tests": 9091987,
-          "cumul_pos": 386721,
+          "cumul_tests": 9091988,
+          "cumul_pos": 386722,
           "cumul_neg": 8705266,
           "cumul_pend": -1
         },
@@ -76763,8 +76768,8 @@
           "positive": 489,
           "negative": 11004,
           "pending": -1,
-          "cumul_tests": 9103480,
-          "cumul_pos": 387210,
+          "cumul_tests": 9103481,
+          "cumul_pos": 387211,
           "cumul_neg": 8716270,
           "cumul_pend": -1
         },
@@ -76774,8 +76779,8 @@
           "positive": 556,
           "negative": 10827,
           "pending": -1,
-          "cumul_tests": 9114863,
-          "cumul_pos": 387766,
+          "cumul_tests": 9114864,
+          "cumul_pos": 387767,
           "cumul_neg": 8727097,
           "cumul_pend": -1
         },
@@ -76785,8 +76790,8 @@
           "positive": 376,
           "negative": 3637,
           "pending": -1,
-          "cumul_tests": 9118876,
-          "cumul_pos": 388142,
+          "cumul_tests": 9118877,
+          "cumul_pos": 388143,
           "cumul_neg": 8730734,
           "cumul_pend": -1
         },
@@ -76796,8 +76801,8 @@
           "positive": 395,
           "negative": 3664,
           "pending": -1,
-          "cumul_tests": 9122935,
-          "cumul_pos": 388537,
+          "cumul_tests": 9122936,
+          "cumul_pos": 388538,
           "cumul_neg": 8734398,
           "cumul_pend": -1
         },
@@ -76807,8 +76812,8 @@
           "positive": 798,
           "negative": 18702,
           "pending": -1,
-          "cumul_tests": 9142435,
-          "cumul_pos": 389335,
+          "cumul_tests": 9142436,
+          "cumul_pos": 389336,
           "cumul_neg": 8753100,
           "cumul_pend": -1
         },
@@ -76818,8 +76823,8 @@
           "positive": 730,
           "negative": 18868,
           "pending": -1,
-          "cumul_tests": 9162033,
-          "cumul_pos": 390065,
+          "cumul_tests": 9162034,
+          "cumul_pos": 390066,
           "cumul_neg": 8771968,
           "cumul_pend": -1
         },
@@ -76829,8 +76834,8 @@
           "positive": 701,
           "negative": 14588,
           "pending": -1,
-          "cumul_tests": 9177322,
-          "cumul_pos": 390766,
+          "cumul_tests": 9177323,
+          "cumul_pos": 390767,
           "cumul_neg": 8786556,
           "cumul_pend": -1
         },
@@ -76840,8 +76845,8 @@
           "positive": 631,
           "negative": 16989,
           "pending": -1,
-          "cumul_tests": 9194942,
-          "cumul_pos": 391397,
+          "cumul_tests": 9194943,
+          "cumul_pos": 391398,
           "cumul_neg": 8803545,
           "cumul_pend": -1
         },
@@ -76851,8 +76856,8 @@
           "positive": 685,
           "negative": 13557,
           "pending": -1,
-          "cumul_tests": 9209184,
-          "cumul_pos": 392082,
+          "cumul_tests": 9209185,
+          "cumul_pos": 392083,
           "cumul_neg": 8817102,
           "cumul_pend": -1
         },
@@ -76862,8 +76867,8 @@
           "positive": 565,
           "negative": 4043,
           "pending": -1,
-          "cumul_tests": 9213792,
-          "cumul_pos": 392647,
+          "cumul_tests": 9213793,
+          "cumul_pos": 392648,
           "cumul_neg": 8821145,
           "cumul_pend": -1
         },
@@ -76873,8 +76878,8 @@
           "positive": 473,
           "negative": 3952,
           "pending": -1,
-          "cumul_tests": 9218217,
-          "cumul_pos": 393120,
+          "cumul_tests": 9218218,
+          "cumul_pos": 393121,
           "cumul_neg": 8825097,
           "cumul_pend": -1
         },
@@ -76884,8 +76889,8 @@
           "positive": 1040,
           "negative": 18017,
           "pending": -1,
-          "cumul_tests": 9237274,
-          "cumul_pos": 394160,
+          "cumul_tests": 9237275,
+          "cumul_pos": 394161,
           "cumul_neg": 8843114,
           "cumul_pend": -1
         },
@@ -76895,8 +76900,8 @@
           "positive": 1078,
           "negative": 21056,
           "pending": -1,
-          "cumul_tests": 9259408,
-          "cumul_pos": 395238,
+          "cumul_tests": 9259409,
+          "cumul_pos": 395239,
           "cumul_neg": 8864170,
           "cumul_pend": -1
         },
@@ -76906,8 +76911,8 @@
           "positive": 998,
           "negative": 16291,
           "pending": -1,
-          "cumul_tests": 9276697,
-          "cumul_pos": 396236,
+          "cumul_tests": 9276698,
+          "cumul_pos": 396237,
           "cumul_neg": 8880461,
           "cumul_pend": -1
         },
@@ -76917,8 +76922,8 @@
           "positive": 939,
           "negative": 19175,
           "pending": -1,
-          "cumul_tests": 9296811,
-          "cumul_pos": 397175,
+          "cumul_tests": 9296812,
+          "cumul_pos": 397176,
           "cumul_neg": 8899636,
           "cumul_pend": -1
         },
@@ -76928,8 +76933,8 @@
           "positive": 930,
           "negative": 13410,
           "pending": -1,
-          "cumul_tests": 9311151,
-          "cumul_pos": 398105,
+          "cumul_tests": 9311152,
+          "cumul_pos": 398106,
           "cumul_neg": 8913046,
           "cumul_pend": -1
         },
@@ -76939,8 +76944,8 @@
           "positive": 672,
           "negative": 4266,
           "pending": -1,
-          "cumul_tests": 9316089,
-          "cumul_pos": 398777,
+          "cumul_tests": 9316090,
+          "cumul_pos": 398778,
           "cumul_neg": 8917312,
           "cumul_pend": -1
         },
@@ -76950,8 +76955,8 @@
           "positive": 577,
           "negative": 4141,
           "pending": -1,
-          "cumul_tests": 9320807,
-          "cumul_pos": 399354,
+          "cumul_tests": 9320808,
+          "cumul_pos": 399355,
           "cumul_neg": 8921453,
           "cumul_pend": -1
         },
@@ -76961,8 +76966,8 @@
           "positive": 1213,
           "negative": 19928,
           "pending": -1,
-          "cumul_tests": 9341948,
-          "cumul_pos": 400567,
+          "cumul_tests": 9341949,
+          "cumul_pos": 400568,
           "cumul_neg": 8941381,
           "cumul_pend": -1
         },
@@ -76972,8 +76977,8 @@
           "positive": 1367,
           "negative": 20701,
           "pending": -1,
-          "cumul_tests": 9364016,
-          "cumul_pos": 401934,
+          "cumul_tests": 9364017,
+          "cumul_pos": 401935,
           "cumul_neg": 8962082,
           "cumul_pend": -1
         },
@@ -76983,8 +76988,8 @@
           "positive": 1226,
           "negative": 18334,
           "pending": -1,
-          "cumul_tests": 9383576,
-          "cumul_pos": 403160,
+          "cumul_tests": 9383577,
+          "cumul_pos": 403161,
           "cumul_neg": 8980416,
           "cumul_pend": -1
         },
@@ -76994,8 +76999,8 @@
           "positive": 1219,
           "negative": 19102,
           "pending": -1,
-          "cumul_tests": 9403897,
-          "cumul_pos": 404379,
+          "cumul_tests": 9403898,
+          "cumul_pos": 404380,
           "cumul_neg": 8999518,
           "cumul_pend": -1
         },
@@ -77005,8 +77010,8 @@
           "positive": 1136,
           "negative": 15020,
           "pending": -1,
-          "cumul_tests": 9420053,
-          "cumul_pos": 405515,
+          "cumul_tests": 9420054,
+          "cumul_pos": 405516,
           "cumul_neg": 9014538,
           "cumul_pend": -1
         },
@@ -77016,8 +77021,8 @@
           "positive": 868,
           "negative": 4422,
           "pending": -1,
-          "cumul_tests": 9425343,
-          "cumul_pos": 406383,
+          "cumul_tests": 9425344,
+          "cumul_pos": 406384,
           "cumul_neg": 9018960,
           "cumul_pend": -1
         },
@@ -77027,8 +77032,8 @@
           "positive": 868,
           "negative": 4576,
           "pending": -1,
-          "cumul_tests": 9430787,
-          "cumul_pos": 407251,
+          "cumul_tests": 9430788,
+          "cumul_pos": 407252,
           "cumul_neg": 9023536,
           "cumul_pend": -1
         },
@@ -77038,8 +77043,8 @@
           "positive": 1585,
           "negative": 20994,
           "pending": -1,
-          "cumul_tests": 9453366,
-          "cumul_pos": 408836,
+          "cumul_tests": 9453367,
+          "cumul_pos": 408837,
           "cumul_neg": 9044530,
           "cumul_pend": -1
         },
@@ -77049,8 +77054,8 @@
           "positive": 1539,
           "negative": 20421,
           "pending": -1,
-          "cumul_tests": 9475326,
-          "cumul_pos": 410375,
+          "cumul_tests": 9475327,
+          "cumul_pos": 410376,
           "cumul_neg": 9064951,
           "cumul_pend": -1
         },
@@ -77060,8 +77065,8 @@
           "positive": 1471,
           "negative": 17217,
           "pending": -1,
-          "cumul_tests": 9494014,
-          "cumul_pos": 411846,
+          "cumul_tests": 9494015,
+          "cumul_pos": 411847,
           "cumul_neg": 9082168,
           "cumul_pend": -1
         },
@@ -77071,8 +77076,8 @@
           "positive": 1488,
           "negative": 19247,
           "pending": -1,
-          "cumul_tests": 9514749,
-          "cumul_pos": 413334,
+          "cumul_tests": 9514750,
+          "cumul_pos": 413335,
           "cumul_neg": 9101415,
           "cumul_pend": -1
         },
@@ -77082,8 +77087,8 @@
           "positive": 1359,
           "negative": 14919,
           "pending": -1,
-          "cumul_tests": 9531027,
-          "cumul_pos": 414693,
+          "cumul_tests": 9531028,
+          "cumul_pos": 414694,
           "cumul_neg": 9116334,
           "cumul_pend": -1
         },
@@ -77093,8 +77098,8 @@
           "positive": 869,
           "negative": 4267,
           "pending": -1,
-          "cumul_tests": 9536163,
-          "cumul_pos": 415562,
+          "cumul_tests": 9536164,
+          "cumul_pos": 415563,
           "cumul_neg": 9120601,
           "cumul_pend": -1
         },
@@ -77104,8 +77109,8 @@
           "positive": 898,
           "negative": 4603,
           "pending": -1,
-          "cumul_tests": 9541664,
-          "cumul_pos": 416460,
+          "cumul_tests": 9541665,
+          "cumul_pos": 416461,
           "cumul_neg": 9125204,
           "cumul_pend": -1
         },
@@ -77115,20 +77120,20 @@
           "positive": 1656,
           "negative": 19628,
           "pending": -1,
-          "cumul_tests": 9562948,
-          "cumul_pos": 418116,
+          "cumul_tests": 9562949,
+          "cumul_pos": 418117,
           "cumul_neg": 9144832,
           "cumul_pend": -1
         },
         {
           "date": "2022-05-24",
-          "tests": 21499,
+          "tests": 21498,
           "positive": 1650,
-          "negative": 19849,
+          "negative": 19848,
           "pending": -1,
           "cumul_tests": 9584447,
-          "cumul_pos": 419766,
-          "cumul_neg": 9164681,
+          "cumul_pos": 419767,
+          "cumul_neg": 9164680,
           "cumul_pend": -1
         },
         {
@@ -77138,8 +77143,8 @@
           "negative": 16450,
           "pending": -1,
           "cumul_tests": 9602471,
-          "cumul_pos": 421340,
-          "cumul_neg": 9181131,
+          "cumul_pos": 421341,
+          "cumul_neg": 9181130,
           "cumul_pend": -1
         },
         {
@@ -77149,8 +77154,8 @@
           "negative": 15405,
           "pending": -1,
           "cumul_tests": 9619233,
-          "cumul_pos": 422697,
-          "cumul_neg": 9196536,
+          "cumul_pos": 422698,
+          "cumul_neg": 9196535,
           "cumul_pend": -1
         },
         {
@@ -77160,8 +77165,8 @@
           "negative": 10796,
           "pending": -1,
           "cumul_tests": 9631286,
-          "cumul_pos": 423954,
-          "cumul_neg": 9207332,
+          "cumul_pos": 423955,
+          "cumul_neg": 9207331,
           "cumul_pend": -1
         },
         {
@@ -77171,8 +77176,8 @@
           "negative": 3993,
           "pending": -1,
           "cumul_tests": 9636152,
-          "cumul_pos": 424827,
-          "cumul_neg": 9211325,
+          "cumul_pos": 424828,
+          "cumul_neg": 9211324,
           "cumul_pend": -1
         },
         {
@@ -77182,8 +77187,8 @@
           "negative": 3772,
           "pending": -1,
           "cumul_tests": 9640805,
-          "cumul_pos": 425708,
-          "cumul_neg": 9215097,
+          "cumul_pos": 425709,
+          "cumul_neg": 9215096,
           "cumul_pend": -1
         },
         {
@@ -77193,8 +77198,8 @@
           "negative": 5186,
           "pending": -1,
           "cumul_tests": 9646875,
-          "cumul_pos": 426592,
-          "cumul_neg": 9220283,
+          "cumul_pos": 426593,
+          "cumul_neg": 9220282,
           "cumul_pend": -1
         },
         {
@@ -77204,8 +77209,8 @@
           "negative": 21812,
           "pending": -1,
           "cumul_tests": 9670735,
-          "cumul_pos": 428640,
-          "cumul_neg": 9242095,
+          "cumul_pos": 428641,
+          "cumul_neg": 9242094,
           "cumul_pend": -1
         },
         {
@@ -77215,8 +77220,8 @@
           "negative": 16295,
           "pending": -1,
           "cumul_tests": 9688727,
-          "cumul_pos": 430337,
-          "cumul_neg": 9258390,
+          "cumul_pos": 430338,
+          "cumul_neg": 9258389,
           "cumul_pend": -1
         },
         {
@@ -77226,8 +77231,8 @@
           "negative": 15157,
           "pending": -1,
           "cumul_tests": 9705362,
-          "cumul_pos": 431815,
-          "cumul_neg": 9273547,
+          "cumul_pos": 431816,
+          "cumul_neg": 9273546,
           "cumul_pend": -1
         },
         {
@@ -77237,8 +77242,8 @@
           "negative": 12866,
           "pending": -1,
           "cumul_tests": 9719608,
-          "cumul_pos": 433195,
-          "cumul_neg": 9286413,
+          "cumul_pos": 433196,
+          "cumul_neg": 9286412,
           "cumul_pend": -1
         },
         {
@@ -77248,8 +77253,8 @@
           "negative": 4858,
           "pending": -1,
           "cumul_tests": 9725534,
-          "cumul_pos": 434263,
-          "cumul_neg": 9291271,
+          "cumul_pos": 434264,
+          "cumul_neg": 9291270,
           "cumul_pend": -1
         },
         {
@@ -77259,8 +77264,8 @@
           "negative": 4528,
           "pending": -1,
           "cumul_tests": 9731038,
-          "cumul_pos": 435239,
-          "cumul_neg": 9295799,
+          "cumul_pos": 435240,
+          "cumul_neg": 9295798,
           "cumul_pend": -1
         },
         {
@@ -77270,8 +77275,8 @@
           "negative": 14678,
           "pending": -1,
           "cumul_tests": 9747451,
-          "cumul_pos": 436974,
-          "cumul_neg": 9310477,
+          "cumul_pos": 436975,
+          "cumul_neg": 9310476,
           "cumul_pend": -1
         },
         {
@@ -77281,8 +77286,8 @@
           "negative": 15582,
           "pending": -1,
           "cumul_tests": 9764541,
-          "cumul_pos": 438482,
-          "cumul_neg": 9326059,
+          "cumul_pos": 438483,
+          "cumul_neg": 9326058,
           "cumul_pend": -1
         },
         {
@@ -77292,8 +77297,8 @@
           "negative": 13171,
           "pending": -1,
           "cumul_tests": 9779166,
-          "cumul_pos": 439936,
-          "cumul_neg": 9339230,
+          "cumul_pos": 439937,
+          "cumul_neg": 9339229,
           "cumul_pend": -1
         },
         {
@@ -77303,8 +77308,8 @@
           "negative": 9918,
           "pending": -1,
           "cumul_tests": 9790408,
-          "cumul_pos": 441260,
-          "cumul_neg": 9349148,
+          "cumul_pos": 441261,
+          "cumul_neg": 9349147,
           "cumul_pend": -1
         },
         {
@@ -77314,8 +77319,8 @@
           "negative": 8468,
           "pending": -1,
           "cumul_tests": 9800186,
-          "cumul_pos": 442570,
-          "cumul_neg": 9357616,
+          "cumul_pos": 442571,
+          "cumul_neg": 9357615,
           "cumul_pend": -1
         },
         {
@@ -77325,8 +77330,8 @@
           "negative": 4144,
           "pending": -1,
           "cumul_tests": 9805197,
-          "cumul_pos": 443437,
-          "cumul_neg": 9361760,
+          "cumul_pos": 443438,
+          "cumul_neg": 9361759,
           "cumul_pend": -1
         },
         {
@@ -77336,8 +77341,8 @@
           "negative": 4072,
           "pending": -1,
           "cumul_tests": 9810122,
-          "cumul_pos": 444290,
-          "cumul_neg": 9365832,
+          "cumul_pos": 444291,
+          "cumul_neg": 9365831,
           "cumul_pend": -1
         },
         {
@@ -77347,8 +77352,8 @@
           "negative": 10687,
           "pending": -1,
           "cumul_tests": 9822189,
-          "cumul_pos": 445670,
-          "cumul_neg": 9376519,
+          "cumul_pos": 445671,
+          "cumul_neg": 9376518,
           "cumul_pend": -1
         },
         {
@@ -77358,8 +77363,8 @@
           "negative": 10302,
           "pending": -1,
           "cumul_tests": 9833898,
-          "cumul_pos": 447077,
-          "cumul_neg": 9386821,
+          "cumul_pos": 447078,
+          "cumul_neg": 9386820,
           "cumul_pend": -1
         },
         {
@@ -77369,19 +77374,19 @@
           "negative": 9828,
           "pending": -1,
           "cumul_tests": 9845098,
-          "cumul_pos": 448449,
-          "cumul_neg": 9396649,
+          "cumul_pos": 448450,
+          "cumul_neg": 9396648,
           "cumul_pend": -1
         },
         {
           "date": "2022-06-16",
-          "tests": 10569,
-          "positive": 1197,
+          "tests": 10570,
+          "positive": 1198,
           "negative": 9372,
           "pending": -1,
-          "cumul_tests": 9855667,
-          "cumul_pos": 449646,
-          "cumul_neg": 9406021,
+          "cumul_tests": 9855668,
+          "cumul_pos": 449648,
+          "cumul_neg": 9406020,
           "cumul_pend": -1
         },
         {
@@ -77390,9 +77395,9 @@
           "positive": 1201,
           "negative": 7623,
           "pending": -1,
-          "cumul_tests": 9864491,
-          "cumul_pos": 450847,
-          "cumul_neg": 9413644,
+          "cumul_tests": 9864492,
+          "cumul_pos": 450849,
+          "cumul_neg": 9413643,
           "cumul_pend": -1
         },
         {
@@ -77401,9 +77406,9 @@
           "positive": 937,
           "negative": 4205,
           "pending": -1,
-          "cumul_tests": 9869633,
-          "cumul_pos": 451784,
-          "cumul_neg": 9417849,
+          "cumul_tests": 9869634,
+          "cumul_pos": 451786,
+          "cumul_neg": 9417848,
           "cumul_pend": -1
         },
         {
@@ -77412,9 +77417,9 @@
           "positive": 850,
           "negative": 3502,
           "pending": -1,
-          "cumul_tests": 9873985,
-          "cumul_pos": 452634,
-          "cumul_neg": 9421351,
+          "cumul_tests": 9873986,
+          "cumul_pos": 452636,
+          "cumul_neg": 9421350,
           "cumul_pend": -1
         },
         {
@@ -77423,9 +77428,9 @@
           "positive": 1365,
           "negative": 8334,
           "pending": -1,
-          "cumul_tests": 9883684,
-          "cumul_pos": 453999,
-          "cumul_neg": 9429685,
+          "cumul_tests": 9883685,
+          "cumul_pos": 454001,
+          "cumul_neg": 9429684,
           "cumul_pend": -1
         },
         {
@@ -77434,9 +77439,9 @@
           "positive": 1489,
           "negative": 9825,
           "pending": -1,
-          "cumul_tests": 9894998,
-          "cumul_pos": 455488,
-          "cumul_neg": 9439510,
+          "cumul_tests": 9894999,
+          "cumul_pos": 455490,
+          "cumul_neg": 9439509,
           "cumul_pend": -1
         },
         {
@@ -77445,20 +77450,20 @@
           "positive": 1385,
           "negative": 8112,
           "pending": -1,
-          "cumul_tests": 9904495,
-          "cumul_pos": 456873,
-          "cumul_neg": 9447622,
+          "cumul_tests": 9904496,
+          "cumul_pos": 456875,
+          "cumul_neg": 9447621,
           "cumul_pend": -1
         },
         {
           "date": "2022-06-23",
-          "tests": 10139,
+          "tests": 10138,
           "positive": 1315,
-          "negative": 8824,
+          "negative": 8823,
           "pending": -1,
           "cumul_tests": 9914634,
-          "cumul_pos": 458188,
-          "cumul_neg": 9456446,
+          "cumul_pos": 458190,
+          "cumul_neg": 9456444,
           "cumul_pend": -1
         },
         {
@@ -77468,8 +77473,8 @@
           "negative": 7004,
           "pending": -1,
           "cumul_tests": 9922898,
-          "cumul_pos": 459448,
-          "cumul_neg": 9463450,
+          "cumul_pos": 459450,
+          "cumul_neg": 9463448,
           "cumul_pend": -1
         },
         {
@@ -77479,8 +77484,8 @@
           "negative": 3555,
           "pending": -1,
           "cumul_tests": 9927391,
-          "cumul_pos": 460386,
-          "cumul_neg": 9467005,
+          "cumul_pos": 460388,
+          "cumul_neg": 9467003,
           "cumul_pend": -1
         },
         {
@@ -77490,8 +77495,8 @@
           "negative": 3530,
           "pending": -1,
           "cumul_tests": 9931821,
-          "cumul_pos": 461286,
-          "cumul_neg": 9470535,
+          "cumul_pos": 461288,
+          "cumul_neg": 9470533,
           "cumul_pend": -1
         },
         {
@@ -77501,8 +77506,8 @@
           "negative": 9726,
           "pending": -1,
           "cumul_tests": 9943117,
-          "cumul_pos": 462856,
-          "cumul_neg": 9480261,
+          "cumul_pos": 462858,
+          "cumul_neg": 9480259,
           "cumul_pend": -1
         },
         {
@@ -77512,8 +77517,8 @@
           "negative": 8956,
           "pending": -1,
           "cumul_tests": 9953864,
-          "cumul_pos": 464647,
-          "cumul_neg": 9489217,
+          "cumul_pos": 464649,
+          "cumul_neg": 9489215,
           "cumul_pend": -1
         },
         {
@@ -77523,8 +77528,8 @@
           "negative": 7774,
           "pending": -1,
           "cumul_tests": 9963059,
-          "cumul_pos": 466068,
-          "cumul_neg": 9496991,
+          "cumul_pos": 466070,
+          "cumul_neg": 9496989,
           "cumul_pend": -1
         },
         {
@@ -77534,8 +77539,8 @@
           "negative": 8177,
           "pending": -1,
           "cumul_tests": 9972551,
-          "cumul_pos": 467383,
-          "cumul_neg": 9505168,
+          "cumul_pos": 467385,
+          "cumul_neg": 9505166,
           "cumul_pend": -1
         },
         {
@@ -77545,8 +77550,8 @@
           "negative": 6176,
           "pending": -1,
           "cumul_tests": 9980015,
-          "cumul_pos": 468671,
-          "cumul_neg": 9511344,
+          "cumul_pos": 468673,
+          "cumul_neg": 9511342,
           "cumul_pend": -1
         },
         {
@@ -77556,8 +77561,8 @@
           "negative": 3433,
           "pending": -1,
           "cumul_tests": 9984277,
-          "cumul_pos": 469500,
-          "cumul_neg": 9514777,
+          "cumul_pos": 469502,
+          "cumul_neg": 9514775,
           "cumul_pend": -1
         },
         {
@@ -77567,8 +77572,8 @@
           "negative": 2864,
           "pending": -1,
           "cumul_tests": 9987946,
-          "cumul_pos": 470305,
-          "cumul_neg": 9517641,
+          "cumul_pos": 470307,
+          "cumul_neg": 9517639,
           "cumul_pend": -1
         },
         {
@@ -77578,8 +77583,8 @@
           "negative": 3535,
           "pending": -1,
           "cumul_tests": 9992156,
-          "cumul_pos": 470980,
-          "cumul_neg": 9521176,
+          "cumul_pos": 470982,
+          "cumul_neg": 9521174,
           "cumul_pend": -1
         },
         {
@@ -77589,8 +77594,8 @@
           "negative": 10569,
           "pending": -1,
           "cumul_tests": 10004571,
-          "cumul_pos": 472826,
-          "cumul_neg": 9531745,
+          "cumul_pos": 472828,
+          "cumul_neg": 9531743,
           "cumul_pend": -1
         },
         {
@@ -77600,8 +77605,8 @@
           "negative": 8095,
           "pending": -1,
           "cumul_tests": 10014094,
-          "cumul_pos": 474254,
-          "cumul_neg": 9539840,
+          "cumul_pos": 474256,
+          "cumul_neg": 9539838,
           "cumul_pend": -1
         },
         {
@@ -77611,8 +77616,8 @@
           "negative": 8360,
           "pending": -1,
           "cumul_tests": 10023828,
-          "cumul_pos": 475628,
-          "cumul_neg": 9548200,
+          "cumul_pos": 475630,
+          "cumul_neg": 9548198,
           "cumul_pend": -1
         },
         {
@@ -77622,8 +77627,8 @@
           "negative": 6830,
           "pending": -1,
           "cumul_tests": 10031899,
-          "cumul_pos": 476869,
-          "cumul_neg": 9555030,
+          "cumul_pos": 476871,
+          "cumul_neg": 9555028,
           "cumul_pend": -1
         },
         {
@@ -77633,8 +77638,8 @@
           "negative": 3510,
           "pending": -1,
           "cumul_tests": 10036334,
-          "cumul_pos": 477794,
-          "cumul_neg": 9558540,
+          "cumul_pos": 477796,
+          "cumul_neg": 9558538,
           "cumul_pend": -1
         },
         {
@@ -77644,8 +77649,8 @@
           "negative": 3222,
           "pending": -1,
           "cumul_tests": 10040390,
-          "cumul_pos": 478628,
-          "cumul_neg": 9561762,
+          "cumul_pos": 478630,
+          "cumul_neg": 9561760,
           "cumul_pend": -1
         },
         {
@@ -77655,8 +77660,8 @@
           "negative": 8824,
           "pending": -1,
           "cumul_tests": 10050592,
-          "cumul_pos": 480006,
-          "cumul_neg": 9570586,
+          "cumul_pos": 480008,
+          "cumul_neg": 9570584,
           "cumul_pend": -1
         },
         {
@@ -77666,8 +77671,8 @@
           "negative": 8502,
           "pending": -1,
           "cumul_tests": 10060367,
-          "cumul_pos": 481279,
-          "cumul_neg": 9579088,
+          "cumul_pos": 481281,
+          "cumul_neg": 9579086,
           "cumul_pend": -1
         },
         {
@@ -77677,30 +77682,30 @@
           "negative": 7976,
           "pending": -1,
           "cumul_tests": 10069546,
-          "cumul_pos": 482482,
-          "cumul_neg": 9587064,
+          "cumul_pos": 482484,
+          "cumul_neg": 9587062,
           "cumul_pend": -1
         },
         {
           "date": "2022-07-14",
-          "tests": 8694,
-          "positive": 1121,
+          "tests": 8698,
+          "positive": 1125,
           "negative": 7573,
           "pending": -1,
-          "cumul_tests": 10078240,
-          "cumul_pos": 483603,
-          "cumul_neg": 9594637,
+          "cumul_tests": 10078244,
+          "cumul_pos": 483609,
+          "cumul_neg": 9594635,
           "cumul_pend": -1
         },
         {
           "date": "2022-07-15",
-          "tests": 7177,
-          "positive": 1123,
+          "tests": 7180,
+          "positive": 1126,
           "negative": 6054,
           "pending": -1,
-          "cumul_tests": 10085417,
-          "cumul_pos": 484726,
-          "cumul_neg": 9600691,
+          "cumul_tests": 10085424,
+          "cumul_pos": 484735,
+          "cumul_neg": 9600689,
           "cumul_pend": -1
         },
         {
@@ -77709,9 +77714,9 @@
           "positive": 829,
           "negative": 3265,
           "pending": -1,
-          "cumul_tests": 10089511,
-          "cumul_pos": 485555,
-          "cumul_neg": 9603956,
+          "cumul_tests": 10089518,
+          "cumul_pos": 485564,
+          "cumul_neg": 9603954,
           "cumul_pend": -1
         },
         {
@@ -77720,9 +77725,9 @@
           "positive": 769,
           "negative": 3148,
           "pending": -1,
-          "cumul_tests": 10093428,
-          "cumul_pos": 486324,
-          "cumul_neg": 9607104,
+          "cumul_tests": 10093435,
+          "cumul_pos": 486333,
+          "cumul_neg": 9607102,
           "cumul_pend": -1
         },
         {
@@ -77731,53 +77736,53 @@
           "positive": 1308,
           "negative": 8945,
           "pending": -1,
-          "cumul_tests": 10103681,
-          "cumul_pos": 487632,
-          "cumul_neg": 9616049,
+          "cumul_tests": 10103688,
+          "cumul_pos": 487641,
+          "cumul_neg": 9616047,
           "cumul_pend": -1
         },
         {
           "date": "2022-07-19",
-          "tests": 9343,
-          "positive": 1218,
+          "tests": 9346,
+          "positive": 1221,
           "negative": 8125,
           "pending": -1,
-          "cumul_tests": 10113024,
-          "cumul_pos": 488850,
-          "cumul_neg": 9624174,
+          "cumul_tests": 10113034,
+          "cumul_pos": 488862,
+          "cumul_neg": 9624172,
           "cumul_pend": -1
         },
         {
           "date": "2022-07-20",
-          "tests": 8852,
-          "positive": 1155,
+          "tests": 8856,
+          "positive": 1159,
           "negative": 7697,
           "pending": -1,
-          "cumul_tests": 10121876,
-          "cumul_pos": 490005,
-          "cumul_neg": 9631871,
+          "cumul_tests": 10121890,
+          "cumul_pos": 490021,
+          "cumul_neg": 9631869,
           "cumul_pend": -1
         },
         {
           "date": "2022-07-21",
-          "tests": 7866,
-          "positive": 1047,
+          "tests": 7868,
+          "positive": 1049,
           "negative": 6819,
           "pending": -1,
-          "cumul_tests": 10129742,
-          "cumul_pos": 491052,
-          "cumul_neg": 9638690,
+          "cumul_tests": 10129758,
+          "cumul_pos": 491070,
+          "cumul_neg": 9638688,
           "cumul_pend": -1
         },
         {
           "date": "2022-07-22",
-          "tests": 7005,
-          "positive": 1094,
+          "tests": 7006,
+          "positive": 1095,
           "negative": 5911,
           "pending": -1,
-          "cumul_tests": 10136747,
-          "cumul_pos": 492146,
-          "cumul_neg": 9644601,
+          "cumul_tests": 10136764,
+          "cumul_pos": 492165,
+          "cumul_neg": 9644599,
           "cumul_pend": -1
         },
         {
@@ -77786,9 +77791,9 @@
           "positive": 772,
           "negative": 2882,
           "pending": -1,
-          "cumul_tests": 10140401,
-          "cumul_pos": 492918,
-          "cumul_neg": 9647483,
+          "cumul_tests": 10140418,
+          "cumul_pos": 492937,
+          "cumul_neg": 9647481,
           "cumul_pend": -1
         },
         {
@@ -77797,53 +77802,53 @@
           "positive": 623,
           "negative": 3027,
           "pending": -1,
-          "cumul_tests": 10144051,
-          "cumul_pos": 493541,
-          "cumul_neg": 9650510,
+          "cumul_tests": 10144068,
+          "cumul_pos": 493560,
+          "cumul_neg": 9650508,
           "cumul_pend": -1
         },
         {
           "date": "2022-07-25",
-          "tests": 9194,
-          "positive": 1217,
+          "tests": 9195,
+          "positive": 1218,
           "negative": 7977,
           "pending": -1,
-          "cumul_tests": 10153245,
-          "cumul_pos": 494758,
-          "cumul_neg": 9658487,
+          "cumul_tests": 10153263,
+          "cumul_pos": 494778,
+          "cumul_neg": 9658485,
           "cumul_pend": -1
         },
         {
           "date": "2022-07-26",
-          "tests": 8603,
-          "positive": 1131,
+          "tests": 8605,
+          "positive": 1133,
           "negative": 7472,
           "pending": -1,
-          "cumul_tests": 10161848,
-          "cumul_pos": 495889,
-          "cumul_neg": 9665959,
+          "cumul_tests": 10161868,
+          "cumul_pos": 495911,
+          "cumul_neg": 9665957,
           "cumul_pend": -1
         },
         {
           "date": "2022-07-27",
-          "tests": 8022,
-          "positive": 1122,
+          "tests": 8024,
+          "positive": 1124,
           "negative": 6900,
           "pending": -1,
-          "cumul_tests": 10169870,
-          "cumul_pos": 497011,
-          "cumul_neg": 9672859,
+          "cumul_tests": 10169892,
+          "cumul_pos": 497035,
+          "cumul_neg": 9672857,
           "cumul_pend": -1
         },
         {
           "date": "2022-07-28",
-          "tests": 6882,
-          "positive": 922,
+          "tests": 6883,
+          "positive": 923,
           "negative": 5960,
           "pending": -1,
-          "cumul_tests": 10176752,
-          "cumul_pos": 497933,
-          "cumul_neg": 9678819,
+          "cumul_tests": 10176775,
+          "cumul_pos": 497958,
+          "cumul_neg": 9678817,
           "cumul_pend": -1
         },
         {
@@ -77852,9 +77857,9 @@
           "positive": 865,
           "negative": 5047,
           "pending": -1,
-          "cumul_tests": 10182664,
-          "cumul_pos": 498798,
-          "cumul_neg": 9683866,
+          "cumul_tests": 10182687,
+          "cumul_pos": 498823,
+          "cumul_neg": 9683864,
           "cumul_pend": -1
         },
         {
@@ -77863,9 +77868,9 @@
           "positive": 607,
           "negative": 2780,
           "pending": -1,
-          "cumul_tests": 10186051,
-          "cumul_pos": 499405,
-          "cumul_neg": 9686646,
+          "cumul_tests": 10186074,
+          "cumul_pos": 499430,
+          "cumul_neg": 9686644,
           "cumul_pend": -1
         },
         {
@@ -77874,9 +77879,9 @@
           "positive": 565,
           "negative": 2787,
           "pending": -1,
-          "cumul_tests": 10189403,
-          "cumul_pos": 499970,
-          "cumul_neg": 9689433,
+          "cumul_tests": 10189426,
+          "cumul_pos": 499995,
+          "cumul_neg": 9689431,
           "cumul_pend": -1
         },
         {
@@ -77885,9 +77890,9 @@
           "positive": 886,
           "negative": 6951,
           "pending": -1,
-          "cumul_tests": 10197240,
-          "cumul_pos": 500856,
-          "cumul_neg": 9696384,
+          "cumul_tests": 10197263,
+          "cumul_pos": 500881,
+          "cumul_neg": 9696382,
           "cumul_pend": -1
         },
         {
@@ -77896,9 +77901,9 @@
           "positive": 972,
           "negative": 6642,
           "pending": -1,
-          "cumul_tests": 10204854,
-          "cumul_pos": 501828,
-          "cumul_neg": 9703026,
+          "cumul_tests": 10204877,
+          "cumul_pos": 501853,
+          "cumul_neg": 9703024,
           "cumul_pend": -1
         },
         {
@@ -77907,9 +77912,9 @@
           "positive": 822,
           "negative": 6132,
           "pending": -1,
-          "cumul_tests": 10211808,
-          "cumul_pos": 502650,
-          "cumul_neg": 9709158,
+          "cumul_tests": 10211831,
+          "cumul_pos": 502675,
+          "cumul_neg": 9709156,
           "cumul_pend": -1
         },
         {
@@ -77918,9 +77923,9 @@
           "positive": 557,
           "negative": 5128,
           "pending": -1,
-          "cumul_tests": 10217493,
-          "cumul_pos": 503207,
-          "cumul_neg": 9714286,
+          "cumul_tests": 10217516,
+          "cumul_pos": 503232,
+          "cumul_neg": 9714284,
           "cumul_pend": -1
         },
         {
@@ -77929,9 +77934,9 @@
           "positive": 704,
           "negative": 4911,
           "pending": -1,
-          "cumul_tests": 10223108,
-          "cumul_pos": 503911,
-          "cumul_neg": 9719197,
+          "cumul_tests": 10223131,
+          "cumul_pos": 503936,
+          "cumul_neg": 9719195,
           "cumul_pend": -1
         },
         {
@@ -77940,9 +77945,9 @@
           "positive": 583,
           "negative": 2600,
           "pending": -1,
-          "cumul_tests": 10226291,
-          "cumul_pos": 504494,
-          "cumul_neg": 9721797,
+          "cumul_tests": 10226314,
+          "cumul_pos": 504519,
+          "cumul_neg": 9721795,
           "cumul_pend": -1
         },
         {
@@ -77951,9 +77956,9 @@
           "positive": 496,
           "negative": 2442,
           "pending": -1,
-          "cumul_tests": 10229229,
-          "cumul_pos": 504990,
-          "cumul_neg": 9724239,
+          "cumul_tests": 10229252,
+          "cumul_pos": 505015,
+          "cumul_neg": 9724237,
           "cumul_pend": -1
         },
         {
@@ -77962,9 +77967,9 @@
           "positive": 837,
           "negative": 6591,
           "pending": -1,
-          "cumul_tests": 10236657,
-          "cumul_pos": 505827,
-          "cumul_neg": 9730830,
+          "cumul_tests": 10236680,
+          "cumul_pos": 505852,
+          "cumul_neg": 9730828,
           "cumul_pend": -1
         },
         {
@@ -77973,9 +77978,9 @@
           "positive": 742,
           "negative": 6538,
           "pending": -1,
-          "cumul_tests": 10243937,
-          "cumul_pos": 506569,
-          "cumul_neg": 9737368,
+          "cumul_tests": 10243960,
+          "cumul_pos": 506594,
+          "cumul_neg": 9737366,
           "cumul_pend": -1
         },
         {
@@ -77984,9 +77989,9 @@
           "positive": 705,
           "negative": 5419,
           "pending": -1,
-          "cumul_tests": 10250061,
-          "cumul_pos": 507274,
-          "cumul_neg": 9742787,
+          "cumul_tests": 10250084,
+          "cumul_pos": 507299,
+          "cumul_neg": 9742785,
           "cumul_pend": -1
         },
         {
@@ -77995,9 +78000,9 @@
           "positive": 654,
           "negative": 5455,
           "pending": -1,
-          "cumul_tests": 10256170,
-          "cumul_pos": 507928,
-          "cumul_neg": 9748242,
+          "cumul_tests": 10256193,
+          "cumul_pos": 507953,
+          "cumul_neg": 9748240,
           "cumul_pend": -1
         },
         {
@@ -78006,9 +78011,9 @@
           "positive": 560,
           "negative": 4927,
           "pending": -1,
-          "cumul_tests": 10261657,
-          "cumul_pos": 508488,
-          "cumul_neg": 9753169,
+          "cumul_tests": 10261680,
+          "cumul_pos": 508513,
+          "cumul_neg": 9753167,
           "cumul_pend": -1
         },
         {
@@ -78017,9 +78022,9 @@
           "positive": 425,
           "negative": 2337,
           "pending": -1,
-          "cumul_tests": 10264419,
-          "cumul_pos": 508913,
-          "cumul_neg": 9755506,
+          "cumul_tests": 10264442,
+          "cumul_pos": 508938,
+          "cumul_neg": 9755504,
           "cumul_pend": -1
         },
         {
@@ -78028,9 +78033,9 @@
           "positive": 363,
           "negative": 2339,
           "pending": -1,
-          "cumul_tests": 10267121,
-          "cumul_pos": 509276,
-          "cumul_neg": 9757845,
+          "cumul_tests": 10267144,
+          "cumul_pos": 509301,
+          "cumul_neg": 9757843,
           "cumul_pend": -1
         },
         {
@@ -78039,9 +78044,9 @@
           "positive": 714,
           "negative": 6939,
           "pending": -1,
-          "cumul_tests": 10274774,
-          "cumul_pos": 509990,
-          "cumul_neg": 9764784,
+          "cumul_tests": 10274797,
+          "cumul_pos": 510015,
+          "cumul_neg": 9764782,
           "cumul_pend": -1
         },
         {
@@ -78050,9 +78055,9 @@
           "positive": 631,
           "negative": 6872,
           "pending": -1,
-          "cumul_tests": 10282277,
-          "cumul_pos": 510621,
-          "cumul_neg": 9771656,
+          "cumul_tests": 10282300,
+          "cumul_pos": 510646,
+          "cumul_neg": 9771654,
           "cumul_pend": -1
         },
         {
@@ -78061,9 +78066,9 @@
           "positive": 591,
           "negative": 6006,
           "pending": -1,
-          "cumul_tests": 10288874,
-          "cumul_pos": 511212,
-          "cumul_neg": 9777662,
+          "cumul_tests": 10288897,
+          "cumul_pos": 511237,
+          "cumul_neg": 9777660,
           "cumul_pend": -1
         },
         {
@@ -78072,9 +78077,9 @@
           "positive": 571,
           "negative": 5094,
           "pending": -1,
-          "cumul_tests": 10294539,
-          "cumul_pos": 511783,
-          "cumul_neg": 9782756,
+          "cumul_tests": 10294562,
+          "cumul_pos": 511808,
+          "cumul_neg": 9782754,
           "cumul_pend": -1
         },
         {
@@ -78083,9 +78088,9 @@
           "positive": 536,
           "negative": 4963,
           "pending": -1,
-          "cumul_tests": 10300038,
-          "cumul_pos": 512319,
-          "cumul_neg": 9787719,
+          "cumul_tests": 10300061,
+          "cumul_pos": 512344,
+          "cumul_neg": 9787717,
           "cumul_pend": -1
         },
         {
@@ -78094,9 +78099,9 @@
           "positive": 395,
           "negative": 2263,
           "pending": -1,
-          "cumul_tests": 10302696,
-          "cumul_pos": 512714,
-          "cumul_neg": 9789982,
+          "cumul_tests": 10302719,
+          "cumul_pos": 512739,
+          "cumul_neg": 9789980,
           "cumul_pend": -1
         },
         {
@@ -78105,9 +78110,9 @@
           "positive": 298,
           "negative": 2351,
           "pending": -1,
-          "cumul_tests": 10305345,
-          "cumul_pos": 513012,
-          "cumul_neg": 9792333,
+          "cumul_tests": 10305368,
+          "cumul_pos": 513037,
+          "cumul_neg": 9792331,
           "cumul_pend": -1
         },
         {
@@ -78116,9 +78121,9 @@
           "positive": 598,
           "negative": 7327,
           "pending": -1,
-          "cumul_tests": 10313270,
-          "cumul_pos": 513610,
-          "cumul_neg": 9799660,
+          "cumul_tests": 10313293,
+          "cumul_pos": 513635,
+          "cumul_neg": 9799658,
           "cumul_pend": -1
         },
         {
@@ -78127,9 +78132,9 @@
           "positive": 531,
           "negative": 7033,
           "pending": -1,
-          "cumul_tests": 10320834,
-          "cumul_pos": 514141,
-          "cumul_neg": 9806693,
+          "cumul_tests": 10320857,
+          "cumul_pos": 514166,
+          "cumul_neg": 9806691,
           "cumul_pend": -1
         },
         {
@@ -78138,20 +78143,20 @@
           "positive": 479,
           "negative": 6127,
           "pending": -1,
-          "cumul_tests": 10327440,
-          "cumul_pos": 514620,
-          "cumul_neg": 9812820,
+          "cumul_tests": 10327463,
+          "cumul_pos": 514645,
+          "cumul_neg": 9812818,
           "cumul_pend": -1
         },
         {
           "date": "2022-08-25",
-          "tests": 5424,
-          "positive": 401,
+          "tests": 5425,
+          "positive": 402,
           "negative": 5023,
           "pending": -1,
-          "cumul_tests": 10332864,
-          "cumul_pos": 515021,
-          "cumul_neg": 9817843,
+          "cumul_tests": 10332888,
+          "cumul_pos": 515047,
+          "cumul_neg": 9817841,
           "cumul_pend": -1
         },
         {
@@ -78160,9 +78165,9 @@
           "positive": 416,
           "negative": 4840,
           "pending": -1,
-          "cumul_tests": 10338120,
-          "cumul_pos": 515437,
-          "cumul_neg": 9822683,
+          "cumul_tests": 10338144,
+          "cumul_pos": 515463,
+          "cumul_neg": 9822681,
           "cumul_pend": -1
         },
         {
@@ -78171,9 +78176,9 @@
           "positive": 297,
           "negative": 2276,
           "pending": -1,
-          "cumul_tests": 10340693,
-          "cumul_pos": 515734,
-          "cumul_neg": 9824959,
+          "cumul_tests": 10340717,
+          "cumul_pos": 515760,
+          "cumul_neg": 9824957,
           "cumul_pend": -1
         },
         {
@@ -78182,64 +78187,64 @@
           "positive": 268,
           "negative": 2275,
           "pending": -1,
-          "cumul_tests": 10343236,
-          "cumul_pos": 516002,
-          "cumul_neg": 9827234,
+          "cumul_tests": 10343260,
+          "cumul_pos": 516028,
+          "cumul_neg": 9827232,
           "cumul_pend": -1
         },
         {
           "date": "2022-08-29",
-          "tests": 7895,
-          "positive": 463,
+          "tests": 7896,
+          "positive": 464,
           "negative": 7432,
           "pending": -1,
-          "cumul_tests": 10351131,
-          "cumul_pos": 516465,
-          "cumul_neg": 9834666,
+          "cumul_tests": 10351156,
+          "cumul_pos": 516492,
+          "cumul_neg": 9834664,
           "cumul_pend": -1
         },
         {
           "date": "2022-08-30",
-          "tests": 7547,
+          "tests": 7550,
           "positive": 472,
-          "negative": 7075,
+          "negative": 7078,
           "pending": -1,
-          "cumul_tests": 10358678,
-          "cumul_pos": 516937,
-          "cumul_neg": 9841741,
+          "cumul_tests": 10358706,
+          "cumul_pos": 516964,
+          "cumul_neg": 9841742,
           "cumul_pend": -1
         },
         {
           "date": "2022-08-31",
-          "tests": 6300,
-          "positive": 413,
-          "negative": 5887,
+          "tests": 6311,
+          "positive": 414,
+          "negative": 5897,
           "pending": -1,
-          "cumul_tests": 10364978,
-          "cumul_pos": 517350,
-          "cumul_neg": 9847628,
+          "cumul_tests": 10365017,
+          "cumul_pos": 517378,
+          "cumul_neg": 9847639,
           "cumul_pend": -1
         },
         {
           "date": "2022-09-01",
-          "tests": 5492,
-          "positive": 334,
+          "tests": 5495,
+          "positive": 337,
           "negative": 5158,
           "pending": -1,
-          "cumul_tests": 10370470,
-          "cumul_pos": 517684,
-          "cumul_neg": 9852786,
+          "cumul_tests": 10370512,
+          "cumul_pos": 517715,
+          "cumul_neg": 9852797,
           "cumul_pend": -1
         },
         {
           "date": "2022-09-02",
-          "tests": 4429,
-          "positive": 367,
-          "negative": 4062,
+          "tests": 4431,
+          "positive": 368,
+          "negative": 4063,
           "pending": -1,
-          "cumul_tests": 10374899,
-          "cumul_pos": 518051,
-          "cumul_neg": 9856848,
+          "cumul_tests": 10374943,
+          "cumul_pos": 518083,
+          "cumul_neg": 9856860,
           "cumul_pend": -1
         },
         {
@@ -78248,20 +78253,20 @@
           "positive": 232,
           "negative": 2181,
           "pending": -1,
-          "cumul_tests": 10377312,
-          "cumul_pos": 518283,
-          "cumul_neg": 9859029,
+          "cumul_tests": 10377356,
+          "cumul_pos": 518315,
+          "cumul_neg": 9859041,
           "cumul_pend": -1
         },
         {
           "date": "2022-09-04",
-          "tests": 2393,
+          "tests": 2394,
           "positive": 222,
-          "negative": 2171,
+          "negative": 2172,
           "pending": -1,
-          "cumul_tests": 10379705,
-          "cumul_pos": 518505,
-          "cumul_neg": 9861200,
+          "cumul_tests": 10379750,
+          "cumul_pos": 518537,
+          "cumul_neg": 9861213,
           "cumul_pend": -1
         },
         {
@@ -78270,86 +78275,97 @@
           "positive": 216,
           "negative": 2551,
           "pending": -1,
-          "cumul_tests": 10382472,
-          "cumul_pos": 518721,
-          "cumul_neg": 9863751,
+          "cumul_tests": 10382517,
+          "cumul_pos": 518753,
+          "cumul_neg": 9863764,
           "cumul_pend": -1
         },
         {
           "date": "2022-09-06",
-          "tests": 8999,
+          "tests": 9001,
           "positive": 413,
-          "negative": 8586,
+          "negative": 8588,
           "pending": -1,
-          "cumul_tests": 10391471,
-          "cumul_pos": 519134,
-          "cumul_neg": 9872337,
+          "cumul_tests": 10391518,
+          "cumul_pos": 519166,
+          "cumul_neg": 9872352,
           "cumul_pend": -1
         },
         {
           "date": "2022-09-07",
-          "tests": 4840,
-          "positive": 339,
+          "tests": 4841,
+          "positive": 340,
           "negative": 4501,
           "pending": -1,
-          "cumul_tests": 10396311,
-          "cumul_pos": 519473,
-          "cumul_neg": 9876838,
+          "cumul_tests": 10396359,
+          "cumul_pos": 519506,
+          "cumul_neg": 9876853,
           "cumul_pend": -1
         },
         {
           "date": "2022-09-08",
-          "tests": 5552,
+          "tests": 5590,
           "positive": 321,
-          "negative": 5231,
+          "negative": 5269,
           "pending": -1,
-          "cumul_tests": 10401863,
-          "cumul_pos": 519794,
-          "cumul_neg": 9882069,
+          "cumul_tests": 10401949,
+          "cumul_pos": 519827,
+          "cumul_neg": 9882122,
           "cumul_pend": -1
         },
         {
           "date": "2022-09-09",
-          "tests": 4661,
-          "positive": 302,
-          "negative": 4359,
+          "tests": 4751,
+          "positive": 303,
+          "negative": 4448,
           "pending": -1,
-          "cumul_tests": 10406524,
-          "cumul_pos": 520096,
-          "cumul_neg": 9886428,
+          "cumul_tests": 10406700,
+          "cumul_pos": 520130,
+          "cumul_neg": 9886570,
           "cumul_pend": -1
         },
         {
           "date": "2022-09-10",
-          "tests": 2168,
-          "positive": 174,
-          "negative": 1994,
+          "tests": 2294,
+          "positive": 189,
+          "negative": 2105,
           "pending": -1,
-          "cumul_tests": 10408692,
-          "cumul_pos": 520270,
-          "cumul_neg": 9888422,
+          "cumul_tests": 10408994,
+          "cumul_pos": 520319,
+          "cumul_neg": 9888675,
           "cumul_pend": -1
         },
         {
           "date": "2022-09-11",
-          "tests": 2004,
-          "positive": 198,
-          "negative": 1806,
+          "tests": 2609,
+          "positive": 222,
+          "negative": 2387,
           "pending": -1,
-          "cumul_tests": 10410696,
-          "cumul_pos": 520468,
-          "cumul_neg": 9890228,
+          "cumul_tests": 10411603,
+          "cumul_pos": 520541,
+          "cumul_neg": 9891062,
           "cumul_pend": -1
         },
         {
           "date": "2022-09-12",
-          "tests": 1317,
-          "positive": 65,
-          "negative": 1252,
+          "tests": 4860,
+          "positive": 298,
+          "negative": 4562,
           "pending": -1,
-          "cumul_tests": 10412013,
-          "cumul_pos": 520533,
-          "cumul_neg": 9891480,
+          "cumul_tests": 10416463,
+          "cumul_pos": 520839,
+          "cumul_neg": 9895624,
+          "cumul_pend": -1
+        },
+        {
+          "date": "2022-09-13",
+          "tests": 1090,
+          "positive": 41,
+          "negative": 1049,
+          "pending": -1,
+          "cumul_tests": 10417553,
+          "cumul_pos": 520880,
+          "cumul_neg": 9896673,
           "cumul_pend": -1
         }
       ]
