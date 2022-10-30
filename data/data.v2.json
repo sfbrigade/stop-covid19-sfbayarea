@@ -18404,7 +18404,7 @@
   },
   "contra_costa": {
     "name": "Contra Costa",
-    "update_time": "2022-10-28T18:30:22.215000+00:00",
+    "update_time": "2022-10-29T18:30:22.157000+00:00",
     "source_url": "https://www.coronavirus.cchealth.org/overview",
     "meta_from_source": "",
     "meta_from_baypd": "Positive test counts are not published by the county, so they are estimated from daily positivity rates. Positivity rates are are not published for dates as early as some tests are, so positive test counts before 2020-03-18 may incorrectly show 0. Unlike other counties, Contra Costa separates hispanic ethnicity from racial demographics, so \"latinx\" is not included in `case_totals.race_eth` or `death_totals.race_eth`. Latinx vs. non-latinx is shown in separate `case_totals.ethnicity` and `death_total.ethnicity` groupings. Contra Costa also does not tally native american or pacific islander as races, and they are instead included as \"other\".Demographic information is not available for tests.",
@@ -59613,7 +59613,7 @@
   },
   "santa_clara": {
     "name": "Santa Clara",
-    "update_time": "2022-10-29T00:04:05+00:00",
+    "update_time": "2022-10-30T00:04:11+00:00",
     "source_url": "https://www.sccgov.org/sites/covid19/Pages/dashboard.aspx",
     "meta_from_source": "",
     "meta_from_baypd": "Santa Clara does not report pending tests in its data, so `series.tests[].pending` will always be -1. An \"outbreak\" (in the `transmission_cat` breakdown) is defined as 3+ cases linked to exposures at a particular location/event (usually a workplace) like a factory, construction site, restaurant, etc. Santa Clara does not distinguish cases with an unkown transmission vector from community spread, so unknown and community spread cases are both categorized as \"unknown\" and \"community\" is set to -1. In race/ethnicity breakdowns, American Indian/Alaska Native and people who identify as multi-racial are included in the \"other\" category.",
